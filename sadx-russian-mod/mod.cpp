@@ -1,9 +1,11 @@
 #include "stdafx.h"
-#include "HintMessages.h"
+#include "DreamcastChaoGardenHits.h"
+#include "SA1Staff.h"
 #include <SADXModLoader.h>
 #include <IniFile.hpp>
 #include <cmath>
 
+#pragma region Funcs
 #define ReplacePNG_GoalRing(a) do { \
 	_snprintf_s(pathbuf, LengthOfArray(pathbuf), "%s\\textures\\pvr_mission_goalring\\index.txt", path); \
 	helperFunctions.ReplaceFile("system\\" a ".PVR", pathbuf); \
@@ -19,18 +21,8 @@
 	helperFunctions.ReplaceFile("system\\" a ".PVR", pathbuf); \
 } while (0)
 
-#define ReplacePNG_MissionJ(a) do { \
-	_snprintf_s(pathbuf, LengthOfArray(pathbuf), "%s\\textures\\pvr_mission_jp\\index.txt", path); \
-	helperFunctions.ReplaceFile("system\\" a ".PVR", pathbuf); \
-} while (0)
-
 #define ReplacePNG_StageE(a) do { \
 	_snprintf_s(pathbuf, LengthOfArray(pathbuf), "%s\\textures\\pvr_stage_en\\index.txt", path); \
-	helperFunctions.ReplaceFile("system\\" a ".PVR", pathbuf); \
-} while (0)
-
-#define ReplacePNG_StageJ(a) do { \
-	_snprintf_s(pathbuf, LengthOfArray(pathbuf), "%s\\textures\\pvr_stage_jp\\index.txt", path); \
 	helperFunctions.ReplaceFile("system\\" a ".PVR", pathbuf); \
 } while (0)
 
@@ -44,10 +36,14 @@
 #define ReplacePVM_Rus(a) helperFunctions.ReplaceFile("system\\" a ".PVM", "system\\" a "_RUS.PVM") \
 
 #define ReplacePVM(a, b) helperFunctions.ReplaceFile("system\\" a ".PVM", "system\\" b ".PVM") \
+// “ут есть потенциальный шиткод, надо разобратьс€
+// Potential shitcode is here, should be come up with this
+#pragma endregion
 
 static bool TGS_Selectors = false;
 static bool DreamcastChaoIcon = false;
 static bool StartButton = false;
+static bool ExtraGGHelp = false;
 
 void LoadChaoGardenHintMessages()
 {
@@ -57,14 +53,14 @@ void LoadChaoGardenHintMessages()
 	WriteData((HintText_Entry * *)0x9BF0AC, (HintText_Entry*)& ChaoGardenMessages_English);
 }
 
+
 extern "C"
 {
 	__declspec(dllexport) void __cdecl Init(const char *path, const HelperFunctions &helperFunctions)
 	{
 		char pathbuf[MAX_PATH];
-		HMODULE GoalRing = GetModuleHandle(L"GoalRing");
-
-		LoadChaoGardenHintMessages();
+		HMODULE GoalRing = GetModuleHandle(L"GoalRing");		// Init GoalRing Mod dll
+		HMODULE DConv = GetModuleHandle(L"DCMods_Main");		// Init Dreamcast Conversion dll
 
 		#pragma region Ini Configuration
 		const IniFile* config = new IniFile(std::string(path) + "\\config.ini");
@@ -72,8 +68,29 @@ extern "C"
 		TGS_Selectors = config->getBool("Customs", "TGS_Selectors", true);
 		DreamcastChaoIcon = config->getBool("Customs", "DreamcastChaoIcon", true);
 		StartButton = config->getBool("Customs", "StartButton", true);
+		ExtraGGHelp = config->getBool("Customs", "ExtraGGHelp", false);
 
-		//TGS
+		// Start Button
+		if (StartButton) {			
+			if (DConv = nullptr)
+				ReplacePVM("PRESSSTART", "PRESSSTART_DX_Enter_HD_RUS");
+			else
+				ReplacePVM("PRESSSTART", "PRESSSTART_ENTER");
+
+			ReplacePVM("AVA_GTITLE0_ES", "AVA_GTITLE0_ES_Enter");
+			ReplacePVM("AVA_GTITLE0_E", "AVA_GTITLE0_E_HD_ENTER");
+		}
+		else {
+			if (DConv = nullptr)
+				ReplacePVM("PRESSSTART", "PRESSSTART_DX_START_HD_RUS");
+			else
+				ReplacePVM("PRESSSTART", "PRESSSTART_Start");
+
+			ReplacePVM("AVA_GTITLE0_ES", "AVA_GTITLE0_ES_Start");
+			ReplacePVM("AVA_GTITLE0_E", "AVA_GTITLE0_E_HD_START");
+		}
+
+		// TGS
 		if (TGS_Selectors) {
 			ReplacePVM("B_CHNAM_E", "B_CHNAM_E_TGS");
 			ReplacePVM("AVA_METAL_SONIC", "AVA_METAL_SONIC_TGS");
@@ -83,124 +100,104 @@ extern "C"
 			ReplacePVM("AVA_METAL_SONIC", "AVA_METAL_SONIC_DX");
 		}
 
-		//Chao Garden
+		// Chao Garden
 		if (DreamcastChaoIcon)
-				ReplacePVM("CHAO_OBJECT", "CHAO_OBJECT_DC");
-		else	ReplacePVM("CHAO_OBJECT", "CHAO_OBJECT_DX");
+			ReplacePVM("CHAO_OBJECT", "CHAO_OBJECT_DC");
+		else	ReplacePVM("CHAO_OBJECT", "CHAO_OBJECT_DX");		
 
-		//Start Button
-		if (StartButton) {
-			ReplacePVM("PRESSSTART", "PRESSSTART_Enter");
-			ReplacePVM("AVA_GTITLE0_ES", "AVA_GTITLE0_ES_Enter");
+		// Alternative GG Game help
+		if (!ExtraGGHelp) {
+			ReplacePVM("GG_TEXLIST_US", "GG_TEXLIST_US_Rus");
 		}
-		else {			
-			ReplacePVM("PRESSSTART", "PRESSSTART_Start");
-			ReplacePVM("AVA_GTITLE0_ES", "AVA_GTITLE0_ES_Start");
+		else {
+			ReplacePVM("GG_TEXLIST_US", "GG_TEXLIST_US_Rus_Alt");
 		}
 		#pragma endregion
+				
+		if (DConv != nullptr)
+			LoadSA1Staff();							// Load Russian Staff Roll
+		LoadChaoGardenHintMessages();				// Load Dreamcast Chao Gadren Hints
 
+		ReplacePNG_Subtitle("subtitle_eu");
+
+		if (GoalRing == nullptr)
+		{
+			ReplacePNG_MissionE("MISSION_S_BOX_E");
+			ReplacePNG_MissionE("MISSION_S_BOX25MIN_E");
+			ReplacePNG_MissionE("MISSION_S_BOX2MIN_E");
+			ReplacePNG_MissionE("MISSION_S_BOX3MIN_E");
+			ReplacePNG_MissionE("MISSION_S_BOX45MIN_E");
+			ReplacePNG_MissionE("MISSION_S_BOX4MIN_E");
+			ReplacePNG_MissionE("MISSION_S_BOX5MIN_E");
+			ReplacePNG_MissionE("MISSION_S_RINGBOX_E");
+			ReplacePNG_MissionE("MISSION_T_BOX_E");
+		}
+		else
+		{
+			ReplacePNG_GoalRing("MISSION_S_BOX_E");
+			ReplacePNG_GoalRing("MISSION_S_BOX25MIN_E");
+			ReplacePNG_GoalRing("MISSION_S_BOX2MIN_E");
+			ReplacePNG_GoalRing("MISSION_S_BOX3MIN_E");
+			ReplacePNG_GoalRing("MISSION_S_BOX45MIN_E");
+			ReplacePNG_GoalRing("MISSION_S_BOX4MIN_E");
+			ReplacePNG_GoalRing("MISSION_S_BOX5MIN_E");
+			ReplacePNG_GoalRing("MISSION_S_RINGBOX_E");
+			ReplacePNG_GoalRing("MISSION_T_BOX_E");
+		}
+				
 		#pragma region Common PVRs 
-		ReplacePNG_Common("ABC_TXT");
-		ReplacePNG_Common("HYOJI_BALLS_E");
-		ReplacePNG_Common("HYOJI_EMBLEM0");
-		ReplacePNG_Common("HYOJI_EMBLEM1");
-		ReplacePNG_Common("B32ASCII");
-		ReplacePNG_Common("B32ASCII_J");
-		ReplacePNG_Common("STAFFROLL_TXT");
-		ReplacePNG_Common("ST_064S_LOCKA");
-		ReplacePNG_Common("ST_064S_LOCKB");
-		ReplacePNG_Common("ST_064S_LOCKC");
-		ReplacePNG_Common("ST_064S_SCORE");
-		ReplacePNG_Common("ST_128S_HPGEJI");
+		ReplacePNG_Common("ABC_TXT");				// File select font
+		ReplacePNG_Common("HYOJI_BALLS_E");			// Casinopolis ball counter
+		ReplacePNG_Common("B32ASCII");				// Boss name font
+		ReplacePNG_Common("STAFFROLL_TXT");			// Credits font		
+		ReplacePNG_Common("ST_064S_SCORE");			// Score in HUD
+		ReplacePNG_Common("ST_128S_HPGEJI");		// Tornado's health bar
 		#pragma endregion
 
-		#pragma region English stage PVRs
-		ReplacePNG_StageE("A_STAGE01_E");
-		ReplacePNG_StageE("A_STAGE02_E");
-		ReplacePNG_StageE("A_STAGE03_E");
-		ReplacePNG_StageE("B_STAGE01_E");
-		ReplacePNG_StageE("B_STAGE02_E");
-		ReplacePNG_StageE("B_STAGE03_E");
-		ReplacePNG_StageE("B_STAGE04_E");
-		ReplacePNG_StageE("E_STAGE01_E");
-		ReplacePNG_StageE("E_STAGE02_E");
-		ReplacePNG_StageE("E_STAGE03_E");
-		ReplacePNG_StageE("E_STAGE04_E");
-		ReplacePNG_StageE("E_STAGE05_E");
-		ReplacePNG_StageE("K_STAGE01_E");
-		ReplacePNG_StageE("K_STAGE02_E");
-		ReplacePNG_StageE("K_STAGE03_E");
-		ReplacePNG_StageE("K_STAGE04_E");
-		ReplacePNG_StageE("K_STAGE05_E");
-		ReplacePNG_StageE("M_STAGE01_E");
-		ReplacePNG_StageE("M_STAGE02_E");
-		ReplacePNG_StageE("M_STAGE03_E");
-		ReplacePNG_StageE("M_STAGE04_E");
-		ReplacePNG_StageE("M_STAGE05_E");
-		ReplacePNG_StageE("ST_STAGE01_E");
-		ReplacePNG_StageE("ST_STAGE02_E");
-		ReplacePNG_StageE("ST_STAGE03_E");
-		ReplacePNG_StageE("ST_STAGE04_E");
-		ReplacePNG_StageE("ST_STAGE05_E");
-		ReplacePNG_StageE("S_STAGE01_E");
-		ReplacePNG_StageE("S_STAGE02_E");
-		ReplacePNG_StageE("S_STAGE03_E");
-		ReplacePNG_StageE("S_STAGE04_E");
-		ReplacePNG_StageE("S_STAGE05_E");
-		ReplacePNG_StageE("S_STAGE06_E");
-		ReplacePNG_StageE("S_STAGE07_E");
-		ReplacePNG_StageE("S_STAGE08_E");
-		ReplacePNG_StageE("S_STAGE09_E");
-		ReplacePNG_StageE("S_STAGE10_E");
-		ReplacePNG_StageE("T_EGGCARRIER_E");
-		ReplacePNG_StageE("T_MISTICRUIN_E");
-		ReplacePNG_StageE("T_STATIONSQUARE_E");
+		#pragma region Stages name PVRs
+		ReplacePNG_StageE("A_STAGE01_E");			// Amy		| Twinkle Park
+		ReplacePNG_StageE("A_STAGE02_E");			// Amy		| Hot Shelter
+		ReplacePNG_StageE("A_STAGE03_E");			// Amy		| Final Egg
+		ReplacePNG_StageE("B_STAGE01_E");			// Big		| Twinkle Park
+		ReplacePNG_StageE("B_STAGE02_E");			// Big		| Icecap
+		ReplacePNG_StageE("B_STAGE03_E");			// Big		| Emerald Coast
+		ReplacePNG_StageE("B_STAGE04_E");			// Big		| Hot Shelter
+		ReplacePNG_StageE("E_STAGE01_E");			// E102		| Final Egg
+		ReplacePNG_StageE("E_STAGE02_E");			// E102		| Emerald Coast
+		ReplacePNG_StageE("E_STAGE03_E");			// E102		| Windy Valley
+		ReplacePNG_StageE("E_STAGE04_E");			// E102		| Red Mountain
+		ReplacePNG_StageE("E_STAGE05_E");			// E102		| Hot Shelter
+		ReplacePNG_StageE("K_STAGE01_E");			// Knuckles	| Speed Highway
+		ReplacePNG_StageE("K_STAGE02_E");			// Knuckles	| Casinopolis
+		ReplacePNG_StageE("K_STAGE03_E");			// Knuckles	| Red Mountain
+		ReplacePNG_StageE("K_STAGE04_E");			// Knuckles	| Lost World
+		ReplacePNG_StageE("K_STAGE05_E");			// Knuckles	| Sky Deck
+		ReplacePNG_StageE("M_STAGE01_E");			// Tails	| Windy Valley
+		ReplacePNG_StageE("M_STAGE02_E");			// Tails	| Casinopolis
+		ReplacePNG_StageE("M_STAGE03_E");			// Tails	| Icecap
+		ReplacePNG_StageE("M_STAGE04_E");			// Tails	| Sky Deck
+		ReplacePNG_StageE("M_STAGE05_E");			// Tails	| Speed Highway
+		ReplacePNG_StageE("ST_STAGE01_E");			// Minigame	| Sky Chase 1
+		ReplacePNG_StageE("ST_STAGE02_E");			// Minigame	| Sky Chase 2
+		ReplacePNG_StageE("ST_STAGE03_E");			// Minigame	| Twinkle Circuit
+		ReplacePNG_StageE("ST_STAGE04_E");			// Minigame	| Sans Hill
+		ReplacePNG_StageE("ST_STAGE05_E");			// Minigame	| Hedgehog Hammer
+		ReplacePNG_StageE("S_STAGE01_E");			// Sonic	| Emerald Coast
+		ReplacePNG_StageE("S_STAGE02_E");			// Sonic	| Windy Valley
+		ReplacePNG_StageE("S_STAGE03_E");			// Sonic	| Casinopolis
+		ReplacePNG_StageE("S_STAGE04_E");			// Sonic	| Icecap
+		ReplacePNG_StageE("S_STAGE05_E");			// Sonic	| Twinkle Park
+		ReplacePNG_StageE("S_STAGE06_E");			// Sonic	| Speed Highway
+		ReplacePNG_StageE("S_STAGE07_E");			// Sonic	| Red Mountain
+		ReplacePNG_StageE("S_STAGE08_E");			// Sonic	| Sky Deck
+		ReplacePNG_StageE("S_STAGE09_E");			// Sonic	| Lost World
+		ReplacePNG_StageE("S_STAGE10_E");			// Sonic	| Final Egg
+		ReplacePNG_StageE("T_EGGCARRIER_E");		// Field	| Egg Carrier
+		ReplacePNG_StageE("T_MISTICRUIN_E");		// Field	| Mystic Ruins
+		ReplacePNG_StageE("T_STATIONSQUARE_E");		// Field	| Station Square
 		#pragma endregion
 
-		#pragma region Japanese stage PVRs
-		ReplacePNG_StageJ("A_STAGE01");
-		ReplacePNG_StageJ("A_STAGE02");
-		ReplacePNG_StageJ("A_STAGE03");
-		ReplacePNG_StageJ("B_STAGE01");
-		ReplacePNG_StageJ("B_STAGE02");
-		ReplacePNG_StageJ("B_STAGE03");
-		ReplacePNG_StageJ("B_STAGE04");
-		ReplacePNG_StageJ("E_STAGE01");
-		ReplacePNG_StageJ("E_STAGE02");
-		ReplacePNG_StageJ("E_STAGE03");
-		ReplacePNG_StageJ("E_STAGE04");
-		ReplacePNG_StageJ("E_STAGE05");
-		ReplacePNG_StageJ("K_STAGE01");
-		ReplacePNG_StageJ("K_STAGE02");
-		ReplacePNG_StageJ("K_STAGE03");
-		ReplacePNG_StageJ("K_STAGE04");
-		ReplacePNG_StageJ("K_STAGE05");
-		ReplacePNG_StageJ("M_STAGE01");
-		ReplacePNG_StageJ("M_STAGE02");
-		ReplacePNG_StageJ("M_STAGE03");
-		ReplacePNG_StageJ("M_STAGE04");
-		ReplacePNG_StageJ("M_STAGE05");
-		ReplacePNG_StageJ("ST_STAGE01");
-		ReplacePNG_StageJ("ST_STAGE02");
-		ReplacePNG_StageJ("ST_STAGE03");
-		ReplacePNG_StageJ("ST_STAGE04");
-		ReplacePNG_StageJ("ST_STAGE05");
-		ReplacePNG_StageJ("S_STAGE01");
-		ReplacePNG_StageJ("S_STAGE02");
-		ReplacePNG_StageJ("S_STAGE03");
-		ReplacePNG_StageJ("S_STAGE04");
-		ReplacePNG_StageJ("S_STAGE05");
-		ReplacePNG_StageJ("S_STAGE06");
-		ReplacePNG_StageJ("S_STAGE07");
-		ReplacePNG_StageJ("S_STAGE08");
-		ReplacePNG_StageJ("S_STAGE09");
-		ReplacePNG_StageJ("S_STAGE10");
-		ReplacePNG_StageJ("T_EGGCARRIER");
-		ReplacePNG_StageJ("T_MISTICRUIN");
-		ReplacePNG_StageJ("T_STATIONSQUARE");
-		#pragma endregion
-
-		#pragma region English mission PVRs
+		#pragma region Stage missions PVRs
 		ReplacePNG_MissionE("MISSION_A_BALRING_E");
 		ReplacePNG_MissionE("MISSION_A_BALZERO_E");
 		ReplacePNG_MissionE("MISSION_A_FIN_E");
@@ -245,90 +242,65 @@ extern "C"
 		ReplacePNG_MissionE("MISSION_T_RINGSONIC_E");
 		#pragma endregion
 
-		ReplacePNG_Subtitle("subtitle_eu");
+		#pragma region Menus
+		ReplacePVM_HD_Rus("SEGALOGO_E");			// SEGA Logo Screen
 
-		if (GoalRing == nullptr)
-		{
-			ReplacePNG_MissionE("MISSION_S_BOX_E");
-			ReplacePNG_MissionE("MISSION_S_BOX25MIN_E");
-			ReplacePNG_MissionE("MISSION_S_BOX2MIN_E");
-			ReplacePNG_MissionE("MISSION_S_BOX3MIN_E");
-			ReplacePNG_MissionE("MISSION_S_BOX45MIN_E");
-			ReplacePNG_MissionE("MISSION_S_BOX4MIN_E");
-			ReplacePNG_MissionE("MISSION_S_BOX5MIN_E");
-			ReplacePNG_MissionE("MISSION_S_RINGBOX_E");
-			ReplacePNG_MissionE("MISSION_T_BOX_E");
-		}
-		else
-		{
-			ReplacePNG_GoalRing("MISSION_S_BOX_E");
-			ReplacePNG_GoalRing("MISSION_S_BOX25MIN_E");
-			ReplacePNG_GoalRing("MISSION_S_BOX2MIN_E");
-			ReplacePNG_GoalRing("MISSION_S_BOX3MIN_E");
-			ReplacePNG_GoalRing("MISSION_S_BOX45MIN_E");
-			ReplacePNG_GoalRing("MISSION_S_BOX4MIN_E");
-			ReplacePNG_GoalRing("MISSION_S_BOX5MIN_E");
-			ReplacePNG_GoalRing("MISSION_S_RINGBOX_E");
-			ReplacePNG_GoalRing("MISSION_T_BOX_E");
-		}
-
-		#pragma region Russian menu textures
-		ReplacePVM_HD_Rus("SEGALOGO_E");
-
-		ReplacePVM_HD_Rus("AVA_CHSEL_E");
-		ReplacePVM_HD_Rus("AVA_DLG_E");
-		ReplacePVM_HD_Rus("AVA_EMBLEMVIEW_E");
-		ReplacePVM_HD_Rus("AVA_FILESEL_E");
-		ReplacePVM_HD_Rus("AVA_FSDLG_E_E");
+		ReplacePVM_HD_Rus("AVA_CHSEL_E");			// Character Select Circle
+		ReplacePVM_HD_Rus("AVA_DLG_E");				// Many texts in menu
+		ReplacePVM_HD_Rus("AVA_EMBLEMVIEW_E");		// Emblem stats view
+		ReplacePVM_HD_Rus("AVA_FILESEL_E");			// File select menu
+		ReplacePVM_HD_Rus("AVA_FSDLG_E_E");			// Delete save file
 		
-		ReplacePVM_HD_Rus("AVA_OPTION_E");
-		ReplacePVM_HD_Rus("AVA_SNDTEST_E");
-		ReplacePVM_HD_Rus("AVA_STNAM_E");
-		ReplacePVM_HD_Rus("AVA_TITLE_E");
-		ReplacePVM_HD_Rus("AVA_TRIALACTSEL_E");
-		ReplacePVM_HD_Rus("AVA_VMSSEL_E");
-		ReplacePVM_HD_Rus("M_CHNAM");
-		ReplacePVM_HD_Rus("TX_CHNAM_E");
+		ReplacePVM_HD_Rus("AVA_OPTION_E");			// Options menu
+		ReplacePVM_HD_Rus("AVA_SNDTEST_E");			// Sound test menu
+		ReplacePVM_HD_Rus("AVA_STNAM_E");			// Stage names in File Select
+		ReplacePVM_HD_Rus("AVA_TITLE_E");			// Main menu
+		ReplacePVM_HD_Rus("AVA_TRIALACTSEL_E");		// Trial select menu
+		ReplacePVM_HD_Rus("AVA_VMSSEL_E");			// Memory card select (because MS_TX_e)
+		ReplacePVM_HD_Rus("M_CHNAM");				// Character names in char select
+		ReplacePVM_HD_Rus("TX_CHNAM_E");			// Character names in ??
+
+		ReplacePVM_Rus("GGMENU_TEXLIST_US");		// GG Pause menu
 		#pragma endregion 
 		
-		#pragma region Russian tutorials
-		ReplacePVM_HD_Rus("TUTOMSG_SONIC_E");
-		ReplacePVM_HD_Rus("TUTOMSG_TAILS_E");
-		ReplacePVM_HD_Rus("TUTOMSG_KNUCKLES_E");
-		ReplacePVM_HD_Rus("TUTOMSG_AMY_E");
-		ReplacePVM_HD_Rus("TUTOMSG_BIG_E");
-		ReplacePVM_HD_Rus("TUTOMSG_E102_E");
-		ReplacePVM_HD_Rus("TUTO_CMN_E"); //25
+		#pragma region Tutorials
+		ReplacePVM_HD_Rus("TUTOMSG_SONIC_E");		//Sonic's tutorial
+		ReplacePVM_HD_Rus("TUTOMSG_TAILS_E");		//Tails' tutorial
+		ReplacePVM_HD_Rus("TUTOMSG_KNUCKLES_E");	//Knuckles' tutorial
+		ReplacePVM_HD_Rus("TUTOMSG_AMY_E");			//Amy's tutorial
+		ReplacePVM_HD_Rus("TUTOMSG_BIG_E");			//Big's tutorial
+		ReplacePVM_HD_Rus("TUTOMSG_E102_E");		//Gamma's Tutorial
+		ReplacePVM_HD_Rus("TUTO_CMN_E");			//Tutorial common textures
 		#pragma endregion
 
-		#pragma region Russian maps
-		ReplacePVM_HD_Rus("MAP_EC_A");
-		ReplacePVM_HD_Rus("MAP_EC_B");
-		ReplacePVM_HD_Rus("MAP_EC_H");
-		ReplacePVM_HD_Rus("MAP_MR_A");
-		ReplacePVM_HD_Rus("MAP_MR_J");
-		ReplacePVM_HD_Rus("MAP_MR_S");
-		ReplacePVM_HD_Rus("MAP_PAST_E");
-		ReplacePVM_HD_Rus("MAP_PAST_S");
-		ReplacePVM_HD_Rus("MAP_SS"); //34
+		#pragma region Maps
+		ReplacePVM_HD_Rus("MAP_EC_A");				//Egg Carrier's bridge (transformed) area
+		ReplacePVM_HD_Rus("MAP_EC_B");				//Egg Carrier's bridge area
+		ReplacePVM_HD_Rus("MAP_EC_H");				//Egg Carrier's inner hall area
+		ReplacePVM_HD_Rus("MAP_MR_A");				//Mystic Ruins' Angel Island area
+		ReplacePVM_HD_Rus("MAP_MR_J");				//Mystic Ruins' jungle area
+		ReplacePVM_HD_Rus("MAP_MR_S");				//Myscit Ruins' station area
+		ReplacePVM_HD_Rus("MAP_PAST_E");			//Past's altar area
+		ReplacePVM_HD_Rus("MAP_PAST_S");			//Past's city area
+		ReplacePVM_HD_Rus("MAP_SS");				//Station Square area
 		#pragma endregion
 
-		#pragma region Russian Scores
-		ReplacePVM_HD_Rus("SCORE_ACT_E");
-		ReplacePVM_HD_Rus("SCORE_BOARD_E");
-		ReplacePVM_HD_Rus("SCORE_BOSS_E");
-		ReplacePVM_HD_Rus("SCORE_CART_E");
-		ReplacePVM_HD_Rus("SCORE_MOLE_E");
-		ReplacePVM_HD_Rus("SCORE_RESULT_E");
-		ReplacePVM_HD_Rus("SCORE_SHOOT_E"); //41
+		#pragma region Scores
+		ReplacePVM_HD_Rus("SCORE_ACT_E");			//Action stage score
+		ReplacePVM_HD_Rus("SCORE_BOARD_E");			//Board stage score
+		ReplacePVM_HD_Rus("SCORE_BOSS_E");			//Boss attack score
+		ReplacePVM_HD_Rus("SCORE_CART_E");			//Twincle Circuit score
+		ReplacePVM_HD_Rus("SCORE_MOLE_E");			//Hedgehog Hammer score
+		ReplacePVM_HD_Rus("SCORE_RESULT_E");		//Action stage mission score
+		ReplacePVM_HD_Rus("SCORE_SHOOT_E");			//Sky Chase score
 		#pragma endregion
 
-		#pragma region Russian Gameplay
+		#pragma region Gameplay
 		ReplacePVM_HD_Rus("BOARD_SCORE");
-		ReplacePVM_HD_Rus("CHAOS_LIFEGAUGE");
-		ReplacePVM_HD_Rus("CON_REGULAR_E");
-		ReplacePVM_HD_Rus("E102TIME");
-		ReplacePVM_HD_Rus("FISHING");
+		ReplacePVM_HD_Rus("CHAOS_LIFEGAUGE");		// Boss' Lifebar
+		ReplacePVM_HD_Rus("CON_REGULAR_E");			// HUD stuff
+		ReplacePVM_HD_Rus("E102TIME");				// E102 Timer
+		ReplacePVM_HD_Rus("FISHING");				// Big's fishing stuff
 		ReplacePVM_HD_Rus("GAMEOVER_E");
 		ReplacePVM_HD_Rus("MILESRACE");
 		ReplacePVM_HD_Rus("MIS_C_EN");
@@ -336,10 +308,11 @@ extern "C"
 		ReplacePVM_HD_Rus("OBJ_MINI_CART");
 		ReplacePVM_HD_Rus("SHOOTING0");
 
+		ReplacePVM_Rus("EFF_REGULAR");
 		ReplacePVM_Rus("MOGURATATAKI");
 		#pragma endregion
 
-		#pragma region Russian TGS Menu
+		#pragma region TGS Menu
 		ReplacePVM_Rus("C_SELECT1");
 		ReplacePVM_Rus("C_SELECT2");
 		ReplacePVM_Rus("LOADING");
@@ -352,7 +325,7 @@ extern "C"
 		ReplacePVM_Rus("TITLE");
 		#pragma endregion
 
-		#pragma region Russian Chao
+		#pragma region Chao
 		ReplacePVM_Rus("AL_GARDEN00SS_2D");
 		ReplacePVM_Rus("AL_STG_KINDER_AD_TEX");
 		ReplacePVM_Rus("AL_ENT_CHAR_E_TEX");
@@ -360,12 +333,9 @@ extern "C"
 		ReplacePVM_Rus("AL_TEX_ENT_COMMON_EN");
 		ReplacePVM_Rus("AL_TEX_ODEKAKE_MENU_EN");
 		ReplacePVM_Rus("AL_TEX_COMMON");
-
-		LoadChaoGardenHintMessages();
-		
-	#pragma endregion
-	
-		
+		ReplacePVM_Rus("OBJ_AL_RACE_E");
+		#pragma endregion
+			
 	} 
 	
 	__declspec(dllexport) ModInfo SADXModInfo = { ModLoaderVer };

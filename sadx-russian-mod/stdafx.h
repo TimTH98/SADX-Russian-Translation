@@ -8,3 +8,4 @@
 #include <SADXModLoader.h>
 #include <stdlib.h>
 #include <stdio.h>
+#include "SA1DLCs.h"
