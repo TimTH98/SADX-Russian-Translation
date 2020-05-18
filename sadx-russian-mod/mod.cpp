@@ -60,7 +60,7 @@ extern "C"
 	{
 		char pathbuf[MAX_PATH];
 		HMODULE GoalRing = GetModuleHandle(L"GoalRing");		// Init GoalRing Mod dll
-		HMODULE DConv = GetModuleHandle(L"DCMods_Main");		// Init Dreamcast Conversion dll
+		HMODULE DConv = GetModuleHandle(L"DCMods_Main");		// Init Dreamcast Conversion dll		
 
 		#pragma region Ini Configuration
 		const IniFile* config = new IniFile(std::string(path) + "\\config.ini");
@@ -114,8 +114,7 @@ extern "C"
 		}
 		#pragma endregion
 				
-		if (DConv != nullptr)
-			LoadSA1Staff();							// Load Russian Staff Roll
+		LoadSA1Staff();								// Load Russian Staff Roll
 		LoadChaoGardenHintMessages();				// Load Dreamcast Chao Gadren Hints
 
 		ReplacePNG_Subtitle("subtitle_eu");
@@ -149,9 +148,8 @@ extern "C"
 		ReplacePNG_Common("ABC_TXT");				// File select font
 		ReplacePNG_Common("HYOJI_BALLS_E");			// Casinopolis ball counter
 		ReplacePNG_Common("B32ASCII");				// Boss name font
-		ReplacePNG_Common("STAFFROLL_TXT");			// Credits font		
 		ReplacePNG_Common("ST_064S_SCORE");			// Score in HUD
-		ReplacePNG_Common("ST_128S_HPGEJI");		// Tornado's health bar
+		ReplacePNG_Common("ST_128S_HPGEJI");		// Tornado's health bar story
 		#pragma endregion
 
 		#pragma region Stages name PVRs
@@ -249,7 +247,7 @@ extern "C"
 		ReplacePVM_HD_Rus("AVA_DLG_E");				// Many texts in menu
 		ReplacePVM_HD_Rus("AVA_EMBLEMVIEW_E");		// Emblem stats view
 		ReplacePVM_HD_Rus("AVA_FILESEL_E");			// File select menu
-		ReplacePVM_HD_Rus("AVA_FSDLG_E_E");			// Delete save file
+		ReplacePVM_HD_Rus("AVA_FSDLG_E");			// Delete save file
 		
 		ReplacePVM_HD_Rus("AVA_OPTION_E");			// Options menu
 		ReplacePVM_HD_Rus("AVA_SNDTEST_E");			// Sound test menu
@@ -301,39 +299,40 @@ extern "C"
 		ReplacePVM_HD_Rus("CON_REGULAR_E");			// HUD stuff
 		ReplacePVM_HD_Rus("E102TIME");				// E102 Timer
 		ReplacePVM_HD_Rus("FISHING");				// Big's fishing stuff
-		ReplacePVM_HD_Rus("GAMEOVER_E");
-		ReplacePVM_HD_Rus("MILESRACE");
-		ReplacePVM_HD_Rus("MIS_C_EN");
-		ReplacePVM_HD_Rus("MIS_P");
-		ReplacePVM_HD_Rus("OBJ_MINI_CART");
-		ReplacePVM_HD_Rus("SHOOTING0");
+		ReplacePVM_HD_Rus("GAMEOVER_E");			// Game Over Screen
+		ReplacePVM_HD_Rus("MILESRACE");				// Tails' stages stuff
+		ReplacePVM_HD_Rus("MIS_C_EN");				// Mission mode screen
+		ReplacePVM_HD_Rus("MIS_P");					// Mission mode interface
+		ReplacePVM_HD_Rus("OBJ_MINI_CART");			// Cart mini game
+		ReplacePVM_HD_Rus("SHOOTING0");				// Sky Chase mini game
 
-		ReplacePVM_Rus("EFF_REGULAR");
-		ReplacePVM_Rus("MOGURATATAKI");
+		ReplacePVM_Rus("EFF_REGULAR");				// Gamma's HIT texture
+		ReplacePVM_Rus("MOGURATATAKI");				// Hedgehog Hammer font
 		#pragma endregion
 
 		#pragma region TGS Menu
-		ReplacePVM_Rus("C_SELECT1");
-		ReplacePVM_Rus("C_SELECT2");
-		ReplacePVM_Rus("LOADING");
-		ReplacePVM_Rus("TGS_SOUSA_A");
-		ReplacePVM_Rus("TGS_SOUSA_B");
-		ReplacePVM_Rus("TGS_SOUSA_E");
-		ReplacePVM_Rus("TGS_SOUSA_K");
-		ReplacePVM_Rus("TGS_SOUSA_S");
-		ReplacePVM_Rus("TGS_SOUSA_T");
-		ReplacePVM_Rus("TITLE");
+		ReplacePVM_Rus("C_SELECT1");				// Character Select TGS
+		ReplacePVM_Rus("C_SELECT2");				// Character Select TGS
+		ReplacePVM_Rus("LOADING");					// Loading Screen TGS
+		ReplacePVM_Rus("TGS_SOUSA_A");				// Tutorial TGS
+		ReplacePVM_Rus("TGS_SOUSA_B");				// Tutorial TGS
+		ReplacePVM_Rus("TGS_SOUSA_E");				// Tutorial TGS
+		ReplacePVM_Rus("TGS_SOUSA_K");				// Tutorial TGS
+		ReplacePVM_Rus("TGS_SOUSA_S");				// Tutorial TGS
+		ReplacePVM_Rus("TGS_SOUSA_T");				// Tutorial TGS
+		ReplacePVM_Rus("TITLE");					// Title Screen TGS
 		#pragma endregion
 
 		#pragma region Chao
-		ReplacePVM_Rus("AL_GARDEN00SS_2D");
-		ReplacePVM_Rus("AL_STG_KINDER_AD_TEX");
-		ReplacePVM_Rus("AL_ENT_CHAR_E_TEX");
-		ReplacePVM_Rus("AL_ENT_TITLE_E_TEX");
-		ReplacePVM_Rus("AL_TEX_ENT_COMMON_EN");
-		ReplacePVM_Rus("AL_TEX_ODEKAKE_MENU_EN");
-		ReplacePVM_Rus("AL_TEX_COMMON");
-		ReplacePVM_Rus("OBJ_AL_RACE_E");
+		ReplacePVM_Rus("AL_GARDEN00SS_2D");			// Chao SA2B Hints
+		ReplacePVM_Rus("AL_STG_KINDER_AD_TEX");		// Chao SA2B Kindergarden
+		ReplacePVM_Rus("AL_ENT_CHAR_E_TEX");		// Chao SA2B ??
+		ReplacePVM_Rus("AL_ENT_TITLE_E_TEX");		// Chao SA2B Race Course
+		ReplacePVM_Rus("AL_TEX_ENT_COMMON_EN");		// Chao SA2B ??
+		ReplacePVM_Rus("AL_TEX_ODEKAKE_MENU_EN");	// Chao SA2B Machine
+		ReplacePVM_Rus("AL_TEX_COMMON");			// Chao SA2B ??
+		ReplacePVM_Rus("OBJ_AL_RACE_E");			// Chao Race Common Obj Textures 
+		ReplacePVM_Rus("GARDEN00SS");				// Chao Island board
 		#pragma endregion
 			
 	} 
