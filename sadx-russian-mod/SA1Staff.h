@@ -1,4 +1,3 @@
-#pragma once
 #include "stdafx.h"
 
 // Original code by PkR
@@ -14,9 +13,9 @@ CreditsEntry SA1Credits[] = {
 	{ 2, -1, 0, 0, "Hacking" },
 	{ 3, -1, 0, 0, "RikuKH3" },
 	{ 2, -1, 0, 0, "Editor" },
-	{ 3, -1, 0, 0, "Flan" },
+	{ 3, -1, 0, 0, "Anastasia 'Flan' Kudelina" },
 	{ 2, -1, 0, 0, "Translation" },
-	{ 3, -1, 0, 0, "ghast_ololo" },
+	{ 3, -1, 0, 0, "Arkady 'ghast_ololo' Kovrigin" },
 	{ 3, -1, 0, 0, "Alina 'Gemini_Chan' Evseeva" },
 	{ 3, -1, 0, 0, "Ah Kyoi" },
 	{ 3, -1, 0, 0, "Sofia 'valera_firefox' Laricheva" },
@@ -24,6 +23,7 @@ CreditsEntry SA1Credits[] = {
 	{ 3, -1, 0, 0, "Black_Doom" },
 	{ 3, -1, 0, 0, "N69" },
 	{ 3, -1, 0, 0, "Irregular Zero" },
+	{ 3, -1, 0, 0, "Hey-Pi-Ron" },
 	{ 2, -1, 0, 0, "Thanks to mod. community" },
 	{ 3, -1, 0, 0, "MainMemory" },
 	{ 3, -1, 0, 0, "Kell" },
@@ -40,7 +40,6 @@ CreditsEntry SA1Credits[] = {
 	{ 3, -1, 0, 0, "Chief-Net" },
 	{ 2, -1, 0, 0, "WE MISS YOU" },
 	{ 3, -1, 0, 0, "ghast_ololo" },
-	{ 3, -1, 0, 0, "" },
 	{ 3, -1, 0, 0, "" },
 	{ 3, -1, 0, 0, "" },
 	{ 1, 0, 0, 0, "SONIC ADVENTURE STAFF" },
@@ -460,3 +459,20 @@ void LoadSA1Staff()
 	MainCredits.Count = 449;
 	MainCredits.Entries = (CreditsEntry*)& SA1Credits;
 }
+
+//static int saveprogress = 12;
+//const char* NowSavingString[] = { "C", "O", "X", "P", "A", "H", "E", "H", "O"};
+//DataPointer(int, LoadingOrWhatever, 0x3B28114);
+//DataPointer(byte, SavePending, 0x3ABDF79);
+//
+//void NowSaving_Display()
+//{
+//	unsigned short FontSize = unsigned short((16 * ((float)VerticalResolution / 480.0f)));
+//	float totalcount = (float)HorizontalResolution / FontSize;
+//	SetDebugFontSize(FontSize);
+//	for (int i = 0; i < 10; i++)
+//	{
+//		if (saveprogress >= i) SetDebugFontColor(0xFF5A97E2); else SetDebugFontColor(0xFFE2E2E2);
+//		DisplayDebugString(NJM_LOCATION((int)totalcount - 13 + i, 2), NowSavingString[i]);
+//	}
+//}

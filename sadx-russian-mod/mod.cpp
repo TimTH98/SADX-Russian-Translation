@@ -1,44 +1,11 @@
 #include "stdafx.h"
-#include "DreamcastChaoGardenHits.h"
-#include "SA1Staff.h"
 #include <SADXModLoader.h>
 #include <IniFile.hpp>
 #include <cmath>
-
-#pragma region Funcs
-#define ReplacePNG_GoalRing(a) do { \
-	_snprintf_s(pathbuf, LengthOfArray(pathbuf), "%s\\textures\\pvr_mission_goalring\\index.txt", path); \
-	helperFunctions.ReplaceFile("system\\" a ".PVR", pathbuf); \
-} while (0)
-
-#define ReplacePNG_Common(a) do { \
-	_snprintf_s(pathbuf, LengthOfArray(pathbuf), "%s\\textures\\pvr_common\\index.txt", path); \
-	helperFunctions.ReplaceFile("system\\" a ".PVR", pathbuf); \
-} while (0)
-
-#define ReplacePNG_MissionE(a) do { \
-	_snprintf_s(pathbuf, LengthOfArray(pathbuf), "%s\\textures\\pvr_mission_en\\index.txt", path); \
-	helperFunctions.ReplaceFile("system\\" a ".PVR", pathbuf); \
-} while (0)
-
-#define ReplacePNG_StageE(a) do { \
-	_snprintf_s(pathbuf, LengthOfArray(pathbuf), "%s\\textures\\pvr_stage_en\\index.txt", path); \
-	helperFunctions.ReplaceFile("system\\" a ".PVR", pathbuf); \
-} while (0)
-
-#define ReplacePNG_Subtitle(a) do { \
-	_snprintf_s(pathbuf, LengthOfArray(pathbuf), "%s\\textures\\subtitle\\index.txt", path); \
-	helperFunctions.ReplaceFile("system\\" a ".PVR", pathbuf); \
-} while (0)
-
-#define ReplacePVM_HD_Rus(a) helperFunctions.ReplaceFile("system\\" a ".PVM", "system\\" a "_HD_RUS.PVM") \
-
-#define ReplacePVM_Rus(a) helperFunctions.ReplaceFile("system\\" a ".PVM", "system\\" a "_RUS.PVM") \
-
-#define ReplacePVM(a, b) helperFunctions.ReplaceFile("system\\" a ".PVM", "system\\" b ".PVM") \
-// “ут есть потенциальный шиткод, надо разобратьс€
-// Potential shitcode is here, should be come up with this
-#pragma endregion
+#include "DreamcastChaoGardenHits.h"
+#include "SA1Staff.h"
+#include "Funcs.h"
+#include "VariousText.h"
 
 static bool TGS_Selectors = false;
 static bool DreamcastChaoIcon = false;
@@ -59,8 +26,10 @@ extern "C"
 	__declspec(dllexport) void __cdecl Init(const char *path, const HelperFunctions &helperFunctions)
 	{
 		char pathbuf[MAX_PATH];
-		HMODULE GoalRing = GetModuleHandle(L"GoalRing");		// Init GoalRing Mod dll
-		HMODULE DConv = GetModuleHandle(L"DCMods_Main");		// Init Dreamcast Conversion dll		
+		HMODULE GoalRing = GetModuleHandle(L"GoalRing");			// Init GoalRing Mod dll
+		HMODULE DConv = GetModuleHandle(L"DCMods_Main");			// Init Dreamcast Conversion dll	
+		HMODULE Randomizer = GetModuleHandle(L"sadx-randomizer");	// Init Randomizer dll
+		HMODULE HDGui = GetModuleHandle(L"HD_GUI");						// Init HD GUI
 
 		#pragma region Ini Configuration
 		const IniFile* config = new IniFile(std::string(path) + "\\config.ini");
@@ -70,24 +39,23 @@ extern "C"
 		StartButton = config->getBool("Customs", "StartButton", true);
 		ExtraGGHelp = config->getBool("Customs", "ExtraGGHelp", false);
 
-		// Start Button
-		if (StartButton) {			
-			if (DConv = nullptr)
-				ReplacePVM("PRESSSTART", "PRESSSTART_DX_Enter_HD_RUS");
-			else
+		if (StartButton) {
+			if (DConv != nullptr)
 				ReplacePVM("PRESSSTART", "PRESSSTART_ENTER");
+			else
+				ReplacePVM("PRESSSTART", "PRESSSTART_DX_Enter_HD_RUS");
 
-			ReplacePVM("AVA_GTITLE0_ES", "AVA_GTITLE0_ES_Enter");
 			ReplacePVM("AVA_GTITLE0_E", "AVA_GTITLE0_E_HD_ENTER");
+			ReplacePVM("AVA_GTITLE0_DC_HD", "AVA_GTITLE0_DC_HD_ENTER");
 		}
 		else {
-			if (DConv = nullptr)
-				ReplacePVM("PRESSSTART", "PRESSSTART_DX_START_HD_RUS");
+			if (DConv != nullptr)
+				ReplacePVM("PRESSSTART", "PRESSSTART_Start");				
 			else
-				ReplacePVM("PRESSSTART", "PRESSSTART_Start");
+				ReplacePVM("PRESSSTART", "PRESSSTART_DX_START_HD_RUS");
 
-			ReplacePVM("AVA_GTITLE0_ES", "AVA_GTITLE0_ES_Start");
 			ReplacePVM("AVA_GTITLE0_E", "AVA_GTITLE0_E_HD_START");
+			ReplacePVM("AVA_GTITLE0_DC_HD", "AVA_GTITLE0_DC_HD_START");
 		}
 
 		// TGS
@@ -102,9 +70,15 @@ extern "C"
 
 		// Chao Garden
 		if (DreamcastChaoIcon)
+		{
 			ReplacePVM("CHAO_OBJECT", "CHAO_OBJECT_DC");
-		else	ReplacePVM("CHAO_OBJECT", "CHAO_OBJECT_DX");		
-
+			ReplacePVM("AL_DX_OBJ_CMN", "AL_DX_OBJ_CMN_DC");
+		}
+		else {
+			ReplacePVM("CHAO_OBJECT", "CHAO_OBJECT_DX");
+			ReplacePVM("AL_DX_OBJ_CMN", "AL_DX_OBJ_CMN_DX"); 
+		}
+		
 		// Alternative GG Game help
 		if (!ExtraGGHelp) {
 			ReplacePVM("GG_TEXLIST_US", "GG_TEXLIST_US_Rus");
@@ -116,6 +90,7 @@ extern "C"
 				
 		LoadSA1Staff();								// Load Russian Staff Roll
 		LoadChaoGardenHintMessages();				// Load Dreamcast Chao Gadren Hints
+		LoadText();
 
 		ReplacePNG_Subtitle("subtitle_eu");
 
@@ -248,8 +223,12 @@ extern "C"
 		ReplacePVM_HD_Rus("AVA_EMBLEMVIEW_E");		// Emblem stats view
 		ReplacePVM_HD_Rus("AVA_FILESEL_E");			// File select menu
 		ReplacePVM_HD_Rus("AVA_FSDLG_E");			// Delete save file
+		ReplacePVM_HD_Rus("AVA_NEW16NO");			// Results in the Trial
 		
 		ReplacePVM_HD_Rus("AVA_OPTION_E");			// Options menu
+		if(HDGui)
+			ReplacePVM_HD_Rus("AVA_TITLE_CMN");			// Tital screen
+		ReplacePVM_HD_Rus("AVA_TITLE_BACK_E");		// Menu back
 		ReplacePVM_HD_Rus("AVA_SNDTEST_E");			// Sound test menu
 		ReplacePVM_HD_Rus("AVA_STNAM_E");			// Stage names in File Select
 		ReplacePVM_HD_Rus("AVA_TITLE_E");			// Main menu
@@ -331,10 +310,16 @@ extern "C"
 		ReplacePVM_Rus("AL_TEX_ENT_COMMON_EN");		// Chao SA2B ??
 		ReplacePVM_Rus("AL_TEX_ODEKAKE_MENU_EN");	// Chao SA2B Machine
 		ReplacePVM_Rus("AL_TEX_COMMON");			// Chao SA2B ??
-		ReplacePVM_Rus("OBJ_AL_RACE_E");			// Chao Race Common Obj Textures 
+
+		ReplacePVM_Rus("OBJ_AL_RACE_E");
+		ReplacePVM_Rus("OBJ_AL_RACE");				// Chao Race Common Obj Textures 
 		ReplacePVM_Rus("GARDEN00SS");				// Chao Island board
 		#pragma endregion
-			
+		
+		#pragma region Randomizer
+		if (Randomizer != nullptr)
+			return;
+		#pragma endregion
 	} 
 	
 	__declspec(dllexport) ModInfo SADXModInfo = { ModLoaderVer };
