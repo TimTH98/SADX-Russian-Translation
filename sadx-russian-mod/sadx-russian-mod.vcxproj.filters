@@ -29,9 +29,6 @@
     <ClInclude Include="targetver.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="DreamcastChaoGardenHits.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="SA1Staff.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -39,6 +36,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Funcs.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DreamcastChaoGardenHints.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

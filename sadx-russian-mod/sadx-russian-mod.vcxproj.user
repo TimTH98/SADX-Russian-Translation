@@ -7,8 +7,8 @@
     <DebuggerFlavor>WindowsLocalDebugger</DebuggerFlavor>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <LocalDebuggerCommand>D:\Kell\SADX\sonic.exe</LocalDebuggerCommand>
-    <LocalDebuggerWorkingDirectory>D:\Kell\SADX</LocalDebuggerWorkingDirectory>
+    <LocalDebuggerCommand>D:\Steam\steamapps\common\Sonic Adventure DX\sonicRUS.exe</LocalDebuggerCommand>
+    <LocalDebuggerWorkingDirectory>D:\Steam\steamapps\common\Sonic Adventure DX</LocalDebuggerWorkingDirectory>
     <DebuggerFlavor>WindowsLocalDebugger</DebuggerFlavor>
     <LocalDebuggerCommandArguments>-l 1</LocalDebuggerCommandArguments>
   </PropertyGroup>

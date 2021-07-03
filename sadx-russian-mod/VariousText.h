@@ -2,8 +2,26 @@
 
 void LoadText()
 {
-	//WriteData((const char**)0x504B5B, "abcdefg");
+	WriteData((const char**)0x40BE98, "Сохранение...");
+	WriteData((const char**)0x40BE09, "Загрузка...");
+	WriteData((const char**)0x50342D, "Загрузка...");
+	WriteData((const char**)0x503469, "Загрузка...");
 
+	static const char* const tikal_message[] = {
+	"Собрав 50 колец, нажми кнопку\nдействия в прыжке.",
+	"Ты превратишься в Супер Соника!\nНо следи за числом колец!",
+	NULL,
+	};
+
+	HMODULE module = GetModuleHandle(L"better-super-sonic");
+	if (module)
+	{
+		const char** texts = (const char**)GetProcAddress(module, "tikal_messages");
+		if (texts)
+		{
+			texts[Languages_English] = (const char*)tikal_message;
+		}
+	}
 	//Hedgehog Hammer (story)
 	WriteData((const char**)0x52843D, "PEKOPD");
 	WriteData((const char**)0x528467, "OIKOB");
@@ -30,11 +48,11 @@ void LoadText()
 	WriteData((const char**)0x571813, "FIIWTegDenh");
 	WriteData((const char**)0x57F2A1, "FIIWZmes");
 	WriteData((const char**)0x5757B3, "FIIWTaIofok");
-	WriteData((const char**)0x566F64, "EW101β");
-	WriteData((const char**)0x4E6C81, "EW103δ"); 
-	WriteData((const char**)0x604791, "EW104ε"); 
-	WriteData((const char**)0x5A39F8, "EW105ζ"); 
-	WriteData((const char**)0x56C2B8, "EW101 BegRⅡ");
+	/*WriteData((const char**)0x566F64, "EW101β");
+	WriteData((const char**)0x4E6C81, "EW103δ"); //E103δ
+	WriteData((const char**)0x604791, "EW104ε"); //E104ε
+	WriteData((const char**)0x5A39F8, "EW105ζ"); //E105ζ
+	WriteData((const char**)0x56C2B8, "EW101 BegRⅡ");*/ //E101mkⅡ
 
 	//Hedgehog Hammer (minigame)
 	WriteData((const char**)0x62616D, "PEKOPD");
@@ -52,6 +70,5 @@ void LoadText()
 	WriteData((const char**)0x6264D3, "VOLUINTE DLNHHJQ MOLOT");
 	WriteData((const char**)0x62652A, "BJ VOXNLN PEKOPD");
 	WriteData((const char**)0x6283F5, "NFPA OKOHIEHA");
-
-	
+		
 }

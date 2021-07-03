@@ -87,7 +87,7 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="DreamcastChaoGardenHits.h" />
+    <ClInclude Include="DreamcastChaoGardenHints.h" />
     <ClInclude Include="Funcs.h" />
     <ClInclude Include="VariousText.h" />
     <ClInclude Include="SA1Staff.h" />
