@@ -96,7 +96,7 @@ extern "C"
 
 		ReplacePNG_Subtitle("subtitle_eu");
 
-		if (GoalRing == nullptr)
+		if (GoalRing == nullptr) // Goal Ring OFF
 		{
 			ReplacePNG_MissionE("MISSION_S_BOX_E");
 			ReplacePNG_MissionE("MISSION_S_BOX25MIN_E");
@@ -108,7 +108,7 @@ extern "C"
 			ReplacePNG_MissionE("MISSION_S_RINGBOX_E");
 			ReplacePNG_MissionE("MISSION_T_BOX_E");
 		}
-		else
+		else // Goal Ring ON
 		{
 			ReplacePNG_GoalRing("MISSION_S_BOX_E");
 			ReplacePNG_GoalRing("MISSION_S_BOX25MIN_E");

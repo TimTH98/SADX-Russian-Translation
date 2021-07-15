@@ -2,12 +2,12 @@
 C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v150\Microsoft.CppBuild.targets(376,5): warning MSB8004: Intermediate Directory does not end with a trailing slash.  This build instance will add the slash as it is required to allow proper evaluation of the Intermediate Directory.
   stdafx.cpp
   mod.cpp
-C:\Users\timhe\Documents\GitHub\sadx-russian-mod\sadx-russian-mod\DreamcastChaoGardenHints.h(121): warning C4193: #pragma warning(pop): no matching '#pragma warning(push)'
+C:\Users\timhe\Documents\GitHub\SonicAdventureRussianTranslation\sadx-russian-mod\DreamcastChaoGardenHints.h(121): warning C4193: #pragma warning(pop): no matching '#pragma warning(push)'
 C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v150\Microsoft.CppBuild.targets(1220,5): warning MSB8030: The linker switch "Minimum Required Version" requires "SubSystem" to be set.  Without "SubSystem", the "Minimum Required Version" would not be passed to linker and could prevent to the output binary from running on older Operating Systems.
-     Creating library C:\Users\timhe\Documents\GitHub\sadx-russian-mod\bin\sadx-russian-mod.lib and object C:\Users\timhe\Documents\GitHub\sadx-russian-mod\bin\sadx-russian-mod.exp
+     Creating library C:\Users\timhe\Documents\GitHub\SonicAdventureRussianTranslation\bin\sadx-russian-mod.lib and object C:\Users\timhe\Documents\GitHub\SonicAdventureRussianTranslation\bin\sadx-russian-mod.exp
   Generating code
   479 of 484 functions (99.0%) were compiled, the rest were copied from previous compilation.
     8 functions were new in current compilation
     1 functions had inline decision re-evaluated but remain unchanged
   Finished generating code
-  sadx-russian-mod.vcxproj -> C:\Users\timhe\Documents\GitHub\sadx-russian-mod\bin\sadx-russian-mod.dll
+  sadx-russian-mod.vcxproj -> C:\Users\timhe\Documents\GitHub\SonicAdventureRussianTranslation\bin\sadx-russian-mod.dll
