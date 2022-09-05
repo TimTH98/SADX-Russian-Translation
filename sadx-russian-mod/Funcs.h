@@ -1,17 +1,22 @@
 #pragma once
 
-#define ReplacePNG_GoalRing(a) do { \
-	_snprintf_s(pathbuf, LengthOfArray(pathbuf), "%s\\textures\\pvr_mission_goalring\\index.txt", path); \
-	helperFunctions.ReplaceFile("system\\" a ".PVR", pathbuf); \
-} while (0)
-
 #define ReplacePNG_Common(a) do { \
 	_snprintf_s(pathbuf, LengthOfArray(pathbuf), "%s\\textures\\pvr_common\\index.txt", path); \
 	helperFunctions.ReplaceFile("system\\" a ".PVR", pathbuf); \
 } while (0)
 
-#define ReplacePNG_MissionE(a) do { \
-	_snprintf_s(pathbuf, LengthOfArray(pathbuf), "%s\\textures\\pvr_mission_en\\index.txt", path); \
+//#define ReplacePNG_MissionE(a) do { \
+//	_snprintf_s(pathbuf, LengthOfArray(pathbuf), "%s\\textures\\pvr_mission_en\\index.txt", path); \
+//	helperFunctions.ReplaceFile("system\\" a ".PVR", pathbuf); \
+//} while (0)
+
+#define ReplacePNG_MissionF(a) do { \
+	_snprintf_s(pathbuf, LengthOfArray(pathbuf), "%s\\textures\\pvr_mission_fr\\index.txt", path); \
+	helperFunctions.ReplaceFile("system\\" a ".PVR", pathbuf); \
+} while (0)
+
+#define ReplacePNG_GoalRing(a) do { \
+	_snprintf_s(pathbuf, LengthOfArray(pathbuf), "%s\\textures\\pvr_mission_goalring\\index.txt", path); \
 	helperFunctions.ReplaceFile("system\\" a ".PVR", pathbuf); \
 } while (0)
 

@@ -1,16 +1,4 @@
 ﻿C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v150\Platforms\Win32\PlatformToolsets\v141_xp\Toolset.targets(39,5): warning MSB8051: Support for targeting Windows XP is deprecated and will not be present in future releases of Visual Studio. Please see https://go.microsoft.com/fwlink/?linkid=2023588 for more information.
 C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v150\Microsoft.CppBuild.targets(376,5): warning MSB8004: Intermediate Directory does not end with a trailing slash.  This build instance will add the slash as it is required to allow proper evaluation of the Intermediate Directory.
-  mod.cpp
-C:\Users\timhe\Documents\GitHub\SonicAdventureRussianTranslation\sadx-russian-mod\DreamcastChaoGardenHints.h(121): warning C4193: #pragma warning(pop): no matching '#pragma warning(push)'
-C:\Users\timhe\Documents\GitHub\SonicAdventureRussianTranslation\sadx-russian-mod\VariousText.h(134): warning C4566: character represented by universal-character-name '\u03B2' cannot be represented in the current code page (1251)
-C:\Users\timhe\Documents\GitHub\SonicAdventureRussianTranslation\sadx-russian-mod\VariousText.h(171): warning C4566: character represented by universal-character-name '\u00F4' cannot be represented in the current code page (1251)
-C:\Users\timhe\Documents\GitHub\SonicAdventureRussianTranslation\sadx-russian-mod\VariousText.h(171): warning C4566: character represented by universal-character-name '\u00E9' cannot be represented in the current code page (1251)
-C:\Users\timhe\Documents\GitHub\SonicAdventureRussianTranslation\sadx-russian-mod\VariousText.h(172): warning C4566: character represented by universal-character-name '\u00E9' cannot be represented in the current code page (1251)
 C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v150\Microsoft.CppBuild.targets(1220,5): warning MSB8030: The linker switch "Minimum Required Version" requires "SubSystem" to be set.  Without "SubSystem", the "Minimum Required Version" would not be passed to linker and could prevent to the output binary from running on older Operating Systems.
-     Creating library C:\Users\timhe\Documents\GitHub\SonicAdventureRussianTranslation\bin\sadx-russian-mod.lib and object C:\Users\timhe\Documents\GitHub\SonicAdventureRussianTranslation\bin\sadx-russian-mod.exp
-  Generating code
-  2 of 484 functions ( 0.4%) were compiled, the rest were copied from previous compilation.
-    0 functions were new in current compilation
-    0 functions had inline decision re-evaluated but remain unchanged
-  Finished generating code
   sadx-russian-mod.vcxproj -> C:\Users\timhe\Documents\GitHub\SonicAdventureRussianTranslation\bin\sadx-russian-mod.dll

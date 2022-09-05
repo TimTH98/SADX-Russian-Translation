@@ -1,4 +1,8 @@
 ﻿#include "SADXModLoader.h"
+#include "stdafx.h"
+#include <SADXModLoader.h>
+#include <IniFile.hpp>
+#include <cmath>
 
 void LoadText()
 {
@@ -7,28 +11,18 @@ void LoadText()
 	WriteData((const char**)0x40BE09, "Загрузка...");
 	WriteData((const char**)0x50342D, "Загрузка...");
 	WriteData((const char**)0x503469, "Загрузка...");
-
-	static const char* const tikal_message[] = {
-	"Собрав 50 колец, нажми кнопку\nдействия в прыжке.",
-	"Ты превратишься в Супер Соника!\nНо следи за числом колец!",
-	NULL,
-	};
-
-	HMODULE module = GetModuleHandle(L"better-super-sonic");
-	if (module)
-	{
-		const char** texts = (const char**)GetProcAddress(module, "tikal_messages");
-		if (texts)
-		{
-			texts[Languages_French] = (const char*)tikal_message;
-		}
-	}
+	
+	// Chao Garden Hint Monitor
+	WriteData((const char**)0x887738, "ВЫХОД");
+	WriteData((const char**)0x887734, "ДАЛЕЕ");
+	WriteData((const char**)0x887730, "НАЗАД");
 
 	//Hedgehog Hammer (story)
 	WriteData((const char**)0x52843D, "PEKOPD");
 	WriteData((const char**)0x528467, "OIKOB");
 	WriteData((const char**)0x52849A, "OIKOB");
 	WriteData((const char**)0x5284E5, "DOKTOP WFFMAH");
+	WriteData((const char**)0x528500, "WMN");
 	WriteData((const char**)0x528549, "HAIATZ");
 	WriteData((const char**)0x528599, "BPEMR");
 	WriteData((const char**)0x5285A8, "CIYT");
@@ -45,6 +39,7 @@ void LoadText()
 	WriteData((const char**)0x626197, "OIKOB");
 	WriteData((const char**)0x6261CA, "OIKOB");
 	WriteData((const char**)0x626215, "DOKTOP WFFMAH");
+	WriteData((const char**)0x626230, "WMN");
 	WriteData((const char**)0x626279, "HAIATZ");
 	WriteData((const char**)0x6262C9, "BPEMR");
 	WriteData((const char**)0x6262D8, "CIYT");
@@ -70,6 +65,7 @@ void LoadText()
 	WriteData((const char**)0x917DE4, "Нажмите кнопку действия,\nчтобы вернуться.");
 	WriteData((const char**)0x917DF8, "Изменить эту кнопку?");
 	WriteData((const char**)0x917E0C, "Нажмите кнопку, которую хотите изменить.");
+
 	WriteData((const char**)0x90C4A8, "Желаете закончить игру и вернуться к\nвыбору персонажа?");
 	WriteData((const char**)0x90C4BC, "Желаете покинуть уровень и вернуться на\nПоле приключений?");
 	WriteData((const char**)0x90C4D0, "Желаете закончить игру и вернуться в\nглавное меню?");
@@ -93,8 +89,8 @@ void LoadText()
 	WriteData((const char**)0x2BBF538, "\aКамень льда... Похож на ключ.\nКажется, он из Мистических руин.");
 	
 	// Deleting file messages	
-	WriteData((const char**)0x10D7A44, "\aOK");
-	WriteData((const char**)0x10D7B0C, "\aОтменить действие");
+	WriteData((const char**)0x10D7A44, "\aПодтвердить выбор");
+	WriteData((const char**)0x10D7B0C, "\aОтменить выбор");
 	WriteData((const char**)0x10D7A6C, "\aУдалить файл");	
 	WriteData((const char**)0x10D7954, "\t\tУдалено.");
 	WriteData((const char**)0x10D7968, "\t\tОшибка удаления.");
@@ -113,11 +109,10 @@ void LoadText()
 	WriteData((const char**)0x2BC07E0, "\aПроверка ID..."); 
 		
 	WriteData((const char**)0x2BBF470, "\aПропуск на картинг! С ним можно\nпопасть на Мерцающий заезд."); 
-	WriteData((const char**)0x2BBF468, "\aДобро пожаловать\nна Мерцающий заезд!"); 
+	WriteData((const char**)0x2BBF478, "\aДобро пожаловать\nна Мерцающий заезд!"); 
 	
 	// Tikal's messages
-	WriteData((const char**)0x88C730, "\aДавай за мной!"); //  fr
-	WriteData((const char**)0x803484, "\aБерегись! Он что-то задумал!"); 
+	WriteData((const char**)0x88C730, "\aДавай за мной!");
 }
 
 void BossNames()
@@ -153,26 +148,33 @@ void BossHelps()
 	WriteData((const char**)0x7FE450, "\aУ тебя будет шанс ударить,\nкогда Хаос высунет свою голову.");
 	
 	// Chaos 6
-	WriteData((const char**)0x7FEBA8, "\aЗаморозить бы Хаоса...\nПридумай, как это сделать.");
+	WriteData((const char**)0x7FEBA0, "\aЗаморозить бы Хаоса...\nПридумай, как это сделать.");
 	WriteData((const char**)0x7FEBF8, "\aЗакинь бомбы Эггмана Хаосу\nпрямо в пасть.");
 	
 	WriteData((const char**)0x7FEC48, "\aПрицелься в лягушку и\nзакинь в неё наживку!");
-		
+
+	WriteData((const char**)0x7FEBF8, "Кидай бомбы Эггмана\nпрямо в пасть Хаоса.");
+			
 	WriteData((const char**)0x7FECA8, "\aУ тебя появится возможность\nиспользовать удочку,");
 	WriteData((const char**)0x7FECB0, "\aкогда Хаос подойдёт ближе!");
-		
-	// Egg Walker
-	WriteData((const char**)0x801D54, "\aЭгг-Мобиль – его слабое место.\nАтакуй, когда подберёшься ближе.");
 	
+	// Egg Hornet
+	WriteData((const char**)0x801D54, "\aЭгг-Мобиль – его слабое место.\nАтакуй, когда подберёшься ближе.");
+
+	// Egg Walker	
 	WriteData((const char**)0x802D00, "\aЧтобы он потерял равновесие,\nметь ему в ноги.");
-	WriteData((const char**)0x802D10, "\aНе бей просто по ногам.\nБей ещё в кабину!");
+	WriteData((const char**)0x802D10, "\aБей не только по ногам.\nАтакуй ещё и кабину!");
 		
 	// Egg Viper
 	WriteData((const char**)0x803444, "\aEggman est de l'autre côté\nde la concentration d'énergie.");
-	WriteData((const char**)0x803454, "\aFaites plusieurs attaques auto-guidées...");
+
+	WriteData((const char**)0x803454, "\aДоберись до него, используя\nСамонаводящуюся атаку...");
+
 	WriteData((const char**)0x803464, "\aEt visez le cockpit.");
 		
 	WriteData((const char**)0x803474, "\aЗапрыгни на эти детали\nи доберись до кабины.");
+
+	WriteData((const char**)0x803484, "\aБерегись! Он что-то задумал!");
 		
 	// ZERO (when timer is 01:00:00)
 	WriteData((const char**)0x8046E4, "\aУ него должно быть\nслабое место.");
@@ -185,7 +187,6 @@ void BossHelps()
 
 void MissionText()
 {
-	#pragma region fr
 	WriteData((const char**)0x2BC57B8, "Основная задача – найти");
 	WriteData((const char**)0x2BC57BC, "карточки с заданиями");
 	WriteData((const char**)0x2BC57C0, "на Полях приключений.");
@@ -202,5 +203,83 @@ void MissionText()
 	WriteData((const char**)0x2BC57E4, "за каждого из шести героев");
 	WriteData((const char**)0x2BC57E8, "(Соник, Тейлз, Наклз, Эми,");
 	WriteData((const char**)0x2BC57EC, "E-102 и Биг).");
-	#pragma endregion	
+
+	WriteData((char*)0x1704B90, "Перед бургерной всё\nстоит и стоит человек.\nПриведи его сюда!");
+	WriteData((char*)0x1704C60, "Воздушный шар над\nМистическими руинами...\nНайди и достань его!");
+	WriteData((char*)0x1704D30, "Собери 100 колец и принеси их\nк рекламному щиту с Соником,\nустановленному у бассейна!");
+	WriteData((char*)0x1704E00, "У меня вокруг дома всё\nзаросло сорняками!\nНадо бы от них избавиться!");
+	WriteData((char*)0x1704ED0, "Эх...\nМой воздушный шар улетел!\nОн теперь так высоко!");
+	WriteData((char*)0x1704FA0, "Он же утонет!\nВытащи человека из воды\nи приведи его сюда!");
+	WriteData((char*)0x1705070, "Похоже, Метал Сонику одиноко\nи ему нужен друг...\nНайди ему друга.");
+	WriteData((char*)0x1705140, "Туда упала медаль!\nНе паркуйте автомобили\nв неположенных местах!");
+	WriteData((char*)0x1705210, "Водопад у Изумрудного моря.\nДостань воздушный шар,\nчто парит за ним.");
+	WriteData((char*)0x17052E0, "В воде что-то блестит!\nЧто там такое?");
+	WriteData((char*)0x17053B0, "Разбей ветряные мельницы\nи продвинься дальше...\nДостань шар, парящий в небе!");
+	WriteData((char*)0x1705480, "Кто очень хорошо ладит с Чао?\nИ что покоится под ним?");
+	WriteData((char*)0x1705550, "Я не смогу принять душ\nтаким образом!\nСделай что-нибудь!");
+	WriteData((char*)0x1705620, "Я владыка этого отеля!\nПопробуй поймать меня!");
+	WriteData((char*)0x17056F0, "М-мои медали затянуло в торнадо!\nКто-нибудь, заберите их оттуда!");
+	WriteData((char*)0x17057C0, "Собери флажки на\nпарящих в небе островах!");
+	WriteData((char*)0x1705890, "Целься и бей!\nСобери медали с помощью Соника,\nсвёрнутого в пинбольный шар!");
+	WriteData((char*)0x1705960, "Ночной парк аттракционов.\nСоверши тройной прыжок\nнад бассейном!");
+	WriteData((char*)0x1705A30, "Что там такое\nвидно за зеркалом?");
+	WriteData((char*)0x1705B00, "Очень скользко!\nСобери все медали в течение\nотведённого времени!");
+	WriteData((char*)0x1705BD0, "Вокруг куклы Соника\nвьются Спиннеры...\nЗащити её!");
+	WriteData((char*)0x1705CA0, "Тайный проход на дне\nИзумрудного моря!\nНайди спрятанный там флажок!");
+	WriteData((char*)0x1705D70, "Кружись вокруг карусели\nи соберите 10 воздушных шаров!");
+	WriteData((char*)0x1705E40, "Он говорит:\n«Фу, здесь так темно и грязно!»\nСможешь найти это место?");
+	WriteData((char*)0x1705F10, "Что находится под правой лапой\nогромного льва?");
+	WriteData((char*)0x1705FE0, "Верхушка мачты пиратского корабля.\nЧто же такое охраняют пираты?");
+	WriteData((char*)0x17060B0, "Собери 100 колец и принеси их\nк вертолётной площадке!");
+	WriteData((char*)0x1706180, "Утренний город, где туда-сюда\nездят машины. Достань воздушный\nшар с помощью фонтана!");
+	WriteData((char*)0x1706250, "Я владыка канализации!\nПопробуй поймать меня!");
+	WriteData((char*)0x1706320, "Пылающая тюрьма!\nРазыщи беглеца!");
+	WriteData((char*)0x17063F0, "Взлетай в потоке воздуха\nвперемешку с мусором! Сможешь\nли ты достать воздушный шар?");
+	WriteData((char*)0x17064C0, "Под мостом из брёвен\nнаходится воздушный шар...\nСможешь ли ты достать его?");
+	WriteData((char*)0x1706590, "Заряжай пушку и стреляй!\nВоспользуйся ей с умом\nи достань воздушный шар!");
+	WriteData((char*)0x1706660, "Кто это сделал?\nОткуда на моём корабле всё это?");
+	WriteData((char*)0x1706730, "Я владыка ледяного пруда!\nПопробуй поймать меня!");
+	WriteData((char*)0x1706800, "Мне страшно, тут повсюду носятся\nистребители. Кто-нибудь, отведите\nменя в безопасное место!");
+	WriteData((char*)0x17068D0, "Пролети над джунглями и\nдостань все воздушные шары!");
+	WriteData((char*)0x17069A0, "Послание от древних:\n«Что находится там, куда\nуказывают огненные стрелы?..»");
+	WriteData((char*)0x1706A70, "Поиск сокровищ на морском берегу!\nСобери все медали в течение\nотведённого времени!");
+	WriteData((char*)0x1706B40, "Что находится там, куда\nсмотрит огромная змея?");
+	WriteData((char*)0x1706C10, "В момент, когда будешь\nпадать с водопада...\nХорошенько присмотрись.");
+	WriteData((char*)0x1706CE0, "Я не смогу попасть в туалет\nтаким образом! Ну почему такое\nпроисходит именно со мной?");
+	WriteData((char*)0x1706DB0, "Стальная крепость. Высоко\nпрыгни с трёх узких дорожек!\nБудь осторожна, не свались.");
+	WriteData((char*)0x1706E80, "Я владыка этого корабля!\nПопробуй поймать меня!");
+	WriteData((char*)0x1706F50, "Что находится в месте,\nгде кольцами выложено\nлицо Соника?");
+	WriteData((char*)0x1707020, "Секретная база с механизмами.\nКогда будешь падать в темноте,\nхорошенько присмотрись...");
+	WriteData((char*)0x17070F0, "Собери 10 воздушных шаров\nна этом поле в течение\nотведённого времени!");
+	WriteData((char*)0x17071C0, "Огромный Соник смотрит на медаль.\nСможешь ли ты её достать?");
+	WriteData((char*)0x1707290, "Высокоскоростной аттракцион\nчерез Млечный путь!\nСобери все флажки!");
+	WriteData((char*)0x1707360, "Разветвление на пять дорожек.\nВыбери дорожку в течение\nотведённого времени.");
+	WriteData((char*)0x1707430, "Стрелок Долины Ветров!\nУничтожь все Спиннеры\nв течение отведённого времени!");
+	WriteData((char*)0x1707500, "Найди три флажка, спрятанные\nв джунглях, в течение\nотведённого времени.");
+	WriteData((char*)0x17075D0, "Горнолыжный склон, ясная погода.\nПересеки линию из колец,\nсовершив 3 высоких прыжка подряд!");
+	WriteData((char*)0x17076A0, "Скоростной спуск в снежную бурю.\nСобери все флажки!");
+	WriteData((char*)0x1707770, "Собери все воздушные шары,\nспускаясь вниз по зданию!");
+	WriteData((char*)0x1707840, "Пылающий каньон.\nЧто покоится там, куда\nсмотрит «она»?");
+	WriteData((char*)0x1707910, "Жерло вулкана.\nБудь осторожен,\nне попади в лаву!");
+	WriteData((char*)0x17079E0, "Тебя будет преследовать\nогромный валун!\nСобери все флажки!");
+	WriteData((char*)0x1707AB0, "Бочки катятся и катятся!\nНайди флажок,\nспрятанный в контейнере!");
+	WriteData((char*)0x1707B80, "Сможешь ли ты найти то, что\nпокоится в пасти динозавра?");
+	WriteData((char*)0x1707C50, "Задание выполнено!");
+	WriteData((char*)0x1707D20, "Не найдено!");
+}
+
+void GG_Games()
+{
+	WriteData((char*)0x7E6278, "SONIC THE HEDGEHOG Гыгыгыыыы");
+	WriteData((char*)0x7E62A3, "SONIC THE HEDGEHOG 2");
+	WriteData((char*)0x7E62CE, "SONIC CHAOS");
+	WriteData((char*)0x7E62F9, "Dr.ROBOTNIK's MeanBeanMachine");
+	WriteData((char*)0x7E6324, "SONIC DRIFT");
+	WriteData((char*)0x7E634F, "SONIC SPINBALL");
+	WriteData((char*)0x7E637A, "SONIC THE HEDGEHOG TRIPLE TROBLE");
+	WriteData((char*)0x7E63A5, "SONIC DRIFT 2");
+	WriteData((char*)0x7E63D0, "TAILS ADVENTURE");
+	WriteData((char*)0x7E63FB, "SONIC LABYRINTH");
+	WriteData((char*)0x7E6426, "SONIC BLAST");
+	WriteData((char*)0x7E6451, "TAILS' SKYPATROL");
 }

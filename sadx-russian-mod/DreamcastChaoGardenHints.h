@@ -3,7 +3,7 @@
 
 // Original code by PkR
 
-__int16 ChaoGardenMessages_English_0_Control[] = {
+__int16 ChaoGardenMessages_French_0_Control[] = {
 	NPCTextControl_EventFlag,
 	8,
 	NPCTextControl_Voice,
@@ -13,13 +13,13 @@ __int16 ChaoGardenMessages_English_0_Control[] = {
 	NPCTextControl_End
 };
 
-HintText_Text ChaoGardenMessages_English_0_Text[] = {
+HintText_Text ChaoGardenMessages_French_0_Text[] = {
 	{ "\aЭто сад Чао.", 120 },
 	{ "\aЕсли принести сюда яйца, найденные\nна уровнях, из них вылупятся Чао.", 360 },
 	{ 0 }
 };
 
-__int16 ChaoGardenMessages_English_1_Control[] = {
+__int16 ChaoGardenMessages_French_1_Control[] = {
 	NPCTextControl_EventFlag,
 	2,
 	NPCTextControl_Voice,
@@ -29,15 +29,15 @@ __int16 ChaoGardenMessages_English_1_Control[] = {
 	NPCTextControl_End
 };
 
-HintText_Text ChaoGardenMessages_English_1_Text[] = {
-	{ "\aЯйцо может созреть само\nпо себе спустя время, но...", 120 }, 
-	{ "\aВы можете ускорить созревание,\nпокачав яйцо на руках.", 120 }, 
-	{ "\aХарактер Чао будет меняться\nв зависимости от того,", 120 }, 
-	{ "\aкак вы обращались с яйцом.\nПопробуйте разные методы.", 150 } ,
+HintText_Text ChaoGardenMessages_French_1_Text[] = {
+	{ "\aЯйцо может созреть само\nпо себе спустя время, но...", 180 }, 
+	{ "\aВы можете ускорить созревание,\nпокачав яйцо на руках.", 180 }, 
+	{ "\aХарактер Чао будет меняться\nв зависимости от того,", 180 }, 
+	{ "\aкак вы обращались с яйцом.\nПопробуйте разные методы.", 180 } ,
 	{ 0 }
 };
 
-__int16 ChaoGardenMessages_English_2_Control[] = {
+__int16 ChaoGardenMessages_French_2_Control[] = {
 	NPCTextControl_EventFlag,
 	3,
 	NPCTextControl_Voice,
@@ -47,13 +47,13 @@ __int16 ChaoGardenMessages_English_2_Control[] = {
 	NPCTextControl_End
 };
 
-HintText_Text ChaoGardenMessages_English_2_Text[] = {
-	{ "\aЧао изменится, если дать ему\nмаленькое животное.", 150 } ,
-	{ "\aПопробуй давать Чао\nразных животных.", 150 } ,
+HintText_Text ChaoGardenMessages_French_2_Text[] = {
+	{ "\aЧао изменится, если дать ему\nмаленькое животное.", 180 } ,
+	{ "\aПопробуй давать Чао\nразных животных.", 180 } ,
 	{ 0 }
 };
 
-HintText_Text ChaoGardenMessages_English_3_Text[] = {
+HintText_Text ChaoGardenMessages_French_3_Text[] = {
 	{ "\a'Как кормить Чао'", 0 } ,
 	{ "\aЧао очень любят плоды с деревьев.", 0 } ,
 	{ "\aВстаньте перед деревом\nи потрясите его,", 0 } ,
@@ -71,7 +71,7 @@ HintText_Text ChaoGardenMessages_English_3_Text[] = {
 	{ 0 }
 };
 
-HintText_Text ChaoGardenMessages_English_4_Text[] = {
+HintText_Text ChaoGardenMessages_French_4_Text[] = {
 	{ "\a'Портал'", 0 } ,
 	{ "\aЭто портал.", 0 } ,
 	{ "\aЧерез него можно попасть в те\nсады, где вы уже побывали.", 0 } ,
@@ -79,7 +79,7 @@ HintText_Text ChaoGardenMessages_English_4_Text[] = {
 	{ 0 }
 };
 
-HintText_Text ChaoGardenMessages_English_5_Text[] = {
+HintText_Text ChaoGardenMessages_French_5_Text[] = {
 	{ "\a'Машина имён'", 0 } ,
 	{ "\aЭта машина позволяет дать\nЧао имя.", 0 } ,
 	{ "\aВозьми Чао и положи его\nна красную кнопку.", 0 } ,
@@ -87,14 +87,13 @@ HintText_Text ChaoGardenMessages_English_5_Text[] = {
 	{ 0 }
 };
 
-HintText_Text ChaoGardenMessages_English_6_Text[] = {
+HintText_Text ChaoGardenMessages_French_6_Text[] = {
 	{ "\aДобро пожаловать на стадион Чао!\nЗдесь проводятся гонки Чао!", 0 } ,
 	{ 0 }
 };
 
-//Custom messages
 
-HintText_Text ChaoGardenMessages_English_7_Text[] = {
+HintText_Text ChaoGardenMessages_French_7_Text[] = {
 	{ "\a'Гонки Чао'", 0 },
 	{ "\a\x81\xA1Здесь Чао состязаются между собой,\nприменяя развитые умения!", 0 },
 	{ "\a\x81\xA1Если занять первое место\nв Гонке сокровищ,", 0 },
@@ -107,15 +106,14 @@ HintText_Text ChaoGardenMessages_English_7_Text[] = {
 	{ 0 }
 };
 
-HintText_Entry ChaoGardenMessages_English[] = {
-	{ ChaoGardenMessages_English_0_Control, ChaoGardenMessages_English_0_Text },
-	{ ChaoGardenMessages_English_1_Control, ChaoGardenMessages_English_1_Text },
-	{ ChaoGardenMessages_English_2_Control, ChaoGardenMessages_English_2_Text },
-	{ NULL, ChaoGardenMessages_English_3_Text },
-	{ NULL, ChaoGardenMessages_English_4_Text },
-	{ NULL, ChaoGardenMessages_English_5_Text },
-	{ NULL, ChaoGardenMessages_English_6_Text },
-	{ NULL, ChaoGardenMessages_English_7_Text }
+HintText_Entry ChaoGardenMessages_French[] = {
+	{ ChaoGardenMessages_French_0_Control, ChaoGardenMessages_French_0_Text },
+	{ ChaoGardenMessages_French_1_Control, ChaoGardenMessages_French_1_Text },
+	{ ChaoGardenMessages_French_2_Control, ChaoGardenMessages_French_2_Text },
+	{ NULL, ChaoGardenMessages_French_3_Text },
+	{ NULL, ChaoGardenMessages_French_4_Text },
+	{ NULL, ChaoGardenMessages_French_5_Text },
+	{ NULL, ChaoGardenMessages_French_6_Text },
+	{ NULL, ChaoGardenMessages_French_7_Text }
 };
-
 #pragma warning(pop)
