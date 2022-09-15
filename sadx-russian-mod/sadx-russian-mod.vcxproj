@@ -89,6 +89,7 @@
   <ItemGroup>
     <ClInclude Include="DreamcastChaoGardenHints.h" />
     <ClInclude Include="Funcs.h" />
+    <ClInclude Include="LoadTextures.h" />
     <ClInclude Include="VariousText.h" />
     <ClInclude Include="SA1Staff.h" />
     <ClInclude Include="stdafx.h" />

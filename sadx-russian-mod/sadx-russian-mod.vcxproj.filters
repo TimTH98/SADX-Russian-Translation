@@ -41,5 +41,8 @@
     <ClInclude Include="DreamcastChaoGardenHints.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="LoadTextures.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

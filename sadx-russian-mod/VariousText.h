@@ -71,7 +71,7 @@ void LoadText()
 	WriteData((const char**)0x90C4D0, "Желаете закончить игру и вернуться в\nглавное меню?");
 	
 	// Unlock minigame message
-	WriteData((const char**)0x4B54DB, "Разблокирована игра\n'%s'.");
+	WriteData((const char**)0x4B54DB, "Разблокирована игра Game Gear\n'%s'.");
 	
 	// New lure messages
 	WriteData((const char**)0x9818A0, "\aНовая наживка!");
@@ -270,7 +270,7 @@ void MissionText()
 
 void GG_Games()
 {
-	WriteData((char*)0x7E6278, "SONIC THE HEDGEHOG Гыгыгыыыы");
+	WriteData((char*)0x7E6278, "SONIC THE HEDGEHOG");
 	WriteData((char*)0x7E62A3, "SONIC THE HEDGEHOG 2");
 	WriteData((char*)0x7E62CE, "SONIC CHAOS");
 	WriteData((char*)0x7E62F9, "Dr.ROBOTNIK's MeanBeanMachine");
