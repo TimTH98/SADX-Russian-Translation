@@ -29,7 +29,7 @@
     <ClInclude Include="targetver.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="SA1Staff.h">
+    <ClInclude Include="SADXStaff.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="VariousText.h">

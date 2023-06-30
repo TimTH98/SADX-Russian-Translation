@@ -58,10 +58,10 @@ void LoadText()
 	WriteData((const char**)0x9169D4, "\tЭМИ теперь доступна для игры!");
 	WriteData((const char**)0x9169E8, "\tE-102 теперь доступен для игры!");
 	WriteData((const char**)0x9169FC, "\tБИГ теперь доступен для игры!");
-	WriteData((const char**)0x4B5433, "\tМетал Соник доступен для \nрежима «Испытания».");
+	WriteData((const char**)0x4B5433, "\tМетал Соник доступен\nдля режима «Испытания».");
 	
 	// Game menu messages
-	WriteData((const char**)0x917DCC, "Вернуть настройки по умолчанию?");
+	WriteData((const char**)0x917DD0, "Вернуть настройки по умолчанию?");
 	WriteData((const char**)0x917DE4, "Нажмите кнопку действия,\nчтобы вернуться.");
 	WriteData((const char**)0x917DF8, "Изменить эту кнопку?");
 	WriteData((const char**)0x917E0C, "Нажмите кнопку, которую хотите изменить.");
@@ -104,7 +104,7 @@ void LoadText()
 	WriteData((const char**)0x111CAE8, "\aКнопка нажата,\nно ничего не произошло."); 
 	
 	// Station Square cards messages
-	WriteData((const char**)0x2BC07B8, "\aПропуск сотрудника!\nС ним я смогу пройти в здание."); 
+	WriteData((const char**)0x2BC07B8, "\aЭто пропуск сотрудника!\nС ним я смогу пройти в здание."); 
 	
 	WriteData((const char**)0x2BC07E0, "\aПроверка ID..."); 
 		
@@ -141,7 +141,7 @@ void BossHelps()
 	
 	// Chaos 2
 	WriteData((const char**)0x7FD960, "\aЦелься в голову Хаоса,\nкогда он откроется!");
-	WriteData((const char**)0x7FD9B0, "\aСпланируй в него или ударь,\nв прыжке вместо ударов кулаками.");
+	WriteData((const char**)0x7FD9B0, "\aСпланируй в него или ударь\nв прыжке вместо ударов кулаками.");
 	WriteData((const char**)0x7FDA00, "\aТы можешь отбить кулаком\nмаленькие водяные шарики!");
 	
 	// Chaos 4
@@ -166,11 +166,11 @@ void BossHelps()
 	WriteData((const char**)0x802D10, "\aБей не только по ногам.\nАтакуй ещё и кабину!");
 		
 	// Egg Viper
-	WriteData((const char**)0x803444, "\aEggman est de l'autre côté\nde la concentration d'énergie.");
+	WriteData((const char**)0x803444, "\aЭггман на той стороне\nконцентрирует энергию...");
 
 	WriteData((const char**)0x803454, "\aДоберись до него, используя\nСамонаводящуюся атаку...");
 
-	WriteData((const char**)0x803464, "\aEt visez le cockpit.");
+	WriteData((const char**)0x803464, "\a...и бей в кабину!");
 		
 	WriteData((const char**)0x803474, "\aЗапрыгни на эти детали\nи доберись до кабины.");
 
@@ -191,7 +191,7 @@ void MissionText()
 	WriteData((const char**)0x2BC57BC, "карточки с заданиями");
 	WriteData((const char**)0x2BC57C0, "на Полях приключений.");
 	WriteData((const char**)0x2BC57C4, "Чтобы выполнить задание,");
-	WriteData((const char**)0x2BC57C8, "прочти подсказку");
+	WriteData((const char**)0x2BC57C8, "прочти подсказку.");
 	
 	WriteData((const char**)0x2BC57CC, "Коснись карточки с заданием,");
 	WriteData((const char**)0x2BC57D0, "чтобы отобразить подсказку.");
@@ -276,7 +276,7 @@ void GG_Games()
 	WriteData((char*)0x7E62F9, "Dr.ROBOTNIK's MeanBeanMachine");
 	WriteData((char*)0x7E6324, "SONIC DRIFT");
 	WriteData((char*)0x7E634F, "SONIC SPINBALL");
-	WriteData((char*)0x7E637A, "SONIC THE HEDGEHOG TRIPLE TROBLE");
+	WriteData((char*)0x7E637A, "SONIC THE HEDGEHOG TRIPLE TROUBLE");
 	WriteData((char*)0x7E63A5, "SONIC DRIFT 2");
 	WriteData((char*)0x7E63D0, "TAILS ADVENTURE");
 	WriteData((char*)0x7E63FB, "SONIC LABYRINTH");

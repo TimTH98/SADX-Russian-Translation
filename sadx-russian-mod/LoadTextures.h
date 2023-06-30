@@ -66,6 +66,7 @@ void LoadTextures(const char* path, const HelperFunctions& helperFunctions)
 	ReplacePNG_Common("B32ASCII");				// Boss name font
 	ReplacePNG_Common("ST_064S_SCORE");			// Score in HUD
 	ReplacePNG_Common("ST_128S_HPGEJI");		// Tornado's health bar story
+	ReplacePNG_Common("STAFFROLL_TXT");
 	#pragma endregion
 
 	#pragma region Stage missions PVRs
