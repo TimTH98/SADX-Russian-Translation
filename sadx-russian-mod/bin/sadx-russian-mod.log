@@ -1,15 +1,14 @@
-﻿D:\Programs\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v150\Platforms\Win32\PlatformToolsets\v141_xp\Toolset.targets(39,5): warning MSB8051: Support for targeting Windows XP is deprecated and will not be present in future releases of Visual Studio. Please see https://go.microsoft.com/fwlink/?linkid=2023588 for more information.
-D:\Programs\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v150\Microsoft.CppBuild.targets(376,5): warning MSB8004: Intermediate Directory does not end with a trailing slash.  This build instance will add the slash as it is required to allow proper evaluation of the Intermediate Directory.
+﻿D:\Visual Studio 2022\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets(498,5): warning MSB8004: Intermediate Directory does not end with a trailing slash.  This build instance will add the slash as it is required to allow proper evaluation of the Intermediate Directory.
+D:\Visual Studio 2022\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets(499,5): warning MSB8004: Output Directory does not end with a trailing slash.  This build instance will add the slash as it is required to allow proper evaluation of the Output Directory.
+  stdafx.cpp
+  LoadTextures.cpp
   mod.cpp
-C:\Users\timhe\Documents\GitHub\SonicAdventureRussianTranslation\sadx-russian-mod\DreamcastChaoGardenHints.h(119): warning C4193: #pragma warning(pop): no matching '#pragma warning(push)'
-C:\Users\timhe\Documents\GitHub\SonicAdventureRussianTranslation\sadx-russian-mod\VariousText.h(129): warning C4566: character represented by universal-character-name '\u03B2' cannot be represented in the current code page (1251)
-D:\Programs\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v150\Microsoft.CppBuild.targets(1220,5): warning MSB8030: The linker switch "Minimum Required Version" requires "SubSystem" to be set.  Without "SubSystem", the "Minimum Required Version" would not be passed to linker and could prevent to the output binary from running on older Operating Systems.
-     Creating library C:\Users\timhe\Documents\GitHub\SonicAdventureRussianTranslation\bin\sadx-russian-mod.lib and object C:\Users\timhe\Documents\GitHub\SonicAdventureRussianTranslation\bin\sadx-russian-mod.exp
+  VariousText.cpp
+D:\_GitHubRepo\SADX-Russian-Translation\sadx-russian-mod\VariousText.cpp(144,36): warning C4566: character represented by universal-character-name '\u03B2' cannot be represented in the current code page (1251)
+     Creating library ..\..\..\Steam\steamapps\common\Sonic Adventure DX\mods\SADX Russian Translation\sadx-russian-mod.lib and object ..\..\..\Steam\steamapps\common\Sonic Adventure DX\mods\SADX Russian Translation\sadx-russian-mod.exp
   Generating code
-  2 of 627 functions ( 0.3%) were compiled, the rest were copied from previous compilation.
-    0 functions were new in current compilation
-    3 functions had inline decision re-evaluated but remain unchanged
+  639 of 644 functions (99.2%) were compiled, the rest were copied from previous compilation.
+    8 functions were new in current compilation
+    1 functions had inline decision re-evaluated but remain unchanged
   Finished generating code
-LINK : warning LNK4020: a type record in 'C:\Users\timhe\Documents\GitHub\SonicAdventureRussianTranslation\sadx-mod-loader\mod-loader-common\ModLoaderCommon\Release\ModLoaderCommon.pdb' is corrupted; some symbols and types may not be accessible from the debugger
-LINK : warning LNK4020: a type record in 'C:\Users\timhe\Documents\GitHub\SonicAdventureRussianTranslation\sadx-mod-loader\mod-loader-common\ModLoaderCommon\Release\ModLoaderCommon.pdb' is corrupted; some symbols and types may not be accessible from the debugger
-  sadx-russian-mod.vcxproj -> C:\Users\timhe\Documents\GitHub\SonicAdventureRussianTranslation\bin\sadx-russian-mod.dll
+  sadx-russian-mod.vcxproj -> D:\Steam\steamapps\common\Sonic Adventure DX\mods\SADX Russian Translation\sadx-russian-mod.dll

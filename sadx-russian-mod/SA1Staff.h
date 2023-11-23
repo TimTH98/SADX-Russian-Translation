@@ -1,11 +1,29 @@
 #include "stdafx.h"
+#include <SADXModLoader.h>
+#include "SADXStructs.h"
 
 // Original code by PkR
 
 CreditsEntry SA1Credits[] = {
 	{ 0, 0, 0, 0, "" }, //LOCALIZATION
-	{ 1, 0, 0, 0, "RUSSIAN LOCALIZATION" },
-	{ 1, -1, 0, 0, "by FAILING FORWARD" },
+	{ 1, 0, 0, 0, "RUSSIAN TRANSLATION 2.0+ RELEASE" },
+	{ 1, -1, 0, 0, "by HedgeCrew Team" },
+	{ 2, -1, 0, 0, "Project Lead" },
+	{ 3, -1, 0, 0, "Artem 'TimTH' Bolonenko" },
+	{ 2, -1, 0, 0, "Translation" },
+	{ 3, -1, 0, 0, "Ah Kyoi" },
+	{ 3, -1, 0, 0, "Sofia 'valera_firefox' Laricheva" },
+	{ 2, -1, 0, 0, "Texture & Text Editing & Code Fixes" },
+	{ 3, -1, 0, 0, "Irregular Zero" },
+	{ 2, -1, 0, 0, "Text Editing & Play Testing" },
+	{ 3, -1, 0, 0, "Hey-Pi-Ron" },
+	{ 2, -1, 0, 0, "Special thanks" },
+	{ 3, -1, 0, 0, "Takuya Nishida, Dance Copter" },
+	{ 3, -1, 0, 0, "ALEKS KV, EggorXXX" },
+	{ 3, -1, 0, 0, "" },
+	{ 3, -1, 0, 0, "" },
+	{ 1, 0, 0, 0, "RUSSIAN TRANSLATION 1.0-1.2 RELEASE" },
+	{ 1, -1, 0, 0, "by Failing Forward" },
 	{ 2, -1, 0, 0, "Project lead" },
 	{ 3, -1, 0, 0, "Artem 'TimTH' Bolonenko" },
 	{ 2, -1, 0, 0, "Producer" },
@@ -23,30 +41,20 @@ CreditsEntry SA1Credits[] = {
 	{ 3, -1, 0, 0, "Black_Doom, N69" },
 	{ 2, -1, 0, 0, "Thanks to mod. community" },
 	{ 3, -1, 0, 0, "MainMemory, Kell" },
-	{ 3, -1, 0, 0, "Windii" },
-	{ 3, -1, 0, 0, "PkR, Sonikko" },
+	{ 3, -1, 0, 0, "PkR, Sonikko, Windii" },
 	{ 3, -1, 0, 0, "Dark Sonic, SPEEPSHighway" },
 	{ 2, -1, 0, 0, "Sponsors" },
 	{ 3, -1, 0, 0, "XenuS, Sonic Style" },
 	{ 3, -1, 0, 0, "Jorik007, YamazakiOo" },
 	{ 3, -1, 0, 0, "Triangly, ilyadancer" },
-	{ 3, -1, 0, 0, "Andrey Titov" },
-	{ 3, -1, 0, 0, "Prosto Nikita" },
+	{ 3, -1, 0, 0, "Andrey Titov, Prosto Nikita" },
 	{ 3, -1, 0, 0, "Nikolay Titov" },
 	{ 3, -1, 0, 0, "Chief-Net" },
 	{ 2, -1, 0, 0, "In memory of" },
 	{ 3, -1, 0, 0, "ghast_ololo" },
 	{ 3, -1, 0, 0, "valera_firefox" },
 	{ 3, -1, 0, 0, "" },
-	{ 1, -1, 0, 0, "VERSION 2.0+ RELEASE STAFF" },
-	{ 2, -1, 0, 0, "HedgeCrew Team" },
-	{ 3, -1, 0, 0, "TimTH - Project Lead" },
-	{ 3, -1, 0, 0, "Ah Kyoi - Translation" },
-	{ 3, -1, 0, 0, "IrregularZero - Texture & Text Editor" },
-	{ 3, -1, 0, 0, "Hey-Pi-Ron - Text Editor & Tester" },
-	{ 2, -1, 0, 0, "Special thanks" },
-	{ 3, -1, 0, 0, "Nishida Takuya" },
-	{ 3, -1, 0, 0, "DanceCopter" },
+	{ 3, -1, 0, 0, "" },
 	{ 3, -1, 0, 0, "" },
 	{ 1, 0, 0, 0, "SONIC ADVENTURE STAFF" },
 	{ 3, -1, 0, 0, " " },
@@ -379,12 +387,6 @@ CreditsEntry SA1Credits[] = {
 	{ 3, -1, 0, 0, "Lightspan, San Diego, CA." },
 	{ 3, -1, 0, 0, "Audio Banks, Santa Monica, CA." },
 	{ 3, -1, 0, 0, "" },
-	{ 3, -1, 0, 0, "" },
-	{ 3, -1, 0, 0, "" },
-	{ 3, -1, 0, 0, "" },
-	{ 3, -1, 0, 0, "" },
-	{ 3, -1, 0, 0, "" },
-	{ 3, -1, 0, 0, "" },
 	{ 3, -1, 0, 0, "Dreamcast LIBRARY STAFF" },
 	{ 3, -1, 0, 0, "Masao Oshimi (CRI)" },
 	{ 3, -1, 0, 0, "Tomonori Saguchi (CRI)" },
@@ -453,26 +455,10 @@ CreditsEntry SA1Credits[] = {
 	{ 6, -1, 0, 0, "presented by" },
 	{ 7, -1, 0, 0, "SEGA ENTERPRISES,LTD." }
 };
+
 void LoadSA1Staff()
 {
-	DataPointer(CreditsList, MainCredits, 0x2BC2FD0);
-	MainCredits.Count = 449;
-	MainCredits.Entries = (CreditsEntry*)& SA1Credits;
+	DataPointer(CreditsList, StaffRollData, 0x2BC2FD0);
+	StaffRollData.Count = 449;
+	StaffRollData.Entries = (CreditsEntry*)&SA1Credits;
 }
-
-//static int saveprogress = 12;
-//const char* NowSavingString[] = { "C", "O", "X", "P", "A", "H", "E", "H", "O"};
-//DataPointer(int, LoadingOrWhatever, 0x3B28114);
-//DataPointer(byte, SavePending, 0x3ABDF79);
-//
-//void NowSaving_Display()
-//{
-//	unsigned short FontSize = unsigned short((16 * ((float)VerticalResolution / 480.0f)));
-//	float totalcount = (float)HorizontalResolution / FontSize;
-//	SetDebugFontSize(FontSize);
-//	for (int i = 0; i < 10; i++)
-//	{
-//		if (saveprogress >= i) SetDebugFontColor(0xFF5A97E2); else SetDebugFontColor(0xFFE2E2E2);
-//		DisplayDebugString(NJM_LOCATION((int)totalcount - 13 + i, 2), NowSavingString[i]);
-//	}
-//}

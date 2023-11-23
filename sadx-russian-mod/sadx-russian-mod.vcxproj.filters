@@ -21,6 +21,12 @@
     <ClCompile Include="stdafx.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="VariousText.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="LoadTextures.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -29,16 +35,13 @@
     <ClInclude Include="targetver.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="SADXStaff.h">
+    <ClInclude Include="SA1Staff.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="VariousText.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Funcs.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="DreamcastChaoGardenHints.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="LoadTextures.h">

@@ -1206,6 +1206,40 @@ typedef struct obj {
 	SA2B_Model      *sa2bmodel;
 #endif
 
+private:
+	static obj* _getNodeByIndex(obj* _obj, int &index)
+	{
+		do
+		{
+			if (index-- == 0)
+				return _obj;
+			if (_obj->child)
+			{
+				obj* tmp = _getNodeByIndex(_obj->child, index);
+				if (tmp)
+					return tmp;
+			}
+			_obj = _obj->sibling;
+		} while (_obj);
+		return nullptr;
+	}
+
+public:
+	obj* getnode(int index)
+	{
+		return _getNodeByIndex(this, index);
+	}
+
+	int countnodes() const
+	{
+		int result = 1;
+		if (child != nullptr)
+			result += child->countanimated();
+		if (sibling != nullptr)
+			result += sibling->countanimated();
+		return result;
+	}
+
 	int countanimated() const
 	{
 		int result = (evalflags & NJD_EVAL_SKIP) == NJD_EVAL_SKIP ? 0 : 1;
@@ -2264,6 +2298,37 @@ typedef struct {
 } NJS_DIRECT_COMPILE_LIGHT;
 
 #endif /* _NINJA_DIR_H_ */
+
+#ifndef _NINJA_API_H_
+#define _NINJA_API_H_
+
+#define njAbs(n)         ((Float)fabsf   ((Float)(n)))
+#define njArcCos(n)      ((Angle)NJM_RAD_ANG(acosf  ((Float)(n)) ))
+#define njArcCosec(n)    ((Angle)NJM_RAD_ANG(asinf  (1.0f/(Float)(n)) ))
+#define njArcCot(n)      ((Angle)NJM_RAD_ANG(atanf  (1.0f/(Float)(n)) ))
+#define njArcSec(n)      ((Angle)NJM_RAD_ANG(acosf  (1.0f/(Float)(n)) ))
+#define njArcSin(n)      ((Angle)NJM_RAD_ANG(asinf  ((Float)(n)) ))
+#define njArcTan(n)      ((Angle)NJM_RAD_ANG(atanf  ((Float)(n)) ))
+#define njArcTan2(y,x)   ((Angle)NJM_RAD_ANG(atan2f ((Float)(y),(Float)(x)) ))
+
+#define njCeil(n)        ((Float)ceilf   ((Float)(n)))
+#define njCosech(n)      ((Float)( 1.0f / sinhf((Float)NJM_ANG_RAD(n)) ))
+#define njCosh(n)        ((Float)coshf   ((Float)NJM_ANG_RAD(n)))
+#define njCoth(n)        ((Float)( 1.0f / tanhf((Float)NJM_ANG_RAD(n)) ))
+#define njExp(x)         ((Float)expf((x)))
+#define njFloor(n)       ((Float)floorf  ((Float)(n)))
+#define njHypot(x,y)     ((Float)njSqrt  ( (x)*(x) + (y)*(y) ))
+#define njLog(n)         ((Float)logf    ((Float)(n)))
+#define njLog10(n)       ((Float)log10f  ((Float)(n)))
+#define njLog2(n)        ((Float)( njLog((n)) / njLog(2.f) ))
+#define njPow(n1,n2)     ((Float)powf    ((Float)(n1),(Float)(n2)))
+#define njSech(n)        ((Float)( 1.0 / coshf((Float)NJM_ANG_RAD(n)) ))
+#define njSinh(n)        ((Float)sinhf   ((Float)NJM_ANG_RAD(n)))
+#define njTanh(n)        ((Float)tanhf   ((Float)NJM_ANG_RAD(n)))
+#define njRandom()       ((Float)((Float)rand()/(Float)(RAND_MAX+1)))
+#define njRandomSeed(n)  (srand((Uint32)(n)))
+
+#endif /* _NINJA_API_H_ */
 
 static inline Sint16 *NextChunk(Sint16 *chunk)
 {

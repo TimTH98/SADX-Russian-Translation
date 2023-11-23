@@ -3,8 +3,7 @@
 #include <IniFile.hpp>
 #include <cmath>
 
-#include "DreamcastChaoGardenHints.h"
-#include "SADXStaff.h"
+#include "SA1Staff.h"
 #include "Funcs.h"
 #include "VariousText.h"
 #include "LoadTextures.h"
@@ -15,13 +14,7 @@ std::string StartButton = "Start";
 bool ExtraGGHelp = false;
 std::string StageBorder = "US";
 
-void LoadChaoGardenHintMessages()
-{
-	WriteData((HintText_Entry**)0x9BF070, (HintText_Entry*)&ChaoGardenMessages_French);
-	WriteData((HintText_Entry**)0x9BF084, (HintText_Entry*)&ChaoGardenMessages_French);
-	WriteData((HintText_Entry**)0x9BF098, (HintText_Entry*)&ChaoGardenMessages_French);
-	WriteData((HintText_Entry**)0x9BF0AC, (HintText_Entry*)&ChaoGardenMessages_French);
-}
+bool CreditsLoaded = false;
 
 extern "C"
 {
@@ -33,8 +26,6 @@ extern "C"
 		HMODULE EmblemChallenge = GetModuleHandle(L"SADX_EmblemChallenge");	// Init Emblem Challenge dll
 		HMODULE HDGui = GetModuleHandle(L"HD_GUI");					// Init HD GUI
 
-		//if (DConv)WriteData<5>((void*)0x423795, 0x90); // SADC SS Chao Garden disable
-		
 		#pragma region Ini Configuration
 		const IniFile* config = new IniFile(std::string(path) + "\\config.ini");
 
@@ -181,15 +172,28 @@ extern "C"
 		#pragma endregion
 		#pragma endregion
 				
-		LoadSA1Staff();								// Load Russian Staff Roll
-		LoadChaoGardenHintMessages();				// Load Dreamcast Chao Gadren Hints
+		DCChaoGarden();
 		LoadText();
 		BossNames();
 		BossHelps();
 		MissionText();
 		GG_Games();
-		LoadTextures(path, helperFunctions);				
+		LoadTextures(path, helperFunctions);
+		LoadExtraText(helperFunctions);
 	} 
 	
+	__declspec(dllexport) void OnFrame()
+	{
+		if (!CreditsLoaded)
+		{
+			LoadSA1Staff();
+			CreditsLoaded = true;
+		}
+
+		TextLanguage = 2;
+		//VoiceLanguage = 0;
+	}
+
 	__declspec(dllexport) ModInfo SADXModInfo = { ModLoaderVer };
 }
+

@@ -1,2 +1,2 @@
-#TargetFrameworkVersion=v4.0:PlatformToolSet=v141_xp:EnableManagedIncrementalBuild=false:VCToolArchitecture=Native32Bit:WindowsTargetPlatformVersion=7.0
-Release|Win32|C:\Users\timhe\Documents\GitHub\SonicAdventureRussianTranslation\|
+PlatformToolSet=v142:VCToolArchitecture=Native32Bit:VCToolsVersion=14.29.30133:TargetPlatformVersion=10.0.22621.0:
+Release|Win32|D:\_GitHubRepo\SADX-Russian-Translation\|
