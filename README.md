@@ -6,5 +6,5 @@ This is the SA Russian Translation project from Japanese:
 * Chao Garden's text
 * NPCs text
 * Textures and some system text
-* Full support of PkR's Dreamcast Conversion Mods (without DLCs)
+* Full support of PkR's Dreamcast Conversion Mods (with DLCs)
 * Support of the Goal Ring Mod
