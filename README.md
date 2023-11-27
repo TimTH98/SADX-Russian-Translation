@@ -1,10 +1,23 @@
-This is the SA Russian Translation project from Japanese:
+<p align="center">
+  <img src="https://images.gamebanana.com/img/ss/mods/654e16f7c0de3.jpg" width="640" height="298" >
+</p>
+Проект перевода Sonic Adventure DX на ПК.
+Главная особенность – перевод с ЯПОНСКОГО языка, с которого были переведены:
 
-* Story (Windii's Retranslate Mod as source)
-* Tikal's tips, monitors
-* Recaps
-* Chao Garden's text
-* NPCs text
-* Textures and some system text
-* Full support of PkR's Dreamcast Conversion Mods (with DLCs)
-* Support of the Goal Ring Mod
+* игровые катсцены;
+* текст рекап-воспоминаний;
+* текст людей и ехидн в городах;
+* текст подсказок и мониторов;
+* текст режима заданий;
+* текстуры игрового интерфейса.
+
+Благодаря реализации, перевод совместим по следующими модификациями, в которых присутствует изменённый текст или текстуры с текстом:
+* Dreamcast Conversion
+* Goal Ring Mod
+* The Emblem Challenge
+* Dreamcast DLCs
+* HUD Plus
+* Meme Maker (при сохранении файла с кастомным текстом в кодировке CP1251)
+* Multiplayer
+    
+Более подробно об установке: https://vk.com/@tims_garbage-sadx-rus-guide
