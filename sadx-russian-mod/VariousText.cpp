@@ -1,9 +1,5 @@
 ﻿#include "SADXModLoader.h"
-#include "VariousText.h"
 #include "stdafx.h"
-#include <SADXModLoader.h>
-#include <IniFile.hpp>
-#include <cmath>
 
 void (*multi_replace_text)(const char* name, uint32_t language, const char* text) = nullptr;
 
