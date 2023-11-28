@@ -26,32 +26,32 @@ void SetConfigFile(const char* path, const HelperFunctions& helperFunctions)
 	
 	// TGS
 	if (TGS_Selectors == "TGS") {
-		ReplacePVM("B_CHNAM_E", "B_CHNAM_E_TGS");
-		ReplacePVM("AVA_METAL_SONIC", "AVA_METAL_SONIC_TGS");
+		ReplaceTexPVM("B_CHNAM_E", "B_CHNAM_E_TGS");
+		ReplaceTexPVM("AVA_METAL_SONIC", "AVA_METAL_SONIC_TGS");
 	}
 	else if (TGS_Selectors == "Vanilla") {
-		ReplacePVM("B_CHNAM_E", "B_CHNAM_E_HD");
-		ReplacePVM("AVA_METAL_SONIC", "AVA_METAL_SONIC_DX");
+		ReplaceTexPVM("B_CHNAM_E", "B_CHNAM_E_HD");
+		ReplaceTexPVM("AVA_METAL_SONIC", "AVA_METAL_SONIC_DX");
 	}
 
 	// Start Button Prompt
 	if (StartButton == "Enter") {
 		if (DConv != nullptr)
-			ReplacePVM("PRESSSTART", "PRESSSTART_ENTER");
+			ReplaceTexPVM("PRESSSTART", "PRESSSTART_ENTER");
 		else
-			ReplacePVM("PRESSSTART", "PRESSSTART_DX_Enter_HD_RUS");
+			ReplaceTexPVM("PRESSSTART", "PRESSSTART_DX_Enter_HD_RUS");
 
-		ReplacePVM("AVA_GTITLE0_E", "AVA_GTITLE0_E_HD_ENTER");
-		ReplacePVM("AVA_GTITLE0_DC_HD", "AVA_GTITLE0_DC_HD_ENTER");
+		ReplaceTexPVM("AVA_GTITLE0_E", "AVA_GTITLE0_E_HD_ENTER");
+		ReplaceTexPVM("AVA_GTITLE0_DC_HD", "AVA_GTITLE0_DC_HD_ENTER");
 	}
 	else if (StartButton == "Start") {
 		if (DConv != nullptr)
-			ReplacePVM("PRESSSTART", "PRESSSTART_Start");
+			ReplaceTexPVM("PRESSSTART", "PRESSSTART_Start");
 		else
-			ReplacePVM("PRESSSTART", "PRESSSTART_DX_START_HD_RUS");
+			ReplaceTexPVM("PRESSSTART", "PRESSSTART_DX_START_HD_RUS");
 
-		ReplacePVM("AVA_GTITLE0_E", "AVA_GTITLE0_E_HD_START");
-		ReplacePVM("AVA_GTITLE0_DC_HD", "AVA_GTITLE0_DC_HD_START");
+		ReplaceTexPVM("AVA_GTITLE0_E", "AVA_GTITLE0_E_HD_START");
+		ReplaceTexPVM("AVA_GTITLE0_DC_HD", "AVA_GTITLE0_DC_HD_START");
 	}
 	
 	// Stage Border Variations
@@ -146,20 +146,20 @@ void SetConfigFile(const char* path, const HelperFunctions& helperFunctions)
 	// Chao Garden Icon
 	if (DreamcastChaoIcon == "DC")
 	{
-		ReplacePVM("CHAO_OBJECT", "CHAO_OBJECT_DC");
-		ReplacePVM("AL_DX_OBJ_CMN", "AL_DX_OBJ_CMN_DC");
+		ReplaceTexPVM("CHAO_OBJECT", "CHAO_OBJECT_DC");
+		ReplaceTexPVM("AL_DX_OBJ_CMN", "AL_DX_OBJ_CMN_DC");
 	}
 	else if (DreamcastChaoIcon == "DX") {
-		ReplacePVM("CHAO_OBJECT", "CHAO_OBJECT_DX");
-		ReplacePVM("AL_DX_OBJ_CMN", "AL_DX_OBJ_CMN_DX");
+		ReplaceTexPVM("CHAO_OBJECT", "CHAO_OBJECT_DX");
+		ReplaceTexPVM("AL_DX_OBJ_CMN", "AL_DX_OBJ_CMN_DX");
 	}
 
 	// Alternative GG Game help
 	if (!ExtraGGHelp) {
-		ReplacePVM("GG_TEXLIST_FR", "GG_TEXLIST_FR_Rus");
+		ReplaceTexPVM("GG_TEXLIST_FR", "GG_TEXLIST_FR_Rus");
 	}
 	else {
-		ReplacePVM("GG_TEXLIST_FR", "GG_TEXLIST_FR_Rus_Alt");
+		ReplaceTexPVM("GG_TEXLIST_FR", "GG_TEXLIST_FR_Rus_Alt");
 	}
 
 #pragma endregion
