@@ -7,7 +7,9 @@
 #include "LoadTextures.h"
 #include "ModConfig.h"
 
+
 bool CreditsLoaded = false;
+HMODULE DConv = GetModuleHandle(L"DCMods_Main");			// Init Dreamcast Conversion
 
 extern "C"
 {
@@ -28,7 +30,9 @@ extern "C"
 	{
 		if (!CreditsLoaded)
 		{
-			LoadSACredits();
+			if (DConv)
+				LoadSADCCredits();
+			else LoadSADXCredits();
 			CreditsLoaded = true;
 		}
 
