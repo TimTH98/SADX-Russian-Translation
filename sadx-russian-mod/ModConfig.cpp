@@ -1,7 +1,7 @@
 #include "stdafx.h"
 #include "SADXModLoader.h"
 #include <IniFile.hpp>
-#include "Funcs.h"
+#include "Macros.h"
 
 void SetConfigFile(const char* path, const HelperFunctions& helperFunctions)
 {

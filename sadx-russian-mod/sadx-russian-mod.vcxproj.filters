@@ -47,7 +47,7 @@
     <ClInclude Include="VariousText.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Funcs.h">
+    <ClInclude Include="Macros.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="LoadTextures.h">
