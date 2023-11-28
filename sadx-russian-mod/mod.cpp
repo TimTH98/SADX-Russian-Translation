@@ -15,15 +15,16 @@ extern "C"
 {
 	__declspec(dllexport) void __cdecl Init(const char *path, const HelperFunctions &helperFunctions)
 	{						
-		SetConfigFile(path, helperFunctions);
 		DCChaoGarden();
 		LoadText();
 		BossNames();
 		BossHelps();
 		MissionText();
 		GG_Games();
+
 		LoadTextures(path, helperFunctions);
 		LoadExtraText(helperFunctions);
+		SetConfigFile(path, helperFunctions);
 	} 
 	
 	__declspec(dllexport) void OnFrame()

@@ -1,7 +1,7 @@
 #include "stdafx.h"
 #include "SADXModLoader.h"
 #include <IniFile.hpp>
-#include "Funcs.h"
+#include "Macros.h"
 
 void SetConfigFile(const char* path, const HelperFunctions& helperFunctions)
 {
@@ -21,7 +21,7 @@ void SetConfigFile(const char* path, const HelperFunctions& helperFunctions)
 	StartButton = config->getString("Customs", "StartButton", "Start");	
 	StageBorder = config->getString("Customs", "StageBorder", "US");
 
-	DreamcastChaoIcon = config->getString("Customs", "DreamcastChaoIcon", "DX");
+	DreamcastChaoIcon = config->getString("Extra", "DreamcastChaoIcon", "DX");
 	ExtraGGHelp = config->getBool("Extra", "ExtraGGHelp", false);
 	
 	// TGS
@@ -36,22 +36,11 @@ void SetConfigFile(const char* path, const HelperFunctions& helperFunctions)
 
 	// Start Button Prompt
 	if (StartButton == "Enter") {
-		if (DConv != nullptr)
-			ReplaceTexPVM("PRESSSTART", "PRESSSTART_ENTER");
-		else
-			ReplaceTexPVM("PRESSSTART", "PRESSSTART_DX_Enter_HD_RUS");
-
-		ReplaceTexPVM("AVA_GTITLE0_E", "AVA_GTITLE0_E_HD_ENTER");
-		ReplaceTexPVM("AVA_GTITLE0_DC_HD", "AVA_GTITLE0_DC_HD_ENTER");
-	}
-	else if (StartButton == "Start") {
-		if (DConv != nullptr)
-			ReplaceTexPVM("PRESSSTART", "PRESSSTART_Start");
-		else
-			ReplaceTexPVM("PRESSSTART", "PRESSSTART_DX_START_HD_RUS");
-
-		ReplaceTexPVM("AVA_GTITLE0_E", "AVA_GTITLE0_E_HD_START");
-		ReplaceTexPVM("AVA_GTITLE0_DC_HD", "AVA_GTITLE0_DC_HD_START");
+		ReplaceTex("PRESSSTART", "hyoji_pressstart", "config\\startButton\\demo", "enter", 5000900, 256, 32);
+		ReplaceTex("AVA_GTITLE0_E", "p_enter_us_00", "config\\startButton\\titlescreen", "enter_00", 3489661283, 256, 256);
+		ReplaceTex("AVA_GTITLE0_E", "p_enter_us_01", "config\\startButton\\titlescreen", "enter_01", 3489661284, 256, 256);
+		ReplaceTex("AVA_GTITLE0_E", "p_enter_us_02", "config\\startButton\\titlescreen", "enter_02", 3489661285, 256, 256);
+		ReplaceTex("AVA_GTITLE0_DC_HD", "pressstart", "config\\startButton\\titlescreen", "pressenter", 3489661269, 256, 32);
 	}
 	
 	// Stage Border Variations
@@ -143,24 +132,45 @@ void SetConfigFile(const char* path, const HelperFunctions& helperFunctions)
 	}
 	#pragma endregion
 
-	// Chao Garden Icon
+	// Chao Garden Portals Icons
 	if (DreamcastChaoIcon == "DC")
 	{
-		ReplaceTexPVM("CHAO_OBJECT", "CHAO_OBJECT_DC");
-		ReplaceTexPVM("AL_DX_OBJ_CMN", "AL_DX_OBJ_CMN_DC");
-	}
-	else if (DreamcastChaoIcon == "DX") {
-		ReplaceTexPVM("CHAO_OBJECT", "CHAO_OBJECT_DX");
-		ReplaceTexPVM("AL_DX_OBJ_CMN", "AL_DX_OBJ_CMN_DX");
+		ReplaceTex("CHAO_OBJECT", "al_ws10", "config\\chaoPortalsIcons", "eggCarrier_dc", 504562, 128, 128);
+		ReplaceTex("CHAO_OBJECT", "al_ws11", "config\\chaoPortalsIcons", "mysticRuins_dc", 504564, 128, 128);
+		ReplaceTex("CHAO_OBJECT", "al_ws12", "config\\chaoPortalsIcons", "stationSquare_dc", 504566, 128, 128);
+
+		ReplaceTex("AL_DX_OBJ_CMN", "al_ws10", "config\\chaoPortalsIcons", "eggCarrier_dc", 1100078, 128, 128);
+		ReplaceTex("AL_DX_OBJ_CMN", "al_ws11", "config\\chaoPortalsIcons", "mysticRuins_dc", 1100079, 128, 128);
+		ReplaceTex("AL_DX_OBJ_CMN", "al_ws12", "config\\chaoPortalsIcons", "stationSquare_dc", 1100080, 128, 128);
 	}
 
 	// Alternative GG Game help
-	if (!ExtraGGHelp) {
-		ReplaceTexPVM("GG_TEXLIST_FR", "GG_TEXLIST_FR_Rus");
+	ReplaceTexPVM_HD_Rus("GG_TEXLIST_FR");
+	if (ExtraGGHelp) {
+		ReplaceTex("GG_TEXLIST_FR", "y256_s_dm_a", "config\\GGTips", "alt_tips_0", 1315900, 256, 256);
+		ReplaceTex("GG_TEXLIST_FR", "y256_s_dm_b", "config\\GGTips", "alt_tips_1", 1316000, 256, 256);
+		ReplaceTex("GG_TEXLIST_FR", "y256_s_s1_a", "config\\GGTips", "alt_tips_0", 1315300, 256, 256);
+		ReplaceTex("GG_TEXLIST_FR", "y256_s_s1_b", "config\\GGTips", "alt_tips_1", 1315400, 256, 256);
+		ReplaceTex("GG_TEXLIST_FR", "y256_s_s2_a", "config\\GGTips", "alt_tips_0", 1315500, 256, 256);
+		ReplaceTex("GG_TEXLIST_FR", "y256_s_s2_b", "config\\GGTips", "alt_tips_1", 1315600, 256, 256);
+		ReplaceTex("GG_TEXLIST_FR", "y256_s_sb_a", "config\\GGTips", "alt_tips_0", 1317300, 256, 256);
+		ReplaceTex("GG_TEXLIST_FR", "y256_s_sb_b", "config\\GGTips", "alt_tips_1", 1317400, 256, 256);
+		ReplaceTex("GG_TEXLIST_FR", "y256_s_sd1_a", "config\\GGTips", "alt_tips_0", 1316100, 256, 256);
+		ReplaceTex("GG_TEXLIST_FR", "y256_s_sd1_b", "config\\GGTips", "alt_tips_1", 1316200, 256, 256);
+		ReplaceTex("GG_TEXLIST_FR", "y256_s_sd2_a", "config\\GGTips", "alt_tips_0", 1316700, 256, 256);
+		ReplaceTex("GG_TEXLIST_FR", "y256_s_sd2_b", "config\\GGTips", "alt_tips_1", 1316800, 256, 256);
+		ReplaceTex("GG_TEXLIST_FR", "y256_s_sl_a", "config\\GGTips", "alt_tips_0", 1317100, 256, 256);
+		ReplaceTex("GG_TEXLIST_FR", "y256_s_sl_b", "config\\GGTips", "alt_tips_1", 1317200, 256, 256);
+		ReplaceTex("GG_TEXLIST_FR", "y256_s_ss_a", "config\\GGTips", "alt_tips_0", 1316300, 256, 256);
+		ReplaceTex("GG_TEXLIST_FR", "y256_s_ss_b", "config\\GGTips", "alt_tips_1", 1316400, 256, 256);
+		ReplaceTex("GG_TEXLIST_FR", "y256_s_st1_a", "config\\GGTips", "alt_tips_0", 1315700, 256, 256);
+		ReplaceTex("GG_TEXLIST_FR", "y256_s_st1_b", "config\\GGTips", "alt_tips_1", 1315800, 256, 256);
+		ReplaceTex("GG_TEXLIST_FR", "y256_s_st2_a", "config\\GGTips", "alt_tips_0", 1316500, 256, 256);
+		ReplaceTex("GG_TEXLIST_FR", "y256_s_st2_b", "config\\GGTips", "alt_tips_1", 1316600, 256, 256);
+		ReplaceTex("GG_TEXLIST_FR", "y256_s_ta_a", "config\\GGTips", "alt_tips_0", 1316900, 256, 256);
+		ReplaceTex("GG_TEXLIST_FR", "y256_s_ta_b", "config\\GGTips", "alt_tips_1", 1317000, 256, 256);
+		ReplaceTex("GG_TEXLIST_FR", "y256_s_ts_a", "config\\GGTips", "alt_tips_0", 1317500, 256, 256);
+		ReplaceTex("GG_TEXLIST_FR", "y256_s_ts_b", "config\\GGTips", "alt_tips_1", 1317600, 256, 256);
 	}
-	else {
-		ReplaceTexPVM("GG_TEXLIST_FR", "GG_TEXLIST_FR_Rus_Alt");
-	}
-
 #pragma endregion
 }

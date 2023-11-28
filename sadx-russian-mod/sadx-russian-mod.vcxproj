@@ -43,7 +43,7 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <OutDir>..\..\..\SteamLibrary\steamapps\common\Sonic Adventure DX\mods\SADX Russian Translation</OutDir>
+    <OutDir>..\..\..\Steam\steamapps\common\Sonic Adventure DX\mods\SADX Russian Translation GH</OutDir>
     <IntDir>bin</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -91,7 +91,7 @@
     <ClCompile Include="VariousText.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Funcs.h" />
+    <ClInclude Include="Macros.h" />
     <ClInclude Include="LoadTextures.h" />
     <ClInclude Include="ModConfig.h" />
     <ClInclude Include="VariousText.h" />
