@@ -30,6 +30,9 @@
     <ClCompile Include="ModConfig.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="GameCredits.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -38,7 +41,7 @@
     <ClInclude Include="targetver.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="SA1Staff.h">
+    <ClInclude Include="GameCredits.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="VariousText.h">

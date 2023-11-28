@@ -2,7 +2,7 @@
 #include <SADXModLoader.h>
 #include <IniFile.hpp>
 
-#include "SA1Staff.h"
+#include "GameCredits.h"
 #include "VariousText.h"
 #include "LoadTextures.h"
 #include "ModConfig.h"
@@ -28,7 +28,7 @@ extern "C"
 	{
 		if (!CreditsLoaded)
 		{
-			LoadSA1Staff();
+			LoadSACredits();
 			CreditsLoaded = true;
 		}
 
