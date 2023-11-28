@@ -36,22 +36,11 @@ void SetConfigFile(const char* path, const HelperFunctions& helperFunctions)
 
 	// Start Button Prompt
 	if (StartButton == "Enter") {
-		if (DConv != nullptr)
-			ReplaceTexPVM("PRESSSTART", "PRESSSTART_ENTER");
-		else
-			ReplaceTexPVM("PRESSSTART", "PRESSSTART_DX_Enter_HD_RUS");
-
-		ReplaceTexPVM("AVA_GTITLE0_E", "AVA_GTITLE0_E_HD_ENTER");
-		ReplaceTexPVM("AVA_GTITLE0_DC_HD", "AVA_GTITLE0_DC_HD_ENTER");
-	}
-	else if (StartButton == "Start") {
-		if (DConv != nullptr)
-			ReplaceTexPVM("PRESSSTART", "PRESSSTART_Start");
-		else
-			ReplaceTexPVM("PRESSSTART", "PRESSSTART_DX_START_HD_RUS");
-
-		ReplaceTexPVM("AVA_GTITLE0_E", "AVA_GTITLE0_E_HD_START");
-		ReplaceTexPVM("AVA_GTITLE0_DC_HD", "AVA_GTITLE0_DC_HD_START");
+		ReplaceTex("PRESSSTART", "hyoji_pressstart", "config\\startButton\\demo", "enter", 5000900, 256, 32);
+		ReplaceTex("AVA_GTITLE0_E", "p_enter_us_00", "config\\startButton\\titlescreen", "enter_00", 3489661283, 256, 256);
+		ReplaceTex("AVA_GTITLE0_E", "p_enter_us_01", "config\\startButton\\titlescreen", "enter_01", 3489661284, 256, 256);
+		ReplaceTex("AVA_GTITLE0_E", "p_enter_us_02", "config\\startButton\\titlescreen", "enter_02", 3489661285, 256, 256);
+		ReplaceTex("AVA_GTITLE0_DC_HD", "pressstart", "config\\startButton\\titlescreen", "pressenter", 3489661269, 256, 32);
 	}
 	
 	// Stage Border Variations
