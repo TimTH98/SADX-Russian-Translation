@@ -1,0 +1,7 @@
+1000502,ade_ti_chaorace.png
+1000490,ade_ti_chaosel.png
+1000489,ade_ti_coursesel.png
+1000503,ade_ti_begin1.png
+1000504,ade_ti_begin2.png
+1000492,ade_ti_jewel.png
+1000491,ade_ti_minnna1.png

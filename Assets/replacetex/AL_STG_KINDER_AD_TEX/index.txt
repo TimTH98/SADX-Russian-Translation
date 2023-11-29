@@ -1,0 +1,4 @@
+183005,kin_ad_waku1.png,256x256
+183004,kin_ad_waku2.png,1024x1024
+183003,kin_ade_moji1.png,256x256
+183000,kin_ade_moji2.png,128x128

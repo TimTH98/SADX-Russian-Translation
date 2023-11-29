@@ -1,0 +1,3 @@
+710103,m_c_status_00.png,256x256
+710104,m_c_status_01.png,256x256
+710110,m_c_status_07.png,128x128

@@ -1,0 +1,14 @@
+5487860,back.png,16x16
+5487861,confirm.png,16x16
+5487862,select.png,16x16
+42967295,MU_TX_e.png,512x32
+1714000,B_act1.png,64x32
+1714001,B_act2.png,64x32
+1714002,B_act3.png,64x32
+10000497,B_yes_e.png,32x16
+10000499,B_no_e.png,64x16
+71751020,continue.png,128x32
+71757039,connect.png,128x32
+71757040,host.png,128x32
+71757019,coop.png,128x32
+71751018,battle.png,128x32

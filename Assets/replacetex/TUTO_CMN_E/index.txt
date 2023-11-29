@@ -1,0 +1,3 @@
+10000527,bar_ab.png,512x32
+10000451,title_game_setu_e.png,256x32
+10000452,title_sousa_setu_e.png,512x32

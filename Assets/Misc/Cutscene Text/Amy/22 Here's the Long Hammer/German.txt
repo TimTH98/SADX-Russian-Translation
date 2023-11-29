@@ -1,0 +1,2 @@
+Hier ist der 'Long Hammer'.
+Der Angriffsradius ist damit größer. \nÜbe den 'Spin Hammer'-Angriff.

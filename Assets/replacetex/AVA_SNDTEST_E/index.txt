@@ -1,0 +1,10 @@
+10000526,ST_AB.png,512x64
+10000193,st_action.png,256x16
+10000194,st_adventure.png,256x16
+10000195,st_charactor.png,128x16
+10000494,St_event_e.png,64x16
+10000490,st_jinguru_e.png,64x16
+10000196,ST_KOUKA.png,64x16
+10000498,st_modoru_e.png,256x16
+10000492,st_sonota_e.png,64x16
+10000450,ST_TX_e.png,256x32

@@ -1,0 +1,5 @@
+710063,p_start_00.png,128x64
+710101,p_start_01.png,64x64
+710064,p_mission.png,256x128
+710065,p_clear_00.png,128x64
+710102,p_clear_01.png,64x64

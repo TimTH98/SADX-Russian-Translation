@@ -1,0 +1,3 @@
+1000449,ad_entry1.png
+200074,add_parameter_race_en.png
+1000443,add_select_race_fr.png

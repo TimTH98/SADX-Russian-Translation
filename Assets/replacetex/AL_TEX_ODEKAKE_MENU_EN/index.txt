@@ -1,0 +1,3 @@
+1200050,add_odekake_menu_en.png,256x256
+1200054,add_odekake_title_en.png,512x256
+1200057,add_parameter_odekake_en.png,256x128

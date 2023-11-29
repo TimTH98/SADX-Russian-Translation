@@ -1,0 +1,14 @@
+10000180,B_CANSEL_e.png,128x16
+10000176,B_ENDING_e.png,128x16
+10000489,B_KAISHI_e.png,128x16
+10000177,B_KETTEI_e.png,64x16
+10000499,B_no_e.png,64x16
+10000181,b_setumei_e.png,256x16
+10000182,b_ss_player_e.png,128x32
+10000183,b_ss_stage_e.png,128x32
+10000185,b_syoukyo_e.png,64x16
+10000497,B_yes_e.png,32x16
+710223,syokika_e.png
+710254,retry_en.png
+710271,dont.png
+710269,manage.png

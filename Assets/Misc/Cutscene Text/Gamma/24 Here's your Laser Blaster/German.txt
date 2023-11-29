@@ -1,0 +1,2 @@
+Hier ist der 'Laser Blaster'.
+Damit kann man den Gegner \nbreitbandig angreifen.

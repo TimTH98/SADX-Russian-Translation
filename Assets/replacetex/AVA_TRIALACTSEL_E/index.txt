@@ -1,0 +1,12 @@
+365093,SS_1ST.png,64x32
+365094,SS_2ND.png,64x32
+365095,SS_3RD.png,64x32
+10000444,SS_TX_e.png,512x32
+10000464,ss_tx_bestclear.png,128x16
+10000496,ss_tx_bestweight_e.png,128x16
+10000454,ss_tx_embrem.png,128x16
+10000455,ss_tx_hiscore.png,128x16
+10000449,ss_tx_minigame_e.png,256x32
+10000456,ss_tx_ring.png,256x16
+10000457,ss_tx_score.png,64x16
+10000458,ss_tx_time.png,64x16

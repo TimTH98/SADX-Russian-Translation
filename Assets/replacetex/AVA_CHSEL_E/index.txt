@@ -1,0 +1,3 @@
+365105,CS_CE_TX.png,256x32
+10000035,cs_sinkou_e.png,64x32
+10000448,CS_TX_e.png,512x32

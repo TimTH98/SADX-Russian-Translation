@@ -1,0 +1,8 @@
+100000180,title_back_e0.png,256x256
+100000181,title_back_e1.png,256x256
+100000182,title_back_e2.png,256x256
+100000183,title_back_e3.png,256x256
+100000184,title_back_e4.png,128x128
+100000185,title_back_e5.png,128x128
+100000186,title_back_e6.png,128x128
+100000187,title_back_e7.png,128x128

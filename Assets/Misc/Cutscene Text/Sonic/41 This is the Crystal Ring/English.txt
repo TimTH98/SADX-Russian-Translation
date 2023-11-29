@@ -1,0 +1,2 @@
+This is the Crystal Ring.
+This reduces the time needed to store\npower for the Light Speed Dash.

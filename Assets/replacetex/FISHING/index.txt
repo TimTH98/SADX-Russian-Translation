@@ -1,0 +1,5 @@
+361002,castgauge0.png
+361006,bighyouji.png
+361007,hyouji_g.png
+361008,hit0.png
+361009,hit1.png

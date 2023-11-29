@@ -1,0 +1,17 @@
+10000038,fs_m_clear_e.png,256x16
+10000036,fs_m_embrem_e.png,256x16
+10000040,fs_m_play_e.png,256x16
+10000041,fs_m_start_e.png,256x16
+10000445,FS_TX_e.png,256x32
+365137,MARU_AMY.png,64x64
+365138,MARU_BIG.png,64x64
+365139,maru_e102.png,64x64
+365136,maru_knuckles.png,64x64
+365134,maru_sonic.png,64x64
+365140,maru_supersonic.png,64x64
+365135,maru_tails.png,64x64
+365753,n_maru_amy.png,64x64
+365754,n_maru_big.png,64x64
+365755,n_maru_e102.png,64x64
+365752,n_maru_knuckles.png,64x64
+365751,n_maru_tails.png,64x64

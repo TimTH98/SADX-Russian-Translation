@@ -1,0 +1,12 @@
+5000100,tgs_chrsel_s0.png
+5000101,tgs_chrsel_s1.png
+5000102,tgs_chrsel_s2.png
+5000103,tgs_chrsel_s3.png
+5000200,tgs_chrsel_t0.png
+5000201,tgs_chrsel_t1.png
+5000202,tgs_chrsel_t2.png
+5000203,tgs_chrsel_t3.png
+5000300,tgs_chrsel_k0.png
+5000301,tgs_chrsel_k1.png
+5000302,tgs_chrsel_k2.png
+5000303,tgs_chrsel_k3.png

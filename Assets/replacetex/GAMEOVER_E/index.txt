@@ -1,0 +1,3 @@
+365759,gameover.png,256x32
+10000200,npa_saikai.png,256x64
+10000202,npa_stop.png,256x64

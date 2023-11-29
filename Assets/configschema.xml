@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<ConfigSchema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.sonicretro.org">
+	<Groups>
+		<Group name="Customs" display="Настройки отображения">
+			<Property name="TGS_Selectors" display="Таблички персонажей в меню" type="CharNameStyle" defaultvalue="Vanilla">
+				<HelpText>Выбор между табличками с именами персонажа: чёрные (как в обычной игре) или из демки с TGS</HelpText>
+			</Property>	
+			<Property name="StartButton" display="Кнопка на начальном экране" type="StartButton" defaultvalue="Start">
+				<HelpText>Опция меняет подпись кнопки "Нажмите...": "Start" – для геймпада и "Enter" – для клавиатуры</HelpText>				
+			</Property>							
+			<Property name="StageBorder" display="Таблички уровней" type="StageBorder" defaultvalue="US">
+				<HelpText>Выбор стиля табличек уровней (US или JP), которые отображаются перед их загрузкой</HelpText>	
+			</Property>	
+		</Group>
+		<Group name="Extra" display="Дополнительно">
+			<Property name="DreamcastChaoIcon" display="Иконки садов Чао" type="ChaoIcon" defaultvalue="DX">
+				<HelpText>Изменение вида иконок на порталах в садах Чао</HelpText>				
+			</Property>		
+			<Property name="ExtraGGHelp" display="Альт. подсказки GG" type="bool" defaultvalue="False">
+				<HelpText>Включение альтернативных подсказок для игр с Game Gear</HelpText>	
+			</Property>	
+		</Group>
+	</Groups>	
+	<Enums>
+		<Enum name="CharNameStyle">
+			<EnumMember name="Vanilla" display="Чёрные (Vanilla)"></EnumMember>
+			<EnumMember name="TGS" display="Цветные (TGS)"></EnumMember>	
+		</Enum>
+		<Enum name="ChaoIcon">
+			<EnumMember name="DX" display="Как в DX-версии"></EnumMember>
+			<EnumMember name="DC" display="Как в Dreamcast-версии"></EnumMember>
+		</Enum>
+		<Enum name="StartButton">
+			<EnumMember name="Start" display="Надпись 'Нажмите кнопку Start'"></EnumMember>
+			<EnumMember name="Enter" display="Надпись 'Нажмите Enter'"></EnumMember>
+		</Enum>
+		<Enum name="StageBorder">
+			<EnumMember name="US" display="US"></EnumMember>
+			<EnumMember name="JP" display="JP"></EnumMember>
+		</Enum>
+	</Enums>
+</ConfigSchema>

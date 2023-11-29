@@ -1,0 +1,7 @@
+365071,m_sonic.png,256x64
+365072,m_tails.png,128x64
+365073,m_knuckles.png,256x64
+365074,m_amy.png,128x64
+365075,m_big.png,128x64
+365076,m_e102.png,256x64
+365255,m_supersonic.png,256x64

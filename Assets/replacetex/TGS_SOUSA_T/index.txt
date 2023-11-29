@@ -1,0 +1,12 @@
+5200006,tgs_sousa_t0.png
+5200007,tgs_sousa_t1.png
+5200008,tgs_sousa_t2.png
+5200009,tgs_sousa_t3.png
+5200010,tgs_sousa_t4.png
+5200011,tgs_sousa_t5.png
+5100005,tgs_rule_t0.png
+5100000,tgs_rule_t1.png
+5100001,tgs_rule_t2.png
+5100002,tgs_rule_t3.png
+5100003,tgs_rule_t4.png
+5100004,tgs_rule_t5.png
