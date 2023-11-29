@@ -77,12 +77,12 @@ void LoadText()
 	WriteData((const char**)0x917DF8, "Изменить эту кнопку?");
 	WriteData((const char**)0x917E0C, "Нажмите кнопку, которую хотите изменить.");
 
-	WriteData((const char**)0x90C4A8, "Желаете закончить игру и вернуться к\nвыбору персонажа?");
-	WriteData((const char**)0x90C4BC, "Желаете покинуть уровень и вернуться на\nПоле приключений?");
-	WriteData((const char**)0x90C4D0, "Желаете закончить игру и вернуться в\nглавное меню?");
+	WriteData((const char**)0x90C4A8, "Желаете закончить игру и вернуться\nк выбору персонажа?");
+	WriteData((const char**)0x90C4BC, "Желаете покинуть уровень и вернуться\nна Поле приключений?");
+	WriteData((const char**)0x90C4D0, "Желаете закончить игру и вернуться\nв главное меню?");
 
 	// Unlock minigame message
-	WriteData((const char**)0x4B54DB, "Разблокирована игра Game Gear\n'%s'.");
+	WriteData((const char**)0x4B54DB, "Разблокирована игра для Game Gear:\n'%s'.");
 
 	// New lure messages
 	WriteData((const char**)0x9818A0, "\aНовая наживка!");
@@ -107,7 +107,7 @@ void LoadText()
 	WriteData((const char**)0x10D7968, "\t\tОшибка удаления.");
 
 	// Monkey Detonator messages
-	WriteData((const char**)0x111CB68, "\aНаписано: «Кнопка\nдистанционного уничтожения».");
+	WriteData((const char**)0x111CB68, "\aНаписано:\n«Кнопка дистанционного уничтожения».");
 	WriteData((const char**)0x111CB6C, "\a«Нажмите для активации».");
 
 	WriteData((const char**)0x111CB38, "\aИ... нажал!");
