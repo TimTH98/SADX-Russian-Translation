@@ -1,5 +1,4 @@
-#include "stdafx.h"
-#include <SADXModLoader.h>
+#pragma once
 
 void LoadSADCCredits();
 void LoadSADXCredits();

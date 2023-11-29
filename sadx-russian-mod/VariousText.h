@@ -1,8 +1,4 @@
-﻿#include "SADXModLoader.h"
-#include "stdafx.h"
-#include <SADXModLoader.h>
-#include <IniFile.hpp>
-#include <cmath>
+﻿#pragma once
 
 void LoadExtraText(const HelperFunctions& helperFunctions);
 void LoadText();

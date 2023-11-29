@@ -1,4 +1,3 @@
-#pragma once
 #include "stdafx.h"
 #include <SADXModLoader.h>
 
@@ -10,7 +9,6 @@ void LoadTextures(const char* path, const HelperFunctions& helperFunctions)
 	HMODULE GoalRing = GetModuleHandle(L"GoalRing");			// Init GoalRing Mod dll
 	HMODULE DConv = GetModuleHandle(L"DCMods_Main");			// Init Dreamcast Conversion dll	
 	HMODULE EmblemChallenge = GetModuleHandle(L"SADX_EmblemChallenge");	// Init Emblem Challenge dll
-	//HMODULE HDGui = GetModuleHandle(L"HD_GUI");					// Init HD GUI
 
 	ReplacePNG_Subtitle("subtitle_eu");
 

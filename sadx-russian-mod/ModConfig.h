@@ -1,5 +1,3 @@
-#include "SADXModLoader.h"
-#include <IniFile.hpp>
-#include "Funcs.h"
+#pragma once
 
 void SetConfigFile(const char* path, const HelperFunctions& helperFunctions);

@@ -1,4 +1,3 @@
-#include "stdafx.h"
-#include <SADXModLoader.h>
+#pragma once
 
 void LoadTextures(const char* path, const HelperFunctions& helperFunctions);
