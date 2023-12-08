@@ -1045,7 +1045,7 @@ STAFF_DATA SADCCredits[] = {
 	{ 2, -1, "Special thanks" },
 	{ 3, -1, "Takuya Nishida, Dance Copter," },
 	{ 3, -1, "ALEKS KV, EggorXXX," },
-	{ 3, -1, "Nikki Neiely" },
+	{ 3, -1, "Nikky Neiely" },
 	{ 3, -1, "" },
 	{ 1, 0, "RUSSIAN TRANSLATION 1.0-1.2 RELEASE" },
 	{ 1, -1, "by Failing Forward" },
