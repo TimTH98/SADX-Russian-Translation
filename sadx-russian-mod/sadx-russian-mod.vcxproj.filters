@@ -13,6 +13,15 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Cutscene Decomp">
+      <UniqueIdentifier>{acbe7cc6-c4a9-4c7e-8c44-99c1d891d991}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Cutscene Decomp\Sonic">
+      <UniqueIdentifier>{17f00188-fd57-458e-b913-9b59904ae11b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Cutscene Decomp\include">
+      <UniqueIdentifier>{2699058b-ced3-4c4c-b47a-af0f363021b4}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="mod.cpp">
@@ -32,6 +41,15 @@
     </ClCompile>
     <ClCompile Include="GameCredits.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cutscene-decomp\Sonic\ev0008_s_chaos1.cpp">
+      <Filter>Cutscene Decomp\Sonic</Filter>
+    </ClCompile>
+    <ClCompile Include="CustomSubTimings.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cutscene-decomp\objects.cpp">
+      <Filter>Cutscene Decomp</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -56,5 +74,25 @@
     <ClInclude Include="ModConfig.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="resource.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cutscene-decomp\include\SADXEventFunctions.h">
+      <Filter>Cutscene Decomp\include</Filter>
+    </ClInclude>
+    <ClInclude Include="cutscene-decomp\include\SADXEventList.h">
+      <Filter>Cutscene Decomp\include</Filter>
+    </ClInclude>
+    <ClInclude Include="cutscene-decomp\include\SADXEventVariables.h">
+      <Filter>Cutscene Decomp\include</Filter>
+    </ClInclude>
+    <ClInclude Include="CustomSubTimings.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="sadx-russian-mod.rc">
+      <Filter>Resource Files</Filter>
+    </ResourceCompile>
   </ItemGroup>
 </Project>
