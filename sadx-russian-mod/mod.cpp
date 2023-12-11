@@ -27,7 +27,7 @@ extern "C"
 		LoadExtraText(helperFunctions);
 		SetConfigFile(path, helperFunctions);
 
-		//SetCustomTimings(path, helperFunctions);
+		SetCustomTimings(path, helperFunctions);
 	} 
 	
 	__declspec(dllexport) void OnFrame()

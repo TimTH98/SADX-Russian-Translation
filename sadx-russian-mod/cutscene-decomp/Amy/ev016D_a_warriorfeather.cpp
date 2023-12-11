@@ -1,3 +1,5 @@
+#include "stdafx.h"
+
 #include "SADXModLoader.h"
 #include "SADXEventFunctions.h"
 #include "SADXEventVariables.h"
@@ -30,7 +32,7 @@ void ev016D_a_warriorfeather(int state)
 		EV_Wait(10);
 		EV_SerifWait();
 		EV_SerifPlay(1627);
-		EV_MsgW(60, msgTbl_ev016D[TextLanguage][0]); //"\aBehold the Warrior Feather. Now you "...
+		EV_MsgW(15, msgTbl_ev016D[TextLanguage][0]); //"\aBehold the Warrior Feather. Now you "...
 		tikal = CTikalLight_Create(
 			player->twp->pos.x + 9.5349998f,
 			player->twp->pos.y + 27.0f,
@@ -39,8 +41,8 @@ void ev016D_a_warriorfeather(int state)
 		EV_SetMode(tikal, 0);
 		EV_ClrPath(tikal);
 		EV_SetPath(tikal, &epathtbl_ev0167_tk, 2.5f, 2);
-		EV_Wait(105);
-		EV_MsgW(60, msgTbl_ev016D[TextLanguage][1]); //"\aPress and hold the action button, and"...
+		EV_Wait(15);
+		EV_MsgW(90, msgTbl_ev016D[TextLanguage][1]); //"\aPress and hold the action button, and"...
 		EV_MsgW(30, msgTbl_ev016D[TextLanguage][2]); //"\aa circle."
 		EV_SetAction(player, &action_a_item_ha2, &AMY_TEXLIST, 0.40000001f, 0, 16);
 		EV_Wait(35);

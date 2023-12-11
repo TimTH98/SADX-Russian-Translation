@@ -79,6 +79,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="cutscene-decomp\Amy\ev0061_a_intro2.cpp" />
+    <ClCompile Include="cutscene-decomp\Amy\ev016C_a_longhammer.cpp" />
+    <ClCompile Include="cutscene-decomp\Amy\ev016D_a_warriorfeather.cpp" />
     <ClCompile Include="cutscene-decomp\objects.cpp" />
     <ClCompile Include="cutscene-decomp\Sonic\ev0008_s_chaos1.cpp" />
     <ClCompile Include="GameCredits.cpp" />

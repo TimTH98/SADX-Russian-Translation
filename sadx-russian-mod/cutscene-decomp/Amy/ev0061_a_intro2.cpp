@@ -1,3 +1,5 @@
+#include "stdafx.h"
+
 #include "SADXModLoader.h"
 #include "SADXEventFunctions.h"
 #include "SADXEventVariables.h"
@@ -270,7 +272,7 @@ void ev0061_a_intro2(int state)
 		EV_LookFree(player);
 		EV_Wait(15);
 		EV_MsgClose();
-		EV_Msg(msgTbl_ev0061[TextLanguage][8]); //"\aOh no!  Let's get out of here!"
+		//EV_Msg(msgTbl_ev0061[TextLanguage][8]); //"\aOh no!  Let's get out of here!"
 		EV_SetPos(obj_ver2_wing, 118.8f, 0.0f, 728.79999f);
 		EV_SetPos(player, 118.8f, 0.0f, 728.79999f);
 		moveObject(player, 118.8f, 0.0f, 728.79999f, 118.8f, 0.0f, 768.0f, 40);
@@ -287,7 +289,7 @@ void ev0061_a_intro2(int state)
 		EV_CameraPos(0, 0, 181.73f, 16.700001f, 769.47498f);
 		EV_CameraAng(0, 0, 0xFF00, 0x4000, 0);
 		EV_Wait(47);
-		EV_MsgClose();
+		//EV_MsgClose();
 		EV_SetAng(obj_ver2_wing, 0, 0x8A00, 0);
 		EV_MovePoint2(player, 73.0f, 0.0f, 752.70001f, 1.0f, 1.5f);
 		moveObjectOn(obj_ver2_wing, 0.0f, 0.0f, 0.0f, 45, player);
