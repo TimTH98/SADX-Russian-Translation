@@ -3,6 +3,8 @@
 #include <IniFile.hpp>
 #include "Macros.h"
 
+#include "CustomSubTimings.h"
+
 void SetConfigFile(const char* path, const HelperFunctions& helperFunctions)
 {
 	std::string TGS_Selectors = "Vanilla";
@@ -10,6 +12,7 @@ void SetConfigFile(const char* path, const HelperFunctions& helperFunctions)
 	std::string StartButton = "Start";
 	bool ExtraGGHelp = false;
 	std::string StageBorder = "US";
+	bool EditedTimings = true;
 
 	char pathbuf[MAX_PATH];
 	HMODULE DConv = GetModuleHandle(L"DCMods_Main");			// Init Dreamcast Conversion dll	
@@ -173,4 +176,8 @@ void SetConfigFile(const char* path, const HelperFunctions& helperFunctions)
 		ReplaceTex("GG_TEXLIST_FR", "y256_s_ts_b", "config\\GGTips", "alt_tips_1", 1317600, 256, 256);
 	}
 #pragma endregion
+
+	// Custom Timings
+	if (EditedTimings)
+		SetCustomTimings(path, helperFunctions);
 }

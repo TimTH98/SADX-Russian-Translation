@@ -1,3 +1,5 @@
+#include "stdafx.h"
+
 #include "SADXModLoader.h"
 #include "SADXEventFunctions.h"
 #include "SADXEventVariables.h"
@@ -82,14 +84,12 @@ void ev000C_s_afterchaos4(int state)
 		EV_SerifPlay(704);
 		EV_Msg((msgTbl_ev000C[TextLanguage])[2]); //"\aAdieu... \nUntil we meet again, my fr"...
 		EV_Wait(80);
-		EV_Msg((msgTbl_ev000C[TextLanguage])[3]); //"\aHa ha ha ha ha ha ha!"
+		EV_MsgClose();
 		EV_Wait(35);
 		ChgCaptureMod(CAP_01, 1);
 		dsPlay_timer_v(1336, 0xCB80001, 1, 120, 185, 80.0f, 80.0f, 160.0f);
 		EV_CameraTargetObj(0, 150, eggmoble, 0.0f, 6.0f, 0.0f, 0);
-		EV_Wait(30);
-		EV_MsgClose();
-		EV_Wait(10);
+		EV_Wait(40);
 		moveObjectAngle2(eggmoble, 80.0f, 80.0f, 160.0f, 235.71001f, 807.02002f, 643.87f, 0, 0x3B00, 0, 0x1500, 0x3B00, 0, 180);
 		EV_Wait(150);
 		stopObject(eggmoble);

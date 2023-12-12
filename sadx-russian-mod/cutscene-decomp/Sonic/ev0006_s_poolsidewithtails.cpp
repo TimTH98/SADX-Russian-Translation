@@ -1,3 +1,5 @@
+#include "stdafx.h"
+
 #include "SADXModLoader.h"
 #include "SADXEventFunctions.h"
 #include "SADXEventVariables.h"
@@ -181,8 +183,7 @@ void ev0006_s_poolsidewithtails(int state)
 			EV_SetFace(tails, "GEDE");
 		}
 		EV_SerifPlay(426);
-		EV_MsgW(70, (msgTbl_ev0006[TextLanguage])[10]); //"\aYep! I just happened to find \none of"...
-		EV_MsgW(30, (msgTbl_ev0006[TextLanguage])[11]); //"\aduring one of my test flights. "
+		EV_MsgW(50, (msgTbl_ev0006[TextLanguage])[10]); //Ага! Я нашёл один из семи.
 		EV_Wait(1);
 		EV_SerifWait();
 		if (VoiceLanguage == Languages_English)
@@ -191,7 +192,7 @@ void ev0006_s_poolsidewithtails(int state)
 		}
 		EV_Wait(20);
 		EV_SerifPlay(427);
-		EV_Msg((msgTbl_ev0006[TextLanguage])[12]); //"\aThis thing's got unlimited power,\nya"...
+		EV_MsgW(60, (msgTbl_ev0006[TextLanguage])[11]); //Думаю, этот камень\nс безграничной энергией
 		if (VoiceLanguage == Languages_English)
 		{
 			EV_SetFace(tails, "GEDE");
@@ -202,8 +203,11 @@ void ev0006_s_poolsidewithtails(int state)
 		{
 			EV_ClrFace(tails);
 		}
+		EV_Wait(10);
 		EV_SerifPlay(428);
-		EV_Msg((msgTbl_ev0006[TextLanguage])[13]); //"\aSo I figured, why not use it \nto pow"...
+		EV_Msg((msgTbl_ev0006[TextLanguage])[12]); //можно как-то приспособить\nв качестве источника питания.
+		EV_Wait(80);
+		EV_MsgCls();
 		if (VoiceLanguage == Languages_English)
 		{
 			EV_SetFace(tails, "GEDE");
@@ -212,7 +216,6 @@ void ev0006_s_poolsidewithtails(int state)
 		EV_SerifWait();
 		EV_ClrFace(tails);
 		EV_MsgCls();
-		EV_Wait(45);
 		EV_ClrFace(tails);
 		if (VoiceLanguage == Languages_Japanese)
 		{
@@ -223,8 +226,8 @@ void ev0006_s_poolsidewithtails(int state)
 			EV_SetFace(tails, "CGG");
 		}
 		EV_SerifPlay(429);
-		EV_MsgW(60, (msgTbl_ev0006[TextLanguage])[14]); //"\aYou gotta come over to \nmy workshop,"...
-		EV_MsgW(60, (msgTbl_ev0006[TextLanguage])[15]); //"\aI've got something I've gotta \nshow "...
+		EV_MsgW(80, (msgTbl_ev0006[TextLanguage])[13]); //Вот что. Айда в мою мастерскую!
+		EV_MsgW(60, (msgTbl_ev0006[TextLanguage])[14]); //Хочу тебе кое-что показать!
 		EV_Wait(1);
 		EV_SerifWait();
 		EV_ClrFace(tails);
@@ -292,10 +295,11 @@ void ev0006_s_poolsidewithtails(int state)
 		EV_ClrFace(tails);
 		EV_SetFace(tails, "GEGCG");
 		EV_SerifPlay(430);
-		EV_MsgW(70, (msgTbl_ev0006[TextLanguage])[16]); //"\aIt's in the Mystic Ruins.   \nThe fas"...
-		EV_MsgW(40, (msgTbl_ev0006[TextLanguage])[17]); //"\aLet's go!"
+		EV_MsgW(60, (msgTbl_ev0006[TextLanguage])[15]); //Она в Мистических руинах.
+		EV_MsgW(60, (msgTbl_ev0006[TextLanguage])[16]); //Иди на станцию и садись на поезд.
+		EV_MsgW(10, (msgTbl_ev0006[TextLanguage])[17]); //Ты мигом туда доберёшься!
 		EV_MovePoint2(tails, -392.20999f, 0.0f, 1844.77f, 0.46000001f, 0.050000001f);
-		EV_Wait(120);
+		EV_Wait(120);		
 		EV_MsgClose();
 		EV_ClrFace(tails);
 		KURAYAMI = COverlayCreate(0.016666668f, 0.0f, 0.0f, 0.0f, 0.0f);

@@ -54,14 +54,23 @@
     <ClCompile Include="cutscene-decomp\objects.cpp">
       <Filter>Cutscene Decomp</Filter>
     </ClCompile>
-    <ClCompile Include="cutscene-decomp\Amy\ev016C_a_longhammer.cpp">
-      <Filter>Cutscene Decomp\Amy</Filter>
-    </ClCompile>
     <ClCompile Include="cutscene-decomp\Amy\ev0061_a_intro2.cpp">
       <Filter>Cutscene Decomp\Amy</Filter>
     </ClCompile>
     <ClCompile Include="cutscene-decomp\Amy\ev016D_a_warriorfeather.cpp">
       <Filter>Cutscene Decomp\Amy</Filter>
+    </ClCompile>
+    <ClCompile Include="cutscene-decomp\Sonic\ev0006_s_poolsidewithtails.cpp">
+      <Filter>Cutscene Decomp\Sonic</Filter>
+    </ClCompile>
+    <ClCompile Include="cutscene-decomp\Sonic\ev000C_s_afterchaos4.cpp">
+      <Filter>Cutscene Decomp\Sonic</Filter>
+    </ClCompile>
+    <ClCompile Include="cutscene-decomp\Sonic\ev0012_s_meetingamy.cpp">
+      <Filter>Cutscene Decomp\Sonic</Filter>
+    </ClCompile>
+    <ClCompile Include="cutscene-decomp\Sonic\ev0013_s_beforetwinklepark.cpp">
+      <Filter>Cutscene Decomp\Sonic</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -101,10 +110,5 @@
     <ClInclude Include="CustomSubTimings.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <ResourceCompile Include="sadx-russian-mod.rc">
-      <Filter>Resource Files</Filter>
-    </ResourceCompile>
   </ItemGroup>
 </Project>

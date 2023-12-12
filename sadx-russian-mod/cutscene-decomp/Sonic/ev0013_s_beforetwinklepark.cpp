@@ -1,3 +1,5 @@
+#include "stdafx.h"
+
 #include "SADXModLoader.h"
 #include "SADXEventFunctions.h"
 #include "SADXEventVariables.h"
@@ -162,7 +164,7 @@ void ev0013_s_beforetwinklepark(int state)
 		EventSe_Oneshot(1341, 0, 0, 0);
 		EV_SerifPlay(508);
 		EV_Msg((msgTbl_ev0013[TextLanguage])[4]); //"\aHuh?"
-		EV_Wait(1);
+		EV_Wait(20);
 		EV_MsgClose();
 		EV_Wait(40);
 		stopObjectAll();

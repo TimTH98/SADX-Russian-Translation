@@ -6,7 +6,6 @@
 #include "VariousText.h"
 #include "LoadTextures.h"
 #include "ModConfig.h"
-#include "CustomSubTimings.h"
 
 
 bool CreditsLoaded = false;
@@ -26,8 +25,6 @@ extern "C"
 		LoadTextures(path, helperFunctions);
 		LoadExtraText(helperFunctions);
 		SetConfigFile(path, helperFunctions);
-
-		SetCustomTimings(path, helperFunctions);
 	} 
 	
 	__declspec(dllexport) void OnFrame()

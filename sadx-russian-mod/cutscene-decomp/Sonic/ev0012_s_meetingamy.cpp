@@ -1,3 +1,5 @@
+#include "stdafx.h"
+
 #include "SADXModLoader.h"
 #include "SADXEventFunctions.h"
 #include "SADXEventVariables.h"
@@ -54,7 +56,7 @@ void ev0012_s_meetingamy(int state)
 		EV_SetAction(player, SONIC_ACTIONS[1], &SONIC_TEXLIST, 1.0f, 1, 8);
 		EV_Wait(20);
 		EV_SerifPlay(497);
-		EV_Msg((msgTbl_ev0012[TextLanguage])[0]); //"\aSonic!   Wait up!"
+		EV_Msg((msgTbl_ev0012[TextLanguage])[0]); //Сони-и-и-и-ик!
 		EV_SetPos(amy, -525.5f, 0.02f, 1268.9f);
 		EV_SetAng(amy, 0, 0x1C3, 0);
 		EV_SetAction(amy, AMY_ACTIONS[44], &AMY_TEXLIST, 1.3f, 1, 1);
@@ -89,7 +91,7 @@ void ev0012_s_meetingamy(int state)
 		EV_ClrFace(amy);
 		EV_SetFace(amy, "EEC0");
 		EV_SerifPlay(498);
-		EV_Msg((msgTbl_ev0012[TextLanguage])[1]); //"\aLong time no see!"
+		EV_Msg((msgTbl_ev0012[TextLanguage])[1]); //Давно не виделись!
 		EV_ClrFace(amy);
 		EV_SerifWait();
 		EV_SetAction(player, &action_s_s0037_sonic, &SONIC_TEXLIST, 0.40000001f, 0, 4);
@@ -97,7 +99,7 @@ void ev0012_s_meetingamy(int state)
 		EV_ClrFace(player);
 		EV_SetFace(player, "DBBAA0");
 		EV_SerifPlay(499);
-		EV_Msg((msgTbl_ev0012[TextLanguage])[2]); //"\aHuh... A... Amy?"
+		EV_Msg((msgTbl_ev0012[TextLanguage])[2]); //Э-Эми?
 		moveObjectOn(obj_wing1, 4.5f, 8.0f, 0.2f, 100, amy);
 		EV_Wait(2);
 		EV_SetPos(player, -534.20001f, 0.0099999998f, 1203.0f);
@@ -164,7 +166,7 @@ void ev0012_s_meetingamy(int state)
 		}
 		EV_MovePoint2(amy, -531.0f, 0.0f, 1207.0f, 0.5f, 0.059999999f);
 		EV_SerifPlay(500);
-		EV_Msg((msgTbl_ev0012[TextLanguage])[3]); //"\aWhat's wrong with you anyway?"
+		EV_Msg((msgTbl_ev0012[TextLanguage])[3]); //Да стой ты!\nНу что за манеры?
 		EV_Wait(15);
 		EV_SetAction(amy, AMY_ACTIONS[69], &AMY_TEXLIST, 0.75f, 1, 8);
 		EV_Wait(40);
@@ -191,13 +193,13 @@ void ev0012_s_meetingamy(int state)
 		EV_ClrFace(amy);
 		EV_SetFace(amy, "AGCCGAAAAACEGCCGGDE0");
 		EV_SerifPlay(501);
-		EV_Msg((msgTbl_ev0012[TextLanguage])[4]); //"\aListen, this birdie seems to be \nin "...
+		EV_Msg((msgTbl_ev0012[TextLanguage])[4]); //Слушай, за этой птичкой\nохотятся.
 		EV_CameraPos(1, 75, -533.70001f, 7.02f, 1200.45f);
 		EV_CameraAng(0, 40, 0xFE00, 0x8E00, 0);
-		EV_Wait(40);
+		EV_Wait(50);
 		EV_CameraAng(0, 85, 0xF73B, 0x8E00, 0);
-		EV_Msg((msgTbl_ev0012[TextLanguage])[5]); //"\aSo you need to be his bodyguard \nfor"...
-		EV_Wait(40);
+		EV_Msg((msgTbl_ev0012[TextLanguage])[5]); //Можешь ненадолго стать\nеё телохранителем?
+		EV_Wait(60);
 		EV_SerifWait();
 		EV_CameraPos(0, 0, -529.27002f, 5.3000002f, 1203.2f);
 		EV_CameraAng(0, 0, 0x700, 0x25F0, 0);
@@ -214,7 +216,7 @@ void ev0012_s_meetingamy(int state)
 		dsPlay_oneshot_v(1333, 0, 0, 127, -529.20001f, 2.01f, 1206.0f);
 		EV_SerifPlay(502);
 		EV_ClrFace(amy);
-		EV_Msg((msgTbl_ev0012[TextLanguage])[6]); //"\aYou must be kidding!"
+		EV_Msg((msgTbl_ev0012[TextLanguage])[6]); //А-а-а?
 		moveObjectOn(obj_wing1, 0.2f, 1.0f, -0.60000002f, 300, amy);
 		EV_SerifWait();
 		EV_Wait(15);
@@ -227,7 +229,7 @@ void ev0012_s_meetingamy(int state)
 		EV_ClrFace(amy);
 		EV_SetFace(amy, "EEDDEEDDEEED0");
 		EV_SerifPlay(503);
-		EV_Msg((msgTbl_ev0012[TextLanguage])[7]); //"\aIf you don't, we're just\ngonna tag a"...
+		EV_Msg((msgTbl_ev0012[TextLanguage])[7]); //Даже если скажешь «нет»,\nмы всё равно пойдём с тобой.
 		EV_Wait(20);
 		if (VoiceLanguage == Languages_Japanese) EV_ClrFace(amy);
 		EV_Wait(50);
