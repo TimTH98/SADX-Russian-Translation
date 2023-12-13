@@ -12,27 +12,19 @@ void SetCustomTimings(const char* path, const HelperFunctions& helperFunctions)
 		* texTbls must end with 0 or the game will crash.
 		*/
 
+	HMODULE DConv = GetModuleHandle(L"DCMods_Main");
+	
 	//	//Main event code
 	CutsceneDataList[0x0006]->Function = ev0006_s_poolsidewithtails;
 	CutsceneDataList[0x0008]->Function = ev0008_s_chaos1;
 	CutsceneDataList[0x000C]->Function = ev000C_s_afterchaos4;
 	CutsceneDataList[0x0012]->Function = ev0012_s_meetingamy;
 	CutsceneDataList[0x0013]->Function = ev0013_s_beforetwinklepark;
-	/*CutsceneDataList[0x001C]->Function = ev001C_s_beforechaos6;
+	CutsceneDataList[0x001C]->Function = ev001C_s_beforechaos6;
 	CutsceneDataList[0x001D]->Function = ev001D_s_afterchaos6;
 	CutsceneDataList[0x001E]->Function = ev001E_s_lostworld;
-	CutsceneDataList[0x0020]->Function = ev0020_s_mural;
-	CutsceneDataList[0x0021]->Function = ev0021_s_enterpast;
-	CutsceneDataList[0x0022]->Function = ev0022_s_pastaltar;
-	CutsceneDataList[0x0023]->Function = ev0023_s_afterpast;
-	CutsceneDataList[0x0024]->Function = ev0024_s_eggviper;
-	CutsceneDataList[0x0026]->Function = ev0026_s_outro;
-	CutsceneDataList[0x0028]->Function = ev0028_s_sonicvsknuckles;
-	CutsceneDataList[0x0029]->Function = ev0029_s_eclanding;
-	CutsceneDataList[0x002A]->Function = ev002A_s_casinowake;
-	CutsceneDataList[0x002B]->Function = ev002B_s_beforechaos0;
-
-	CutsceneDataList[0x0030]->Function = ev0030_t_intro;
+	
+	/*CutsceneDataList[0x0030]->Function = ev0030_t_intro;
 	CutsceneDataList[0x0031]->Function = ev0031_t_emeraldcoast;
 	CutsceneDataList[0x0032]->Function = ev0032_t_meetingsonic;
 	CutsceneDataList[0x0033]->Function = ev0033_t_egghornet;
@@ -167,17 +159,9 @@ void SetCustomTimings(const char* path, const HelperFunctions& helperFunctions)
 	CutsceneDataList[0x00FB]->Function = ev00FB_l_tikalwakesup;
 	CutsceneDataList[0x00FD]->Function = ev00FD_l_perfectchaos;
 	CutsceneDataList[0x00FE]->Function = ev00FE_l_outro;
-	CutsceneDataList[0x00FF]->Function = ev00FF_l_supersonic;
+	CutsceneDataList[0x00FF]->Function = ev00FF_l_supersonic;*/
 
-	CutsceneDataList[0x0100]->Function = ev0100_s_ecafterlanding;
-	CutsceneDataList[0x0101]->Function = ev0101_s_ecfools;
-	CutsceneDataList[0x0102]->Function = ev0102_s_ecaftertransforming;
-	CutsceneDataList[0x0103]->Function = ev0103_s_skydeck;
-	CutsceneDataList[0x0104]->Function = ev0104_s_afterskydeck;
-	CutsceneDataList[0x0106]->Function = ev0106_s_originalshape;
-	CutsceneDataList[0x0107]->Function = ev0107_s_alertcancelled;
-
-	CutsceneDataList[0x0110]->Function = ev0110_t_ecafterlanding;
+	/*CutsceneDataList[0x0110]->Function = ev0110_t_ecafterlanding;
 	CutsceneDataList[0x0111]->Function = ev0111_t_ecfools;
 	CutsceneDataList[0x0112]->Function = ev0112_t_ecaftertransforming;
 	CutsceneDataList[0x0113]->Function = ev0113_t_skydeck;
@@ -188,20 +172,18 @@ void SetCustomTimings(const char* path, const HelperFunctions& helperFunctions)
 	CutsceneDataList[0x0122]->Function = ev0122_k_outsideskydeck;
 
 	CutsceneDataList[0x0130]->Function = ev0130_a_hedgehoghammer;
-	CutsceneDataList[0x0131]->Function = ev0131_a_hedgehoghammerwin;
+	CutsceneDataList[0x0131]->Function = ev0131_a_hedgehoghammerwin;*/
 
 	CutsceneDataList[0x0140]->Function = ev0140_e_findjetbooster;
-	CutsceneDataList[0x0141]->Function = ev0141_e_hotshelter;
+	/*CutsceneDataList[0x0141]->Function = ev0141_e_hotshelter;
 	CutsceneDataList[0x0142]->Function = ev0142_e_betamk2;
 
 	CutsceneDataList[0x0150]->Function = ev0150_b_alertcancelled;
 
-	CutsceneDataList[0x0160]->Function = ev0160_l_chaosgetangry;
-
-	CutsceneDataList[0x0165]->Function = ev0165_s_crystalring;
-	CutsceneDataList[0x0166]->Function = ev0166_s_lightshoes;
-	CutsceneDataList[0x0167]->Function = ev0167_s_ancientlight;
-	CutsceneDataList[0x0168]->Function = ev0168_t_jetanklet;
+	CutsceneDataList[0x0160]->Function = ev0160_l_chaosgetangry;*/
+	if (DConv)
+		CutsceneDataList[0x0166]->Function = ev0166_s_lightshoes;
+	/*CutsceneDataList[0x0168]->Function = ev0168_t_jetanklet;
 	CutsceneDataList[0x0169]->Function = ev0169_t_rhythmbadge;
 	CutsceneDataList[0x016A]->Function = ev016A_k_fightgloves;
 	CutsceneDataList[0x016B]->Function = ev016B_k_shovelclaw;*/

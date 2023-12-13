@@ -16,17 +16,17 @@ void SetConfigFile(const char* path, const HelperFunctions& helperFunctions)
 
 	char pathbuf[MAX_PATH];
 	HMODULE DConv = GetModuleHandle(L"DCMods_Main");			// Init Dreamcast Conversion dll	
-	
-	#pragma region Ini Configuration
+
+#pragma region Ini Configuration
 	const IniFile* config = new IniFile(std::string(path) + "\\config.ini");
 
 	TGS_Selectors = config->getString("Customs", "TGS_Selectors", "Vanilla");
-	StartButton = config->getString("Customs", "StartButton", "Start");	
+	StartButton = config->getString("Customs", "StartButton", "Start");
 	StageBorder = config->getString("Customs", "StageBorder", "US");
 
 	DreamcastChaoIcon = config->getString("Extra", "DreamcastChaoIcon", "DX");
 	ExtraGGHelp = config->getBool("Extra", "ExtraGGHelp", false);
-	
+
 	// TGS
 	if (TGS_Selectors == "TGS") {
 		ReplaceTexPVM("B_CHNAM_E", "B_CHNAM_E_TGS");
@@ -45,9 +45,9 @@ void SetConfigFile(const char* path, const HelperFunctions& helperFunctions)
 		ReplaceTex("AVA_GTITLE0_E", "p_enter_us_02", "config\\startButton\\titlescreen", "enter_02", 3489661285, 256, 256);
 		ReplaceTex("AVA_GTITLE0_DC_HD", "pressstart", "config\\startButton\\titlescreen", "pressenter", 3489661269, 256, 32);
 	}
-	
+
 	// Stage Border Variations
-	#pragma region Stages name PVRs
+#pragma region Stages name PVRs
 	if (StageBorder == "US") {
 		ReplacePNG_StageE("A_STAGE01_E");			// Amy		| Twinkle Park
 		ReplacePNG_StageE("A_STAGE02_E");			// Amy		| Hot Shelter
@@ -133,7 +133,7 @@ void SetConfigFile(const char* path, const HelperFunctions& helperFunctions)
 		ReplacePNG_StageJ("T_MISTICRUIN_E");		// Field	| Mystic Ruins
 		ReplacePNG_StageJ("T_STATIONSQUARE_E");		// Field	| Station Square
 	}
-	#pragma endregion
+#pragma endregion
 
 	// Chao Garden Portals Icons
 	if (DreamcastChaoIcon == "DC")
@@ -179,5 +179,9 @@ void SetConfigFile(const char* path, const HelperFunctions& helperFunctions)
 
 	// Custom Timings
 	if (EditedTimings)
+	{	
+		helperFunctions.ReplaceFile("Misc\\Cutscene Text\\Sonic\\07 After Egg Hornet Fight\\French.txt", "Misc\\Cutscene Text\\Sonic\\07 After Egg Hornet Fight\\French_Custom.txt");
+		helperFunctions.ReplaceFile("Misc\\Cutscene Text\\Sonic\\25 Eggman Transforms the Egg Carrier\\French.txt", "Misc\\Cutscene Text\\Sonic\\25 Eggman Transforms the Egg Carrier\\French_Custom.txt");
 		SetCustomTimings(path, helperFunctions);
+	}	
 }

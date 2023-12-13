@@ -81,12 +81,17 @@
   <ItemGroup>
     <ClCompile Include="cutscene-decomp\Amy\ev0061_a_intro2.cpp" />
     <ClCompile Include="cutscene-decomp\Amy\ev016D_a_warriorfeather.cpp" />
+    <ClCompile Include="cutscene-decomp\E102\ev0140_e_findjetbooster.cpp" />
     <ClCompile Include="cutscene-decomp\objects.cpp" />
     <ClCompile Include="cutscene-decomp\Sonic\ev0006_s_poolsidewithtails.cpp" />
     <ClCompile Include="cutscene-decomp\Sonic\ev0008_s_chaos1.cpp" />
     <ClCompile Include="cutscene-decomp\Sonic\ev000C_s_afterchaos4.cpp" />
     <ClCompile Include="cutscene-decomp\Sonic\ev0012_s_meetingamy.cpp" />
     <ClCompile Include="cutscene-decomp\Sonic\ev0013_s_beforetwinklepark.cpp" />
+    <ClCompile Include="cutscene-decomp\Sonic\ev001C_s_beforechaos6.cpp" />
+    <ClCompile Include="cutscene-decomp\Sonic\ev001D_s_afterchaos6.cpp" />
+    <ClCompile Include="cutscene-decomp\Sonic\ev001E_s_lostworld.cpp" />
+    <ClCompile Include="cutscene-decomp\Sonic\ev0166_s_lightshoes.cpp" />
     <ClCompile Include="GameCredits.cpp" />
     <ClCompile Include="LoadTextures.cpp" />
     <ClCompile Include="mod.cpp" />

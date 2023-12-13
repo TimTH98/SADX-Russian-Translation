@@ -1,3 +1,5 @@
+#include "stdafx.h"
+
 #include "SADXModLoader.h"
 #include "SADXEventFunctions.h"
 #include "SADXEventVariables.h"
@@ -62,7 +64,7 @@ void ev001C_s_beforechaos6(int state)
 		{
 			EV_SetFace(player, "FBBBD");
 		}
-		EV_Msg((msgTbl_ev001C[TextLanguage])[0]); //"\aOh no!  Not again!"
+		EV_MsgW(50, (msgTbl_ev001C[TextLanguage])[0]); //Неужели я опоздал?!
 		EV_SerifWait();
 		EV_ClrFace(player);
 		EV_MsgClose();
@@ -82,7 +84,7 @@ void ev001C_s_beforechaos6(int state)
 		EV_ClrFace(player);
 		EV_MsgClose();
 		EV_SerifPlay(562);
-		EV_Msg((msgTbl_ev001C[TextLanguage])[2]); //\aHa ha ha ha ha! "
+		EV_MsgW(30, (msgTbl_ev001C[TextLanguage])[2]); //\aHa ha ha ha ha! "
 		EV_SetAction(player, &action_s_s0004_sonic, &SONIC_TEXLIST, 1.0f, 1, 8);
 		EV_MsgClose();
 		EV_SetAng(player, 0xF829, 0xC2A9, 0);

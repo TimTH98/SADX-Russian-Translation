@@ -1,3 +1,5 @@
+#include "stdafx.h"
+
 #include "SADXModLoader.h"
 #include "SADXEventFunctions.h"
 #include "SADXEventVariables.h"
@@ -42,7 +44,7 @@ void ev0166_s_lightshoes(int state)
 		EventSe_Stop(0);
 		EV_SetAction(player, &action_s_item_s1, &SONIC_TEXLIST, 0.60000002f, 1, 16);
 		EV_Wait(50);
-		EV_MsgW(40, (msgTbl_ev0166[TextLanguage])[2]); //"\aOnce you have enough power,"
+		EV_MsgW(70, (msgTbl_ev0166[TextLanguage])[2]); //"\aOnce you have enough power,"
 		EV_MsgW(0, (msgTbl_ev0166[TextLanguage])[3]); //"\arelease the button and\nyou can do th"...
 		EV_Wait(20);
 		EventSe_Play(0, 760, 1800);

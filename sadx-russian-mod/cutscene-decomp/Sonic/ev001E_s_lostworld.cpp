@@ -1,3 +1,5 @@
+#include "stdafx.h"
+
 #include "SADXModLoader.h"
 #include "SADXEventFunctions.h"
 #include "SADXEventVariables.h"
@@ -122,7 +124,7 @@ void ev001E_s_lostworld(int state)
 		EV_CameraPos(0, 90, -564.20001f, 1.6f, -599.95001f);
 		EV_SerifPlay(585);
 		EV_SetFace(player, "AE");
-		EV_Msg((msgTbl_ev001E[TextLanguage])[3]); //"\aThat light!"
+		EV_MsgW(50, (msgTbl_ev001E[TextLanguage])[3]); //"\aThat light!"
 		EV_Wait(1);
 		EV_SerifWait();
 		EV_MsgClose();
@@ -132,11 +134,10 @@ void ev001E_s_lostworld(int state)
 		EV_CameraAng(0, 240, 0x900, 0xFA00, 0);
 		EV_SerifPlay(586);
 		EV_SetFace(player, "DE");
-		EV_Msg((msgTbl_ev001E[TextLanguage])[4]); //"\aI think it's trying to \nshow me some"...
+		EV_MsgW(60, (msgTbl_ev001E[TextLanguage])[4]); //"\aI think it's trying to \nshow me some"...
 		EV_SerifWait();
-		EV_Wait(180);
 		EV_MsgClose();
-		EV_Wait(20);
+		EV_Wait(140);
 		EventSe_Stop(3);
 		EV_CameraPos(1, 0, -564.12402f, -0.44499999f, -600.0f);
 		EV_CameraAng(1, 0, 0x1700, 0x6800, 0);

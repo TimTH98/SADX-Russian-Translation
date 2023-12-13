@@ -25,6 +25,9 @@
     <Filter Include="Cutscene Decomp\Amy">
       <UniqueIdentifier>{6d139076-b4ea-4b9d-a1c3-602a266a76df}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Cutscene Decomp\Gamma">
+      <UniqueIdentifier>{a4f22c4c-950d-4d53-ab25-3f69eccc3eac}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="mod.cpp">
@@ -71,6 +74,21 @@
     </ClCompile>
     <ClCompile Include="cutscene-decomp\Sonic\ev0013_s_beforetwinklepark.cpp">
       <Filter>Cutscene Decomp\Sonic</Filter>
+    </ClCompile>
+    <ClCompile Include="cutscene-decomp\Sonic\ev001C_s_beforechaos6.cpp">
+      <Filter>Cutscene Decomp\Sonic</Filter>
+    </ClCompile>
+    <ClCompile Include="cutscene-decomp\Sonic\ev001D_s_afterchaos6.cpp">
+      <Filter>Cutscene Decomp\Sonic</Filter>
+    </ClCompile>
+    <ClCompile Include="cutscene-decomp\Sonic\ev001E_s_lostworld.cpp">
+      <Filter>Cutscene Decomp\Sonic</Filter>
+    </ClCompile>
+    <ClCompile Include="cutscene-decomp\Sonic\ev0166_s_lightshoes.cpp">
+      <Filter>Cutscene Decomp\Sonic</Filter>
+    </ClCompile>
+    <ClCompile Include="cutscene-decomp\E102\ev0140_e_findjetbooster.cpp">
+      <Filter>Cutscene Decomp\Gamma</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
