@@ -5,6 +5,8 @@
 
 #include "CustomSubTimings.h"
 
+
+
 void SetConfigFile(const char* path, const HelperFunctions& helperFunctions)
 {
 	std::string TGS_Selectors = "Vanilla";
@@ -26,6 +28,7 @@ void SetConfigFile(const char* path, const HelperFunctions& helperFunctions)
 
 	DreamcastChaoIcon = config->getString("Extra", "DreamcastChaoIcon", "DX");
 	ExtraGGHelp = config->getBool("Extra", "ExtraGGHelp", false);
+	EditedTimings = config->getBool("Extra", "EditedTimings", true);
 
 	// TGS
 	if (TGS_Selectors == "TGS") {
@@ -177,11 +180,13 @@ void SetConfigFile(const char* path, const HelperFunctions& helperFunctions)
 	}
 #pragma endregion
 
+	std::wstring modpath(path, path + strlen(path));
+	std::wstring filename = L"\\edited_timings.ini";
+
 	// Custom Timings
 	if (EditedTimings)
 	{	
-		helperFunctions.ReplaceFile("Misc\\Cutscene Text\\Sonic\\07 After Egg Hornet Fight\\French.txt", "Misc\\Cutscene Text\\Sonic\\07 After Egg Hornet Fight\\French_Custom.txt");
-		helperFunctions.ReplaceFile("Misc\\Cutscene Text\\Sonic\\25 Eggman Transforms the Egg Carrier\\French.txt", "Misc\\Cutscene Text\\Sonic\\25 Eggman Transforms the Egg Carrier\\French_Custom.txt");
+		helperFunctions.LoadEXEData((modpath + filename).c_str(), modpath.c_str());
 		SetCustomTimings(path, helperFunctions);
 	}	
 }
