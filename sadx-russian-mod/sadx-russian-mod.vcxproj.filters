@@ -16,17 +16,29 @@
     <Filter Include="Cutscene Decomp">
       <UniqueIdentifier>{acbe7cc6-c4a9-4c7e-8c44-99c1d891d991}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Cutscene Decomp\Sonic">
-      <UniqueIdentifier>{17f00188-fd57-458e-b913-9b59904ae11b}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Cutscene Decomp\include">
       <UniqueIdentifier>{2699058b-ced3-4c4c-b47a-af0f363021b4}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Cutscene Decomp\Amy">
+    <Filter Include="Cutscene Decomp\1 Sonic">
+      <UniqueIdentifier>{17f00188-fd57-458e-b913-9b59904ae11b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Cutscene Decomp\2 Tails">
+      <UniqueIdentifier>{c892b3cd-b23b-402c-909b-58ec21bdfe90}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Cutscene Decomp\3 Knux">
+      <UniqueIdentifier>{d47f1128-5abd-4694-8a07-a68bb0625bca}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Cutscene Decomp\4 Amy">
       <UniqueIdentifier>{6d139076-b4ea-4b9d-a1c3-602a266a76df}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Cutscene Decomp\Gamma">
+    <Filter Include="Cutscene Decomp\5 Big">
+      <UniqueIdentifier>{3e2bb161-7438-4574-8fd4-8d8e3ded94c7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Cutscene Decomp\6 Gamma">
       <UniqueIdentifier>{a4f22c4c-950d-4d53-ab25-3f69eccc3eac}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Cutscene Decomp\7 Last">
+      <UniqueIdentifier>{24b445ff-0742-4e42-b894-f168d5155c13}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -49,7 +61,7 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="cutscene-decomp\Sonic\ev0008_s_chaos1.cpp">
-      <Filter>Cutscene Decomp\Sonic</Filter>
+      <Filter>Cutscene Decomp\1 Sonic</Filter>
     </ClCompile>
     <ClCompile Include="CustomSubTimings.cpp">
       <Filter>Source Files</Filter>
@@ -58,37 +70,40 @@
       <Filter>Cutscene Decomp</Filter>
     </ClCompile>
     <ClCompile Include="cutscene-decomp\Amy\ev0061_a_intro2.cpp">
-      <Filter>Cutscene Decomp\Amy</Filter>
+      <Filter>Cutscene Decomp\4 Amy</Filter>
     </ClCompile>
     <ClCompile Include="cutscene-decomp\Amy\ev016D_a_warriorfeather.cpp">
-      <Filter>Cutscene Decomp\Amy</Filter>
+      <Filter>Cutscene Decomp\4 Amy</Filter>
     </ClCompile>
     <ClCompile Include="cutscene-decomp\Sonic\ev0006_s_poolsidewithtails.cpp">
-      <Filter>Cutscene Decomp\Sonic</Filter>
+      <Filter>Cutscene Decomp\1 Sonic</Filter>
     </ClCompile>
     <ClCompile Include="cutscene-decomp\Sonic\ev000C_s_afterchaos4.cpp">
-      <Filter>Cutscene Decomp\Sonic</Filter>
+      <Filter>Cutscene Decomp\1 Sonic</Filter>
     </ClCompile>
     <ClCompile Include="cutscene-decomp\Sonic\ev0012_s_meetingamy.cpp">
-      <Filter>Cutscene Decomp\Sonic</Filter>
+      <Filter>Cutscene Decomp\1 Sonic</Filter>
     </ClCompile>
     <ClCompile Include="cutscene-decomp\Sonic\ev0013_s_beforetwinklepark.cpp">
-      <Filter>Cutscene Decomp\Sonic</Filter>
+      <Filter>Cutscene Decomp\1 Sonic</Filter>
     </ClCompile>
     <ClCompile Include="cutscene-decomp\Sonic\ev001C_s_beforechaos6.cpp">
-      <Filter>Cutscene Decomp\Sonic</Filter>
+      <Filter>Cutscene Decomp\1 Sonic</Filter>
     </ClCompile>
     <ClCompile Include="cutscene-decomp\Sonic\ev001D_s_afterchaos6.cpp">
-      <Filter>Cutscene Decomp\Sonic</Filter>
+      <Filter>Cutscene Decomp\1 Sonic</Filter>
     </ClCompile>
     <ClCompile Include="cutscene-decomp\Sonic\ev001E_s_lostworld.cpp">
-      <Filter>Cutscene Decomp\Sonic</Filter>
+      <Filter>Cutscene Decomp\1 Sonic</Filter>
     </ClCompile>
     <ClCompile Include="cutscene-decomp\Sonic\ev0166_s_lightshoes.cpp">
-      <Filter>Cutscene Decomp\Sonic</Filter>
+      <Filter>Cutscene Decomp\1 Sonic</Filter>
     </ClCompile>
     <ClCompile Include="cutscene-decomp\E102\ev0140_e_findjetbooster.cpp">
-      <Filter>Cutscene Decomp\Gamma</Filter>
+      <Filter>Cutscene Decomp\6 Gamma</Filter>
+    </ClCompile>
+    <ClCompile Include="cutscene-decomp\Tails\ev0032_t_meetingsonic.cpp">
+      <Filter>Cutscene Decomp\2 Tails</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

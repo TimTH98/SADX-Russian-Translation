@@ -5,7 +5,12 @@
 
 #include "CustomSubTimings.h"
 
+void DisplayMessage(std::wstring message)
+{
+	int returnValue = MessageBox(NULL, message.c_str(), L"Предупреждение", MB_OK | MB_ICONWARNING | MB_DEFBUTTON2);
+}
 
+std::wstring message = L"У вас включены моды, изменяющие катсцены.\n\nВо избежание конфликтов с этими модами\nопция \"Изменённые тайминги субтитров\"\nне будет применена.";
 
 void SetConfigFile(const char* path, const HelperFunctions& helperFunctions)
 {
@@ -17,9 +22,13 @@ void SetConfigFile(const char* path, const HelperFunctions& helperFunctions)
 	bool EditedTimings = true;
 
 	char pathbuf[MAX_PATH];
+
 	HMODULE DConv = GetModuleHandle(L"DCMods_Main");			// Init Dreamcast Conversion dll	
 
-#pragma region Ini Configuration
+	HMODULE TweakedCutscenes = GetModuleHandle(L"SADX-cutscene-decompilation");
+	HMODULE Cream = GetModuleHandle(L"CreamtheRabbit(SA1-Style)");
+	HMODULE Rouge = GetModuleHandle(L"Rouge-the-Bat-(SA1-Style)");
+
 	const IniFile* config = new IniFile(std::string(path) + "\\config.ini");
 
 	TGS_Selectors = config->getString("Customs", "TGS_Selectors", "Vanilla");
@@ -178,15 +187,21 @@ void SetConfigFile(const char* path, const HelperFunctions& helperFunctions)
 		ReplaceTex("GG_TEXLIST_FR", "y256_s_ts_a", "config\\GGTips", "alt_tips_0", 1317500, 256, 256);
 		ReplaceTex("GG_TEXLIST_FR", "y256_s_ts_b", "config\\GGTips", "alt_tips_1", 1317600, 256, 256);
 	}
-#pragma endregion
 
 	std::wstring modpath(path, path + strlen(path));
 	std::wstring filename = L"\\edited_timings.ini";
 
 	// Custom Timings
 	if (EditedTimings)
-	{	
-		helperFunctions.LoadEXEData((modpath + filename).c_str(), modpath.c_str());
-		SetCustomTimings(path, helperFunctions);
+	{
+		if (TweakedCutscenes || Cream || Rouge)
+		{
+			DisplayMessage(message);
+		}
+		else
+		{
+			helperFunctions.LoadEXEData((modpath + filename).c_str(), modpath.c_str());
+			SetCustomTimings(path, helperFunctions);
+		}
 	}	
 }

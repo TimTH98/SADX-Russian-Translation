@@ -1,3 +1,5 @@
+#include "stdafx.h"
+
 #include "SADXModLoader.h"
 #include "SADXEventFunctions.h"
 #include "SADXEventVariables.h"
@@ -62,12 +64,12 @@ void ev0032_t_meetingsonic(int state)
 		EV_ClrAction(player);
 		EV_SetFace(sonic, "GG");
 		EV_SerifPlay(625);
-		EV_Msg(msgTbl_ev0032[TextLanguage][0]); //"\aBoy, you're lucky \nI saw you come do"...
+		EV_Msg(msgTbl_ev0032[TextLanguage][0]); //Давненько мы с тобой\nне виделись!
 		EV_Wait(1);
 		EV_SerifWait();
-		EV_ClrFace(sonic);
-		EV_MsgCls();
+		EV_ClrFace(sonic);		
 		EV_Wait(30);
+		EV_MsgCls();
 		EV_SetAng(player, 0, 0x7200, 0);
 		EV_SetAng(sonic, 0, 0xEA00, 0);
 		EV_LookFree(sonic);
@@ -78,11 +80,11 @@ void ev0032_t_meetingsonic(int state)
 		EV_CameraPos(0, 140, -475.29999f, 6.9299998f, 1915.92f);
 		EV_SetFace(sonic, "CEAEDE");
 		EV_SerifPlay(626);
-		EV_Msg(msgTbl_ev0032[TextLanguage][1]); //"\aSo, what went wrong, anyway?"
+		EV_Msg(msgTbl_ev0032[TextLanguage][1]); //Меня больше волнует,\nчто случилось-то?
 		EV_Wait(1);
 		EV_SerifWait();
 		EV_SerifPlay(627);
-		EV_Msg(msgTbl_ev0032[TextLanguage][2]); //"\aIt's not like you \nto crash like tha"...
+		EV_Msg(msgTbl_ev0032[TextLanguage][2]); //Не похоже как-то на тебя,\nвот так разбить самолёт.
 		EV_Wait(1);
 		EV_SerifWait();
 		EV_ClrFace(sonic);
@@ -96,9 +98,8 @@ void ev0032_t_meetingsonic(int state)
 		EV_Wait(40);
 		EV_SetFace(player, "EDACG");
 		EV_SerifPlay(628);
-		EV_Msg(msgTbl_ev0032[TextLanguage][3]); //"\aYeah, it's just that I'm testing\na n"...
-		EV_Wait(75);
-		EV_Msg(msgTbl_ev0032[TextLanguage][4]); //"\aand it's not fully compatible\nyet!"
+		EV_MsgW(65, (msgTbl_ev0032[TextLanguage][3])); //Я испытывал новую модель.
+		EV_MsgW(45, (msgTbl_ev0032[TextLanguage][4])); //Думаю, системе подачи\nтоплива не хватило мощности.
 		EV_Wait(1);
 		EV_SerifWait();
 		EV_ClrFace(player);
@@ -114,7 +115,7 @@ void ev0032_t_meetingsonic(int state)
 			EV_SetFace(sonic, "FAFE");
 		}
 		EV_SerifPlay(629);
-		EV_Msg(msgTbl_ev0032[TextLanguage][5]); //"\aYou can always borrow my plane,\nthe "...
+		EV_Msg(msgTbl_ev0032[TextLanguage][5]); //Если нужен самолёт, то\nу тебя всегда есть Торнадо.
 		EV_Wait(1);
 		EV_SerifWait();
 		EV_ClrFace(sonic);
@@ -139,16 +140,13 @@ void ev0032_t_meetingsonic(int state)
 			EV_SetFace(player, "GAEADGGA");
 		}
 		EV_SerifPlay(630);
-		EV_Msg(msgTbl_ev0032[TextLanguage][6]); //"\aThanks, Sonic."
-		EV_Wait(20);
-		EV_Msg(msgTbl_ev0032[TextLanguage][7]); //"\aBut if I can make this work,\nit'll r"...
-		EV_Wait(1);
+		EV_MsgW(80, (msgTbl_ev0032[TextLanguage][6])); //Хе-хе, на этот раз я задумал
 		EV_SerifWait();
 		EV_ClrFace(player);
 		EV_Wait(1);
 		EV_SetFace(player, "EAG");
 		EV_SerifPlay(631);
-		EV_Msg(msgTbl_ev0032[TextLanguage][8]); //"\aCheck out this power supply!"
+		EV_Msg(msgTbl_ev0032[TextLanguage][7]); //А ещё у меня есть это.\nОп-па!
 		EV_Wait(1);
 		EV_SerifWait();
 		EV_ClrFace(player);
@@ -175,7 +173,7 @@ void ev0032_t_meetingsonic(int state)
 			EV_SetFace(sonic, "EFI");
 		}
 		EV_SerifPlay(632);
-		EV_Msg(msgTbl_ev0032[TextLanguage][9]); //"\aIt's a Chaos Emerald!   \nNo way!"
+		EV_Msg(msgTbl_ev0032[TextLanguage][8]); //ОГО! Изумруд Хаоса!
 		EV_CameraAng(0, 0, 0xEC00, 0xE300, 0);
 		EV_CameraPos(0, 0, -453.28f, 8.2700005f, 1904.8199f);
 		EV_CameraAng(0, 25, 0x100, 0xE700, 0);
@@ -192,21 +190,21 @@ void ev0032_t_meetingsonic(int state)
 		EV_SetPos(sonic, -445.67001f, 0.0099999998f, 1901.05f);
 		EV_SetFace(player, "EACADED");
 		EV_SerifPlay(633);
-		EV_Msg(msgTbl_ev0032[TextLanguage][10]); //"\aI was lucky to find \none of the 7 Ch"...
+		EV_Msg(msgTbl_ev0032[TextLanguage][9]); //Ага! Я нашёл один из семи.
 		EV_Wait(1);
 		EV_SerifWait();
 		EV_ClrFace(player);
 		EV_Wait(20);
 		EV_SetFace(player, "DAC");
 		EV_SerifPlay(634);
-		EV_Msg(msgTbl_ev0032[TextLanguage][11]); //"\aThey have unlimited mystic\npowers."
+		EV_Msg(msgTbl_ev0032[TextLanguage][10]); //Думаю, этот камень\nс безграничной энергией
 		EV_Wait(1);
 		EV_SerifWait();
 		EV_ClrFace(player);
 		EV_Wait(1);
 		EV_SetFace(player, "DPCDE");
 		EV_SerifPlay(635);
-		EV_Msg(msgTbl_ev0032[TextLanguage][12]); //"\aNow I want to harness \nthat power to"...
+		EV_Msg(msgTbl_ev0032[TextLanguage][11]); //можно как-то приспособить\nв качестве источника питания.
 		EV_Wait(1);
 		EV_SerifWait();
 		EV_ClrFace(player);
@@ -214,9 +212,9 @@ void ev0032_t_meetingsonic(int state)
 		EV_Wait(60);
 		EV_SetFace(player, "GGAG");
 		EV_SerifPlay(636);
-		EV_Msg(msgTbl_ev0032[TextLanguage][13]); //"\aLet's go to my workshop \nin the Myst"...
-		EV_Wait(40);
-		EV_Msg(msgTbl_ev0032[TextLanguage][14]); //"\aand I'll show you \nwhat I've been wo"...
+		EV_Msg(msgTbl_ev0032[TextLanguage][12]); //Вот что. Айда в мою мастерскую!
+		EV_Wait(60);
+		EV_Msg(msgTbl_ev0032[TextLanguage][13]); //Хочу тебе кое-что показать!
 		EV_Wait(1);
 		EV_SerifWait();
 		EV_ClrFace(player);
@@ -230,11 +228,10 @@ void ev0032_t_meetingsonic(int state)
 		EV_ClrAction(PURPLE);
 		EV_SetFace(player, "CDAD");
 		EV_SerifPlay(637);
-		EV_Msg(msgTbl_ev0032[TextLanguage][15]); //"\aWe'll go to the station,"
-		EV_Wait(25);
-		EV_Msg(msgTbl_ev0032[TextLanguage][16]); //"\ahop on a train\nand get there in no t"...
-		EV_Wait(10);
-		EV_Wait(30);
+		EV_MsgW(50, (msgTbl_ev0032[TextLanguage])[14]); //Она в Мистических руинах.
+		EV_MsgW(50, (msgTbl_ev0032[TextLanguage])[15]); //Иди на станцию и садись на поезд.
+		EV_MsgW(45, (msgTbl_ev0032[TextLanguage])[16]); //Ты мигом туда доберёшься!
+		EV_Wait(120);
 		EV_LookFree(player);
 		EV_MovePoint2(player, -416.5f, 0.0099999998f, 1848.1169f, 0.46000001f, 3.0f);
 		EV_Wait(1);
