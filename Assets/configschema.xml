@@ -19,6 +19,9 @@
 			<Property name="ExtraGGHelp" display="Альт. подсказки GG" type="bool" defaultvalue="False">
 				<HelpText>Включение альтернативных подсказок для игр с Game Gear</HelpText>	
 			</Property>	
+			<Property name="EditedTimings" display="Изменённые тайминги субтитров" type="bool" defaultvalue="True">
+				<HelpText>Активация изменённых таймингов на основе Cutscene Decompilation. Выключите опцию, если используете моды с заменой катсцен (экспериментально!)</HelpText>	
+			</Property>	
 		</Group>
 	</Groups>	
 	<Enums>
@@ -37,6 +40,6 @@
 		<Enum name="StageBorder">
 			<EnumMember name="US" display="US"></EnumMember>
 			<EnumMember name="JP" display="JP"></EnumMember>
-		</Enum>
+		</Enum>		
 	</Enums>
 </ConfigSchema>
