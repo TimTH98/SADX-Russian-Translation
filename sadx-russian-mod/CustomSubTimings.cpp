@@ -25,16 +25,10 @@ void SetCustomTimings(const char* path, const HelperFunctions& helperFunctions)
 	CutsceneDataList[0x001E]->Function = ev001E_s_lostworld;
 	
 	CutsceneDataList[0x0032]->Function = ev0032_t_meetingsonic;
-	/*CutsceneDataList[0x0033]->Function = ev0033_t_egghornet;
+	CutsceneDataList[0x0033]->Function = ev0033_t_egghornet;
 	CutsceneDataList[0x0034]->Function = ev0034_t_chaos1;
-	CutsceneDataList[0x0035]->Function = ev0035_t_aftercasinopolis;
-	CutsceneDataList[0x0038]->Function = ev0038_t_vsknuckles;
-	CutsceneDataList[0x0039]->Function = ev0039_t_beforechaos4;
 	CutsceneDataList[0x003A]->Function = ev003A_t_afterchaos4;
-	CutsceneDataList[0x003B]->Function = ev003B_t_tornado1;
-	CutsceneDataList[0x003E]->Function = ev003E_t_flashback;
-	CutsceneDataList[0x0040]->Function = ev0040_t_afterflashback;
-	CutsceneDataList[0x0042]->Function = ev0042_t_froggyjungle;
+	/*CutsceneDataList[0x0042]->Function = ev0042_t_froggyjungle;
 	CutsceneDataList[0x0044]->Function = ev0044_t_enterpast;
 	CutsceneDataList[0x0045]->Function = ev0045_t_tikal;
 	CutsceneDataList[0x0046]->Function = ev0046_t_big;

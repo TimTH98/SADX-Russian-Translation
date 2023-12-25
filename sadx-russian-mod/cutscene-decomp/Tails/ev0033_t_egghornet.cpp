@@ -1,3 +1,5 @@
+#include "stdafx.h"
+
 #include "SADXModLoader.h"
 #include "SADXEventFunctions.h"
 #include "SADXEventVariables.h"
@@ -94,9 +96,9 @@ void ev0033_t_egghornet(int state)
 		EV_CameraAng(0, 15, 0x1A0, 0xB88E, 0x110);
 		EV_SerifPlay(641);
 		EV_Msg(msgTbl_ev0033[TextLanguage][3]); //"\aI am Dr. Robotnik,"
-		EV_Wait(20);
+		EV_Wait(40);
 		EV_Msg(msgTbl_ev0033[TextLanguage][4]); //"\athe most cunning scientific\ngenius i"...
-		EV_Wait(25);
+		EV_Wait(5);
 		EV_CameraPos(0, 75, 996.90002f, 158.0f, 804.96002f);
 		EV_CameraAng(0, 75, 0x1A0, 0x988E, 0x110);
 		EV_Wait(75);

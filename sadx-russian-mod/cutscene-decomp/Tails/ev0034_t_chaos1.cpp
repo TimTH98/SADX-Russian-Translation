@@ -1,3 +1,5 @@
+#include "stdafx.h"
+
 #include "SADXModLoader.h"
 #include "SADXEventFunctions.h"
 #include "SADXEventVariables.h"
@@ -359,13 +361,8 @@ void ev0034_t_chaos1(int state)
 		EV_SetAction(sonic, &action_s_s0006_sonic, &SONIC_TEXLIST, 0.5f, 1, 1);
 		EV_SerifPlay(654);
 		EV_Msg(msgTbl_ev0034[TextLanguage][5]); //"\aThat's the monster \nI saw the other "...
-		EV_Wait(40);
-		EV_MsgClose();
-		EV_ClrFace(player);
-		EV_SetFace(player, "ABAAAAAAAABAAAAABAAAAAAB");
-		EV_SerifPlay(655);
-		EV_SetFace(player, "AB");
-		EV_Msg(msgTbl_ev0034[TextLanguage][6]); //"\aUh, Monster?"
+		EV_Wait(5);
+		EV_MsgW(20, msgTbl_ev0034[TextLanguage][6]); //"\aUh, Monster?"
 		if (VoiceLanguage == Languages_Japanese)
 		{
 			EV_SetFace(player, "BBABB");
@@ -374,6 +371,10 @@ void ev0034_t_chaos1(int state)
 		{
 			EV_SetFace(player, "CCCCC");
 		}
+		EV_ClrFace(player);
+		EV_SetFace(player, "ABAAAAAAAABAAAAABAAAAAAB");
+		EV_SerifPlay(655);
+		EV_SetFace(player, "AB");
 		EV_Wait(40);
 		EV_ClrFace(player);
 		EV_MsgClose();
@@ -424,9 +425,7 @@ void ev0034_t_chaos1(int state)
 		EV_CameraAng(1, 40, 0xCB9, 0x8FAA, 0xFEC1);
 		EV_SerifPlay(656);
 		EV_Msg(msgTbl_ev0034[TextLanguage][7]); //"\aYes, yes, yes!   \nIt's really happen"...
-		EV_Wait(40);
-		EV_Msg(msgTbl_ev0034[TextLanguage][8]); //"\aJust as the stone tablets \nsaid it w"...
-		EV_Wait(40);
+		EV_Wait(80);
 		EV_MsgClose();
 		eggmoble_moveandturn(1045.3f, 135.5f, 888.0f, 0, 0x4300, 0, 80, 1);
 		EV_Wait(2);
@@ -475,9 +474,9 @@ void ev0034_t_chaos1(int state)
 		EV_CameraAng(1, 80, 0x5B9, 0xAAAA, 0xFC00);
 		EV_SerifPlay(662);
 		EV_Msg(msgTbl_ev0034[TextLanguage][14]); //"\aHa ha ha ha!  \nYou ready, Chaos?"
-		EV_Wait(45);
+		EV_Wait(30);
 		EV_Msg(msgTbl_ev0034[TextLanguage][15]); //"\aLet's go find the next Emerald.\nCome"...
-		EV_Wait(20);
+		EV_Wait(80);
 		eggmoble_moveandturn(1045.3f, 135.5f, 888.0f, 0, -0x2000, 0, 60, 0);
 		EV_Wait(3);
 		EV_SerifWait();

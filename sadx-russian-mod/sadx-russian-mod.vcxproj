@@ -93,6 +93,9 @@
     <ClCompile Include="cutscene-decomp\Sonic\ev001E_s_lostworld.cpp" />
     <ClCompile Include="cutscene-decomp\Sonic\ev0166_s_lightshoes.cpp" />
     <ClCompile Include="cutscene-decomp\Tails\ev0032_t_meetingsonic.cpp" />
+    <ClCompile Include="cutscene-decomp\Tails\ev0033_t_egghornet.cpp" />
+    <ClCompile Include="cutscene-decomp\Tails\ev0034_t_chaos1.cpp" />
+    <ClCompile Include="cutscene-decomp\Tails\ev003A_t_afterchaos4.cpp" />
     <ClCompile Include="GameCredits.cpp" />
     <ClCompile Include="LoadTextures.cpp" />
     <ClCompile Include="mod.cpp" />

@@ -1,3 +1,5 @@
+#include "stdafx.h"
+
 #include "SADXModLoader.h"
 #include "SADXEventFunctions.h"
 #include "SADXEventVariables.h"
@@ -84,9 +86,7 @@ void ev003A_t_afterchaos4(int state)
 		EV_Wait(30);
 		EV_SerifPlay(704);
 		EV_Msg(msgTbl_ev003A[TextLanguage][2]); //"\aAdieu... Until we meet again,\nmy fri"...
-		EV_Wait(40);
-		EV_Msg(msgTbl_ev003A[TextLanguage][3]); //"\aHa ha ha ha ha ha ha!"
-		EV_Wait(10);
+		EV_Wait(40);		
 		EV_CameraTargetObj(0, 150, eggmoble, 0.0f, 6.0f, 0.0f, 0);
 		EV_Wait(60);
 		EV_MsgClose();

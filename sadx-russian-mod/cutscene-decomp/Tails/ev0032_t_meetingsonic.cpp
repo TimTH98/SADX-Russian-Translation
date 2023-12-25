@@ -215,7 +215,6 @@ void ev0032_t_meetingsonic(int state)
 		EV_Msg(msgTbl_ev0032[TextLanguage][12]); //Вот что. Айда в мою мастерскую!
 		EV_Wait(60);
 		EV_Msg(msgTbl_ev0032[TextLanguage][13]); //Хочу тебе кое-что показать!
-		EV_Wait(1);
 		EV_SerifWait();
 		EV_ClrFace(player);
 		EV_CameraTargetFree();
@@ -226,21 +225,21 @@ void ev0032_t_meetingsonic(int state)
 		EV_MovePoint2(player, -450.29001f, 0.0099999998f, 1865.426f, 0.46000001f, 3.0f);
 		EV_ClrAction(player);
 		EV_ClrAction(PURPLE);
+		EV_Wait(20);
 		EV_SetFace(player, "CDAD");
 		EV_SerifPlay(637);
 		EV_MsgW(50, (msgTbl_ev0032[TextLanguage])[14]); //Она в Мистических руинах.
-		EV_MsgW(50, (msgTbl_ev0032[TextLanguage])[15]); //Иди на станцию и садись на поезд.
-		EV_MsgW(45, (msgTbl_ev0032[TextLanguage])[16]); //Ты мигом туда доберёшься!
-		EV_Wait(120);
+		EV_MsgW(60, (msgTbl_ev0032[TextLanguage])[15]); //Иди на станцию и садись на поезд.
+		EV_MsgW(30, (msgTbl_ev0032[TextLanguage])[16]); //Ты мигом туда доберёшься!
 		EV_LookFree(player);
 		EV_MovePoint2(player, -416.5f, 0.0099999998f, 1848.1169f, 0.46000001f, 3.0f);
 		EV_Wait(1);
 		EV_SerifWait();
-		EV_ClrFace(player);
-		EV_MsgClose();
+		EV_ClrFace(player);		
 		EV_RemovePlayer(2);
 		EV_Wait(40);
-		EV_CameraTargetFree();
+		EV_MsgClose();
+		EV_CameraTargetFree();		
 		EV_Wait(1);
 		break;
 	case 2:
