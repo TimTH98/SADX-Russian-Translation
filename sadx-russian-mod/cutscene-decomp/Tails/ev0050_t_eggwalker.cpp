@@ -1,3 +1,5 @@
+#include "stdafx.h"
+
 #include "SADXModLoader.h"
 #include "SADXEventFunctions.h"
 #include "SADXEventVariables.h"
@@ -80,6 +82,8 @@ void ev0050_t_eggwalker(int state)
 		EV_SetMode(GIRL2, 0);
 		EV_ClrAction(GIRL2);
 		EV_SetMotion(GIRL2, MODEL_SS_PEOPLE_OBJECTS[10], MODEL_SS_PEOPLE_MOTIONS[12], ADV00_TEXLISTS[6], 0.5f, 1, 0);
+		EV_MsgW(40, msgTbl_ev0050[TextLanguage][7]);
+		EV_MsgClose();
 		EV_Wait(80);
 		EV_CameraPos(0, 0, -453.06f, 67.860001f, 1193.33f);
 		EV_CameraAng(0, 0, 0xF269, 0xE424, 0);
@@ -118,6 +122,8 @@ void ev0050_t_eggwalker(int state)
 		EV_MsgClose();
 		delete_eggmoble();
 		EV_SerifPlay(818);
+		EV_MsgW(40, msgTbl_ev0050[TextLanguage][8]);
+		EV_MsgClose();
 		EV_Wait(1);
 		EV_eggmoble2(-431.51001f, 350.0f, 1163.6899f, 0, 0xFB58, 0);
 		EV_Wait(3);

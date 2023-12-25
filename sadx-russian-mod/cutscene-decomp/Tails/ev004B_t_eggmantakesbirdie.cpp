@@ -1,3 +1,5 @@
+#include "stdafx.h"
+
 #include "SADXModLoader.h"
 #include "SADXEventFunctions.h"
 #include "SADXEventVariables.h"
@@ -250,7 +252,7 @@ void ev004B_t_eggmantakesbirdie(int state)
 		EventSe_Oneshot(1338, 0, 0, 0);
 		EV_SerifPlay(772);
 		EV_Msg(msgTbl_ev004B[TextLanguage][5]); //"\aNo way!"
-		EV_Wait(1);
+		EV_Wait(20);
 		EV_SerifWait();
 		EV_ClrFace(amy);
 		EV_MsgClose();
@@ -272,7 +274,7 @@ void ev004B_t_eggmantakesbirdie(int state)
 		EV_CameraPos(1, 20, 55.560001f, 1547.075f, 3231.04f);
 		EV_SerifPlay(774);
 		EV_Msg(msgTbl_ev004B[TextLanguage][7]); //"\aGamma!"
-		EV_Wait(1);
+		EV_Wait(20);
 		EV_SerifWait();
 		EV_FreeObject(&emerald);
 		EV_MsgClose();

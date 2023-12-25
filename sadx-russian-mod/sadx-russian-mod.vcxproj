@@ -96,6 +96,8 @@
     <ClCompile Include="cutscene-decomp\Tails\ev0033_t_egghornet.cpp" />
     <ClCompile Include="cutscene-decomp\Tails\ev0034_t_chaos1.cpp" />
     <ClCompile Include="cutscene-decomp\Tails\ev003A_t_afterchaos4.cpp" />
+    <ClCompile Include="cutscene-decomp\Tails\ev004B_t_eggmantakesbirdie.cpp" />
+    <ClCompile Include="cutscene-decomp\Tails\ev0050_t_eggwalker.cpp" />
     <ClCompile Include="GameCredits.cpp" />
     <ClCompile Include="LoadTextures.cpp" />
     <ClCompile Include="mod.cpp" />

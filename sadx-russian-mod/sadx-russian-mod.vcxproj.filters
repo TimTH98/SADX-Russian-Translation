@@ -114,6 +114,12 @@
     <ClCompile Include="cutscene-decomp\Tails\ev003A_t_afterchaos4.cpp">
       <Filter>Cutscene Decomp\2 Tails</Filter>
     </ClCompile>
+    <ClCompile Include="cutscene-decomp\Tails\ev004B_t_eggmantakesbirdie.cpp">
+      <Filter>Cutscene Decomp\2 Tails</Filter>
+    </ClCompile>
+    <ClCompile Include="cutscene-decomp\Tails\ev0050_t_eggwalker.cpp">
+      <Filter>Cutscene Decomp\2 Tails</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
