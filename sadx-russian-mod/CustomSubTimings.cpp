@@ -30,8 +30,8 @@ void SetCustomTimings(const char* path, const HelperFunctions& helperFunctions)
 	CutsceneDataList[0x003A]->Function = ev003A_t_afterchaos4;
 	CutsceneDataList[0x004B]->Function = ev004B_t_eggmantakesbirdie;
 	CutsceneDataList[0x0050]->Function = ev0050_t_eggwalker;
-	/*CutsceneDataList[0x0051]->Function = ev0051_t_walkerdefeated;
-	CutsceneDataList[0x0054]->Function = ev0054_t_eclanding;
+	CutsceneDataList[0x0051]->Function = ev0051_t_walkerdefeated;
+	/*CutsceneDataList[0x0054]->Function = ev0054_t_eclanding;
 	CutsceneDataList[0x0055]->Function = ev0055_t_sandhill;
 	CutsceneDataList[0x0056]->Function = ev0056_t_casinowake;
 

@@ -1,3 +1,5 @@
+#include "stdafx.h"
+
 #include "SADXModLoader.h"
 #include "SADXEventFunctions.h"
 #include "SADXEventVariables.h"
@@ -86,11 +88,15 @@ void ev0051_t_walkerdefeated(int state)
 		EV_CameraPos(1, 150, -513.52002f, 4.77f, 1273.22f);
 		EV_CameraAng(1, 150, 0xC00, 0x3B8C, 0);
 		EV_SerifPlay(825);
+		EV_Msg(msgTbl_ev0051[TextLanguage][3]); 
 		EV_Wait(30);
 		EV_SerifPlay(821);
+		EV_Msg(msgTbl_ev0051[TextLanguage][4]);
 		EV_Wait(30);
 		EV_SerifPlay(824);
-		EV_Wait(1);
+		EV_Msg(msgTbl_ev0051[TextLanguage][5]);
+		EV_Wait(30);
+		EV_MsgClose();
 		EV_CameraPos(1, 0, -472.03f, 8.3900003f, 1033.49f);
 		EV_CameraAng(1, 0, 0xEB84, 0x9772, 0);
 		EV_CameraPos(1, 200, -470.12f, 6.46f, 1036.3199f);
@@ -134,7 +140,8 @@ void ev0051_t_walkerdefeated(int state)
 		EV_MsgW(0, msgTbl_ev0051[TextLanguage][1]); //"\aHeh!   I did it all by myself!"
 		BGM_Play(MusicIDs_themiles);
 		EV_SerifPlay(822);
-		EV_Wait(1);
+		EV_Msg(msgTbl_ev0051[TextLanguage][6]);
+		EV_Wait(30);
 		EV_MsgClose();
 		EV_SetFace(player, "bbbbb");
 		EV_ClrAction(player);
