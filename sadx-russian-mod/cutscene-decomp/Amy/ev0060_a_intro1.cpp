@@ -1,3 +1,5 @@
+#include "stdafx.h"
+
 #include "SADXModLoader.h"
 #include "SADXEventFunctions.h"
 #include "SADXEventVariables.h"
@@ -399,7 +401,7 @@ void ev0060_a_intro1(int state)
 		EV_ClrFace(player);
 		EV_SetFace(player, "AEACADEACVVVVVVV");
 		EV_SerifPlay(841);
-		EV_MsgW(120, msgTbl_ev0060[TextLanguage][8]); //"\abut shop 'til I drop.\nThere was alwa"...
+		EV_MsgW(70, msgTbl_ev0060[TextLanguage][8]); //"\abut shop 'til I drop.\nThere was alwa"...
 		EV_Msg(msgTbl_ev0060[TextLanguage][9]); //"\awith Sonic around. \nI really miss hi"...
 		EV_CameraPerspective(0, 160, 0x1C72);
 		EV_CameraPos(0, 160, 134.0f, 8.5f, 702.90002f);

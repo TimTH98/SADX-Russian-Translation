@@ -5,12 +5,18 @@
 
 #include "CustomSubTimings.h"
 
+#include <iostream>
+#include <fstream>
+
 void DisplayMessage(std::wstring message)
 {
 	int returnValue = MessageBox(NULL, message.c_str(), L"Предупреждение", MB_OK | MB_ICONWARNING | MB_DEFBUTTON2);
 }
 
-std::wstring message = L"У вас включены моды, изменяющие катсцены.\n\nВо избежание конфликтов с этими модами\nопция \"Изменённые тайминги субтитров\"\nне будет применена.";
+std::wstring message0 = L"Мод принудительно включает японскую озвучку.\n\nЭто сделано из-за того, что между\nяпонской и английской версией озвучки игры\nесть значительные расхождения в некоторых катсценах\n(другую реплику произносит другой персонаж).\n\nВы можете отключить эту функцию в настройках\nк моду с переводом.";
+std::wstring message1 = L"У вас включены моды, изменяющие катсцены.\n\nВо избежание конфликтов с этими модами\nопция \"Изменённые тайминги субтитров\"\nне будет применена.";
+
+bool DisableForceJapVO = false;
 
 void SetConfigFile(const char* path, const HelperFunctions& helperFunctions)
 {
@@ -20,6 +26,7 @@ void SetConfigFile(const char* path, const HelperFunctions& helperFunctions)
 	bool ExtraGGHelp = false;
 	std::string StageBorder = "US";
 	bool EditedTimings = true;
+
 
 	char pathbuf[MAX_PATH];
 
@@ -38,6 +45,8 @@ void SetConfigFile(const char* path, const HelperFunctions& helperFunctions)
 	DreamcastChaoIcon = config->getString("Extra", "DreamcastChaoIcon", "DX");
 	ExtraGGHelp = config->getBool("Extra", "ExtraGGHelp", false);
 	EditedTimings = config->getBool("Extra", "EditedTimings", true);
+
+	DisableForceJapVO = config->getBool("ForceVO", "DisableForceJapVO", false);
 
 	// TGS
 	if (TGS_Selectors == "TGS") {
@@ -189,19 +198,41 @@ void SetConfigFile(const char* path, const HelperFunctions& helperFunctions)
 	}
 
 	std::wstring modpath(path, path + strlen(path));
-	std::wstring filename = L"\\edited_timings.ini";
+	std::wstring editedTimings = L"\\edited_timings.ini";
 
 	// Custom Timings
 	if (EditedTimings)
 	{
 		if (TweakedCutscenes || Cream || Rouge)
 		{
-			DisplayMessage(message);
+			DisplayMessage(message1);
 		}
 		else
 		{
-			helperFunctions.LoadEXEData((modpath + filename).c_str(), modpath.c_str());
+			helperFunctions.LoadEXEData((modpath + editedTimings).c_str(), modpath.c_str());
 			SetCustomTimings(path, helperFunctions);
 		}
-	}	
+	}
+
+	if (!DisableForceJapVO)
+	{
+		std::wifstream flagFile;
+		std::wstring flag = L"//jap-voice-flag";
+		flagFile.open(modpath + flag);
+		if (!flagFile) {
+			DisplayMessage(message0);
+			std::ofstream flagFileOut;
+			flagFileOut.open(modpath + flag);
+			flagFileOut.close();
+		}
+		else {
+			flagFile.close();
+		}
+	}
+}
+
+__declspec(dllexport) void OnFrame()
+{
+	if (!DisableForceJapVO)
+		VoiceLanguage = 0;
 }

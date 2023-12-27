@@ -1,3 +1,5 @@
+#include "stdafx.h"
+
 #include "SADXModLoader.h"
 #include "SADXEventFunctions.h"
 #include "SADXEventVariables.h"
@@ -217,7 +219,7 @@ void ev0062_a_meetsonic(int state)
 		EV_ClrFace(player);
 		EV_SetFace(player, "FCAF");
 		EV_SerifPlay(865);
-		EV_Msg(msgTbl_ev0062[TextLanguage][9]); //"\aDoesn't matter.  \nWe'll just tag alo"...
+		EV_MsgW(60, msgTbl_ev0062[TextLanguage][9]); //"\aDoesn't matter.  \nWe'll just tag alo"...
 		EV_ClrAction(player);
 		EV_SetAction(player, AMY_ACTIONS[70], &AMY_TEXLIST, 1.0f, 1, 16);
 		EV_ClrFace(player);

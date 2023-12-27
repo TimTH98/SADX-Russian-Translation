@@ -123,6 +123,12 @@
     <ClCompile Include="cutscene-decomp\Tails\ev0051_t_walkerdefeated.cpp">
       <Filter>Cutscene Decomp\2 Tails</Filter>
     </ClCompile>
+    <ClCompile Include="cutscene-decomp\Amy\ev0060_a_intro1.cpp">
+      <Filter>Cutscene Decomp\4 Amy</Filter>
+    </ClCompile>
+    <ClCompile Include="cutscene-decomp\Amy\ev0062_a_meetsonic.cpp">
+      <Filter>Cutscene Decomp\4 Amy</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
