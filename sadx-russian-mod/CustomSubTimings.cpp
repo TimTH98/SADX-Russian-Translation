@@ -35,33 +35,8 @@ void SetCustomTimings(const char* path, const HelperFunctions& helperFunctions)
 	CutsceneDataList[0x0060]->Function = ev0060_a_intro1;
 	CutsceneDataList[0x0061]->Function = ev0061_a_intro2;
 	CutsceneDataList[0x0062]->Function = ev0062_a_meetsonic;
-	/*CutsceneDataList[0x0063]->Function = ev0063_a_twinklepark;
-	CutsceneDataList[0x0064]->Function = ev0064_a_kidnapped;
-	CutsceneDataList[0x0065]->Function = ev0065_a_prison;
-	CutsceneDataList[0x0066]->Function = ev0066_a_hotshelter;
-	CutsceneDataList[0x0067]->Function = ev0067_a_past;
-	CutsceneDataList[0x0068]->Function = ev0068_a_tikal;
-	CutsceneDataList[0x0069]->Function = ev0069_a_eggmantakesbirdie;
-	CutsceneDataList[0x006A]->Function = ev006A_a_escapecarrier;
-	CutsceneDataList[0x006B]->Function = ev006B_a_fmvplaceholder;
-	CutsceneDataList[0x006C]->Function = ev006C_a_exitpast;
-	CutsceneDataList[0x006D]->Function = ev006D_a_savebirdsbros;
-	CutsceneDataList[0x006E]->Function = ev006E_a_junglebase;
-	CutsceneDataList[0x006F]->Function = ev006F_a_finalegg;
-	CutsceneDataList[0x0070]->Function = ev0070_a_returncarrier;
-	CutsceneDataList[0x0071]->Function = ev0071_a_amygetangry;
-	CutsceneDataList[0x0072]->Function = ev0072_a_outro;
-	CutsceneDataList[0x0075]->Function = ev0075_a_kidnapped2;
 
-	CutsceneDataList[0x0080]->Function = ev0080_k_intro;
-	CutsceneDataList[0x0082]->Function = ev0082_k_beginhunt;
-	CutsceneDataList[0x0083]->Function = ev0083_k_casinopolis;
-	CutsceneDataList[0x0084]->Function = ev0084_k_pastfirst;
-	CutsceneDataList[0x0085]->Function = ev0085_k_tikalfather;
-	CutsceneDataList[0x0086]->Function = ev0086_k_leavepastfirst;
-	CutsceneDataList[0x0087]->Function = ev0087_k_chaos2;
-	CutsceneDataList[0x0088]->Function = ev0088_k_eggmantricksknuckles;
-	CutsceneDataList[0x0089]->Function = ev0089_k_chasesonic;
+	/*CutsceneDataList[0x0089]->Function = ev0089_k_chasesonic;
 	CutsceneDataList[0x008A]->Function = ev008A_k_vssonic;
 	CutsceneDataList[0x008B]->Function = ev008B_k_chaos4;
 	CutsceneDataList[0x008C]->Function = ev008C_k_afterchaos4;
@@ -78,7 +53,6 @@ void SetCustomTimings(const char* path, const HelperFunctions& helperFunctions)
 	CutsceneDataList[0x0099]->Function = ev0099_k_beforechaos6;
 	CutsceneDataList[0x009A]->Function = ev009A_k_glubglub;
 	CutsceneDataList[0x009B]->Function = ev009B_k_afterchaos6;
-	CutsceneDataList[0x009C]->Function = ev009C_k_fmvplaceholder;
 	CutsceneDataList[0x009D]->Function = ev009D_k_restoreme;
 	CutsceneDataList[0x009F]->Function = ev009F_k_outro;
 	CutsceneDataList[0x00A0]->Function = ev00A0_k_eggmanhotel;
@@ -140,10 +114,7 @@ void SetCustomTimings(const char* path, const HelperFunctions& helperFunctions)
 
 	/*CutsceneDataList[0x0120]->Function = ev0120_k_ectransform1;
 	CutsceneDataList[0x0121]->Function = ev0121_k_ectransform2;
-	CutsceneDataList[0x0122]->Function = ev0122_k_outsideskydeck;
-
-	CutsceneDataList[0x0130]->Function = ev0130_a_hedgehoghammer;
-	CutsceneDataList[0x0131]->Function = ev0131_a_hedgehoghammerwin;*/
+	CutsceneDataList[0x0122]->Function = ev0122_k_outsideskydeck;*/
 
 	CutsceneDataList[0x0140]->Function = ev0140_e_findjetbooster;
 	/*CutsceneDataList[0x0141]->Function = ev0141_e_hotshelter;
