@@ -5,7 +5,6 @@
 
 #include "CustomSubTimings.h"
 
-#include <iostream>
 #include <fstream>
 
 void DisplayMessage(std::wstring message)
@@ -16,17 +15,17 @@ void DisplayMessage(std::wstring message)
 std::wstring message0 = L"Мод принудительно включает японскую озвучку.\n\nЭто сделано из-за того, что между\nяпонской и английской версией озвучки игры\nесть значительные расхождения в некоторых катсценах\n(другую реплику произносит другой персонаж).\n\nВы можете отключить эту функцию в настройках\nк моду с переводом.";
 std::wstring message1 = L"У вас включены моды, изменяющие катсцены.\n\nВо избежание конфликтов с этими модами\nопция \"Изменённые тайминги субтитров\"\nне будет применена.";
 
-bool DisableForceJapVO = false;
+bool ForcedJapVoices;
+bool GetJPVoiceSetting() { return ForcedJapVoices; }
 
 void SetConfigFile(const char* path, const HelperFunctions& helperFunctions)
 {
-	std::string TGS_Selectors = "Vanilla";
-	std::string DreamcastChaoIcon = "DX";
-	std::string StartButton = "Start";
-	bool ExtraGGHelp = false;
-	std::string StageBorder = "US";
-	bool EditedTimings = true;
-
+	std::string TGS_Selectors;
+	std::string DreamcastChaoIcon;
+	std::string StartButton;
+	bool ExtraGGHelp;
+	std::string StageBorder;
+	bool EditedTimings;
 
 	char pathbuf[MAX_PATH];
 
@@ -42,11 +41,11 @@ void SetConfigFile(const char* path, const HelperFunctions& helperFunctions)
 	StartButton = config->getString("Customs", "StartButton", "Start");
 	StageBorder = config->getString("Customs", "StageBorder", "US");
 
+	ForcedJapVoices = config->getBool("ForceVO", "ForcedJapVoices", true);
+
 	DreamcastChaoIcon = config->getString("Extra", "DreamcastChaoIcon", "DX");
 	ExtraGGHelp = config->getBool("Extra", "ExtraGGHelp", false);
-	EditedTimings = config->getBool("Extra", "EditedTimings", true);
-
-	DisableForceJapVO = config->getBool("ForceVO", "DisableForceJapVO", false);
+	EditedTimings = config->getBool("Extra", "EditedTimings", true);	
 
 	// TGS
 	if (TGS_Selectors == "TGS") {
@@ -214,25 +213,19 @@ void SetConfigFile(const char* path, const HelperFunctions& helperFunctions)
 		}
 	}
 
-	if (!DisableForceJapVO)
+	std::string flagPath = "\\jap-voice-flag";
+
+	// Обработка форса происходит в основном файле мода (mod.cpp), в файле конфига обрабатывается 
+	// только вывод сообщения и обработка флаг-файла
+	if (!GetJPVoiceSetting())	// Если опция форса выключена (то есть форсируется яп)
+		remove((path + flagPath).c_str());	// Удалить нахер флаг, если опция ВЫКЛЮЧЕНИЯ включена
+	else
 	{
-		std::wifstream flagFile;
-		std::wstring flag = L"//jap-voice-flag";
-		flagFile.open(modpath + flag);
-		if (!flagFile) {
+		std::ifstream flagFile(path + flagPath);
+		if (!flagFile) {	// При отсутствии флаг-файла 
 			DisplayMessage(message0);
-			std::ofstream flagFileOut;
-			flagFileOut.open(modpath + flag);
+			std::ofstream flagFileOut(path + flagPath);	// Создать флаг-файл
 			flagFileOut.close();
 		}
-		else {
-			flagFile.close();
-		}
 	}
-}
-
-__declspec(dllexport) void OnFrame()
-{
-	if (!DisableForceJapVO)
-		VoiceLanguage = 0;
 }

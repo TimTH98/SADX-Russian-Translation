@@ -38,7 +38,9 @@ extern "C"
 		}
 
 		TextLanguage = 2;
-		//VoiceLanguage = 0;
+		
+		if (GetJPVoiceSetting())
+		VoiceLanguage = 0;
 	}
 
 	__declspec(dllexport) ModInfo SADXModInfo = { ModLoaderVer };
