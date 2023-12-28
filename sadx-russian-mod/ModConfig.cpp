@@ -41,11 +41,11 @@ void SetConfigFile(const char* path, const HelperFunctions& helperFunctions)
 	StartButton = config->getString("Customs", "StartButton", "Start");
 	StageBorder = config->getString("Customs", "StageBorder", "US");
 
-	ForcedJapVoices = config->getBool("ForceVO", "ForcedJapVoices", true);
+	ForcedJapVoices = config->getBool("SubsAndVoices", "ForcedJapVoices", true);
+	EditedTimings = config->getBool("SubsAndVoices", "EditedTimings", true);
 
 	DreamcastChaoIcon = config->getString("Extra", "DreamcastChaoIcon", "DX");
-	ExtraGGHelp = config->getBool("Extra", "ExtraGGHelp", false);
-	EditedTimings = config->getBool("Extra", "EditedTimings", true);	
+	ExtraGGHelp = config->getBool("Extra", "ExtraGGHelp", false);		
 
 	// TGS
 	if (TGS_Selectors == "TGS") {

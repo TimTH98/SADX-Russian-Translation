@@ -12,7 +12,10 @@
 				<HelpText>Выбор стиля табличек уровней&#x0a;(US или JP), которые отображаются перед их загрузкой</HelpText>	
 			</Property>	
 		</Group>
-		<Group name="ForceVO" display="Озвучка">
+		<Group name="SubsAndVoices" display="Субтитры и озвучка">
+			<Property name="EditedTimings" display="Изменённые тайминги субтитров" type="bool" defaultvalue="True">
+				<HelpText>Активация изменённых таймингов на основе Cutscene Decompilation. Выключите опцию,&#x0a;если используете моды&#x0a;с заменой катсцен (экспериментально!)</HelpText>	
+			</Property>	
 			<Property name="ForcedJapVoices" display="Форсировать японскую озвучку" type="bool" defaultvalue="True">
 				<HelpText>Мод принудительно включает японскую озвучку.&#x0a;Это сделано из-за того, что между японской и английской версией озвучки игры есть значительные расхождения в некоторых катсценах (другую реплику произносит другой персонаж).&#x0a;Эта настройка отключает данную опцию.</HelpText>				
 			</Property>	
@@ -23,9 +26,6 @@
 			</Property>		
 			<Property name="ExtraGGHelp" display="Альт. подсказки GG" type="bool" defaultvalue="False">
 				<HelpText>Включение альтернативных подсказок для игр с Game Gear</HelpText>	
-			</Property>	
-			<Property name="EditedTimings" display="Изменённые тайминги субтитров" type="bool" defaultvalue="True">
-				<HelpText>Активация изменённых таймингов на основе Cutscene Decompilation. Выключите опцию,&#x0a;если используете моды&#x0a;с заменой катсцен (экспериментально!)</HelpText>	
 			</Property>	
 		</Group>
 	</Groups>	
