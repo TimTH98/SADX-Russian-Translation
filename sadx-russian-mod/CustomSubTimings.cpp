@@ -92,9 +92,9 @@ void SetCustomTimings(const char* path, const HelperFunctions& helperFunctions)
 	CutsceneDataList[0x00B7]->Function = ev00B7_e_fanfare;
 	CutsceneDataList[0x00B8]->Function = ev00B8_e_emeraldcoast;
 	CutsceneDataList[0x00B9]->Function = ev00B9_e_past;
-	CutsceneDataList[0x00BA]->Function = ev00BA_e_tikal;
+	CutsceneDataList[0x00BA]->Function = ev00BA_e_tikal;*/
 	CutsceneDataList[0x00BB]->Function = ev00BB_e_deliverfrog;
-	CutsceneDataList[0x00BC]->Function = ev00BC_e_enterwrongroom;
+	/*CutsceneDataList[0x00BC]->Function = ev00BC_e_enterwrongroom;
 	CutsceneDataList[0x00BD]->Function = ev00BD_e_e101factory;
 	CutsceneDataList[0x00BE]->Function = ev00BE_e_exitwrongroom;
 	CutsceneDataList[0x00BF]->Function = ev00BF_e_prison;

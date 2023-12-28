@@ -1,3 +1,5 @@
+#include "stdafx.h"
+
 #include "SADXModLoader.h"
 #include "SADXEventFunctions.h"
 #include "SADXEventVariables.h"
@@ -88,10 +90,13 @@ void ev00BB_e_deliverfrog(int state)
 		EventSe_Play(1, 760, 1800);
 		EventSe_Volume(1, -120, 120);
 		EV_SerifPlay(1223);
+		EV_MsgW(30, msgTbl_ev00BB[TextLanguage][14]);
 		EV_Wait(1);
 		EV_SerifPlay(1224);
+		EV_MsgW(30, msgTbl_ev00BB[TextLanguage][15]);
 		EV_Wait(1);
 		EV_SerifPlay(1225);
+		EV_MsgW(50, msgTbl_ev00BB[TextLanguage][16]);
 		EV_SetPos(player, 0.0f, 0.0f, 159.0f);
 		EV_SetPos(Frog1, -12.0f, -0.5f, 149.5f);
 		EV_CameraAng(1, 0, 0xE900, 0x8000, 0);
@@ -101,6 +106,7 @@ void ev00BB_e_deliverfrog(int state)
 		{
 			COverlaySetSpeed(WHITE, -0.016666668f);
 		}
+		EV_MsgClose();
 		EV_Wait(50);
 		EV_SetAction(player, E102_ACTIONS[45], &E102_TEXLIST, 0.1f, 1, 0);
 		EV_Wait(30);

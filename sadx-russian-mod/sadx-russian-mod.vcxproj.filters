@@ -129,6 +129,9 @@
     <ClCompile Include="cutscene-decomp\Amy\ev0062_a_meetsonic.cpp">
       <Filter>Cutscene Decomp\4 Amy</Filter>
     </ClCompile>
+    <ClCompile Include="cutscene-decomp\E102\ev00BB_e_deliverfrog.cpp">
+      <Filter>Cutscene Decomp\6 Gamma</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
