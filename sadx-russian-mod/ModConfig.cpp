@@ -41,9 +41,9 @@ void SetConfigFile(const char* path, const HelperFunctions& helperFunctions)
 	StartButton = config->getString("Customs", "StartButton", "Start");
 	StageBorder = config->getString("Customs", "StageBorder", "US");
 
-	ForcedJapVoices = config->getBool("SubsAndVoices", "ForcedJapVoices", true);
 	EditedTimings = config->getBool("SubsAndVoices", "EditedTimings", true);
-
+	ForcedJapVoices = config->getBool("SubsAndVoices", "ForcedJapVoices", true);
+	
 	DreamcastChaoIcon = config->getString("Extra", "DreamcastChaoIcon", "DX");
 	ExtraGGHelp = config->getBool("Extra", "ExtraGGHelp", false);		
 
@@ -155,6 +155,38 @@ void SetConfigFile(const char* path, const HelperFunctions& helperFunctions)
 	}
 #pragma endregion
 
+	std::wstring modpath(path, path + strlen(path));
+	std::wstring editedTimings = L"\\edited_timings.ini";
+	std::string flagPath = "\\jap-voice-flag";
+
+	// Custom Timings
+	if (EditedTimings)
+	{
+		if (TweakedCutscenes || Cream || Rouge)
+		{
+			DisplayMessage(message1);
+		}
+		else
+		{
+			helperFunctions.LoadEXEData((modpath + editedTimings).c_str(), modpath.c_str());
+			SetCustomTimings(path, helperFunctions);
+		}
+	}	
+
+	// Обработка форса происходит в основном файле мода (mod.cpp), в файле конфига обрабатывается 
+	// только вывод сообщения и обработка флаг-файла
+	if (!GetJPVoiceSetting())	// Если опция форса выключена (то есть форсируется яп)
+		remove((path + flagPath).c_str());	// Удалить нахер флаг, если опция ВЫКЛЮЧЕНИЯ включена
+	else
+	{
+		std::ifstream flagFile(path + flagPath);
+		if (!flagFile) {	// При отсутствии флаг-файла 
+			DisplayMessage(message0);
+			std::ofstream flagFileOut(path + flagPath);	// Создать флаг-файл
+			flagFileOut.close();
+		}
+	}
+
 	// Chao Garden Portals Icons
 	if (DreamcastChaoIcon == "DC")
 	{
@@ -194,38 +226,5 @@ void SetConfigFile(const char* path, const HelperFunctions& helperFunctions)
 		ReplaceTex("GG_TEXLIST_FR", "y256_s_ta_b", "config\\GGTips", "alt_tips_1", 1317000, 256, 256);
 		ReplaceTex("GG_TEXLIST_FR", "y256_s_ts_a", "config\\GGTips", "alt_tips_0", 1317500, 256, 256);
 		ReplaceTex("GG_TEXLIST_FR", "y256_s_ts_b", "config\\GGTips", "alt_tips_1", 1317600, 256, 256);
-	}
-
-	std::wstring modpath(path, path + strlen(path));
-	std::wstring editedTimings = L"\\edited_timings.ini";
-
-	// Custom Timings
-	if (EditedTimings)
-	{
-		if (TweakedCutscenes || Cream || Rouge)
-		{
-			DisplayMessage(message1);
-		}
-		else
-		{
-			helperFunctions.LoadEXEData((modpath + editedTimings).c_str(), modpath.c_str());
-			SetCustomTimings(path, helperFunctions);
-		}
-	}
-
-	std::string flagPath = "\\jap-voice-flag";
-
-	// Обработка форса происходит в основном файле мода (mod.cpp), в файле конфига обрабатывается 
-	// только вывод сообщения и обработка флаг-файла
-	if (!GetJPVoiceSetting())	// Если опция форса выключена (то есть форсируется яп)
-		remove((path + flagPath).c_str());	// Удалить нахер флаг, если опция ВЫКЛЮЧЕНИЯ включена
-	else
-	{
-		std::ifstream flagFile(path + flagPath);
-		if (!flagFile) {	// При отсутствии флаг-файла 
-			DisplayMessage(message0);
-			std::ofstream flagFileOut(path + flagPath);	// Создать флаг-файл
-			flagFileOut.close();
-		}
 	}
 }
