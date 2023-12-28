@@ -3,24 +3,29 @@
 	<Groups>
 		<Group name="Customs" display="Настройки отображения">
 			<Property name="TGS_Selectors" display="Таблички персонажей в меню" type="CharNameStyle" defaultvalue="Vanilla">
-				<HelpText>Выбор между табличками с именами персонажа: чёрные (как в обычной игре) или из демки с TGS</HelpText>
+				<HelpText>Выбор между табличками&#x0a;с именами персонажа:&#x0a;чёрные (как в обычной игре)&#x0a;или из демки с TGS</HelpText>
 			</Property>	
 			<Property name="StartButton" display="Кнопка на начальном экране" type="StartButton" defaultvalue="Start">
 				<HelpText>Опция меняет подпись кнопки "Нажмите...": "Start" – для геймпада и "Enter" – для клавиатуры</HelpText>				
 			</Property>							
 			<Property name="StageBorder" display="Таблички уровней" type="StageBorder" defaultvalue="US">
-				<HelpText>Выбор стиля табличек уровней (US или JP), которые отображаются перед их загрузкой</HelpText>	
+				<HelpText>Выбор стиля табличек уровней&#x0a;(US или JP), которые отображаются перед их загрузкой</HelpText>	
+			</Property>	
+		</Group>
+		<Group name="ForceVO" display="Озвучка">
+			<Property name="ForcedJapVoices" display="Форсировать японскую озвучку" type="bool" defaultvalue="True">
+				<HelpText>Мод принудительно включает японскую озвучку.&#x0a;Это сделано из-за того, что между японской и английской версией озвучки игры есть значительные расхождения в некоторых катсценах (другую реплику произносит другой персонаж).&#x0a;Эта настройка отключает данную опцию.</HelpText>				
 			</Property>	
 		</Group>
 		<Group name="Extra" display="Дополнительно">
 			<Property name="DreamcastChaoIcon" display="Иконки садов Чао" type="ChaoIcon" defaultvalue="DX">
-				<HelpText>Изменение вида иконок на порталах в садах Чао</HelpText>				
+				<HelpText>Изменение вида иконок&#x0a;на порталах в садах Чао</HelpText>			
 			</Property>		
 			<Property name="ExtraGGHelp" display="Альт. подсказки GG" type="bool" defaultvalue="False">
 				<HelpText>Включение альтернативных подсказок для игр с Game Gear</HelpText>	
 			</Property>	
 			<Property name="EditedTimings" display="Изменённые тайминги субтитров" type="bool" defaultvalue="True">
-				<HelpText>Активация изменённых таймингов на основе Cutscene Decompilation. Выключите опцию, если используете моды с заменой катсцен (экспериментально!)</HelpText>	
+				<HelpText>Активация изменённых таймингов на основе Cutscene Decompilation. Выключите опцию,&#x0a;если используете моды&#x0a;с заменой катсцен (экспериментально!)</HelpText>	
 			</Property>	
 		</Group>
 	</Groups>	
