@@ -1,3 +1,5 @@
+#include "stdafx.h"
+
 #include "SADXModLoader.h"
 #include "SADXEventFunctions.h"
 #include "SADXEventVariables.h"
@@ -36,7 +38,7 @@ void ev00B4_e_e101(int state)
 		EV_CameraAng(0, 0, 0xFAA5, 0xC150, 0);
 		EV_SerifPlay(1186);
 		EV_MsgW(0, msgTbl_ev00B4[TextLanguage][0]); //"\aOkay then, Gamma... \nHere's your tes"...
-		EV_Wait(31);
+		EV_Wait(50);		
 		EV_ClrAction(eggman);
 		EV_SetAction(eggman, &action_g_g0002_eggman, &EGGMAN_TEXLIST, 1.0f, 1, 0);
 		EV_MovePoint2(eggman, -36.970001f, 0.5f, 0.66000003f, 0.15000001f, 0.059999999f);
@@ -44,6 +46,7 @@ void ev00B4_e_e101(int state)
 		EV_MsgW(130, msgTbl_ev00B4[TextLanguage][1]); //"\aIf you want to stay on board, \nyou m"...
 		EV_MsgW(90, msgTbl_ev00B4[TextLanguage][2]); //"\aSo pay attention to what I say."
 		EV_Wait(1);
+		EV_MsgClose();
 		EV_SetAction(player, &action_e_e0006_e102, &E102_TEXLIST, 0.5f, 0, 16);
 		EV_Wait(20);
 		EV_WaitAction(player);

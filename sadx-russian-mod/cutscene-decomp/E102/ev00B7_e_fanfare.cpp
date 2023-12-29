@@ -1,3 +1,5 @@
+#include "stdafx.h"
+
 #include "SADXModLoader.h"
 #include "SADXEventFunctions.h"
 #include "SADXEventVariables.h"
@@ -113,6 +115,8 @@ void ev00B7_e_fanfare(int state)
 		EV_CameraAng(0, 80, 0x1400, 0xFF00, 0);
 		EV_SerifPlay(1202);
 		EV_Msg(msgTbl_ev00B7[TextLanguage][2]); //"\aYou, the elite Egg Carrier crew, \nar"...
+		EV_Wait(90);
+		EV_Msg(msgTbl_ev00B7[TextLanguage][11]);
 		EV_Wait(25);
 		EV_WaitAction(eggman);
 		EV_ClrAction(eggman);
