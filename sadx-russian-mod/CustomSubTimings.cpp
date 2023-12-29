@@ -7,11 +7,6 @@
 
 void SetCustomTimings(const char* path, const HelperFunctions& helperFunctions)
 {
-	/* ***DELETE ANY EVENTS YOU DON'T USE***
-		* It makes build time a lot faster and you won't run into problems with other mods from overwriting all of them.
-		* texTbls must end with 0 or the game will crash.
-		*/
-
 	HMODULE DConv = GetModuleHandle(L"DCMods_Main");
 	
 	//	//Main event code
@@ -44,11 +39,8 @@ void SetCustomTimings(const char* path, const HelperFunctions& helperFunctions)
 
 	CutsceneDataList[0x00D8]->Function = ev00D8_b_eggcarrier;
 	CutsceneDataList[0x00DE]->Function = ev00DE_b_chaos6;
-	/*CutsceneDataList[0x00DF]->Function = ev00DF_b_chaos6defeated;
-	CutsceneDataList[0x00E0]->Function = ev00E0_b_tornado2;
-	CutsceneDataList[0x00E3]->Function = ev00E3_b_froggyhotel;
 
-	CutsceneDataList[0x00F0]->Function = ev00F0_l_intro;
+	/*CutsceneDataList[0x00F0]->Function = ev00F0_l_intro;
 	CutsceneDataList[0x00F2]->Function = ev00F2_l_eggman;
 	CutsceneDataList[0x00F3]->Function = ev00F3_l_knuckles;
 	CutsceneDataList[0x00F4]->Function = ev00F4_l_sonicwakesup;
@@ -68,8 +60,5 @@ void SetCustomTimings(const char* path, const HelperFunctions& helperFunctions)
 	/*CutsceneDataList[0x0160]->Function = ev0160_l_chaosgetangry;*/
 	if (DConv)
 		CutsceneDataList[0x0166]->Function = ev0166_s_lightshoes;
-	CutsceneDataList[0x016D]->Function = ev016D_a_warriorfeather;
-	/*CutsceneDataList[0x0170]->Function = ev0170_b_powerrod;
-	CutsceneDataList[0x0171]->Function = ev0171_b_lifebelt;
-	*/
+	CutsceneDataList[0x016D]->Function = ev016D_a_warriorfeather;	
 }
