@@ -132,6 +132,9 @@
     <ClCompile Include="cutscene-decomp\E102\ev00BB_e_deliverfrog.cpp">
       <Filter>Cutscene Decomp\6 Gamma</Filter>
     </ClCompile>
+    <ClCompile Include="cutscene-decomp\Knuckles\ev0099_k_beforechaos6.cpp">
+      <Filter>Cutscene Decomp\3 Knux</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">

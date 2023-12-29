@@ -36,22 +36,8 @@ void SetCustomTimings(const char* path, const HelperFunctions& helperFunctions)
 	CutsceneDataList[0x0061]->Function = ev0061_a_intro2;
 	CutsceneDataList[0x0062]->Function = ev0062_a_meetsonic;
 
-	/*CutsceneDataList[0x0089]->Function = ev0089_k_chasesonic;
-	CutsceneDataList[0x008A]->Function = ev008A_k_vssonic;
-	CutsceneDataList[0x008B]->Function = ev008B_k_chaos4;
-	CutsceneDataList[0x008C]->Function = ev008C_k_afterchaos4;
-	CutsceneDataList[0x008D]->Function = ev008D_k_lostpast;
-	CutsceneDataList[0x008E]->Function = ev008E_k_pastsecond;
-	CutsceneDataList[0x008F]->Function = ev008F_k_tikalaltar;
-	CutsceneDataList[0x0091]->Function = ev0091_k_leavepastsecond;
-	CutsceneDataList[0x0092]->Function = ev0092_k_followgamma;
-	CutsceneDataList[0x0094]->Function = ev0094_k_boardec;
-	CutsceneDataList[0x0095]->Function = ev0095_k_gotlastpieces;
-	CutsceneDataList[0x0096]->Function = ev0096_k_pastthird;
-	CutsceneDataList[0x0097]->Function = ev0097_k_tikalfire;
-	CutsceneDataList[0x0098]->Function = ev0098_k_leavepastthird;
 	CutsceneDataList[0x0099]->Function = ev0099_k_beforechaos6;
-	CutsceneDataList[0x009A]->Function = ev009A_k_glubglub;
+	/*CutsceneDataList[0x009A]->Function = ev009A_k_glubglub;
 	CutsceneDataList[0x009B]->Function = ev009B_k_afterchaos6;
 	CutsceneDataList[0x009D]->Function = ev009D_k_restoreme;
 	CutsceneDataList[0x009F]->Function = ev009F_k_outro;

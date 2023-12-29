@@ -1,3 +1,5 @@
+#include "stdafx.h"
+
 #include "SADXModLoader.h"
 #include "SADXEventFunctions.h"
 #include "SADXEventVariables.h"
@@ -136,7 +138,7 @@ void ev0099_k_beforechaos6(int state)
 		EV_ClrAction(sonic);
 		EV_SetAction(sonic, SONIC_ACTIONS[4], &SONIC_TEXLIST, 2.75f, 1, 0);
 		EV_SerifPlay(1150);
-		EV_MsgW(20, msgTbl_ev0099[TextLanguage][4]); //"\aEggman!   Come back!"
+		EV_MsgW(40, msgTbl_ev0099[TextLanguage][4]); //"\aEggman!   Come back!"
 		EV_MsgClose();
 		EV_Wait(10);
 		EV_RemovePlayer(2);
