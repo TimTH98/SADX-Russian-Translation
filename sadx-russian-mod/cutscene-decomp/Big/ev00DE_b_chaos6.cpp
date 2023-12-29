@@ -1,3 +1,5 @@
+#include "stdafx.h"
+
 #include "SADXModLoader.h"
 #include "SADXEventFunctions.h"
 #include "SADXEventVariables.h"
@@ -236,7 +238,7 @@ void ev00DE_b_chaos6(int state)
 		EV_SerifPlay(1370);
 		EV_Msg(msgTbl_ev00DE[TextLanguage][4]); //"\aThe frog is possessed by your tail. "
 		EV_SetAction(Frog, &_action_f_f0001_frog, &texlist_shape_frog, 1.5f, 1, 0);
-		EV_Wait(85);
+		EV_Wait(40);
 		EV_CameraPos(1, 0, 58.599998f, 758.0f, -470.53f);
 		EV_CameraAng(1, 0, 0xD50, 0x8F0C, 0);
 		EV_SerifWait();

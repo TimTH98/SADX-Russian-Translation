@@ -42,22 +42,10 @@ void SetCustomTimings(const char* path, const HelperFunctions& helperFunctions)
 	CutsceneDataList[0x00B7]->Function = ev00B7_e_fanfare;
 	CutsceneDataList[0x00BB]->Function = ev00BB_e_deliverfrog;
 
-	/*CutsceneDataList[0x00D0]->Function = ev00D0_b_intro;
-	CutsceneDataList[0x00D1]->Function = ev00D1_b_stationsquare;
-	CutsceneDataList[0x00D2]->Function = ev00D2_b_car;
-	CutsceneDataList[0x00D3]->Function = ev00D3_b_tails;
-	CutsceneDataList[0x00D4]->Function = ev00D4_b_emeraldcoast;
 	CutsceneDataList[0x00D8]->Function = ev00D8_b_eggcarrier;
-	CutsceneDataList[0x00D9]->Function = ev00D9_b_hotsheltertank;
-	CutsceneDataList[0x00DA]->Function = ev00DA_b_enterpast;
-	CutsceneDataList[0x00DB]->Function = ev00DB_b_past;
-	CutsceneDataList[0x00DC]->Function = ev00DC_b_tikal;
-	CutsceneDataList[0x00DD]->Function = ev00DD_b_leavepast;
 	CutsceneDataList[0x00DE]->Function = ev00DE_b_chaos6;
-	CutsceneDataList[0x00DF]->Function = ev00DF_b_chaos6defeated;
+	/*CutsceneDataList[0x00DF]->Function = ev00DF_b_chaos6defeated;
 	CutsceneDataList[0x00E0]->Function = ev00E0_b_tornado2;
-	CutsceneDataList[0x00E1]->Function = ev00E1_b_fmvplaceholder;
-	CutsceneDataList[0x00E2]->Function = ev00E2_b_outro;
 	CutsceneDataList[0x00E3]->Function = ev00E3_b_froggyhotel;
 
 	CutsceneDataList[0x00F0]->Function = ev00F0_l_intro;
@@ -77,9 +65,7 @@ void SetCustomTimings(const char* path, const HelperFunctions& helperFunctions)
 
 	CutsceneDataList[0x0140]->Function = ev0140_e_findjetbooster;
 
-	/*CutsceneDataList[0x0150]->Function = ev0150_b_alertcancelled;
-
-	CutsceneDataList[0x0160]->Function = ev0160_l_chaosgetangry;*/
+	/*CutsceneDataList[0x0160]->Function = ev0160_l_chaosgetangry;*/
 	if (DConv)
 		CutsceneDataList[0x0166]->Function = ev0166_s_lightshoes;
 	CutsceneDataList[0x016D]->Function = ev016D_a_warriorfeather;

@@ -83,6 +83,8 @@
     <ClCompile Include="cutscene-decomp\Amy\ev0061_a_intro2.cpp" />
     <ClCompile Include="cutscene-decomp\Amy\ev0062_a_meetsonic.cpp" />
     <ClCompile Include="cutscene-decomp\Amy\ev016D_a_warriorfeather.cpp" />
+    <ClCompile Include="cutscene-decomp\Big\ev00D8_b_eggcarrier.cpp" />
+    <ClCompile Include="cutscene-decomp\Big\ev00DE_b_chaos6.cpp" />
     <ClCompile Include="cutscene-decomp\E102\ev00B4_e_e101.cpp" />
     <ClCompile Include="cutscene-decomp\E102\ev00B7_e_fanfare.cpp" />
     <ClCompile Include="cutscene-decomp\E102\ev00BB_e_deliverfrog.cpp" />
