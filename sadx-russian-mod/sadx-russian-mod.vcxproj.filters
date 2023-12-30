@@ -147,6 +147,9 @@
     <ClCompile Include="cutscene-decomp\Big\ev00DE_b_chaos6.cpp">
       <Filter>Cutscene Decomp\5 Big</Filter>
     </ClCompile>
+    <ClCompile Include="cutscene-decomp\SuperSonic\ev00FF_l_supersonic.cpp">
+      <Filter>Cutscene Decomp\7 Last</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">

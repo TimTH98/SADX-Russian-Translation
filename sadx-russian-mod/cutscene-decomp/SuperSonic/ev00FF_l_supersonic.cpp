@@ -1,3 +1,5 @@
+#include "stdafx.h"
+
 #include "SADXModLoader.h"
 #include "SADXEventFunctions.h"
 #include "SADXEventVariables.h"
@@ -303,12 +305,16 @@ void ev00FF_l_supersonic(int state)
 		EV_SetAction(amy, AMY_ACTIONS[69], &AMY_TEXLIST, 1.0f, 1, 0);
 		voicevolchange(-500);
 		EV_SerifPlay(1498);
+		EV_Msg(msgTbl_ev00FF[TextLanguage][11]);
 		EV_Wait(20);
 		EV_SerifPlay(1499);
+		EV_Msg(msgTbl_ev00FF[TextLanguage][11]);
 		EV_Wait(15);
 		EV_SerifPlay(1501);
+		EV_Msg(msgTbl_ev00FF[TextLanguage][11]);
 		EV_Wait(20);
 		EV_SerifPlay(1500);
+		EV_Msg(msgTbl_ev00FF[TextLanguage][11]);
 		EV_Wait(30);
 		voicevolresume();
 		EV_SerifPlay(1502);

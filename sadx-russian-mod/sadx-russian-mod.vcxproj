@@ -100,6 +100,7 @@
     <ClCompile Include="cutscene-decomp\Sonic\ev001D_s_afterchaos6.cpp" />
     <ClCompile Include="cutscene-decomp\Sonic\ev001E_s_lostworld.cpp" />
     <ClCompile Include="cutscene-decomp\Sonic\ev0166_s_lightshoes.cpp" />
+    <ClCompile Include="cutscene-decomp\SuperSonic\ev00FF_l_supersonic.cpp" />
     <ClCompile Include="cutscene-decomp\Tails\ev0032_t_meetingsonic.cpp" />
     <ClCompile Include="cutscene-decomp\Tails\ev0033_t_egghornet.cpp" />
     <ClCompile Include="cutscene-decomp\Tails\ev0034_t_chaos1.cpp" />

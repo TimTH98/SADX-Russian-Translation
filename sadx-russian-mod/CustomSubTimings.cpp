@@ -40,24 +40,10 @@ void SetCustomTimings(const char* path, const HelperFunctions& helperFunctions)
 	CutsceneDataList[0x00D8]->Function = ev00D8_b_eggcarrier;
 	CutsceneDataList[0x00DE]->Function = ev00DE_b_chaos6;
 
-	/*CutsceneDataList[0x00F0]->Function = ev00F0_l_intro;
-	CutsceneDataList[0x00F2]->Function = ev00F2_l_eggman;
-	CutsceneDataList[0x00F3]->Function = ev00F3_l_knuckles;
-	CutsceneDataList[0x00F4]->Function = ev00F4_l_sonicwakesup;
-	CutsceneDataList[0x00F5]->Function = ev00F5_l_sonicfindsknuckles;
-	CutsceneDataList[0x00F6]->Function = ev00F6_l_past;
-	CutsceneDataList[0x00F7]->Function = ev00F7_l_tikalplead;
-	CutsceneDataList[0x00F8]->Function = ev00F8_l_tikalsealschaos;
-	CutsceneDataList[0x00F9]->Function = ev00F9_l_snoozecruise;
-	CutsceneDataList[0x00FA]->Function = ev00FA_l_tornado2;
-	CutsceneDataList[0x00FB]->Function = ev00FB_l_tikalwakesup;
-	CutsceneDataList[0x00FD]->Function = ev00FD_l_perfectchaos;
-	CutsceneDataList[0x00FE]->Function = ev00FE_l_outro;
-	CutsceneDataList[0x00FF]->Function = ev00FF_l_supersonic;*/
+	CutsceneDataList[0x00FF]->Function = ev00FF_l_supersonic;
 
 	CutsceneDataList[0x0140]->Function = ev0140_e_findjetbooster;
 
-	/*CutsceneDataList[0x0160]->Function = ev0160_l_chaosgetangry;*/
 	if (DConv)
 		CutsceneDataList[0x0166]->Function = ev0166_s_lightshoes;
 	CutsceneDataList[0x016D]->Function = ev016D_a_warriorfeather;	
