@@ -3,27 +3,52 @@
 #include <IniFile.hpp>
 #include "Macros.h"
 
+#include "CustomSubTimings.h"
+
+#include <fstream>
+
+void DisplayMessage(std::wstring message)
+{
+	int returnValue = MessageBox(NULL, message.c_str(), L"Предупреждение", MB_OK | MB_ICONWARNING | MB_DEFBUTTON2);
+}
+
+std::wstring message0 = L"Мод принудительно включает японскую озвучку.\n\nЭто сделано из-за того, что между\nяпонской и английской версией озвучки игры\nесть значительные расхождения в некоторых катсценах\n(другую реплику произносит другой персонаж).\n\nВы можете отключить эту функцию в настройках\nк моду с переводом.";
+std::wstring message1 = L"У вас включены моды, изменяющие катсцены.\n\nВо избежание конфликтов с этими модами\nопция \"Изменённые тайминги субтитров\"\nне будет применена.";
+
+bool ForcedJapVoices;
+bool GetJPVoiceSetting() { return ForcedJapVoices; }
+
 void SetConfigFile(const char* path, const HelperFunctions& helperFunctions)
 {
-	std::string TGS_Selectors = "Vanilla";
-	std::string DreamcastChaoIcon = "DX";
-	std::string StartButton = "Start";
-	bool ExtraGGHelp = false;
-	std::string StageBorder = "US";
+	std::string TGS_Selectors;
+	std::string DreamcastChaoIcon;
+	std::string StartButton;
+	bool ExtraGGHelp;
+	std::string StageBorder;
+	bool EditedTimings;
+	std::string ExtraSonicTeamLogo;
 
 	char pathbuf[MAX_PATH];
+
 	HMODULE DConv = GetModuleHandle(L"DCMods_Main");			// Init Dreamcast Conversion dll	
-	
-	#pragma region Ini Configuration
+
+	HMODULE TweakedCutscenes = GetModuleHandle(L"SADX-cutscene-decompilation");
+	HMODULE Cream = GetModuleHandle(L"CreamtheRabbit(SA1-Style)");
+	HMODULE Rouge = GetModuleHandle(L"Rouge-the-Bat-(SA1-Style)");
+
 	const IniFile* config = new IniFile(std::string(path) + "\\config.ini");
 
 	TGS_Selectors = config->getString("Customs", "TGS_Selectors", "Vanilla");
-	StartButton = config->getString("Customs", "StartButton", "Start");	
+	StartButton = config->getString("Customs", "StartButton", "Start");
 	StageBorder = config->getString("Customs", "StageBorder", "US");
 
+	EditedTimings = config->getBool("SubsAndVoices", "EditedTimings", true);
+	ForcedJapVoices = config->getBool("SubsAndVoices", "ForcedJapVoices", true);
+	
 	DreamcastChaoIcon = config->getString("Extra", "DreamcastChaoIcon", "DX");
 	ExtraGGHelp = config->getBool("Extra", "ExtraGGHelp", false);
-	
+	ExtraSonicTeamLogo = config->getString("Extra", "ExtraSonicTeamLogo", "Disable");
+
 	// TGS
 	if (TGS_Selectors == "TGS") {
 		ReplaceTexPVM("B_CHNAM_E", "B_CHNAM_E_TGS");
@@ -42,9 +67,9 @@ void SetConfigFile(const char* path, const HelperFunctions& helperFunctions)
 		ReplaceTex("AVA_GTITLE0_E", "p_enter_us_02", "config\\startButton\\titlescreen", "enter_02", 3489661285, 256, 256);
 		ReplaceTex("AVA_GTITLE0_DC_HD", "pressstart", "config\\startButton\\titlescreen", "pressenter", 3489661269, 256, 32);
 	}
-	
+
 	// Stage Border Variations
-	#pragma region Stages name PVRs
+#pragma region Stages name PVRs
 	if (StageBorder == "US") {
 		ReplacePNG_StageE("A_STAGE01_E");			// Amy		| Twinkle Park
 		ReplacePNG_StageE("A_STAGE02_E");			// Amy		| Hot Shelter
@@ -130,7 +155,39 @@ void SetConfigFile(const char* path, const HelperFunctions& helperFunctions)
 		ReplacePNG_StageJ("T_MISTICRUIN_E");		// Field	| Mystic Ruins
 		ReplacePNG_StageJ("T_STATIONSQUARE_E");		// Field	| Station Square
 	}
-	#pragma endregion
+#pragma endregion
+
+	std::wstring modpath(path, path + strlen(path));
+	std::wstring editedTimings = L"\\edited_timings.ini";
+	std::string flagPath = "\\jap-voice-flag";
+
+	// Custom Timings
+	if (EditedTimings)
+	{
+		if (TweakedCutscenes || Cream || Rouge)
+		{
+			DisplayMessage(message1);
+		}
+		else
+		{
+			helperFunctions.LoadEXEData((modpath + editedTimings).c_str(), modpath.c_str());
+			SetCustomTimings(path, helperFunctions);
+		}
+	}	
+
+	// Обработка форса происходит в основном файле мода (mod.cpp), в файле конфига обрабатывается 
+	// только вывод сообщения и обработка флаг-файла
+	if (!GetJPVoiceSetting())	// Если опция форса выключена (то есть форсируется яп)
+		remove((path + flagPath).c_str());	// Удалить нахер флаг, если опция ВЫКЛЮЧЕНИЯ включена
+	else
+	{
+		std::ifstream flagFile(path + flagPath);
+		if (!flagFile) {	// При отсутствии флаг-файла 
+			DisplayMessage(message0);
+			std::ofstream flagFileOut(path + flagPath);	// Создать флаг-файл
+			flagFileOut.close();
+		}
+	}
 
 	// Chao Garden Portals Icons
 	if (DreamcastChaoIcon == "DC")
@@ -172,5 +229,9 @@ void SetConfigFile(const char* path, const HelperFunctions& helperFunctions)
 		ReplaceTex("GG_TEXLIST_FR", "y256_s_ts_a", "config\\GGTips", "alt_tips_0", 1317500, 256, 256);
 		ReplaceTex("GG_TEXLIST_FR", "y256_s_ts_b", "config\\GGTips", "alt_tips_1", 1317600, 256, 256);
 	}
-#pragma endregion
+
+	if (ExtraSonicTeamLogo == "Black")
+		ReplaceTexFMV("SONICTEAM", "SONICTEAM_Black");
+	if (ExtraSonicTeamLogo == "White")
+		ReplaceTexFMV("SONICTEAM", "SONICTEAM_White");
 }

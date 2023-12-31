@@ -67,7 +67,7 @@
       <WarningLevel>Level3</WarningLevel>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>$(ProjectDir)..\sadx-mod-loader\libmodutils;$(ProjectDir)..\sadx-mod-loader\mod-loader-common\ModLoaderCommon;$(ProjectDir)..\sadx-mod-loader\SADXModLoader\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\sadx-mod-loader\libmodutils;$(ProjectDir)..\sadx-russian-mod\cutscene-decomp\include;$(ProjectDir)..\sadx-mod-loader\mod-loader-common\ModLoaderCommon;$(ProjectDir)..\sadx-mod-loader\SADXModLoader\include</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>WIN32;NDEBUG;_ITERATOR_DEBUG_LEVEL=0;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <PrecompiledHeader>Use</PrecompiledHeader>
@@ -79,6 +79,35 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="cutscene-decomp\Amy\ev0060_a_intro1.cpp" />
+    <ClCompile Include="cutscene-decomp\Amy\ev0061_a_intro2.cpp" />
+    <ClCompile Include="cutscene-decomp\Amy\ev0062_a_meetsonic.cpp" />
+    <ClCompile Include="cutscene-decomp\Amy\ev016D_a_warriorfeather.cpp" />
+    <ClCompile Include="cutscene-decomp\Big\ev00D8_b_eggcarrier.cpp" />
+    <ClCompile Include="cutscene-decomp\Big\ev00DE_b_chaos6.cpp" />
+    <ClCompile Include="cutscene-decomp\E102\ev00B4_e_e101.cpp" />
+    <ClCompile Include="cutscene-decomp\E102\ev00B7_e_fanfare.cpp" />
+    <ClCompile Include="cutscene-decomp\E102\ev00BB_e_deliverfrog.cpp" />
+    <ClCompile Include="cutscene-decomp\E102\ev0140_e_findjetbooster.cpp" />
+    <ClCompile Include="cutscene-decomp\Knuckles\ev0099_k_beforechaos6.cpp" />
+    <ClCompile Include="cutscene-decomp\objects.cpp" />
+    <ClCompile Include="cutscene-decomp\Sonic\ev0006_s_poolsidewithtails.cpp" />
+    <ClCompile Include="cutscene-decomp\Sonic\ev0008_s_chaos1.cpp" />
+    <ClCompile Include="cutscene-decomp\Sonic\ev000C_s_afterchaos4.cpp" />
+    <ClCompile Include="cutscene-decomp\Sonic\ev0012_s_meetingamy.cpp" />
+    <ClCompile Include="cutscene-decomp\Sonic\ev0013_s_beforetwinklepark.cpp" />
+    <ClCompile Include="cutscene-decomp\Sonic\ev001C_s_beforechaos6.cpp" />
+    <ClCompile Include="cutscene-decomp\Sonic\ev001D_s_afterchaos6.cpp" />
+    <ClCompile Include="cutscene-decomp\Sonic\ev001E_s_lostworld.cpp" />
+    <ClCompile Include="cutscene-decomp\Sonic\ev0166_s_lightshoes.cpp" />
+    <ClCompile Include="cutscene-decomp\SuperSonic\ev00FF_l_supersonic.cpp" />
+    <ClCompile Include="cutscene-decomp\Tails\ev0032_t_meetingsonic.cpp" />
+    <ClCompile Include="cutscene-decomp\Tails\ev0033_t_egghornet.cpp" />
+    <ClCompile Include="cutscene-decomp\Tails\ev0034_t_chaos1.cpp" />
+    <ClCompile Include="cutscene-decomp\Tails\ev003A_t_afterchaos4.cpp" />
+    <ClCompile Include="cutscene-decomp\Tails\ev004B_t_eggmantakesbirdie.cpp" />
+    <ClCompile Include="cutscene-decomp\Tails\ev0050_t_eggwalker.cpp" />
+    <ClCompile Include="cutscene-decomp\Tails\ev0051_t_walkerdefeated.cpp" />
     <ClCompile Include="GameCredits.cpp" />
     <ClCompile Include="LoadTextures.cpp" />
     <ClCompile Include="mod.cpp" />
@@ -87,12 +116,18 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="CustomSubTimings.cpp" />
     <ClCompile Include="VariousText.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="cutscene-decomp\include\SADXEventFunctions.h" />
+    <ClInclude Include="cutscene-decomp\include\SADXEventList.h" />
+    <ClInclude Include="cutscene-decomp\include\SADXEventVariables.h" />
     <ClInclude Include="Macros.h" />
     <ClInclude Include="LoadTextures.h" />
     <ClInclude Include="ModConfig.h" />
+    <ClInclude Include="resource.h" />
+    <ClInclude Include="CustomSubTimings.h" />
     <ClInclude Include="VariousText.h" />
     <ClInclude Include="GameCredits.h" />
     <ClInclude Include="stdafx.h" />
