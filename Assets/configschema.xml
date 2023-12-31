@@ -3,18 +3,18 @@
 	<Groups>
 		<Group name="Customs" display="Настройки отображения">
 			<Property name="TGS_Selectors" display="Таблички персонажей в меню" type="CharNameStyle" defaultvalue="Vanilla">
-				<HelpText>Выбор между табличками&#x0a;с именами персонажа:&#x0a;чёрные (как в обычной игре)&#x0a;или из демки с TGS</HelpText>
+				<HelpText>Выбор между табличками&#x0a;с именами персонажа:&#x0a;чёрные (как в обычной игре)&#x0a;или из демки с TGS.</HelpText>
 			</Property>	
 			<Property name="StartButton" display="Кнопка на начальном экране" type="StartButton" defaultvalue="Start">
-				<HelpText>Опция меняет подпись кнопки "Нажмите...": "Start" – для геймпада и "Enter" – для клавиатуры</HelpText>				
+				<HelpText>Опция меняет подпись кнопки "Нажмите...": "Start" – для геймпада и "Enter" – для клавиатуры.</HelpText>				
 			</Property>							
 			<Property name="StageBorder" display="Таблички уровней" type="StageBorder" defaultvalue="US">
-				<HelpText>Выбор стиля табличек уровней&#x0a;(US или JP), которые отображаются перед их загрузкой</HelpText>	
+				<HelpText>Выбор стиля табличек уровней&#x0a;(US или JP), которые отображаются перед их загрузкой.</HelpText>	
 			</Property>	
 		</Group>
 		<Group name="SubsAndVoices" display="Субтитры и озвучка">
 			<Property name="EditedTimings" display="Изменённые тайминги субтитров" type="bool" defaultvalue="True">
-				<HelpText>Активация изменённых таймингов на основе Cutscene Decompilation. Выключите опцию,&#x0a;если используете моды&#x0a;с заменой катсцен (экспериментально!)</HelpText>	
+				<HelpText>Активация изменённых таймингов на основе Cutscene Decompilation. Выключите опцию,&#x0a;если используете моды&#x0a;с заменой катсцен.</HelpText>	
 			</Property>	
 			<Property name="ForcedJapVoices" display="Форсировать японскую озвучку" type="bool" defaultvalue="True">
 				<HelpText>Мод принудительно включает японскую озвучку.&#x0a;Это сделано из-за того, что между японской и английской версией озвучки игры есть значительные расхождения в некоторых катсценах (другую реплику произносит другой персонаж).&#x0a;Эта настройка отключает данную опцию.</HelpText>				
@@ -22,11 +22,14 @@
 		</Group>
 		<Group name="Extra" display="Дополнительно">
 			<Property name="DreamcastChaoIcon" display="Иконки садов Чао" type="ChaoIcon" defaultvalue="DX">
-				<HelpText>Изменение вида иконок&#x0a;на порталах в садах Чао</HelpText>			
+				<HelpText>Изменение вида иконок&#x0a;на порталах в садах Чао.</HelpText>			
 			</Property>		
 			<Property name="ExtraGGHelp" display="Альт. подсказки GG" type="bool" defaultvalue="False">
-				<HelpText>Включение альтернативных подсказок для игр с Game Gear</HelpText>	
-			</Property>	
+				<HelpText>Включение альтернативных подсказок для игр с Game Gear.</HelpText>	
+			</Property>
+			<Property name="ExtraSonicTeamLogo" display="Альтернативный ролик Sonic Team" type="Color" defaultvalue="Disable">
+				<HelpText>Включение альтернативной анимации Sonic Team из Sonic Frontiers или Sonic Origins (работает при включённом Dreamcast Conversion).</HelpText>
+			</Property>
 		</Group>
 	</Groups>	
 	<Enums>
@@ -45,6 +48,11 @@
 		<Enum name="StageBorder">
 			<EnumMember name="US" display="US"></EnumMember>
 			<EnumMember name="JP" display="JP"></EnumMember>
-		</Enum>		
+		</Enum>
+		<Enum name="Color">
+			<EnumMember name="Disable" display="Выключено"></EnumMember>
+			<EnumMember name="Black" display="С чёрным фоном"></EnumMember>
+			<EnumMember name="White" display="С белым фоном"></EnumMember>
+		</Enum>
 	</Enums>
 </ConfigSchema>

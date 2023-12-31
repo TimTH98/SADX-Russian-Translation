@@ -26,6 +26,7 @@ void SetConfigFile(const char* path, const HelperFunctions& helperFunctions)
 	bool ExtraGGHelp;
 	std::string StageBorder;
 	bool EditedTimings;
+	std::string ExtraSonicTeamLogo;
 
 	char pathbuf[MAX_PATH];
 
@@ -45,7 +46,8 @@ void SetConfigFile(const char* path, const HelperFunctions& helperFunctions)
 	ForcedJapVoices = config->getBool("SubsAndVoices", "ForcedJapVoices", true);
 	
 	DreamcastChaoIcon = config->getString("Extra", "DreamcastChaoIcon", "DX");
-	ExtraGGHelp = config->getBool("Extra", "ExtraGGHelp", false);		
+	ExtraGGHelp = config->getBool("Extra", "ExtraGGHelp", false);
+	ExtraSonicTeamLogo = config->getString("Extra", "ExtraSonicTeamLogo", "Disable");
 
 	// TGS
 	if (TGS_Selectors == "TGS") {
@@ -227,4 +229,9 @@ void SetConfigFile(const char* path, const HelperFunctions& helperFunctions)
 		ReplaceTex("GG_TEXLIST_FR", "y256_s_ts_a", "config\\GGTips", "alt_tips_0", 1317500, 256, 256);
 		ReplaceTex("GG_TEXLIST_FR", "y256_s_ts_b", "config\\GGTips", "alt_tips_1", 1317600, 256, 256);
 	}
+
+	if (ExtraSonicTeamLogo == "Black")
+		ReplaceTexFMV("SONICTEAM", "SONICTEAM_Black");
+	if (ExtraSonicTeamLogo == "White")
+		ReplaceTexFMV("SONICTEAM", "SONICTEAM_White");
 }
