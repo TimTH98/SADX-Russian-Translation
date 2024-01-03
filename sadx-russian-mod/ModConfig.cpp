@@ -12,8 +12,8 @@ void DisplayMessage(std::wstring message)
 	int returnValue = MessageBox(NULL, message.c_str(), L"Предупреждение", MB_OK | MB_ICONWARNING | MB_DEFBUTTON2);
 }
 
-std::wstring message0 = L"Мод принудительно включает японскую озвучку.\n\nЭто сделано из-за того, что между\nяпонской и английской версией озвучки игры\nесть значительные расхождения в некоторых катсценах\n(другую реплику произносит другой персонаж).\n\nВы можете отключить эту функцию в настройках\nк моду с переводом.";
-std::wstring message1 = L"У вас включены моды, изменяющие катсцены.\n\nВо избежание конфликтов с этими модами\nопция \"Изменённые тайминги субтитров\"\nне будет применена.";
+std::wstring message0 = L"Мод принудительно включает японскую озвучку.\n\nЭто сделано из-за того, что между\nяпонской и английской версией озвучки игры\nесть значительные расхождения в некоторых катсценах\n(другую реплику произносит другой персонаж).\n\nВы можете отключить эту функцию в настройках\nк моду с переводом.\nПри следующем запуске это сообщение не появится.";
+std::wstring message1 = L"У вас включён один из модов, изменяющих катсцены:\n\n– Tweaked Cutscenes;\n– Cream the Rabbit in SA1 Dreamcast Style;\n– Rouge the Bat in SA1 Dreamcast Style.\n\nВо избежание конфликтов с этими модами\nопция \"Изменённые тайминги субтитров\"\nне будет применена.";
 
 bool ForcedJapVoices;
 bool GetJPVoiceSetting() { return ForcedJapVoices; }
@@ -69,7 +69,7 @@ void SetConfigFile(const char* path, const HelperFunctions& helperFunctions)
 	}
 
 	// Stage Border Variations
-#pragma region Stages name PVRs
+	#pragma region Stages name PVRs
 	if (StageBorder == "US") {
 		ReplacePNG_StageE("A_STAGE01_E");			// Amy		| Twinkle Park
 		ReplacePNG_StageE("A_STAGE02_E");			// Amy		| Hot Shelter
@@ -155,7 +155,7 @@ void SetConfigFile(const char* path, const HelperFunctions& helperFunctions)
 		ReplacePNG_StageJ("T_MISTICRUIN_E");		// Field	| Mystic Ruins
 		ReplacePNG_StageJ("T_STATIONSQUARE_E");		// Field	| Station Square
 	}
-#pragma endregion
+	#pragma endregion
 
 	std::wstring modpath(path, path + strlen(path));
 	std::wstring editedTimings = L"\\edited_timings.ini";
