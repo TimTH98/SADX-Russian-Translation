@@ -20,6 +20,7 @@ CreditsEntry SADXCredits[] = {
 	{ 3, -1, 0, 0, "ALEKS KV, EggorXXX, Vertigo" },
 	{ 3, -1, 0, 0, "Nikky Neiely" },
 	{ 3, -1, 0, 0, "" },
+	{ 3, -1, 0, 0, "" },
 	{ 1, 0, 0, 0, "RUSSIAN TRANSLATION 1.0-1.2 RELEASE" },
 	{ 1, -1, 0, 0, "by Failing Forward" },
 	{ 2, -1, 0, 0, "Project lead" },
@@ -595,6 +596,7 @@ STAFF_DATA SADCCredits[] = {
 	{ 3, -1, "ALEKS KV, EggorXXX, Vertigo" },
 	{ 3, -1, "Nikky Neiely" },
 	{ 3, -1, "" },
+	{ 3, -1, "" },
 	{ 1, 0, "RUSSIAN TRANSLATION 1.0-1.2 RELEASE" },
 	{ 1, -1, "by Failing Forward" },
 	{ 2, -1, "Project lead" },
@@ -1082,13 +1084,13 @@ STAFF_DATA SADCCredits[] = {
 
 void LoadSADCCredits()
 {
-	StaffRollData.nbStaff = 499;
+	StaffRollData.nbStaff = 500;
 	StaffRollData.StaffTbl = (STAFF_DATA*)&SADCCredits;
 }
 
 void LoadSADXCredits()
 {
 	DataPointer(CreditsList, StaffRollData, 0x2BC2FD0);
-	StaffRollData.Count = 572;
+	StaffRollData.Count = 573;
 	StaffRollData.Entries = (CreditsEntry*)&SADXCredits;
 }
