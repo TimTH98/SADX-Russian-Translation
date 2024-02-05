@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://images.gamebanana.com/img/ss/mods/65af709d0c734.jpg" width="640" height="298" >
+  <img src="https://images.gamebanana.com/img/ss/mods/65af709d0c734.jpg" width="960" height="447" >
 </p>
 Проект перевода Sonic Adventure DX на ПК.
 Главная особенность – перевод с ЯПОНСКОГО языка, с которого были переведены:
