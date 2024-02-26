@@ -62,8 +62,11 @@ void __cdecl KeyBlockLanguageAdds()
 
 void InitBigBetaHotelText(const HelperFunctions& helperFunctions)
 {
-	auto betaRestores = helperFunctions.Mods->find_by_dll(GetModuleHandle(L"Fixes_Adds_BetaRestores"));
-	IniFile betaRestoresConfig(std::string(betaRestores->Folder) + "\\config.ini");
+	HMODULE betaRestores = GetModuleHandle(L"Fixes_Adds_BetaRestores");
+	if (betaRestores == nullptr) return;
+	
+	auto betaRestoresMod = helperFunctions.Mods->find_by_dll(betaRestores);
+	IniFile betaRestoresConfig(std::string(betaRestoresMod->Folder) + "\\config.ini");
 	bool bigBetaHotel = betaRestoresConfig.getBool("Options1", "BigBetaHotel", false);
 
 	if (bigBetaHotel)
