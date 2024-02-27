@@ -27,7 +27,7 @@ extern "C"
 		LoadExtraText(helperFunctions);
 		SetConfigFile(path, helperFunctions);
 
-		InitBigBetaHotelText(helperFunctions);
+		OverwriteBetaRestoresText(helperFunctions);
 	} 
 	
 	__declspec(dllexport) void OnFrame()

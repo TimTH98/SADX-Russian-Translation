@@ -1,3 +1,3 @@
 #pragma once
 
-void InitBigBetaHotelText(const HelperFunctions& helperFunctions);
+void OverwriteBetaRestoresText(const HelperFunctions& helperFunctions);
