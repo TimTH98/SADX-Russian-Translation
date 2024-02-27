@@ -19,7 +19,7 @@ const char* const KeyBlockENG[] = {
 
 //French text to Russian
 const char* const KeyBlockFRE[] = {
-		"\aА чё это?",
+		"\aА что это за штука?",
 		NULL,
 };
 
