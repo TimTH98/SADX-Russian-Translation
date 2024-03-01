@@ -18,7 +18,15 @@
 			</Property>	
 			<Property name="ForcedJapVoices" display="Форсировать японскую озвучку" type="bool" defaultvalue="True">
 				<HelpText>Мод принудительно включает японскую озвучку.&#x0a;Это сделано из-за того, что между японской и английской версией озвучки игры есть значительные расхождения в некоторых катсценах (другую реплику произносит другой персонаж).&#x0a;Уберите галочку, чтобы отключить опцию.</HelpText>				
-			</Property>	
+			</Property>			
+		</Group>
+		<Group name="ExtraSubtitles" display="Дополнительные субтитры">
+			<Property name="EnableExtraSubs" display="Включить дополнительные субтитры" type="bool" defaultvalue="False">
+				<HelpText>Вы можете включить отображение субтитров на некоторые озвученные фразы, для которых изначально не было текста.</HelpText>
+			</Property>
+			<Property name="DisableMenuExtraSubs" display="Не отображать дополнительные субтитры в меню" type="bool" defaultvalue="False">
+				<HelpText>Вы можете отключить отображение дополнительных субтитров на экранах меню, если они вам мешают.</HelpText>
+			</Property>
 		</Group>
 		<Group name="Extra" display="Дополнительно">
 			<Property name="DreamcastChaoIcon" display="Иконки садов Чао" type="ChaoIcon" defaultvalue="DX">

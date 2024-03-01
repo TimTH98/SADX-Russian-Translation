@@ -3,6 +3,7 @@
 #include <IniFile.hpp>
 
 #include "BetaRestores.h"
+#include "ExtraSubs.h"
 #include "GameCredits.h"
 #include "VariousText.h"
 #include "LoadTextures.h"
@@ -27,7 +28,7 @@ extern "C"
 		LoadExtraText(helperFunctions);
 		SetConfigFile(path, helperFunctions);
 
-		OverwriteBetaRestoresText(helperFunctions);
+		OverwriteBetaRestoresText(helperFunctions);		
 	} 
 	
 	__declspec(dllexport) void OnFrame()
@@ -35,15 +36,28 @@ extern "C"
 		if (!CreditsLoaded)
 		{
 			if (DConv)
+			{
 				LoadSADCCredits();
-			else LoadSADXCredits();
+			}				
+			else
+			{
+				LoadSADXCredits();
+			}
 			CreditsLoaded = true;
 		}
 
 		TextLanguage = 2;
 		
 		if (GetJPVoiceSetting())
-		VoiceLanguage = 0;
+		{
+			VoiceLanguage = 0;
+		}
+			
+
+		if (ExtraSubsEnabled())
+		{
+			DisplaySubtitleOnFrame();
+		}		
 	}
 
 	__declspec(dllexport) ModInfo SADXModInfo = { ModLoaderVer };

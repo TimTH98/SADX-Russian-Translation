@@ -109,6 +109,7 @@
     <ClCompile Include="cutscene-decomp\Tails\ev004B_t_eggmantakesbirdie.cpp" />
     <ClCompile Include="cutscene-decomp\Tails\ev0050_t_eggwalker.cpp" />
     <ClCompile Include="cutscene-decomp\Tails\ev0051_t_walkerdefeated.cpp" />
+    <ClCompile Include="ExtraSubs.cpp" />
     <ClCompile Include="GameCredits.cpp" />
     <ClCompile Include="LoadTextures.cpp" />
     <ClCompile Include="mod.cpp" />
@@ -125,6 +126,7 @@
     <ClInclude Include="cutscene-decomp\include\SADXEventFunctions.h" />
     <ClInclude Include="cutscene-decomp\include\SADXEventList.h" />
     <ClInclude Include="cutscene-decomp\include\SADXEventVariables.h" />
+    <ClInclude Include="ExtraSubs.h" />
     <ClInclude Include="Macros.h" />
     <ClInclude Include="LoadTextures.h" />
     <ClInclude Include="ModConfig.h" />
