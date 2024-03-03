@@ -278,7 +278,6 @@ void DCChaoGarden()
 	WriteData((HintText_Text*)0x880ED8, ChaoGardenMessages_French_5_Text);
 	WriteData((HintText_Text*)0x880F00, ChaoGardenMessages_French_6_Text);
 	WriteData((HintText_Text*)0x887B88, ChaoGardenMessages_French_7_Text);
-
 }
 
 void MissionText()
