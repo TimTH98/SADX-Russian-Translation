@@ -79,6 +79,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="BetaRestores.cpp" />
     <ClCompile Include="cutscene-decomp\Amy\ev0060_a_intro1.cpp" />
     <ClCompile Include="cutscene-decomp\Amy\ev0061_a_intro2.cpp" />
     <ClCompile Include="cutscene-decomp\Amy\ev0062_a_meetsonic.cpp" />
@@ -120,6 +121,7 @@
     <ClCompile Include="VariousText.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="BetaRestores.h" />
     <ClInclude Include="cutscene-decomp\include\SADXEventFunctions.h" />
     <ClInclude Include="cutscene-decomp\include\SADXEventList.h" />
     <ClInclude Include="cutscene-decomp\include\SADXEventVariables.h" />

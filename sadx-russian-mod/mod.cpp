@@ -2,6 +2,7 @@
 #include <SADXModLoader.h>
 #include <IniFile.hpp>
 
+#include "BetaRestores.h"
 #include "GameCredits.h"
 #include "VariousText.h"
 #include "LoadTextures.h"
@@ -25,6 +26,8 @@ extern "C"
 		LoadTextures(path, helperFunctions);
 		LoadExtraText(helperFunctions);
 		SetConfigFile(path, helperFunctions);
+
+		OverwriteBetaRestoresText(helperFunctions);
 	} 
 	
 	__declspec(dllexport) void OnFrame()
