@@ -814,6 +814,15 @@ void DisplaySubtitle(int id)
 	}
 	else
 	{
+		if (CurrentCutsceneID == 20 && id == 1575) //катсцена после Twinkle Park за Соника, делаю это, чтобы этот субтитр не перекрыл субтитр из катсцены
+		{
+			ExtraSubs[1575].Duration = 30;
+		}
+		else
+		{
+			ExtraSubs[1575].Duration = 180;
+		}
+		
 		DisplayGameplaySubtitle(id);
 	}
 }
