@@ -153,6 +153,9 @@
     <ClCompile Include="BetaRestores.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="ExtraSubs.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -192,6 +195,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="BetaRestores.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ExtraSubs.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

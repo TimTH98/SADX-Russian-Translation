@@ -4,6 +4,7 @@
 #include "Macros.h"
 
 #include "CustomSubTimings.h"
+#include "ExtraSubs.h"
 
 #include <fstream>
 
@@ -16,7 +17,11 @@ std::wstring message0 = L"Мод принудительно включает я�
 std::wstring message1 = L"У вас включён один из модов, изменяющих катсцены:\n\n– Tweaked Cutscenes;\n– Cream the Rabbit in SA1 Dreamcast Style;\n– Rouge the Bat in SA1 Dreamcast Style.\n\nВо избежание конфликтов с этими модами\nопция \"Изменённые тайминги субтитров\"\nне будет применена.";
 
 bool ForcedJapVoices;
+bool ExtraSubtitles;
+bool DisableMenuExtraSubs;
 bool GetJPVoiceSetting() { return ForcedJapVoices; }
+bool ExtraSubsEnabled() { return ExtraSubtitles; }
+bool MenuExtraSubsDisabled() { return DisableMenuExtraSubs; }
 
 void SetConfigFile(const char* path, const HelperFunctions& helperFunctions)
 {
@@ -26,7 +31,7 @@ void SetConfigFile(const char* path, const HelperFunctions& helperFunctions)
 	bool ExtraGGHelp;
 	std::string StageBorder;
 	bool EditedTimings;
-	std::string ExtraSonicTeamLogo;
+	std::string ExtraSonicTeamLogo;	
 
 	char pathbuf[MAX_PATH];
 
@@ -44,6 +49,9 @@ void SetConfigFile(const char* path, const HelperFunctions& helperFunctions)
 
 	EditedTimings = config->getBool("SubsAndVoices", "EditedTimings", true);
 	ForcedJapVoices = config->getBool("SubsAndVoices", "ForcedJapVoices", true);
+
+	ExtraSubtitles = config->getBool("ExtraSubtitles", "EnableExtraSubs", false);
+	DisableMenuExtraSubs = config->getBool("ExtraSubtitles", "DisableMenuExtraSubs", false);
 	
 	DreamcastChaoIcon = config->getString("Extra", "DreamcastChaoIcon", "DX");
 	ExtraGGHelp = config->getBool("Extra", "ExtraGGHelp", false);
@@ -234,4 +242,10 @@ void SetConfigFile(const char* path, const HelperFunctions& helperFunctions)
 		ReplaceTexFMV("SONICTEAM", "SONICTEAM_Black");
 	if (ExtraSonicTeamLogo == "White")
 		ReplaceTexFMV("SONICTEAM", "SONICTEAM_White");
+
+	//Extra subtitles
+	if (ExtraSubtitles)
+	{
+		InitExtraSubs();
+	}
 }

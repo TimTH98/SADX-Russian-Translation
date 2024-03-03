@@ -120,7 +120,7 @@ void LoadText()
 	WriteData((const char**)0x2BC07E0, "\aПроверка ID...");
 
 	WriteData((const char**)0x2BBF470, "\aПропуск на картинг! С ним можно\nпопасть на Мерцающий заезд.");
-	WriteData((const char**)0x2BBF478, "\tДобро пожаловать\tна Мерцающий заезд!");
+	WriteData((const char**)0x2BBF478, "\tДобро пожаловать на Мерцающий заезд!");
 
 	// Tikal's messages
 	WriteData((const char**)0x88C730, "\aДавай за мной!");
