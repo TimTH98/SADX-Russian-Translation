@@ -164,7 +164,7 @@ void BossHelps()
 
 	WriteData((const char**)0x7FEC48, "\aПрицелься в лягушку и\nзакинь в неё наживку!");
 
-	WriteData((const char**)0x7FEBF8, "Кидай бомбы Эггмана\nпрямо в пасть Хаоса.");
+	WriteData((const char**)0x7FEBF8, "\aКидай бомбы Эггмана\nпрямо в пасть Хаоса.");
 
 	WriteData((const char**)0x7FECA8, "\aУ тебя появится возможность\nиспользовать удочку,");
 	WriteData((const char**)0x7FECB0, "\aкогда Хаос подойдёт ближе!");
