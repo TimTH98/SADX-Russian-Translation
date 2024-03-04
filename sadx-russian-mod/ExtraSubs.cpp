@@ -769,12 +769,12 @@ std::map<int, SubtitleData> ExtraSubs
 
 	//Perfect Chaos unused Tikal's cheers
 
-	{ 1713, { "\aСоник?..\nПоняла.", 150, Gameplay } },
+	{ 1713, { "\aСоник?..\nВот как.", 150, Gameplay } },
 	{ 1714, { "\aЯ рассчитываю на твою отвагу!", 150, Gameplay } },
 	{ 1716, { "\aТебе нужны кольца, чтобы оставаться\nв супер-форме. Будь осторожен!", 360, Gameplay } },
 };
 
-const char* SkyChase1EggCannon[] = { "\aДаже не думайте, что победили!\nЭгг-пушка к бою! ОГОНЬ!", "А-а-а, в нас попали!\nА-а-а-а-а-а-а-а!", NULL }; //id 187
+const char* SkyChase1EggCannon[] = { "\aДаже не думайте, что победили!\nЭгг-пушка к бою! ОГОНЬ!", "— А-а-а, в нас попали!\n— А-а-а-а-а-а-а-а!", NULL }; //id 187
 const char* SkyChase2Transformation[] = { "\aСмена режима!", "Ва-а-а-ау!", "Вот так! А теперь вперёд!", NULL }; //id 2025
 const char* WelcomeToTwinkleParkCutscene[] = { "\aДобро пожаловать в Мерцающий парк!", NULL }; //для катсцены после Twinkle Park за Соника, чтобы этот субтитр не перекрыл субтитр из катсцены
 
