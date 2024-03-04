@@ -776,6 +776,7 @@ std::map<int, SubtitleData> ExtraSubs
 
 const char* SkyChase1EggCannon[] = { "\aДаже не думайте, что победили!\nЭгг-пушка к бою! ОГОНЬ!", "А-а-а, в нас попали!\nА-а-а-а-а-а-а-а!", NULL }; //id 187
 const char* SkyChase2Transformation[] = { "\aСмена режима!", "Ва-а-а-ау!", "Вот так! А теперь вперёд!", NULL }; //id 2025
+const char* WelcomeToTwinkleParkCutscene[] = { "\aДобро пожаловать в Мерцающий парк!", NULL }; //для катсцены после Twinkle Park за Соника, чтобы этот субтитр не перекрыл субтитр из катсцены
 
 
 void DisplayGameplaySubtitle(int id)
@@ -801,6 +802,12 @@ void DisplaySubtitle(int id)
 	else if (id == 2025)
 	{
 		DisplayHintText(SkyChase2Transformation, 270);
+	}
+
+	if (id == 1575 && CurrentCutsceneID == 20)
+	{
+		DisplayHintText(WelcomeToTwinkleParkCutscene, 30);
+		return;
 	}
 	
 	if (!ExtraSubs.count(id)) return;
