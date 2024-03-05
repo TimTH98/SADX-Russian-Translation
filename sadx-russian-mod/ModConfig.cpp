@@ -50,7 +50,7 @@ void SetConfigFile(const char* path, const HelperFunctions& helperFunctions)
 	EditedTimings = config->getBool("SubsAndVoices", "EditedTimings", true);
 	ForcedJapVoices = config->getBool("SubsAndVoices", "ForcedJapVoices", true);
 
-	ExtraSubtitles = config->getBool("ExtraSubtitles", "EnableExtraSubs", false);
+	ExtraSubtitles = config->getBool("ExtraSubtitles", "EnableExtraSubs", true);
 	DisableMenuExtraSubs = config->getBool("ExtraSubtitles", "DisableMenuExtraSubs", false);
 	
 	DreamcastChaoIcon = config->getString("Extra", "DreamcastChaoIcon", "DX");
