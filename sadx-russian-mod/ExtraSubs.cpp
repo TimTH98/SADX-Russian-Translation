@@ -11,6 +11,7 @@ const char* Buffer[] = { NULL, NULL };
 char TextBuffer[1000];
 int SubtitleDisplayFrameCount = 0;
 int SubtitleDuration = 0;
+int EggCannonFrameCount = 0;
 
 
 enum DisplayConditions
@@ -776,8 +777,9 @@ std::map<int, SubtitleData> ExtraSubs
 	{ 1716, { "\aТебе нужны кольца, чтобы оставаться\nв супер-форме. Будь осторожен!", 360, Gameplay } },
 };
 
-const char* SkyChase1EggCannon[] = { "\aДаже не думайте, что победили!\nЭгг-пушка, к бою! ОГОНЬ!", "\a– А-а-а, в нас попали!\n– А-а-а-а-а-а-а-а!", NULL }; //id 187
-const char* SkyChase2Transformation[] = { "\aСмена режима!", "\aВа-а-а-ау!", "\aВот так! А теперь вперёд!", NULL }; //id 2025
+const char* SkyChase1EggCannon[] = { "\aДаже не думайте, что победили!",  "\aЭгг-пушка, к бою!", "\aОГОНЬ!", "\aА-а-а, в нас попали!", "\aА-а-а-а-а-а-а-а!" }; //id 187
+const char* SkyChase2Transformation[] = { "\aСмена режима!", "Ва-а-а-ау!", "\aВот так! А теперь вперёд!", NULL }; //id 2025
+
 const char* WelcomeToTwinkleParkCutscene[] = { "\aДобро пожаловать в Мерцающий парк!", NULL }; //для катсцены после Twinkle Park за Соника, чтобы этот субтитр не перекрыл субтитр из катсцены
 
 
@@ -799,7 +801,7 @@ void DisplaySubtitle(int id)
 {
 	if (id == 187)
 	{
-		DisplayHintText(SkyChase1EggCannon, 660);
+		EggCannonFrameCount = 1;
 	}
 	else if (id == 2025)
 	{
@@ -848,28 +850,61 @@ void InitExtraSubs()
 
 /* OnFrame stuff */
 
-void DisplayMenuSubtitleForOneFrame()
+void DisplaySubtitleForOneFrame()
 {
-	if (SubtitleDisplayFrameCount > 0 && SubtitleDisplayFrameCount <= SubtitleDuration)
-	{
-		sub_40BC80();
-		DoSomethingRelatedToText_(TextBuffer);
-		SubtitleDisplayFrameCount++;
-	}
+	sub_40BC80();
+	DoSomethingRelatedToText_(TextBuffer);
+	SubtitleDisplayFrameCount++;
 }
 
 void ClearSubtitle()
 {
-	if (SubtitleDisplayFrameCount > SubtitleDuration)
+	SubtitleDisplayFrameCount = 0;
+	EggCannonFrameCount = 0;
+	SubtitleDuration = 0;
+}
+
+void DisplayEggCannonSubtitles()
+{
+	sub_40BC80();
+	if (EggCannonFrameCount <= 180)
 	{
-		SubtitleDisplayFrameCount = 0;
-		SubtitleDuration = 0;
+		DoSomethingRelatedToText_(SkyChase1EggCannon[0]);
 	}
+	else if (EggCannonFrameCount <= 270)
+	{
+		DoSomethingRelatedToText_(SkyChase1EggCannon[1]);
+	}
+	else if (EggCannonFrameCount > 360 && EggCannonFrameCount <= 480)
+	{
+		DoSomethingRelatedToText_(SkyChase1EggCannon[2]);
+	}
+	else if (EggCannonFrameCount > 660 && EggCannonFrameCount <= 780)
+	{
+		DoSomethingRelatedToText_(SkyChase1EggCannon[3]);
+	}
+	else if (EggCannonFrameCount > 780)
+	{
+		DoSomethingRelatedToText_(SkyChase1EggCannon[4]);
+	}
+	EggCannonFrameCount++;
 }
 
 
 void DisplaySubtitleOnFrame()
 {
-	DisplayMenuSubtitleForOneFrame();
-	ClearSubtitle();
+	if (SubtitleDisplayFrameCount > 0 && SubtitleDisplayFrameCount <= SubtitleDuration)
+	{
+		DisplaySubtitleForOneFrame();
+	}
+
+	if (EggCannonFrameCount > 0)
+	{
+		DisplayEggCannonSubtitles();
+	}
+
+	if (SubtitleDisplayFrameCount > SubtitleDuration || EggCannonFrameCount > 960)
+	{
+		ClearSubtitle();
+	}
 }
