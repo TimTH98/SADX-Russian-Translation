@@ -296,7 +296,7 @@ std::map<int, SubtitleData> ExtraSubs
 
 	{ 306, { "\aТут так спокойно.", 90, Gameplay } }, //Sonic
 	{ 307, { "\aЗдесь всё так поменялось\nс тех пор, как построили станцию.", 300, Gameplay } }, //Tails
-	{ 308, { "\aНадо скорее восстановить Главный Изумруд...", 210, Gameplay } }, //Knuckles
+	{ 308, { "\aНадо скорее восстановить\nГлавный Изумруд...", 210, Gameplay } }, //Knuckles
 	{ 309, { "\aНе люблю я такие места.", 150, Gameplay } }, //Amy
 	{ 310, { "\aЛягушик, где же ты?", 120, Gameplay } }, //Big
 	{ 311, { "\aПровожу исследование Мистических руин...", 180, Gameplay } }, //Gamma
@@ -349,7 +349,7 @@ std::map<int, SubtitleData> ExtraSubs
 	//Egg Carrier - inside
 
 	{ 339, { "\aКх-х... Он даже не скрывает\nсвои пристрастия от подчинённых.", 300, Gameplay } }, //Sonic
-	{ 340, { "\aКогда-нибудь и я построю такой корабль!", 210, Gameplay } }, //Tails
+	{ 340, { "\aКогда-нибудь и я построю\nтакой корабль!", 210, Gameplay } }, //Tails
 	{ 341, { "\aГде тут выход?", 90, Gameplay } }, //Knuckles
 	{ 342, { "\aДавай пойдём потише,\nчтобы нас не заметили.", 240, Gameplay } }, //Amy
 	{ 343, { "\aПродолжаю выполнение задания.", 150, Gameplay } }, //Gamma
@@ -412,7 +412,7 @@ std::map<int, SubtitleData> ExtraSubs
 	//Sky Deck
 
 	{ 257, { "\aУх-х... Если свалюсь, мне крышка.", 180, Gameplay } }, //Sonic
-	{ 258, { "\aВысоко-то так... Аж ноги оцепенели.", 180, Gameplay } }, //Tails
+	{ 258, { "\aВысоко-то так...\nАж ноги подкашивает.", 180, Gameplay } }, //Tails
 	{ 259, { "\aЧёрт! От этого ветра в ушах звенит!", 180, Gameplay } }, //Sonic
 	{ 260, { "\aОй-ой, да что происходит\nс этим кораблём?", 210, Gameplay } }, //Sonic
 	{ 261, { "\aТак... И где же сокровища?", 150, Gameplay } }, //Knuckles
@@ -671,7 +671,7 @@ std::map<int, SubtitleData> ExtraSubs
 	{ 1790, { "\aНашёл!", 60, Gameplay } }, //stage clear
 	{ 1791, { "\aХм, кажется, я завозился.", 120, Gameplay } }, //bad clear
 	{ 1792, { "\aПроще простого.", 90, Gameplay } }, //good clear
-	{ 1793, { "\aХм, лаешь - да не кусаешь.", 120, Gameplay } }, //boss clear
+	{ 1793, { "\aХм, лаешь, да не кусаешь.", 120, Gameplay } }, //boss clear
 	{ 1794, { "\aНу, сойдёт, пожалуй.", 90, Gameplay } }, //normal clear
 	{ 1795, { "\aЧёрт!", 60, Gameplay } }, //captured
 	
@@ -777,7 +777,7 @@ std::map<int, SubtitleData> ExtraSubs
 };
 
 const char* SkyChase1EggCannon[] = { "\aДаже не думайте, что победили!\nЭгг-пушка, к бою! ОГОНЬ!", "\a– А-а-а, в нас попали!\n– А-а-а-а-а-а-а-а!", NULL }; //id 187
-const char* SkyChase2Transformation[] = { "\aСмена режима!", "Ва-а-а-ау!", "\aВот так! А теперь вперёд!", NULL }; //id 2025
+const char* SkyChase2Transformation[] = { "\aСмена режима!", "\aВа-а-а-ау!", "\aВот так! А теперь вперёд!", NULL }; //id 2025
 const char* WelcomeToTwinkleParkCutscene[] = { "\aДобро пожаловать в Мерцающий парк!", NULL }; //для катсцены после Twinkle Park за Соника, чтобы этот субтитр не перекрыл субтитр из катсцены
 
 
