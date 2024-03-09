@@ -682,7 +682,7 @@ std::map<int, SubtitleData> ExtraSubs
 	{ 1733, { "\aУра!", 60, Gameplay } }, //stage clear
 	{ 1734, { "\aПронесло!", 60, Gameplay } }, //bad clear
 	{ 1735, { "\aЕсли я берусь за дело, то всерьёз!", 150, Gameplay } }, //boss clear
-	{ 1736, { "\aУ меня получилось!", 90, Gameplay } }, //normal clear
+	{ 1736, { "\aЯ спасена!", 90, Gameplay } }, //normal clear
 	{ 1737, { "\aУра! Я лучше всех!", 90, Gameplay } }, //good clear
 	{ 1738, { "\aЭй, пусти!", 60, Gameplay } }, //captured
 
