@@ -1,1 +1,1 @@
-310000,st_064s_score.png
+310000,st_064s_score.dds

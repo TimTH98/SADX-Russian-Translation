@@ -654,7 +654,7 @@ std::map<int, SubtitleData> ExtraSubs
 	{ 1843, { "\aЭй, приятель!\nПотом ещё раз поиграем!", 180, Gameplay } }, //boss clear
 	{ 1844, { "\aЛадно, сойдёт!", 90, Gameplay } }, //normal clear
 	{ 1845, { "\aЭй, пусти!", 90, Gameplay } }, //captured
-	{ 1847, { "\aНет!", 60, Gameplay } }, //died with no rings
+	{ 1847, { "\aНет...", 60, Gameplay } }, //died with no rings
 
 	//Tails
 
