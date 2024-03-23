@@ -8,7 +8,7 @@
 FunctionPointer(void, sub_40BC80, (), 0x40BC80);
 
 const char* Buffer[] = { NULL, NULL };
-char TextBuffer[1000];
+const char* TextBuffer = NULL;
 int SubtitleDisplayFrameCount = 0;
 int SubtitleDuration = 0;
 int EggCannonFrameCount = 0;
@@ -715,18 +715,18 @@ std::map<int, SubtitleData> ExtraSubs
 
 	//Big's unused fishing lines
 
-	{ 1763, { "\aМаленькая...", 60, Menu } }, //small fish
-	{ 1761, { "\aПойдёт.", 60, Menu } }, //medium-sized fish
-	{ 1745, { "\aКакая большая!", 60, Menu } }, //large fish
-	{ 1753, { "\aТак не пойдёт.", 60, Menu } }, //failed attempt
-	{ 1756, { "\aНикуда не годится.", 90, Menu } }, //failed attempt
-	{ 1876, { "\aТа-а-к, ещё разок.", 90, Menu } }, //try again
-	{ 1877, { "\aПочти. Ещё разок.", 90, Menu } }, //try again
+	{ 1763, { "\aМаленькая...", 60, Gameplay } }, //small fish
+	{ 1761, { "\aПойдёт.", 60, Gameplay } }, //medium-sized fish
+	{ 1745, { "\aКакая большая!", 60, Gameplay } }, //large fish
+	{ 1753, { "\aТак не пойдёт.", 60, Gameplay } }, //failed attempt
+	{ 1756, { "\aНикуда не годится.", 90, Gameplay } }, //failed attempt
+	{ 1876, { "\aТа-а-к, ещё разок.", 90, Gameplay } }, //try again
+	{ 1877, { "\aПочти. Ещё разок.", 90, Gameplay } }, //try again
 
 	//Final Egg 1 (Sonic) intercom
 
-	{ 1706, { "\aОбнаружен нарушитель!\nЭгг-Киперы, приготовьтесь к перехвату!", 420, Menu } },
-	{ 1707, { "\aОбнаружен нарушитель!\nЭгг-Киперы, приготовьтесь к перехвату!", 420, Menu } },
+	{ 1706, { "\aОбнаружен нарушитель!\nЭгг-Киперы, приготовьтесь к перехвату!", 420, Gameplay } },
+	{ 1707, { "\aОбнаружен нарушитель!\nЭгг-Киперы, приготовьтесь к перехвату!", 420, Gameplay } },
 
 	//Final Egg (Amy) Eggman's taunts
 
@@ -791,7 +791,7 @@ void DisplayGameplaySubtitle(int id)
 
 void SetUpMenuSubtitle(int id)
 {
-	strcpy_s(TextBuffer, ExtraSubs[id].Text);
+	TextBuffer = ExtraSubs[id].Text;
 	SubtitleDisplayFrameCount = 1;
 	SubtitleDuration = ExtraSubs[id].Duration;
 }
@@ -844,7 +844,8 @@ void __cdecl PlayVoice_ExtraSub(int id)
 void InitExtraSubs()
 {
 	WriteJump((void*)0x425710, PlayVoice_ExtraSub);
-	WriteData((char*)0x40BC9A, (char)54); //меняю высоту текст-бокса для меню, чтобы влезало 2 строки нормально
+	WriteData((char*)0x40BC9A, (char)52); //меняю высоту текст-бокса для меню, чтобы влезало 2 строки нормально
+	WriteData((int*)0x40BCA1, 384); //меняю координату y для текст-бокса, чтобы для обоих методов вывода их размеры и расположение совпадали
 }
 
 
