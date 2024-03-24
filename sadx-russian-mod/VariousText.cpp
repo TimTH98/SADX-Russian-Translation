@@ -192,7 +192,7 @@ void BossHelps()
 	WriteData((const char**)0x8046EC, "\aПродолжай атаковать,\nпока не найдёшь его!");
 
 	// Perfect Chaos
-	WriteData((const char**)0x800544, "\aНа максимальной скорости ты\nстанешь подобен молнии.");
+	WriteData((const char**)0x800544, "\aНа максимальной скорости\nты станешь подобен молнии.");
 	WriteData((const char**)0x80054C, "\aТолько так у тебя будет шанс\nатаковать Хаоса!");
 }
 
