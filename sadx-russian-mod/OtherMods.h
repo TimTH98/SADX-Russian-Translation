@@ -1,5 +1,3 @@
 #pragma once
 
-void OverwriteBetaRestoresText(const HelperFunctions& helperFunctions);
-void ReplaceMultiplayerText(const HelperFunctions& helperFunctions);
-void ReplaceSuperSonicHint();
+void WriteTextForOtherMods(const HelperFunctions& helperFunctions);

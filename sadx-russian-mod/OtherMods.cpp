@@ -164,3 +164,12 @@ void ReplaceSuperSonicHint()
 	SuperSonicTikalHints = (const char***)GetProcAddress(SuperSonic, "?tikal_messages@@3PAPAPBDA");
 	SuperSonicTikalHints[2] = SuperSonicTikalHintRus;
 }
+
+
+
+void WriteTextForOtherMods(const HelperFunctions& helperFunctions)
+{
+	OverwriteBetaRestoresText(helperFunctions);
+	ReplaceMultiplayerText(helperFunctions);
+	ReplaceSuperSonicHint();
+}

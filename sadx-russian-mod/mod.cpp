@@ -14,16 +14,8 @@ extern "C"
 {
 	__declspec(dllexport) void __cdecl Init(const char *path, const HelperFunctions &helperFunctions)
 	{						
-		DCChaoGarden();
 		LoadText();
-		BossNames();
-		BossHelps();
-		MissionText();
-		GG_Games();
-
-		OverwriteBetaRestoresText(helperFunctions);
-		ReplaceMultiplayerText(helperFunctions);
-		ReplaceSuperSonicHint();
+		WriteTextForOtherMods(helperFunctions);
 
 		LoadTextures(path, helperFunctions);		
 		SetConfigFile(path, helperFunctions);		
