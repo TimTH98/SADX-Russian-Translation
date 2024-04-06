@@ -24,12 +24,12 @@ extern "C"
 		MissionText();
 		GG_Games();
 
-		LoadTextures(path, helperFunctions);
+		OverwriteBetaRestoresText(helperFunctions);
 		ReplaceMultiplayerText(helperFunctions);
 		ReplaceSuperSonicHint();
-		SetConfigFile(path, helperFunctions);
 
-		OverwriteBetaRestoresText(helperFunctions);		
+		LoadTextures(path, helperFunctions);		
+		SetConfigFile(path, helperFunctions);		
 	} 
 	
 	__declspec(dllexport) void OnFrame()
