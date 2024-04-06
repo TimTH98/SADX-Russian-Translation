@@ -1,4 +1,3 @@
 #pragma once
 
-void LoadSADCCredits();
-void LoadSADXCredits();
+void LoadCredits();

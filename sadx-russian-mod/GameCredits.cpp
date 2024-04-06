@@ -1,6 +1,10 @@
 #include "stdafx.h"
 #include <SADXModLoader.h>
 
+
+bool CreditsLoaded = false;
+HMODULE DConv = GetModuleHandle(L"DCMods_Main"); // Init Dreamcast Conversion
+
 // Original code by PkR
 
 CreditsEntry SADXCredits[] = {
@@ -1093,4 +1097,21 @@ void LoadSADXCredits()
 	DataPointer(CreditsList, StaffRollData, 0x2BC2FD0);
 	StaffRollData.Count = 573;
 	StaffRollData.Entries = (CreditsEntry*)&SADXCredits;
+}
+
+
+void LoadCredits()
+{
+	if (!CreditsLoaded)
+	{
+		if (DConv)
+		{
+			LoadSADCCredits();
+		}
+		else
+		{
+			LoadSADXCredits();
+		}
+		CreditsLoaded = true;
+	}
 }

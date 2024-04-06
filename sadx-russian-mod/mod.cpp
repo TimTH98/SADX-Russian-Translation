@@ -10,9 +10,6 @@
 #include "VariousText.h"
 
 
-bool CreditsLoaded = false;
-HMODULE DConv = GetModuleHandle(L"DCMods_Main");	// Init Dreamcast Conversion
-
 extern "C"
 {
 	__declspec(dllexport) void __cdecl Init(const char *path, const HelperFunctions &helperFunctions)
@@ -34,26 +31,13 @@ extern "C"
 	
 	__declspec(dllexport) void OnFrame()
 	{
-		if (!CreditsLoaded)
-		{
-			if (DConv)
-			{
-				LoadSADCCredits();
-			}				
-			else
-			{
-				LoadSADXCredits();
-			}
-			CreditsLoaded = true;
-		}
-
-		TextLanguage = 2;
+		TextLanguage = Languages_French;
+		LoadCredits();
 		
 		if (GetJPVoiceSetting())
 		{
 			VoiceLanguage = 0;
-		}
-			
+		}			
 
 		if (ExtraSubsEnabled())
 		{
