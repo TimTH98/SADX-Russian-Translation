@@ -25,7 +25,8 @@ extern "C"
 		GG_Games();
 
 		LoadTextures(path, helperFunctions);
-		LoadExtraText(helperFunctions);
+		ReplaceMultiplayerText(helperFunctions);
+		ReplaceSuperSonicHint();
 		SetConfigFile(path, helperFunctions);
 
 		OverwriteBetaRestoresText(helperFunctions);		
