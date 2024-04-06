@@ -2,44 +2,6 @@
 #include "SADXModLoader.h"
 
 
-//Multiplayer mod
-
-void (*multi_replace_text)(const char* name, uint32_t language, const char* text) = nullptr;
-
-void ReplaceMultiplayerText(const HelperFunctions& helperFunctions)
-{
-	auto multi_mod = helperFunctions.Mods->find("sadx-multiplayer");
-	if (multi_mod)
-	{
-		multi_replace_text = multi_mod->GetDllExport<decltype(multi_replace_text)>("multi_replace_text");
-
-		multi_replace_text("stage_confirm", 2, "Желаете запустить этот уровень?");
-		multi_replace_text("press_start", 2, "Кнопка Start: присоединиться");
-	}	
-}
-
-
-//Super Sonic mod by Kell
-
-HMODULE SuperSonic = GetModuleHandle(L"better-super-sonic");
-const char*** SSTikalMessages;
-
-const char* SSTikalHintRus[]
-{
-	"Соберите 50 колец и нажмите\nкнопку действия во время прыжка.",
-	"Вы сможете превратиться в Супер Соника!\nСледите за расходом колец!",
-	nullptr
-};
-
-void ReplaceSuperSonicHint()
-{
-	if (!SuperSonic) return;
-	
-	SSTikalMessages = (const char***)GetProcAddress(SuperSonic, "?tikal_messages@@3PAPAPBDA");
-	SSTikalMessages[2] = SSTikalHintRus;
-}
-
-
 void LoadText()
 {
 	WriteData((const char**)0x504B5B, "    Ho*+= %a=>");

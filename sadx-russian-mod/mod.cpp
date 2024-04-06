@@ -2,16 +2,16 @@
 #include <SADXModLoader.h>
 #include <IniFile.hpp>
 
-#include "BetaRestores.h"
 #include "ExtraSubs.h"
 #include "GameCredits.h"
-#include "VariousText.h"
 #include "LoadTextures.h"
 #include "ModConfig.h"
+#include "OtherMods.h"
+#include "VariousText.h"
 
 
 bool CreditsLoaded = false;
-HMODULE DConv = GetModuleHandle(L"DCMods_Main");			// Init Dreamcast Conversion
+HMODULE DConv = GetModuleHandle(L"DCMods_Main");	// Init Dreamcast Conversion
 
 extern "C"
 {

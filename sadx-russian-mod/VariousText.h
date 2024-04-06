@@ -1,7 +1,5 @@
 ﻿#pragma once
 
-void ReplaceMultiplayerText(const HelperFunctions& helperFunctions);
-void ReplaceSuperSonicHint();
 void LoadText();
 void BossNames();
 void BossHelps();

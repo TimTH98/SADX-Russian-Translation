@@ -1,36 +1,37 @@
 ﻿#include "stdafx.h"
 #include "SADXModLoader.h"
+#include "OtherMods.h"
 
 #include <IniFile.hpp>
 
 
-//Used supercoolsonic's source code for "Fixes, Adds and Beta Restores" mod
+/* Fixes, Adds and Beta Restores (used supercoolsonic's source code) */
 
-
+HMODULE BetaRestores = GetModuleHandle(L"Fixes_Adds_BetaRestores");
 FunctionPointer(void, sub_4B79A0, (int a1), 0x4B79A0);
 
 
-/* Big's beta hotel puzzle */
+//Big's beta hotel puzzle
 
 const char* const KeyBlockENG[] = {
 		"\aWhat's this?",
-		NULL,
+		nullptr,
 };
 
-//French text to Russian
+
 const char* const KeyBlockFRE[] = {
-		"\aА что это за штука?",
-		NULL,
+		"\aА что это за штука?", //French text to Russian
+		nullptr,
 };
 
 const char* const KeyBlockSPN[] = {
 		"\a¿Qué es esto?",
-		NULL,
+		nullptr,
 };
 
 const char* const KeyBlockGER[] = {
 		"\aWas ist das?",
-		NULL,
+		nullptr,
 };
 
 
@@ -62,7 +63,7 @@ void __cdecl KeyBlockLanguageAdds()
 }
 
 
-/* Chao card */
+//Chao card
 
 const char* const ChaoCardENG[] = {
 		"\aChao Card -\n Proof of Chao Stadium membership",
@@ -113,10 +114,9 @@ void __cdecl ChaoCardLanguageAdds()
 
 void OverwriteBetaRestoresText(const HelperFunctions& helperFunctions)
 {
-	HMODULE betaRestores = GetModuleHandle(L"Fixes_Adds_BetaRestores");
-	if (betaRestores == nullptr) return;
+	if (!BetaRestores) return;
 	
-	auto betaRestoresMod = helperFunctions.Mods->find_by_dll(betaRestores);
+	auto betaRestoresMod = helperFunctions.Mods->find_by_dll(BetaRestores);
 	IniFile betaRestoresConfig(std::string(betaRestoresMod->Folder) + "\\config.ini");
 	bool bigBetaHotel = betaRestoresConfig.getBool("Options1", "BigBetaHotel", false);
 
@@ -126,4 +126,41 @@ void OverwriteBetaRestoresText(const HelperFunctions& helperFunctions)
 	}
 
 	WriteJump((void*)0x636067, ChaoCardLanguageAdds);
+}
+
+
+
+/* Multiplayer mod */
+
+void (*multi_replace_text)(const char* name, uint32_t language, const char* text) = nullptr;
+
+void ReplaceMultiplayerText(const HelperFunctions& helperFunctions)
+{
+	auto multi_mod = helperFunctions.Mods->find("sadx-multiplayer");
+	if (!multi_mod) return;
+
+	multi_replace_text = multi_mod->GetDllExport<decltype(multi_replace_text)>("multi_replace_text");
+	multi_replace_text("stage_confirm", 2, "Желаете запустить этот уровень?");
+	multi_replace_text("press_start", 2, "Кнопка Start: присоединиться");
+}
+
+
+/* Super Sonic mod by Kell */
+
+HMODULE SuperSonic = GetModuleHandle(L"better-super-sonic");
+const char*** SuperSonicTikalHints;
+
+const char* SuperSonicTikalHintRus[]
+{
+	"\aСоберите 50 колец и нажмите\nкнопку действия во время прыжка.",
+	"\aВы сможете превратиться в Супер Соника!\nСледите за расходом колец!",
+	nullptr
+};
+
+void ReplaceSuperSonicHint()
+{
+	if (!SuperSonic) return;
+
+	SuperSonicTikalHints = (const char***)GetProcAddress(SuperSonic, "?tikal_messages@@3PAPAPBDA");
+	SuperSonicTikalHints[2] = SuperSonicTikalHintRus;
 }
