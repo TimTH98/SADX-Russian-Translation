@@ -1,9 +1,8 @@
-#include "stdafx.h"
-#include <SADXModLoader.h>
+﻿#include "stdafx.h"
+#include "ModConfig.h"
 
 
 bool CreditsLoaded = false;
-HMODULE DConv = GetModuleHandle(L"DCMods_Main"); // Init Dreamcast Conversion
 
 // Original code by PkR
 
@@ -1088,15 +1087,14 @@ STAFF_DATA SADCCredits[] = {
 
 void LoadSADCCredits()
 {
-	StaffRollData.nbStaff = 500;
+	StaffRollData.nbStaff = std::size(SADCCredits);
 	StaffRollData.StaffTbl = (STAFF_DATA*)&SADCCredits;
 }
 
 void LoadSADXCredits()
 {
-	DataPointer(CreditsList, StaffRollData, 0x2BC2FD0);
-	StaffRollData.Count = 573;
-	StaffRollData.Entries = (CreditsEntry*)&SADXCredits;
+	StaffRollData.nbStaff = std::size(SADXCredits);
+	StaffRollData.StaffTbl = (STAFF_DATA*)&SADXCredits; //мы туда просто указатель пишем всё равно
 }
 
 
@@ -1104,7 +1102,7 @@ void LoadCredits()
 {
 	if (!CreditsLoaded)
 	{
-		if (DConv)
+		if (DreamcastConversionEnabled())
 		{
 			LoadSADCCredits();
 		}

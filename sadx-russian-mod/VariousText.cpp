@@ -1,5 +1,4 @@
 ﻿#include "stdafx.h"
-#include "SADXModLoader.h"
 
 
 /* Mission mode text */
@@ -210,21 +209,21 @@ void LoadFileSelectText()
 void LoadHedgehogHammerText()
 {
 	//Story
-	WriteData((const char**)0x52843D, "PEKOPD");
-	WriteData((const char**)0x528467, "OIKOB");
-	WriteData((const char**)0x52849A, "OIKOB");
-	WriteData((const char**)0x5284E5, "DOKTOP WFFMAH");
-	WriteData((const char**)0x528500, "WMN");
-	WriteData((const char**)0x528549, "HAIATZ");
-	WriteData((const char**)0x528599, "BPEMR");
-	WriteData((const char**)0x5285A8, "CIYT");
-	WriteData((const char**)0x5285E9, "OIKOB");
-	WriteData((const char**)0x528632, "OIKOB");
-	WriteData((const char**)0x5286D1, "NFPA OKOHIEHA");
-	WriteData((const char**)0x528728, "VOSDPABLREM");
-	WriteData((const char**)0x528790, "VOLUINTE VEPO BONHA");
-	WriteData((const char**)0x5287A3, "VOLUINTE DLNHHJQ MOLOT");
-	WriteData((const char**)0x5287FA, "BJ VOXNLN PEKOPD");
+	WriteData((const char**)0x52843D, "PEKOPD"); //Рекорд
+	WriteData((const char**)0x528467, "OIKOB"); //Очков
+	WriteData((const char**)0x52849A, "OIKOB"); //Очков
+	WriteData((const char**)0x5284E5, "DOKTOP WFFMAH"); //Доктор Эггман
+	WriteData((const char**)0x528500, "WMN"); //Эми
+	WriteData((const char**)0x528549, "HAIATZ"); //Начать
+	WriteData((const char**)0x528599, "BPEMR"); //Время
+	WriteData((const char**)0x5285A8, "CIYT"); //Счёт
+	WriteData((const char**)0x5285E9, "OIKOB"); //Очков
+	WriteData((const char**)0x528632, "OIKOB"); //Очков
+	WriteData((const char**)0x5286D1, "NFPA OKOHIEHA"); //Игра окончена
+	WriteData((const char**)0x528728, "VOSDPABLREM"); //Подзравляем
+	WriteData((const char**)0x528790, "VOLUINTE VEPO BONHA"); //Получите Перо воина
+	WriteData((const char**)0x5287A3, "VOLUINTE DLNHHJQ MOLOT"); //Получите Длинный молот
+	WriteData((const char**)0x5287FA, "BJ VOXNLN PEKOPD"); //Вы побили рекорд
 
 	//Minigame
 	WriteData((const char**)0x62616D, "PEKOPD");

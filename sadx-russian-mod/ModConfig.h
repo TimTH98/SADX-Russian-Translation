@@ -1,6 +1,8 @@
 #pragma once
 
-void SetConfigFile(const char* path, const HelperFunctions& helperFunctions);
-bool GetJPVoiceSetting();
+bool DreamcastConversionEnabled();
+
+void InitConfig(const char* path, const HelperFunctions& helperFunctions);
+bool ForceJapaneseVoice();
 bool ExtraSubsEnabled();
 bool MenuExtraSubsDisabled();
