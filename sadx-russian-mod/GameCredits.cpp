@@ -1,4 +1,4 @@
-#include "stdafx.h"
+п»ї#include "stdafx.h"
 #include "ModConfig.h"
 
 
@@ -1094,7 +1094,7 @@ void LoadSADCCredits()
 void LoadSADXCredits()
 {
 	StaffRollData.nbStaff = std::size(SADXCredits);
-	StaffRollData.StaffTbl = (STAFF_DATA*)&SADXCredits; //мы туда просто указатель пишем всё равно
+	StaffRollData.StaffTbl = (STAFF_DATA*)&SADXCredits; //РјС‹ С‚СѓРґР° РїСЂРѕСЃС‚Рѕ СѓРєР°Р·Р°С‚РµР»СЊ РїРёС€РµРј РІСЃС‘ СЂР°РІРЅРѕ
 }
 
 
