@@ -1,11 +1,10 @@
 ﻿#include "stdafx.h"
-#include "SADXModLoader.h"
-#include "OtherMods.h"
 
-#include <IniFile.hpp>
+#include "IniFile.hpp"
+#include "OtherModsText.h"
 
 
-/* Fixes, Adds and Beta Restores (used supercoolsonic's source code) */
+/* Fixes, Adds and Beta Restores (based on supercoolsonic's source code) */
 
 HMODULE BetaRestores = GetModuleHandle(L"Fixes_Adds_BetaRestores");
 FunctionPointer(void, sub_4B79A0, (int a1), 0x4B79A0);
@@ -13,50 +12,47 @@ FunctionPointer(void, sub_4B79A0, (int a1), 0x4B79A0);
 
 //Big's beta hotel puzzle
 
-const char* const KeyBlockENG[] = {
+const char* KeyBlockEN[] = {
 		"\aWhat's this?",
 		nullptr,
 };
 
 
-const char* const KeyBlockFRE[] = {
+const char* KeyBlockFR[] = {
 		"\aА что это за штука?", //French text to Russian
 		nullptr,
 };
 
-const char* const KeyBlockSPN[] = {
+const char* KeyBlockSP[] = {
 		"\a¿Qué es esto?",
 		nullptr,
 };
 
-const char* const KeyBlockGER[] = {
+const char* KeyBlockGE[] = {
 		"\aWas ist das?",
 		nullptr,
 };
 
 
+const char** KeyBlockMessages[]
+{
+	nullptr, //Japanese
+	KeyBlockEN,
+	KeyBlockFR,
+	KeyBlockSP,
+	KeyBlockGE,
+};
+
+
 void __cdecl KeyBlockLanguageAdds()
 {
-	switch (TextLanguage)
+	if (TextLanguage == Languages_Japanese)
 	{
-	case 0:
 		sub_4B79A0((int)0x2BBF1D8);
-		break;
-	case 1:
-		DisplayHintText(KeyBlockENG, 240);
-		break;
-	case 2:
-		DisplayHintText(KeyBlockFRE, 240);
-		break;
-	case 3:
-		DisplayHintText(KeyBlockSPN, 240);
-		break;
-	case 4:
-		DisplayHintText(KeyBlockGER, 240);
-		break;
-	default:
-		sub_4B79A0((int)0x2BBF1D8);
-		break;
+	}
+	else
+	{
+		DisplayHintText(KeyBlockMessages[TextLanguage], 240);
 	}
 	//StopVoices();
 	PlayVoice(1765);
@@ -65,49 +61,46 @@ void __cdecl KeyBlockLanguageAdds()
 
 //Chao card
 
-const char* const ChaoCardENG[] = {
+const char* ChaoCardEN[] = {
 		"\aChao Card -\n Proof of Chao Stadium membership",
 		NULL,
 };
 
-const char* const ChaoCardFRE[] = {
+const char* ChaoCardFR[] = {
 		"\aЧао-карта...\n Открывает доступ на стадион Чао",
 		NULL,
 };
 
-const char* const ChaoCardSPN[] = {
+const char* ChaoCardSP[] = {
 		"\a Tarjeta Chao -\n Prueba de membresía del estadio Chao",
 		NULL,
 };
 
-const char* const ChaoCardGER[] = {
+const char* ChaoCardGE[] = {
 		"\a Chao Card -\n Nachweis der Mitgliedschaft im Chao-Stad", //missing 'ion' at the end because it doesn't fit!
 		NULL,
 };
 
 
+const char** ChaoCardMessages[]
+{
+	nullptr, //Japanese
+	ChaoCardEN,
+	ChaoCardFR,
+	ChaoCardSP,
+	ChaoCardGE,
+};
+
+
 void __cdecl ChaoCardLanguageAdds()
 {
-	switch (TextLanguage)
+	if (TextLanguage == Languages_Japanese)
 	{
-	case 0:
 		sub_4B79A0((int)0x2BBF080);
-		break;
-	case 1:
-		DisplayHintText(ChaoCardENG, 240);
-		break;
-	case 2:
-		DisplayHintText(ChaoCardFRE, 240);
-		break;
-	case 3:
-		DisplayHintText(ChaoCardSPN, 240);
-		break;
-	case 4:
-		DisplayHintText(ChaoCardGER, 240);
-		break;
-	default:
-		sub_4B79A0((int)0x2BBF080);
-		break;
+	}
+	else
+	{
+		DisplayHintText(ChaoCardMessages[TextLanguage], 240);
 	}
 }
 
@@ -162,7 +155,7 @@ void ReplaceSuperSonicHint()
 	if (!SuperSonic) return;
 
 	SuperSonicTikalHints = (const char***)GetProcAddress(SuperSonic, "?tikal_messages@@3PAPAPBDA");
-	SuperSonicTikalHints[2] = SuperSonicTikalHintRus;
+	SuperSonicTikalHints[Languages_French] = SuperSonicTikalHintRus;
 }
 
 

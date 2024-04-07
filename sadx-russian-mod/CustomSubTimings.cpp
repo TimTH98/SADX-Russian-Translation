@@ -1,14 +1,13 @@
 #include "stdafx.h"
-#include "SADXModLoader.h"
 
 #include "SADXEventFunctions.h"
 #include "SADXEventList.h"
 #include "SADXEventVariables.h"
+#include "ModConfig.h"
 
-void SetCustomTimings(const char* path, const HelperFunctions& helperFunctions)
+
+void SetCustomCutsceneTimings(const char* path, const HelperFunctions& helperFunctions)
 {
-	HMODULE DConv = GetModuleHandle(L"DCMods_Main");
-	
 	CutsceneDataList[0x0006]->Function = ev0006_s_poolsidewithtails;
 	CutsceneDataList[0x0008]->Function = ev0008_s_chaos1;
 	CutsceneDataList[0x000C]->Function = ev000C_s_afterchaos4;
@@ -43,7 +42,8 @@ void SetCustomTimings(const char* path, const HelperFunctions& helperFunctions)
 
 	CutsceneDataList[0x0140]->Function = ev0140_e_findjetbooster;
 
-	if (!DConv)
+	if (!DreamcastConversionEnabled)
 		CutsceneDataList[0x0166]->Function = ev0166_s_lightshoes;
+
 	CutsceneDataList[0x016D]->Function = ev016D_a_warriorfeather;	
 }

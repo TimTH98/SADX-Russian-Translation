@@ -1,5 +1,4 @@
 ﻿#include "stdafx.h"
-#include "SADXModLoader.h"
 
 #include "ModConfig.h"
 #include <map>
