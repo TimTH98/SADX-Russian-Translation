@@ -2,57 +2,34 @@
 #include <SADXModLoader.h>
 #include <IniFile.hpp>
 
-#include "BetaRestores.h"
 #include "ExtraSubs.h"
 #include "GameCredits.h"
-#include "VariousText.h"
 #include "LoadTextures.h"
 #include "ModConfig.h"
+#include "OtherMods.h"
+#include "VariousText.h"
 
-
-bool CreditsLoaded = false;
-HMODULE DConv = GetModuleHandle(L"DCMods_Main");			// Init Dreamcast Conversion
 
 extern "C"
 {
 	__declspec(dllexport) void __cdecl Init(const char *path, const HelperFunctions &helperFunctions)
 	{						
-		DCChaoGarden();
 		LoadText();
-		BossNames();
-		BossHelps();
-		MissionText();
-		GG_Games();
+		WriteTextForOtherMods(helperFunctions);
 
-		LoadTextures(path, helperFunctions);
-		LoadExtraText(helperFunctions);
-		SetConfigFile(path, helperFunctions);
-
-		OverwriteBetaRestoresText(helperFunctions);		
+		LoadTextures(path, helperFunctions);		
+		SetConfigFile(path, helperFunctions);		
 	} 
 	
 	__declspec(dllexport) void OnFrame()
 	{
-		if (!CreditsLoaded)
-		{
-			if (DConv)
-			{
-				LoadSADCCredits();
-			}				
-			else
-			{
-				LoadSADXCredits();
-			}
-			CreditsLoaded = true;
-		}
-
-		TextLanguage = 2;
+		TextLanguage = Languages_French;
+		LoadCredits();
 		
 		if (GetJPVoiceSetting())
 		{
 			VoiceLanguage = 0;
-		}
-			
+		}			
 
 		if (ExtraSubsEnabled())
 		{

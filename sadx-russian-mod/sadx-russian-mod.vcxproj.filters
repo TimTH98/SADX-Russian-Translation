@@ -150,7 +150,7 @@
     <ClCompile Include="cutscene-decomp\SuperSonic\ev00FF_l_supersonic.cpp">
       <Filter>Cutscene Decomp\7 Last</Filter>
     </ClCompile>
-    <ClCompile Include="BetaRestores.cpp">
+    <ClCompile Include="OtherMods.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="ExtraSubs.cpp">
@@ -194,10 +194,10 @@
     <ClInclude Include="CustomSubTimings.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="BetaRestores.h">
+    <ClInclude Include="ExtraSubs.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="ExtraSubs.h">
+    <ClInclude Include="OtherMods.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
