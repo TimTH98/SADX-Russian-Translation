@@ -455,7 +455,7 @@ std::map<int, SubtitleData> ExtraSubs
 
 	{ 375, { "\aЯ не проиграю!", 90, Gameplay } }, //Egg Hornet	
 	{ 376, { "\aПо-погоди!", 60, Gameplay } }, //vs Knuckles
-	{ 377, { "\aАх ты жидкий монстр!", 120, Gameplay } }, //Chaos 4
+	{ 377, { "\aАх ты, жидкий монстр!", 120, Gameplay } }, //Chaos 4
 	{ 378, { "\aЭтот робот какой-то не такой.", 150, Gameplay } }, //vs Gamma
 	{ 379, { "\aЯ смогу... в одиночку!", 120, Gameplay } }, //Egg Walker
 
@@ -569,7 +569,7 @@ std::map<int, SubtitleData> ExtraSubs
 	{ 208, { "\aЭ-эй, Тейлз!", 90, Gameplay } },
 	{ 209, { "\aТы вырвался вперёд!", 90, Gameplay } },
 	{ 210, { "\aДавай!", 60, Gameplay } },
-	{ 211, { "\aТейлз, я вырываюсь вперёд!", 90, Gameplay } },
+	{ 211, { "\aТейлз, я тебя обогнал!", 90, Gameplay } },
 	{ 212, { "\aТейлз, поторопись!", 90, Gameplay } },
 	{ 214, { "\aЯ победил!", 60, Gameplay } },
 	{ 215, { "\aТейлз, у тебя не осталось колец!\nОсторожнее!", 180, Gameplay } },
