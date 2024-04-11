@@ -16,7 +16,8 @@ int EggCannonFrameCount = 0;
 enum DisplayConditions
 {
 	Menu,
-	Gameplay
+	Gameplay,
+	EnglishOnly
 };
 
 struct SubtitleData
@@ -455,7 +456,7 @@ std::map<int, SubtitleData> ExtraSubs
 
 	{ 375, { "\aЯ не проиграю!", 90, Gameplay } }, //Egg Hornet	
 	{ 376, { "\aПо-погоди!", 60, Gameplay } }, //vs Knuckles
-	{ 377, { "\aАх ты жидкий монстр!", 120, Gameplay } }, //Chaos 4
+	{ 377, { "\aАх ты, жидкий монстр!", 120, Gameplay } }, //Chaos 4
 	{ 378, { "\aЭтот робот какой-то не такой.", 150, Gameplay } }, //vs Gamma
 	{ 379, { "\aЯ смогу... в одиночку!", 120, Gameplay } }, //Egg Walker
 
@@ -569,7 +570,7 @@ std::map<int, SubtitleData> ExtraSubs
 	{ 208, { "\aЭ-эй, Тейлз!", 90, Gameplay } },
 	{ 209, { "\aТы вырвался вперёд!", 90, Gameplay } },
 	{ 210, { "\aДавай!", 60, Gameplay } },
-	{ 211, { "\aТейлз, я вырываюсь вперёд!", 90, Gameplay } },
+	{ 211, { "\aТейлз, я тебя обогнал!", 90, Gameplay } },
 	{ 212, { "\aТейлз, поторопись!", 90, Gameplay } },
 	{ 214, { "\aЯ победил!", 60, Gameplay } },
 	{ 215, { "\aТейлз, у тебя не осталось колец!\nОсторожнее!", 180, Gameplay } },
@@ -601,6 +602,8 @@ std::map<int, SubtitleData> ExtraSubs
 
 	//vs character
 
+	{ 164, { "\aО нет!", 60, EnglishOnly } }, //Knuckles
+	{ 165, { "\aО нет!", 60, EnglishOnly } }, //Sonic
 	{ 166, { "\aНеплохо, Соник!", 90, Gameplay } }, //Knuckles
 	{ 167, { "\aНеплохо, Наклз!", 90, Gameplay } }, //Sonic
 	{ 168, { "\aНеплохо, Тейлз!", 90, Gameplay } }, //Knuckles
@@ -611,8 +614,10 @@ std::map<int, SubtitleData> ExtraSubs
 
 	{ 171, { "\aВсе системы на полную мощность!", 150, Gameplay } },
 	{ 174, { "\aПолучай!", 60, Gameplay } },
+	{ 175, { "\aБыть не может! Поверить не могу!", 180, EnglishOnly } },
 	{ 176, { "\aДа что ж ты никак не угомонишься?", 180, Gameplay } },
 	{ 177, { "\aКак ты..?", 60, Gameplay } },
+	{ 178, { "\aХо-хо! Бесполезно. Сдавайся!", 180, EnglishOnly } },
 	{ 1902, { "\aМу-ха-ха-ха-ха-ха-ха-ха!\nСоник! Что, не можешь мне ничего сделать?", 300, Gameplay } }, //Egg Viper
 	{ 1903, { "\aСоник, отведай-ка теперь это!", 180, Gameplay } },
 
@@ -821,6 +826,13 @@ void DisplaySubtitle(int id)
 		{
 			SetUpMenuSubtitle(id);
 		}		
+	}
+	else if (ExtraSubs[id].Condition == EnglishOnly)
+	{
+		if (VoiceLanguage == Languages_English)
+		{
+			DisplayGameplaySubtitle(id);
+		}
 	}
 	else
 	{
