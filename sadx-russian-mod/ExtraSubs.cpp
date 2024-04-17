@@ -336,7 +336,7 @@ std::map<int, SubtitleData> ExtraSubs
 	//Past (fire)
 
 	{ 331, { "\aУжас какой!", 60, Gameplay } }, //Sonic
-	{ 332, { "\aПочему?..", 60, Gameplay } }, //Knuckles
+	{ 332, { "\aКак же так?..", 60, Gameplay } }, //Knuckles
 
 	//Egg Carrier - outside
 
