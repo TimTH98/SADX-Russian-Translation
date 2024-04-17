@@ -416,7 +416,7 @@ std::map<int, SubtitleData> ExtraSubs
 	{ 258, { "\aВысоко-то так...\nАж ноги подкашивает.", 180, Gameplay } }, //Tails
 	{ 259, { "\aТц! Как же раздражает\nэтот свист в ушах!", 180, Gameplay } }, //Sonic
 	{ 260, { "\aОй-ой, да что происходит\nс этим кораблём?", 210, Gameplay } }, //Sonic
-	{ 261, { "\aТак... И где же сокровища?", 150, Gameplay } }, //Knuckles
+	{ 261, { "\aТак... И где же осколки?", 150, Gameplay } }, //Knuckles
 
 	//Lost World
 
