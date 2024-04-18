@@ -84,7 +84,15 @@ void LoadTGSSelectors(const HelperFunctions& helperFunctions)
 
 void ReplaceStartButtonWithEnter(const char* path, const HelperFunctions& helperFunctions)
 {
-	ReplaceTex("PRESSSTART", "hyoji_pressstart", "config\\startButton\\demo", "enter", 5000900, 256, 32);
+	if (DreamcastConversionEnabled())
+	{
+		ReplaceTex("PRESSSTART", "hyoji_pressstart", "config\\startButton\\demo", "enter_dc", 5000900, 256, 32);
+	}
+	else 
+	{
+		ReplaceTex("PRESSSTART", "hyoji_pressstart", "config\\startButton\\demo", "enter", 5000900, 256, 32);
+	} 
+
 	ReplaceTex("AVA_GTITLE0_E", "p_enter_us_00", "config\\startButton\\titlescreen", "enter_00", 3489661283, 256, 256);
 	ReplaceTex("AVA_GTITLE0_E", "p_enter_us_01", "config\\startButton\\titlescreen", "enter_01", 3489661284, 256, 256);
 	ReplaceTex("AVA_GTITLE0_E", "p_enter_us_02", "config\\startButton\\titlescreen", "enter_02", 3489661285, 256, 256);

@@ -1,6 +1,7 @@
 #include "stdafx.h"
 
 #include "Macros.h"
+#include "ModConfig.h"
 
 
 char pathbuf[MAX_PATH];
@@ -218,5 +219,10 @@ void LoadTextures(const char* path, const HelperFunctions& helperFunctions)
 	if (EmblemChallenge)
 	{
 		LoadEmblemChallengeTextures(path, helperFunctions);
+	};
+
+	if (DreamcastConversionEnabled())
+	{
+		ReplaceTex("PRESSSTART", "hyoji_pressstart", "modsCompatibility\\DreamcastConversion\\PressStartDemo", "pressstart", 5000900, 256, 32)
 	};
 }

@@ -13,11 +13,11 @@ extern "C"
 {
 	__declspec(dllexport) void __cdecl Init(const char *path, const HelperFunctions &helperFunctions)
 	{						
-		InitConfig(path, helperFunctions);
 		LoadText();
 		WriteTextForOtherMods(helperFunctions);
 		LoadTextures(path, helperFunctions);		
-	} 
+		InitConfig(path, helperFunctions);
+	}
 	
 	__declspec(dllexport) void OnFrame()
 	{
