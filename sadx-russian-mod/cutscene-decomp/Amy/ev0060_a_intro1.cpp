@@ -211,7 +211,7 @@ void ev0060_a_intro1(int state)
 		EV_SetFace(player, "DEDC");
 		EV_SerifPlay(837);
 		EV_Msg(msgTbl_ev0060[TextLanguage][4]); //"\aHangin' out with my hero, Sonic..."
-		EV_Wait(20);
+		EV_Wait(40);
 		throughplayer_on(player);
 		throughplayer_on(sonic);
 		EV_SetMode(player, 0);
