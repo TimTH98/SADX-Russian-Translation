@@ -1,4 +1,5 @@
 ﻿#include "stdafx.h"
+#include <map>
 
 
 /* Mission mode text */
@@ -290,23 +291,97 @@ void LoadPauseMenuMessages()
 }
 
 
+// Boss titles
+
+static std::map<char, char> BossTitleLetters
+{
+	{ '0', '0' },
+	{ '1', '1' },
+	{ '2', '2' },
+	{ '3', '3' },
+	{ '4', '4' },
+	{ '5', '5' },
+	{ '6', '6' },
+	{ '-', '7' },
+	{ 'А', '8' },
+	{ 'Б', '9' },
+	{ 'Г', 'A' },
+	{ 'Д', 'B' },
+	{ 'Е', 'C' },
+	{ 'З', 'D' },
+	{ 'К', 'E' },
+	{ 'Н', 'F' },
+	{ 'О', 'G' },
+	{ 'Р', 'H' },
+	{ 'Х', 'I' },
+	{ 'Ш', 'J' },
+	{ 'Ь', 'K' },
+	{ 'Э', 'L' },
+	{ 'Ю', 'M' },
+	{ 'а', 'N' },
+	{ 'б', 'O' },
+	{ 'д', 'P' },
+	{ 'е', 'Q' },
+	{ 'з', 'R' },
+	{ 'и', 'S' },
+	{ 'й', 'T' },
+	{ 'л', 'U' },
+	{ 'м', 'V' },
+	{ 'н', 'W' },
+	{ 'о', 'X' },
+	{ 'п', 'Y' },
+	{ 'с', 'Z' },
+	{ 'т', 'a' },
+	{ 'ы', 'b' },
+	{ 'ь', 'c' },
+	{ 'ю', 'd' },
+};
+
+std::string ReplaceLetters(std::string text)
+{
+	int length = text.length();
+	for (int i = 0; i < length; i++)
+	{
+		if (BossTitleLetters.count(text[i]))
+		{
+			text[i] = BossTitleLetters[text[i]];
+		}
+	}
+	return text;
+}
+
+const char* ConvertToCStyle(std::string text)
+{
+	char* result = new char[text.length()];
+	strcpy(result, text.c_str());
+	return result;
+}
+
+const char* ConvertBossTitle(const char* text)
+{
+	return ConvertToCStyle(ReplaceLetters(text));
+}
+
 void LoadBossTitles()
 {
-	WriteData((const char**)0x5482A8, "Kaoc 0"); //Хаос 0
-	WriteData((const char**)0x54CCFE, "Kaoc 2"); //Хаос 2
-	WriteData((const char**)0x5509DC, "Kaoc 4"); //Хаос 4
-	WriteData((const char**)0x559872, "Kaoc 6"); //Хаос 6
-	WriteData((const char**)0x56037F, "ACcoLNtnrs Kaoc"); //Абсолютный Хаос
-	WriteData((const char**)0x587DA4, "Zego"); //Зеро
-	WriteData((const char**)0x571813, "FIIWTegDenh"); //Эгг-Шершень
-	WriteData((const char**)0x57F2A1, "FIIWZmes"); //Эгг-Змей
-	WriteData((const char**)0x5757B3, "FIIWTaIofok"); //Эгг-Шагоход
-	WriteData((const char**)0x566F64, "EW101β"); //E-101β
-	WriteData((const char**)0x4E6C81, "EW103Q"); //E-103δ
-	WriteData((const char**)0x604791, "EW104X"); //E-104ε
-	WriteData((const char**)0x5A39F8, "EW105q"); //E-105ζ
-	WriteData((const char**)0x56C2B8, "EW101 BegR{"); //E-101 mkⅡ
+	WriteData((const char**)0x5482A8, ConvertBossTitle("Хаос 0"));
+	WriteData((const char**)0x54CCFE, ConvertBossTitle("Хаос 2"));
+	WriteData((const char**)0x5509DC, ConvertBossTitle("Хаос 4"));
+	WriteData((const char**)0x559872, ConvertBossTitle("Хаос 6"));
+	WriteData((const char**)0x56037F, ConvertBossTitle("Абсолютный Хаос"));
+	WriteData((const char**)0x587DA4, ConvertBossTitle("ЗЕРО"));
+	WriteData((const char**)0x571813, ConvertBossTitle("ЭГГ-ШЕРШЕНЬ"));
+	WriteData((const char**)0x57F2A1, ConvertBossTitle("ЭГГ-ГАДЮКА"));
+	WriteData((const char**)0x5757B3, ConvertBossTitle("ЭГГ-ШАГОХОД"));
+	WriteData((const char**)0x566F64, ConvertBossTitle("Е-101 Бета"));
+	WriteData((const char**)0x4E6C81, ConvertBossTitle("Е-103 Дельта"));
+	WriteData((const char**)0x604791, ConvertBossTitle("Е-104 Эпсилон"));
+	WriteData((const char**)0x5A39F8, ConvertBossTitle("Е-105 Дзета"));
+	WriteData((const char**)0x56C2B8, ConvertBossTitle("Е-101 модель 2"));
 }
+
+
+// Tikal hints for bosses
 
 void LoadTikalHintsForBosses()
 {
