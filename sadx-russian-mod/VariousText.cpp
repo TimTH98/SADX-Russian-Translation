@@ -1,4 +1,5 @@
 ﻿#include "stdafx.h"
+#include "AbcTxt.h"
 #include "TextConverter.h"
 
 
@@ -188,12 +189,139 @@ HintText_Text AboutChaoRace[] = {
 };
 
 
+// Sound Test
+
+DataArray(SoundTestEntry, SoundTest, 0x7EFB88, 102);
+
+SoundTestEntry SoundTestRU[]
+{
+	// Characters
+	
+	{ "Главная тема:  Open Your Heart", 66 },
+	{ "Соник:  It Doesn't Matter", 83 },
+	{ "Тейлз:  Believe In Myself", 88 },
+	{ "Наклз:  Unknown From M.E.", 62 },
+	{ "Эми:  My Sweet Passion", 6 },
+	{ "Биг:  Lazy Days ~Livin' in Paradise~", 7 },
+	{ "Тема E-102", 27 },
+	{ "Тема Эггмана", 33 },
+	{ "Тема Супер Соника", 86 },
+	{ "Тема Тикал", 95 },
+	{ "Тема Чао", 16 },
+
+	//Action stages
+
+	{ "Emerald Coast:  Azure Blue World", 28 },
+	{ "Emerald Coast:  Windy and Ripply", 29 },
+	{ "BIG Fishes at Emerald Coast...", 30 },
+	{ "Icecap:  Snowy Mountain", 52 },
+	{ "Icecap:  Limestone Cave", 53 },
+	{ "Icecap:  Snowboard", 54 },
+	{ "Windy Valley:  Windy Hill", 107 },
+	{ "Windy Valley:  Tornado", 108 },
+	{ "Windy Valley:  The Air", 109 },
+	{ "Lost World:  Tricky Maze", 63 },
+	{ "Lost World:  Danger! Chased by Rock", 64 },
+	{ "Lost World:  Leading Lights", 65 },
+	{ "Sky Deck:  Skydeck A Go! Go!", 81 },
+	{ "Sky Deck:  General Offensive", 82 },
+	{ "Hot Shelter:  Bad Taste Aquarium", 79 },
+	{ "Hot Shelter:  Red Barrage Area", 80 },
+	{ "Run Through The Speed Highway", 48 },
+	{ "Speed Highway:  Goin' Down!?", 49 },
+	{ "Speed Highway:  At Dawn", 50 },
+	{ "Casinopolis:  The Dreamy Stage", 12 },
+	{ "Casinopolis:  Dilapidated Way", 13 },
+	{ "Casinopolis:  Blue Star", 14 },
+	{ "Casinopolis:  NiGHTS Pinball", 15 },
+	{ "Twinkle Park:  Twinkle Cart", 104 },
+	{ "Twinkle Park:  Pleasure Castle", 105 },
+	{ "Twinkle Park:  Fakery Way", 106 },
+	{ "Mt. Red: a Symbol of Thrill", 73 },
+	{ "Red Mountain:  Red Hot Skull", 74 },
+	{ "Final Egg:  Mechanical Resonance", 42 },
+	{ "Final Egg:  Crank the Heat Up!!", 43 },
+	{ "Босс:  Хаос", 20 },
+	{ "Босс:  Хаос 6", 21 },
+	{ "Босс:  Абсолютный Хаос - фаза 1", 22 },
+	{ "Босс:  Абсолютный Хаос - фаза 2", 23 },
+	{ "Босс:  E-101 модель 2", 9 },
+	{ "Босс:  Эгг-Шагоход и Эгг-Гадюка", 34 },
+	{ "Босс:  Зеро", 35 },
+	{ "Босс:  прочие", 8 },
+	{ "Босс:  против другого персонажа", 10 },
+	{ "Босс:  Е-серия", 11 },
+
+	// Adventure fields
+
+	{ "Стейшн-Сквер", 76 },
+	{ "Мистические руины", 67 },
+	{ "Эгг-Крейсер", 31 },
+	{ "Эгг-Крейсер - океан", 32 },
+	{ "Мини-игра:  Воздушная погоня", 78 },
+	{ "Мини-игра:  Мерцающий заезд", 25 },
+	{ "Мини-игра:  Песчаный холм", 77 },
+	{ "Мини-игра:  Ежиный молот", 47 },
+	{ "Мини-игра:  Гонки Чао - выбор", 18 },
+	{ "Мини-игра:  Гонки Чао", 19 },
+	{ "Мини-игра:  Гонки Чао - финиш", 17 },
+
+	// Events
+
+	{ "Грустный момент", 36 },
+	{ "Напряженный момент", 37 },
+	{ "Свобода", 38 },
+	{ "Прощание", 39 },
+	{ "Прошлое", 40 },
+	{ "Фанфары Эггману", 41 },
+	{ "Появление:  Соник", 94 },
+	{ "Появление:  Тейлз", 93 },
+	{ "Появление:  Наклз", 92 },
+	{ "Появление:  Эми", 89 },
+	{ "Появление:  E-102", 91 },
+	{ "Появление:  Биг", 90 },
+
+	// Others
+
+	{ "Титульный экран", 101 },
+	{ "Настройки", 72 },
+	{ "Выбор персонажа", 24 },
+	{ "Режим испытаний", 103 },
+	{ "Руководство:  Соник", 5 },
+	{ "Руководство:  Тейлз", 4 },
+	{ "Руководство:  Наклз", 3 },
+	{ "Руководство:  Эми", 0 },
+	{ "Руководство:  Е-102", 2 },
+	{ "Руководство:  Биг", 1 },
+
+	// Jingles
+
+	{ "Тейлз:  Надо торопиться!", 51 },
+	{ "Биг:  Рыба на крючке", 45 },
+	{ "Биг:  Поймал рыбу", 44 },
+	{ "Биг:  Рыба сорвалась", 46 },
+	{ "Ускорение", 85 },
+	{ "Неуязвимость", 55 },
+	{ "Уровень пройден", 75 },
+	{ "Дополнительная жизнь", 71 },
+	{ "Сюжетный предмет", 56 },
+	{ "Таймер", 96 },
+	{ "Продолжить?", 26 },
+	{ "Джингл A", 57 },
+	{ "Джингл B", 58 },
+	{ "Джингл C", 59 },
+	{ "Джингл D", 60 },
+	{ "Джингл E", 61 },
+	{ "Задание началось!", 110 },
+	{ "Задание выполнено!", 111 },
+};
+
 
 /* Loading text */
 
 void LoadFileSelectText()
 {
-	WriteData((const char**)0x504B5B, "    Ho*+= %a=>"); //Новый файл
+	WriteData((const char**)0x504B5B, ConvertAbcTxt("    Новый файл")); //Новый файл
 	WriteData((const char**)0x40BE98, "Сохранение...");
 	WriteData((const char**)0x40BE09, "Загрузка...");
 	WriteData((const char**)0x50342D, "Загрузка...");
@@ -205,7 +333,15 @@ void LoadFileSelectText()
 	WriteData((const char**)0x10D7A6C, "\aУдалить файл");
 	WriteData((const char**)0x10D7954, "\t\tУдалено.");
 	WriteData((const char**)0x10D7968, "\t\tОшибка удаления.");
-}	
+}
+
+void LoadSoundTestText()
+{
+	for (int i = 0; i < SoundTest.size(); i++)
+	{
+		SoundTest[i] = { ConvertAbcTxt(SoundTestRU[i].Name), SoundTestRU[i].ID };
+	}
+}
 
 void LoadHedgehogHammerText()
 {
@@ -292,8 +428,6 @@ void LoadPauseMenuMessages()
 
 
 // Boss titles
-
-
 
 void LoadBossTitles()
 {
@@ -441,7 +575,10 @@ void LoadOtherText()
 
 void LoadText()
 {
+	SetAbcTxtLetterWidths();
+	
 	LoadFileSelectText();
+	LoadSoundTestText();
 	LoadHedgehogHammerText();
 	LoadCharacterUnlockText();
 	LoadKeysText();
