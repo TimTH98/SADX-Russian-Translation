@@ -119,6 +119,7 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="CustomSubTimings.cpp" />
+    <ClCompile Include="TextConverter.cpp" />
     <ClCompile Include="VariousText.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -132,6 +133,7 @@
     <ClInclude Include="OtherModsText.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="CustomSubTimings.h" />
+    <ClInclude Include="TextConverter.h" />
     <ClInclude Include="VariousText.h" />
     <ClInclude Include="GameCredits.h" />
     <ClInclude Include="stdafx.h" />

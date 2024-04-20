@@ -1,5 +1,5 @@
 ﻿#include "stdafx.h"
-#include <map>
+#include "TextConverter.h"
 
 
 /* Mission mode text */
@@ -293,74 +293,7 @@ void LoadPauseMenuMessages()
 
 // Boss titles
 
-static std::map<char, char> BossTitleLetters
-{
-	{ '0', '0' },
-	{ '1', '1' },
-	{ '2', '2' },
-	{ '3', '3' },
-	{ '4', '4' },
-	{ '5', '5' },
-	{ '6', '6' },
-	{ '-', '7' },
-	{ 'А', '8' },
-	{ 'Б', '9' },
-	{ 'Г', 'A' },
-	{ 'Д', 'B' },
-	{ 'Е', 'C' },
-	{ 'З', 'D' },
-	{ 'К', 'E' },
-	{ 'Н', 'F' },
-	{ 'О', 'G' },
-	{ 'Р', 'H' },
-	{ 'Х', 'I' },
-	{ 'Ш', 'J' },
-	{ 'Ь', 'K' },
-	{ 'Э', 'L' },
-	{ 'Ю', 'M' },
-	{ 'а', 'N' },
-	{ 'б', 'O' },
-	{ 'д', 'P' },
-	{ 'е', 'Q' },
-	{ 'з', 'R' },
-	{ 'и', 'S' },
-	{ 'й', 'T' },
-	{ 'л', 'U' },
-	{ 'м', 'V' },
-	{ 'н', 'W' },
-	{ 'о', 'X' },
-	{ 'п', 'Y' },
-	{ 'с', 'Z' },
-	{ 'т', 'a' },
-	{ 'ы', 'b' },
-	{ 'ь', 'c' },
-	{ 'ю', 'd' },
-};
 
-std::string ReplaceLetters(std::string text)
-{
-	int length = text.length();
-	for (int i = 0; i < length; i++)
-	{
-		if (BossTitleLetters.count(text[i]))
-		{
-			text[i] = BossTitleLetters[text[i]];
-		}
-	}
-	return text;
-}
-
-const char* ConvertToCStyle(std::string text)
-{
-	char* result = new char[text.length()];
-	strcpy(result, text.c_str());
-	return result;
-}
-
-const char* ConvertBossTitle(const char* text)
-{
-	return ConvertToCStyle(ReplaceLetters(text));
-}
 
 void LoadBossTitles()
 {
