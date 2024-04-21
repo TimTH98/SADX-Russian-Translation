@@ -95,6 +95,57 @@ static std::map<char, char> AbcTxtLetters
 	{ 'я', '>' },
 };
 
+static std::map<char, char> StaffrollTxtLetters
+{
+	{ 'А', 'A' },
+	{ 'Б', 0x01 },
+	{ 'В', 'B' },
+	{ 'Д', 0x02 },
+	{ 'Е', 'E' },
+	{ 'З', 0x03 },
+	{ 'И', 0x04 },
+	{ 'Й', 0x05 },
+	{ 'К', 'K' },
+	{ 'Л', 0x06 },
+	{ 'М', 'M' },
+	{ 'Н', 'H' },
+	{ 'О', 'O' },
+	{ 'П', 0x07 },
+	{ 'Р', 'P' },
+	{ 'С', 'C' },
+	{ 'Т', 'T' },
+	{ 'У', 0x08 },
+	{ 'Х', 'X' },
+	{ 'Ы', 0x09 },
+	{ 'а', 'a' },
+	{ 'б', 0x0A },
+	{ 'в', 0x0B },
+	{ 'г', 0x0C },
+	{ 'д', 0x0D },
+	{ 'е', 'e' },
+	{ 'ё', 0x0E },
+	{ 'з', 0x0F },
+	{ 'и', 0x10 },
+	{ 'й', 0x11 },
+	{ 'к', 0x12 },
+	{ 'л', 0x13 },
+	{ 'м', 0x14 },
+	{ 'н', 0x15 },
+	{ 'о', 'o' },
+	{ 'п', 0x16 },
+	{ 'р', 'p' },
+	{ 'с', 'c' },
+	{ 'т', 0x17 },
+	{ 'у', 'y' },
+	{ 'ф', 0x18 },
+	{ 'ч', 0x19 },
+	{ 'щ', 0x1A },
+	{ 'ы', 0x1B },
+	{ 'ь', 0x1C },
+	{ 'ю', 0x1D },
+	{ 'я', 0x1E },
+};
+
 
 std::string ReplaceLetters(const std::map<char, char>& letterMap, std::string& text)
 {
@@ -125,4 +176,9 @@ const char* ConvertBossTitle(std::string text)
 const char* ConvertAbcTxt(std::string text)
 {
 	return ConvertToCStyle(ReplaceLetters(AbcTxtLetters, text));
+}
+
+const char* ConvertStaffrollTxt(std::string text)
+{
+	return ConvertToCStyle(ReplaceLetters(StaffrollTxtLetters, text));
 }
