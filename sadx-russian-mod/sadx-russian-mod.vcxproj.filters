@@ -159,7 +159,7 @@
     <ClCompile Include="TextConverter.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="AbcTxt.cpp">
+    <ClCompile Include="TextureFontSetup.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -209,7 +209,7 @@
     <ClInclude Include="TextConverter.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="AbcTxt.h">
+    <ClInclude Include="TextureFontSetup.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

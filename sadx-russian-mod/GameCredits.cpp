@@ -1,58 +1,60 @@
 ﻿#include "stdafx.h"
 #include "ModConfig.h"
+#include "TextConverter.h"
 
 
 bool CreditsLoaded = false;
 
 // Original code by PkR
 
-CreditsEntry SADXCredits[] = {
-	{ 1, 0, 0, 0, "RUSSIAN TRANSLATION 2.0+ RELEASE" },
-	{ 1, -1, 0, 0, "by HedgeCrew Team" },
-	{ 2, -1, 0, 0, "Project Lead" },
-	{ 3, -1, 0, 0, "Artem 'TimTH' Bolonenko" },
-	{ 2, -1, 0, 0, "Translation" },
+CreditsEntry SADXCredits[]
+{
+	{ 1, 0, 0, 0, "ПЕРЕВОД НА РУССКИЙ (ВЕРСИИ 2.0+)" },
+	{ 1, -1, 0, 0, "от команды HedgeCrew Team" },
+	{ 2, -1, 0, 0, "Руководитель" },
+	{ 3, -1, 0, 0, "Артём 'TimTH' Болоненко" },
+	{ 2, -1, 0, 0, "Переводчики" },
 	{ 3, -1, 0, 0, "Ah Kyoi" },
-	{ 3, -1, 0, 0, "Sofia 'valera_firefox' Laricheva" },
-	{ 2, -1, 0, 0, "Texture & Text Editing & Coding" },
+	{ 3, -1, 0, 0, "Софья 'valera_firefox' Ларичева" },
+	{ 2, -1, 0, 0, "Текстуры, редактура текста, код" },
 	{ 3, -1, 0, 0, "Irregular Zero" },
-	{ 2, -1, 0, 0, "Text Editing & Play Testing" },
+	{ 2, -1, 0, 0, "Редактура текста, тестирование" },
 	{ 3, -1, 0, 0, "Hey-Pi-Ron" },
-	{ 2, -1, 0, 0, "Special thanks" },
-	{ 3, -1, 0, 0, "Takuya Nishida, Dance Copter," },
+	{ 2, -1, 0, 0, "Особые благодарности" },
+	{ 3, -1, 0, 0, "Такуя Нисида, Dance Copter," },
 	{ 3, -1, 0, 0, "ALEKS KV, EggorXXX, Vertigo," },
 	{ 3, -1, 0, 0, "Nikky Neiely, StudioColors" },
 	{ 3, -1, 0, 0, "" },
 	{ 3, -1, 0, 0, "" },
-	{ 1, 0, 0, 0, "RUSSIAN TRANSLATION 1.0-1.2 RELEASE" },
-	{ 1, -1, 0, 0, "by Failing Forward" },
-	{ 2, -1, 0, 0, "Project lead" },
-	{ 3, -1, 0, 0, "Artem 'TimTH' Bolonenko" },
-	{ 2, -1, 0, 0, "Producer" },
-	{ 3, -1, 0, 0, "Maxim 'Damin72' Ivanov" },
-	{ 2, -1, 0, 0, "Hacking" },
+	{ 1, 0, 0, 0, "АВТОРЫ ВЕРСИЙ 1.0-1.2" },
+	{ 1, -1, 0, 0, "команда Failing Forward" },
+	{ 2, -1, 0, 0, "Руководитель" },
+	{ 3, -1, 0, 0, "Артём 'TimTH' Болоненко" },
+	{ 2, -1, 0, 0, "Продюсер" },
+	{ 3, -1, 0, 0, "Максим 'Damin72' Иванов" },
+	{ 2, -1, 0, 0, "Хакинг" },
 	{ 3, -1, 0, 0, "RikuKH3" },
-	{ 2, -1, 0, 0, "Editor" },
-	{ 3, -1, 0, 0, "Anastasia 'Flan' Kudelina" },
-	{ 2, -1, 0, 0, "Translation" },
-	{ 3, -1, 0, 0, "Arkady 'ghast_ololo' Kovrigin" },
-	{ 3, -1, 0, 0, "Alina 'Gemini_Chan' Evseeva" },
+	{ 2, -1, 0, 0, "Редактор" },
+	{ 3, -1, 0, 0, "Анастасия 'Flan' Куделина" },
+	{ 2, -1, 0, 0, "Переводчики" },
+	{ 3, -1, 0, 0, "Аркадий 'ghast_ololo' Ковригин" },
+	{ 3, -1, 0, 0, "Алина 'Gemini_Chan' Евсеева" },
 	{ 3, -1, 0, 0, "Ah Kyoi" },
-	{ 3, -1, 0, 0, "Sofia 'valera_firefox' Laricheva" },
-	{ 2, -1, 0, 0, "Special thanks" },
+	{ 3, -1, 0, 0, "Софья 'valera_firefox' Ларичева" },
+	{ 2, -1, 0, 0, "Особые благодарности" },
 	{ 3, -1, 0, 0, "Black_Doom, N69" },
-	{ 2, -1, 0, 0, "Thanks to mod. community" },
+	{ 2, -1, 0, 0, "Благодарности сообществу мододелов" },
 	{ 3, -1, 0, 0, "MainMemory, Kell" },
 	{ 3, -1, 0, 0, "PkR, Sonikko, Windii" },
 	{ 3, -1, 0, 0, "Dark Sonic, SPEEPSHighway" },
-	{ 2, -1, 0, 0, "Sponsors" },
+	{ 2, -1, 0, 0, "Спонсоры" },
 	{ 3, -1, 0, 0, "XenuS, Sonic Style" },
 	{ 3, -1, 0, 0, "Jorik007, YamazakiOo" },
 	{ 3, -1, 0, 0, "Triangly, ilyadancer" },
 	{ 3, -1, 0, 0, "Andrey Titov, Prosto Nikita" },
 	{ 3, -1, 0, 0, "Nikolay Titov" },
 	{ 3, -1, 0, 0, "Chief-Net" },
-	{ 2, -1, 0, 0, "In memory of" },
+	{ 2, -1, 0, 0, "Покойтесь с миром..." },
 	{ 3, -1, 0, 0, "ghast_ololo" },
 	{ 3, -1, 0, 0, "valera_firefox" },
 	{ 3, -1, 0, 0, "" },
@@ -582,53 +584,54 @@ CreditsEntry SADXCredits[] = {
 	{ 7, -1, 0, 0, "Copyright(C) SONICTEAM / SEGA, 2003" },
 };
 
-STAFF_DATA SADCCredits[] = {
-	{ 1, 0, "RUSSIAN TRANSLATION 2.0+ RELEASE" },
-	{ 1, -1, "by HedgeCrew Team" },
-	{ 2, -1, "Project Lead" },
-	{ 3, -1, "Artem 'TimTH' Bolonenko" },
-	{ 2, -1, "Translation" },
+STAFF_DATA SADCCredits[]
+{
+	{ 1, 0, "ПЕРЕВОД НА РУССКИЙ (ВЕРСИИ 2.0+)" },
+	{ 1, -1, "от команды HedgeCrew Team" },
+	{ 2, -1, "Руководитель" },
+	{ 3, -1, "Артём 'TimTH' Болоненко" },
+	{ 2, -1, "Переводчики" },
 	{ 3, -1, "Ah Kyoi" },
-	{ 3, -1, "Sofia 'valera_firefox' Laricheva" },
-	{ 2, -1, "Texture & Text Editing & Coding" },
+	{ 3, -1, "Софья 'valera_firefox' Ларичева" },
+	{ 2, -1, "Текстуры, редактура текста, код" },
 	{ 3, -1, "Irregular Zero" },
-	{ 2, -1, "Text Editing & Play Testing" },
+	{ 2, -1, "Редактура текста, тестирование" },
 	{ 3, -1, "Hey-Pi-Ron" },
-	{ 2, -1, "Special thanks" },
-	{ 3, -1, "Takuya Nishida, Dance Copter," },
+	{ 2, -1, "Особые благодарности" },
+	{ 3, -1, "Такуя Нисида, Dance Copter," },
 	{ 3, -1, "ALEKS KV, EggorXXX, Vertigo," },
 	{ 3, -1, "Nikky Neiely, StudioColors" },
 	{ 3, -1, "" },
 	{ 3, -1, "" },
-	{ 1, 0, "RUSSIAN TRANSLATION 1.0-1.2 RELEASE" },
-	{ 1, -1, "by Failing Forward" },
-	{ 2, -1, "Project lead" },
-	{ 3, -1, "Artem 'TimTH' Bolonenko" },
-	{ 2, -1, "Producer" },
-	{ 3, -1, "Maxim 'Damin72' Ivanov" },
-	{ 2, -1, "Hacking" },
+	{ 1, 0, "АВТОРЫ ВЕРСИЙ 1.0-1.2" },
+	{ 1, -1, "команда Failing Forward" },
+	{ 2, -1, "Руководитель" },
+	{ 3, -1, "Артём 'TimTH' Болоненко" },
+	{ 2, -1, "Продюсер" },
+	{ 3, -1, "Максим 'Damin72' Иванов" },
+	{ 2, -1, "Хакинг" },
 	{ 3, -1, "RikuKH3" },
-	{ 2, -1, "Editing" },
-	{ 3, -1, "Anastasia 'Flan' Kudelina" },
-	{ 2, -1, "Translation" },
-	{ 3, -1, "Arkady 'ghast_ololo' Kovrigin" },
-	{ 3, -1, "Alina 'Gemini_Chan' Evseeva" },
+	{ 2, -1, "Редактор" },
+	{ 3, -1, "Анастасия 'Flan' Куделина" },
+	{ 2, -1, "Переводчики" },
+	{ 3, -1, "Аркадий 'ghast_ololo' Ковригин" },
+	{ 3, -1, "Алина 'Gemini_Chan' Евсеева" },
 	{ 3, -1, "Ah Kyoi" },
-	{ 3, -1, "Sofia 'valera_firefox' Laricheva" },
-	{ 2, -1, "Special thanks" },
+	{ 3, -1, "Софья 'valera_firefox' Ларичева" },
+	{ 2, -1, "Особые благодарности" },
 	{ 3, -1, "Black_Doom, N69" },
-	{ 2, -1, "Thanks to mod. community" },
+	{ 2, -1, "Благодарности сообществу мододелов" },
 	{ 3, -1, "MainMemory, Kell" },
 	{ 3, -1, "PkR, Sonikko, Windii" },
 	{ 3, -1, "Dark Sonic, SPEEPSHighway" },
-	{ 2, -1, "Sponsors" },
+	{ 2, -1, "Спонсоры" },
 	{ 3, -1, "XenuS, Sonic Style" },
 	{ 3, -1, "Jorik007, YamazakiOo" },
 	{ 3, -1, "Triangly, ilyadancer" },
 	{ 3, -1, "Andrey Titov, Prosto Nikita" },
 	{ 3, -1, "Nikolay Titov" },
 	{ 3, -1, "Chief-Net" },
-	{ 2, -1, "In memory of" },
+	{ 2, -1, "Покойтесь с миром..." },
 	{ 3, -1, "ghast_ololo" },
 	{ 3, -1, "valera_firefox" },
 	{ 3, -1, "" },
@@ -1087,12 +1090,22 @@ STAFF_DATA SADCCredits[] = {
 
 void LoadSADCCredits()
 {
+	for (auto& entry : SADCCredits)
+	{
+		entry.str = (char*)ConvertStaffrollTxt(entry.str);
+	}
+	
 	StaffRollData.nbStaff = std::size(SADCCredits);
 	StaffRollData.StaffTbl = (STAFF_DATA*)&SADCCredits;
 }
 
 void LoadSADXCredits()
 {
+	for (auto& entry : SADXCredits)
+	{
+		entry.Line = ConvertStaffrollTxt(entry.Line);
+	}
+	
 	StaffRollData.nbStaff = std::size(SADXCredits);
 	StaffRollData.StaffTbl = (STAFF_DATA*)&SADXCredits; //мы туда просто указатель пишем всё равно
 }
