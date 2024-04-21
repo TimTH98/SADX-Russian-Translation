@@ -1,0 +1,2 @@
+99123,card_yaku_b.png,128x128
+99124,card_yaku_a.png,128x128
