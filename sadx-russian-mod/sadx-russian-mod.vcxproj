@@ -79,7 +79,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="AbcTxt.cpp" />
+    <ClCompile Include="TextureFontSetup.cpp" />
     <ClCompile Include="OtherModsText.cpp" />
     <ClCompile Include="cutscene-decomp\Amy\ev0060_a_intro1.cpp" />
     <ClCompile Include="cutscene-decomp\Amy\ev0061_a_intro2.cpp" />
@@ -124,7 +124,7 @@
     <ClCompile Include="VariousText.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="AbcTxt.h" />
+    <ClInclude Include="TextureFontSetup.h" />
     <ClInclude Include="cutscene-decomp\include\SADXEventFunctions.h" />
     <ClInclude Include="cutscene-decomp\include\SADXEventList.h" />
     <ClInclude Include="cutscene-decomp\include\SADXEventVariables.h" />

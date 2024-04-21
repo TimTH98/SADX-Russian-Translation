@@ -1,9 +1,9 @@
 ﻿#include "stdafx.h"
-#include "AbcTxt.h"
+#include "TextureFontSetup.h"
 #include "TextConverter.h"
 
 
-/* Mission mode text */
+// Mission mode text
 
 DataArray(const char*, MissionModeTutorial, 0x2BC57B8, 14);
 
@@ -95,7 +95,7 @@ const char* MissionsRus[]
 };
 
 
-/* Game Gear titles */
+// Game Gear titles
 
 const char* GameGearTitles[] //до 42 символов на название (43 с учётом нуля)
 {
@@ -114,7 +114,7 @@ const char* GameGearTitles[] //до 42 символов на название (4
 };
 
 
-/* Chao Garden text */
+// Chao Garden text
 
 HintText_Text AboutChaoGarden[] = {
 		{ "\aЭто сад Чао.", 120 },
@@ -209,7 +209,7 @@ SoundTestEntry SoundTestRU[]
 	{ "Тема Тикал", 95 },
 	{ "Тема Чао", 16 },
 
-	//Action stages
+	// Action stages
 
 	{ "Emerald Coast:  Azure Blue World", 28 },
 	{ "Emerald Coast:  Windy and Ripply", 29 },
@@ -317,15 +317,17 @@ SoundTestEntry SoundTestRU[]
 };
 
 
-/* Loading text */
+// Text loading funcs
 
 void LoadFileSelectText()
 {
-	WriteData((const char**)0x504B5B, ConvertAbcTxt("    Новый файл")); //Новый файл
+	const char* loading = ConvertStaffrollTxt("Загрузка...");
+	
+	WriteData((const char**)0x504B5B, ConvertAbcTxt("    Новый файл"));
 	WriteData((const char**)0x40BE98, "Сохранение...");
-	WriteData((const char**)0x40BE09, "Загрузка...");
-	WriteData((const char**)0x50342D, "Загрузка...");
-	WriteData((const char**)0x503469, "Загрузка...");
+	WriteData((const char**)0x40BE09, loading);
+	WriteData((const char**)0x50342D, loading);
+	WriteData((const char**)0x503469, loading);
 
 	// Deleting file messages	
 	WriteData((const char**)0x10D7A44, "\aПодтвердить выбор");
@@ -346,6 +348,7 @@ void LoadSoundTestText()
 void LoadHedgehogHammerText()
 {
 	//Story
+
 	WriteData((const char**)0x52843D, "PEKOPD"); //Рекорд
 	WriteData((const char**)0x528467, "OIKOB"); //Очков
 	WriteData((const char**)0x52849A, "OIKOB"); //Очков
@@ -363,6 +366,7 @@ void LoadHedgehogHammerText()
 	WriteData((const char**)0x5287FA, "BJ VOXNLN PEKOPD"); //Вы побили рекорд
 
 	//Minigame
+
 	WriteData((const char**)0x62616D, "PEKOPD");
 	WriteData((const char**)0x626197, "OIKOB");
 	WriteData((const char**)0x6261CA, "OIKOB");
@@ -453,18 +457,22 @@ void LoadBossTitles()
 void LoadTikalHintsForBosses()
 {
 	// Chaos 0 (when timer is 01:00:00)
+
 	WriteData((HintText_Text*)0x7FD51C, { "\aДля самонаводящейся атаки\nдважды нажми кнопку прыжка!", 180 });
 	WriteData((HintText_Text*)0x7FD56C, { "\aЦелься в уязвимую точку\nна голове.", 120 });
 
 	// Chaos 2
+
 	WriteData((HintText_Text*)0x7FD960, { "\aЦелься в голову Хаоса,\nкогда он откроется!", 180 });
 	WriteData((HintText_Text*)0x7FD9B0, { "\aСпланируй в него или ударь\nв прыжке вместо ударов кулаками.", 180 });
 	WriteData((HintText_Text*)0x7FDA00, { "\aТы можешь отбить кулаком\nмаленькие водяные шарики!", 180 });
 
 	// Chaos 4
+
 	WriteData((HintText_Text*)0x7FE450, { "\aУ тебя будет шанс ударить,\nкогда Хаос высунет свою голову.", 150 });
 
 	// Chaos 6
+
 	WriteData((HintText_Text*)0x7FEBA0, { "\aЗаморозить бы Хаоса...\nПридумай, как это сделать.", 180 });
 	WriteData((HintText_Text*)0x7FEBF8, { "\aКидай бомбы Эггмана\nпрямо в пасть Хаоса.", 180 });
 
@@ -474,28 +482,29 @@ void LoadTikalHintsForBosses()
 	WriteData((HintText_Text*)0x7FECB0, { "\aкогда Хаос подойдёт ближе!", 180 });
 
 	// Egg Hornet
+
 	WriteData((HintText_Text*)0x801D54, { "\aЭгг-Мобиль – его слабое место.\nАтакуй, когда подберёшься ближе.", 250 });
 
 	// Egg Walker	
+
 	WriteData((HintText_Text*)0x802D00, { "\aЧтобы он потерял равновесие,\nметь ему в ноги.", 120 });
 	WriteData((HintText_Text*)0x802D10, { "\aБей не только по ногам.\nАтакуй ещё и кабину!", 120 });
 
 	// Egg Viper
+
 	WriteData((HintText_Text*)0x803444, { "\aЭггман на той стороне\nконцентрирует энергию...", 120 });
-
 	WriteData((HintText_Text*)0x803454, { "\aДоберись до него, используя\nСамонаводящуюся атаку...", 120 });
-
 	WriteData((HintText_Text*)0x803464, { "\a...и бей в кабину!", 120 });
-
 	WriteData((HintText_Text*)0x803474, { "\aЗапрыгни на эти детали\nи доберись до кабины.", 300 });
-
 	WriteData((HintText_Text*)0x803484, { "\aБерегись! Он что-то задумал!", 120 });
 
 	// ZERO (when timer is 01:00:00)
+
 	WriteData((HintText_Text*)0x8046E4, { "\aУ него должно быть\nслабое место.", 120 });
 	WriteData((HintText_Text*)0x8046EC, { "\aПродолжай атаковать,\nпока не найдёшь его!", 160 });
 
 	// Perfect Chaos
+
 	WriteData((HintText_Text*)0x800544, { "\aНа максимальной скорости\nты станешь подобен молнии.", 240 });
 	WriteData((HintText_Text*)0x80054C, { "\aТолько так у тебя будет шанс\nатаковать Хаоса!", 120 });
 }
@@ -508,8 +517,8 @@ void LoadMissionText()
 		MissionModeTutorial[i] = MissionModeTutorialRus[i];
 	}
 
-	int currentAddress = 0x1704B90; //отсюда начинаются описания миссий
-	const int bufferSize = 208; //с этой периодичностью
+	int currentAddress = 0x1704B90; // отсюда начинаются описания миссий
+	const int bufferSize = 208; // с этой периодичностью
 	char buffer[bufferSize];
 	for (int i = 0; i < std::size(MissionsRus); i++)
 	{
@@ -521,10 +530,9 @@ void LoadMissionText()
 
 void LoadGameGearStuff()
 {
-	// Unlock minigame message
 	WriteData((const char**)0x4B54DB, "Разблокирована игра для Game Gear:\n'%s'.");
 	
-	int currentAddress = 0x7E6278; //отсюда начинаются названия игр
+	int currentAddress = 0x7E6278; // отсюда начинаются названия игр
 	const int bufferSize = 43;
 	char buffer[bufferSize];
 	for (int i = 0; i < std::size(GameGearTitles); i++)
@@ -575,7 +583,7 @@ void LoadOtherText()
 
 void LoadText()
 {
-	SetAbcTxtLetterWidths();
+	SetUpTextureFonts();
 	
 	LoadFileSelectText();
 	LoadSoundTestText();
