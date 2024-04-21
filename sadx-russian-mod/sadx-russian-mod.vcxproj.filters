@@ -156,6 +156,12 @@
     <ClCompile Include="ExtraSubs.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="TextConverter.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="AbcTxt.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -198,6 +204,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="OtherModsText.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="TextConverter.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="AbcTxt.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

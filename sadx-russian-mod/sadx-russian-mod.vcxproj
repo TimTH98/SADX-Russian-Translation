@@ -79,6 +79,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="AbcTxt.cpp" />
     <ClCompile Include="OtherModsText.cpp" />
     <ClCompile Include="cutscene-decomp\Amy\ev0060_a_intro1.cpp" />
     <ClCompile Include="cutscene-decomp\Amy\ev0061_a_intro2.cpp" />
@@ -119,9 +120,11 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="CustomSubTimings.cpp" />
+    <ClCompile Include="TextConverter.cpp" />
     <ClCompile Include="VariousText.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AbcTxt.h" />
     <ClInclude Include="cutscene-decomp\include\SADXEventFunctions.h" />
     <ClInclude Include="cutscene-decomp\include\SADXEventList.h" />
     <ClInclude Include="cutscene-decomp\include\SADXEventVariables.h" />
@@ -132,6 +135,7 @@
     <ClInclude Include="OtherModsText.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="CustomSubTimings.h" />
+    <ClInclude Include="TextConverter.h" />
     <ClInclude Include="VariousText.h" />
     <ClInclude Include="GameCredits.h" />
     <ClInclude Include="stdafx.h" />
