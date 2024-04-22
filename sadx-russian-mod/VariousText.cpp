@@ -321,13 +321,15 @@ SoundTestEntry SoundTestRU[]
 
 void LoadFileSelectText()
 {
+	static float newValue = 248;				// координата x надписи "Новое сохранение" рассчитывается игрой так: HorizontalStretch * 320.0 - 240.0
+	WriteData((float**)0x504B53, &newValue);	// поэтому увеличение значения 240 сдвинет надпись левее
+	WriteData((const char**)0x504B5B, ConvertAbcTxt("Новое сохранение"));
+		
 	const char* loading = ConvertStaffrollTxt("Загрузка...");
-	
-	WriteData((const char**)0x504B5B, ConvertAbcTxt("    Новый файл"));
-	WriteData((const char**)0x40BE98, "Сохранение...");
 	WriteData((const char**)0x40BE09, loading);
 	WriteData((const char**)0x50342D, loading);
 	WriteData((const char**)0x503469, loading);
+	WriteData((const char**)0x40BE98, "Сохранение...");
 
 	// Deleting file messages	
 	WriteData((const char**)0x10D7A44, "\aПодтвердить выбор");

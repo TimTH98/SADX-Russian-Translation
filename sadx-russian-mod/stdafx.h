@@ -6,5 +6,6 @@
 #include <windows.h>
 
 #include <SADXModLoader.h>
+#include "Macros.h"
 #include <stdlib.h>
 #include <stdio.h>

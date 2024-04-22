@@ -1,8 +1,6 @@
 ﻿#include "stdafx.h"
 
 #include "IniFile.hpp"
-#include "Macros.h"
-
 #include "CustomSubTimings.h"
 #include "ExtraSubs.h"
 #include "LoadTextures.h"
@@ -36,6 +34,7 @@ std::string StageBorder;
 bool EditedCutsceneTimings;
 std::string AltSonicTeamLogo;
 std::string BossFontStyle;
+std::string GetBossTitlesStyle() { return BossFontStyle; }
 
 bool ForceJPVoice;
 bool ExtraSubtitles;
@@ -122,11 +121,6 @@ void LoadDreamcastChaoIcon(const char* path, const HelperFunctions& helperFuncti
 	ReplaceTex("AL_DX_OBJ_CMN", "al_ws10", "config\\chaoPortalsIcons", "eggCarrier_dc", 1100078, 128, 128);
 	ReplaceTex("AL_DX_OBJ_CMN", "al_ws11", "config\\chaoPortalsIcons", "mysticRuins_dc", 1100079, 128, 128);
 	ReplaceTex("AL_DX_OBJ_CMN", "al_ws12", "config\\chaoPortalsIcons", "stationSquare_dc", 1100080, 128, 128);
-}
-
-void LoadBossFontStyle(const char* path, const HelperFunctions& helperFunctions)
-{
-	//ReplaceTexB32ASCII("B32ASCII");
 }
 
 void InitCustomCutsceneTimings(const char* path, const HelperFunctions& helperFunctions)
@@ -228,9 +222,6 @@ void InitConfig(const char* path, const HelperFunctions& helperFunctions)
 	{
 		LoadDreamcastChaoIcon(path, helperFunctions);
 	}
-
-	if (BossFontStyle == "Vanilla")
-		LoadBossFontStyle(path, helperFunctions);
 
 	InitCustomCutsceneTimings(path, helperFunctions);
 	InitJPVoiceFlag(path);
