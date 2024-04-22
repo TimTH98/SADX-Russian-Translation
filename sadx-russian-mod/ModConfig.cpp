@@ -35,6 +35,7 @@ bool AltGGHelp;
 std::string StageBorder;
 bool EditedCutsceneTimings;
 std::string AltSonicTeamLogo;
+std::string BossFontStyle;
 
 bool ForceJPVoice;
 bool ExtraSubtitles;
@@ -48,9 +49,10 @@ void ReadConfig(const char* path)
 {
 	const IniFile* config = new IniFile(std::string(path) + "\\config.ini");
 
-	TGS_Selectors = config->getString("Customs", "TGS_Selectors", "Vanilla");
-	StartButton = config->getString("Customs", "StartButton", "Start");
-	StageBorder = config->getString("Customs", "StageBorder", "US");
+	TGS_Selectors = config->getString("DisplaySettings", "TGS_Selectors", "Vanilla");
+	StartButton = config->getString("DisplaySettings", "StartButton", "Start");
+	StageBorder = config->getString("DisplaySettings", "StageBorder", "US");
+	BossFontStyle = config->getString("DisplaySettings", "BossFontStyle", "HD GUI");
 
 	EditedCutsceneTimings = config->getBool("SubsAndVoices", "EditedTimings", true);
 	ForceJPVoice = config->getBool("SubsAndVoices", "ForcedJapVoices", true);
@@ -120,6 +122,11 @@ void LoadDreamcastChaoIcon(const char* path, const HelperFunctions& helperFuncti
 	ReplaceTex("AL_DX_OBJ_CMN", "al_ws10", "config\\chaoPortalsIcons", "eggCarrier_dc", 1100078, 128, 128);
 	ReplaceTex("AL_DX_OBJ_CMN", "al_ws11", "config\\chaoPortalsIcons", "mysticRuins_dc", 1100079, 128, 128);
 	ReplaceTex("AL_DX_OBJ_CMN", "al_ws12", "config\\chaoPortalsIcons", "stationSquare_dc", 1100080, 128, 128);
+}
+
+void LoadBossFontStyle(const char* path, const HelperFunctions& helperFunctions)
+{
+	//ReplaceTexB32ASCII("B32ASCII");
 }
 
 void InitCustomCutsceneTimings(const char* path, const HelperFunctions& helperFunctions)
@@ -221,6 +228,9 @@ void InitConfig(const char* path, const HelperFunctions& helperFunctions)
 	{
 		LoadDreamcastChaoIcon(path, helperFunctions);
 	}
+
+	if (BossFontStyle == "Vanilla")
+		LoadBossFontStyle(path, helperFunctions);
 
 	InitCustomCutsceneTimings(path, helperFunctions);
 	InitJPVoiceFlag(path);

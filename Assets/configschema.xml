@@ -11,6 +11,9 @@
 			<Property name="StageBorder" display="Таблички уровней" type="StageBorder" defaultvalue="US">
 				<HelpText>Выбор стиля табличек уровней&#x0a;(US или JP), которые отображаются перед их загрузкой.</HelpText>	
 			</Property>	
+			<Property name="BossNamesFont" display="Шрифт вывода имён боссов" type="BossFontStyle" defaultvalue="HD GUI">
+				<HelpText>Выбор стиля шрифта для вывода имён боссов.&#x0a;Стиль HD GUI использует другой шрифт, который взят из мода&#x0a;HD GUI (по умолчанию).&#x0a;Второй вариант опции включает шрифт, который больше похож на оригинальный.</HelpText>
+			</Property>	
 		</Group>
 		<Group name="SubsAndVoices" display="Субтитры и озвучка">
 			<Property name="EditedTimings" display="Изменённые тайминги субтитров" type="bool" defaultvalue="True">
@@ -61,6 +64,10 @@
 			<EnumMember name="Disable" display="Выключено"></EnumMember>
 			<EnumMember name="Black" display="С чёрным фоном"></EnumMember>
 			<EnumMember name="White" display="С белым фоном"></EnumMember>
+		</Enum>
+		<Enum name="BossFontStyle">
+			<EnumMember name="HD GUI" display="Стиль HD GUI"></EnumMember>
+			<EnumMember name="Vanilla" display="Стиль оригинала"></EnumMember>
 		</Enum>
 	</Enums>
 </ConfigSchema>

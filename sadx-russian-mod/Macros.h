@@ -5,6 +5,11 @@
 	helperFunctions.ReplaceFile("system\\" a ".PVR", pathbuf); \
 } while (0)
 
+#define ReplaceTexB32ASCII(a) do { \
+	_snprintf_s(pathbuf, LengthOfArray(pathbuf), "%s\\textures\\pvr_bosstitles\\index.txt", path); \
+	helperFunctions.ReplaceFile("system\\" a ".PVR", pathbuf); \
+} while (0)
+
 #define ReplaceTexPVR_Mission(a) do { \
 	_snprintf_s(pathbuf, LengthOfArray(pathbuf), "%s\\textures\\pvr_mission_fr\\index.txt", path); \
 	helperFunctions.ReplaceFile("system\\" a ".PVR", pathbuf); \
