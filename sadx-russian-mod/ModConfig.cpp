@@ -217,6 +217,13 @@ void InitConfig(const char* path, const HelperFunctions& helperFunctions)
 	{
 		ReplaceStartButtonWithEnter(path, helperFunctions);
 	}
+	else
+	{
+		if (DreamcastConversionEnabled())
+		{
+			ReplaceTex("PRESSSTART", "hyoji_pressstart", "modsCompatibility\\DreamcastConversion\\PressStartDemo", "pressstart", 5000900, 256, 32)
+		};
+	}
 
 	if (DreamcastChaoIcon == "DC")
 	{
