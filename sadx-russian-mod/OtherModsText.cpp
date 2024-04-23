@@ -133,8 +133,8 @@ void ReplaceMultiplayerText(const HelperFunctions& helperFunctions)
 	if (!multi_mod) return;
 
 	multi_replace_text = multi_mod->GetDllExport<decltype(multi_replace_text)>("multi_replace_text");
-	multi_replace_text("stage_confirm", 2, "Желаете запустить этот уровень?");
-	multi_replace_text("press_start", 2, "Кнопка Start: присоединиться");
+	multi_replace_text("stage_confirm", Languages_French, "Желаете запустить этот уровень?");
+	multi_replace_text("press_start", Languages_French, "Кнопка Start: присоединиться");
 }
 
 
