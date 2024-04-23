@@ -100,6 +100,22 @@ void ReplaceStartButtonWithEnter(const char* path, const HelperFunctions& helper
 	ReplaceTex("AVA_GTITLE0_DC_HD", "pressstart", "config\\startButton\\titlescreen", "pressenter", 3489661269, 256, 32);
 }
 
+void LoadTitleScreenButton(const char* path, const HelperFunctions& helperFunctions)
+{
+	if (StartButton == "Enter")
+	{
+		ReplaceStartButtonWithEnter(path, helperFunctions);
+	}
+	else
+	{
+		if (DreamcastConversionEnabled())
+		{
+			ReplaceTex("PRESSSTART", "hyoji_pressstart", "config\\startButton\\demo", "start_dc", 5000900, 256, 32);
+		};
+	}
+}
+
+
 void LoadStageBorders(const char* path, const HelperFunctions& helperFunctions)
 {
 	if (StageBorder == "US")
@@ -213,17 +229,7 @@ void InitConfig(const char* path, const HelperFunctions& helperFunctions)
 	LoadTGSSelectors(helperFunctions);
 	LoadStageBorders(path, helperFunctions);
 
-	if (StartButton == "Enter")
-	{
-		ReplaceStartButtonWithEnter(path, helperFunctions);
-	}
-	else
-	{
-		if (DreamcastConversionEnabled())
-		{
-			ReplaceTex("PRESSSTART", "hyoji_pressstart", "modsCompatibility\\DreamcastConversion\\PressStartDemo", "pressstart", 5000900, 256, 32)
-		};
-	}
+	LoadTitleScreenButton(path, helperFunctions);
 
 	if (DreamcastChaoIcon == "DC")
 	{
