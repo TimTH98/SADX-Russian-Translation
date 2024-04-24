@@ -8,6 +8,7 @@
 #include "OtherModsText.h"
 #include "VariousText.h"
 
+DataArray(char, NowSavingString, 0x007DCBF4, 13);
 
 extern "C"
 {
@@ -32,7 +33,9 @@ extern "C"
 		if (ExtraSubsEnabled())
 		{
 			DisplaySubtitleOnFrame();
-		}		
+		}	
+
+		WriteData((char*)NowSavingString, "COXPAHEHO");
 	}
 
 	__declspec(dllexport) ModInfo SADXModInfo = { ModLoaderVer };
