@@ -319,6 +319,17 @@ SoundTestEntry SoundTestRU[]
 
 // Text loading funcs
 
+bool NowSavingLoaded = false;
+
+void LoadNowSaving()
+{
+	if (!NowSavingLoaded)
+	{
+		WriteData((char*)0x7DCBF4, "COXPAHEHO");
+		NowSavingLoaded = true;
+	}	
+}
+
 void LoadFileSelectText()
 {
 	static float newValue = 248;				// координата x надписи "Новое сохранение" рассчитывается игрой так: HorizontalStretch * 320.0 - 240.0
@@ -329,7 +340,6 @@ void LoadFileSelectText()
 	WriteData((const char**)0x40BE09, loading);
 	WriteData((const char**)0x50342D, loading);
 	WriteData((const char**)0x503469, loading);
-	WriteData((const char**)0x40BE98, "Сохранение...");
 
 	// Deleting file messages	
 	WriteData((const char**)0x10D7A44, "\aПодтвердить выбор");
