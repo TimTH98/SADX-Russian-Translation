@@ -221,9 +221,13 @@ void LoadTextures(const char* path, const HelperFunctions& helperFunctions)
 	LoadCommonPVRs(path, helperFunctions);
 	LoadTutorials(helperFunctions);
 
-	//ReplaceTexPVM_HD_Rus("AVA_EMBLEMVIEW_E");		// Emblem stats view
 	if (EmblemChallenge)
 	{
 		LoadEmblemChallengeTextures(path, helperFunctions);
 	};	
+
+	if (DreamcastConversionEnabled())
+	{
+		ReplaceTex("PRESSSTART", "hyoji_pressstart", "config\\startButton\\demo", "start_dc", 5000900, 256, 32);
+	};
 }

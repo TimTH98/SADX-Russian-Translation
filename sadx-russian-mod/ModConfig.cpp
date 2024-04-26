@@ -83,37 +83,37 @@ void LoadTGSSelectors(const HelperFunctions& helperFunctions)
 	}
 }
 
-void ReplaceStartButtonWithEnter(const char* path, const HelperFunctions& helperFunctions)
-{
-	if (DreamcastConversionEnabled())
-	{
-		ReplaceTex("PRESSSTART", "hyoji_pressstart", "config\\startButton\\demo", "enter_dc", 5000900, 256, 32);
-	}
-	else 
-	{
-		ReplaceTex("PRESSSTART", "hyoji_pressstart", "config\\startButton\\demo", "enter", 5000900, 256, 32);
-	} 
+//void ReplaceStartButtonWithEnter(const char* path, const HelperFunctions& helperFunctions)
+//{
+//	if (DreamcastConversionEnabled())
+//	{
+//		ReplaceTex("PRESSSTART", "hyoji_pressstart", "config\\startButton\\demo", "enter_dc", 5000900, 256, 32);
+//	}
+//	else 
+//	{
+//		ReplaceTex("PRESSSTART", "hyoji_pressstart", "config\\startButton\\demo", "enter", 5000900, 256, 32);
+//	} 
+//
+//	ReplaceTex("AVA_GTITLE0_E", "p_enter_us_00", "config\\startButton\\titlescreen", "enter_00", 3489661283, 256, 256);
+//	ReplaceTex("AVA_GTITLE0_E", "p_enter_us_01", "config\\startButton\\titlescreen", "enter_01", 3489661284, 256, 256);
+//	ReplaceTex("AVA_GTITLE0_E", "p_enter_us_02", "config\\startButton\\titlescreen", "enter_02", 3489661285, 256, 256);
+//	ReplaceTex("AVA_GTITLE0_DC_HD", "pressstart", "config\\startButton\\titlescreen", "pressenter", 3489661269, 256, 32);
+//}
 
-	ReplaceTex("AVA_GTITLE0_E", "p_enter_us_00", "config\\startButton\\titlescreen", "enter_00", 3489661283, 256, 256);
-	ReplaceTex("AVA_GTITLE0_E", "p_enter_us_01", "config\\startButton\\titlescreen", "enter_01", 3489661284, 256, 256);
-	ReplaceTex("AVA_GTITLE0_E", "p_enter_us_02", "config\\startButton\\titlescreen", "enter_02", 3489661285, 256, 256);
-	ReplaceTex("AVA_GTITLE0_DC_HD", "pressstart", "config\\startButton\\titlescreen", "pressenter", 3489661269, 256, 32);
-}
-
-void LoadTitleScreenButton(const char* path, const HelperFunctions& helperFunctions)
-{
-	if (StartButton == "Enter")
-	{
-		ReplaceStartButtonWithEnter(path, helperFunctions);
-	}
-	else
-	{
-		if (DreamcastConversionEnabled())
-		{
-			ReplaceTex("PRESSSTART", "hyoji_pressstart", "config\\startButton\\demo", "start_dc", 5000900, 256, 32);
-		};
-	}
-}
+//void LoadTitleScreenButton(const char* path, const HelperFunctions& helperFunctions)
+//{
+//	if (StartButton == "Enter")
+//	{
+//		ReplaceStartButtonWithEnter(path, helperFunctions);
+//	}
+//	else
+//	{
+//		if (DreamcastConversionEnabled())
+//		{
+//			ReplaceTex("PRESSSTART", "hyoji_pressstart", "config\\startButton\\demo", "start_dc", 5000900, 256, 32);
+//		};
+//	}
+//}
 
 
 void LoadStageBorders(const char* path, const HelperFunctions& helperFunctions)
@@ -229,7 +229,7 @@ void InitConfig(const char* path, const HelperFunctions& helperFunctions)
 	LoadTGSSelectors(helperFunctions);
 	LoadStageBorders(path, helperFunctions);
 
-	LoadTitleScreenButton(path, helperFunctions);
+	//LoadTitleScreenButton(path, helperFunctions);
 
 	if (DreamcastChaoIcon == "DC")
 	{
