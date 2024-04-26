@@ -149,12 +149,11 @@ static std::map<char, char> StaffrollTxtLetters
 
 std::string ReplaceLetters(const std::map<char, char>& letterMap, std::string& text)
 {
-	int length = text.length();
-	for (int i = 0; i < length; i++)
+	for (auto& letter : text)
 	{
-		if (letterMap.count(text[i]))
+		if (letterMap.count(letter))
 		{
-			text[i] = letterMap.at(text[i]);
+			letter = letterMap.at(letter);
 		}
 	}
 	return text;
