@@ -1,5 +1,4 @@
 ﻿#include "stdafx.h"
-
 #include "ModConfig.h"
 #include <map>
 
@@ -822,7 +821,7 @@ void DisplaySubtitle(int id)
 	
 	if (ExtraSubs[id].Condition == Menu)
 	{
-		if (!MenuExtraSubsDisabled())
+		if (!Config::DisableMenuExtraSubs)
 		{
 			SetUpMenuSubtitle(id);
 		}		

@@ -1,16 +1,15 @@
 ﻿#include "stdafx.h"
-
-#include "IniFile.hpp"
 #include "OtherModsText.h"
+#include "LoadedMods.h"
+#include "IniFile.hpp"
 
 
-/* Fixes, Adds and Beta Restores (based on supercoolsonic's source code) */
+// Fixes, Adds and Beta Restores (based on supercoolsonic's source code)
 
-HMODULE BetaRestores = GetModuleHandle(L"Fixes_Adds_BetaRestores");
 FunctionPointer(void, sub_4B79A0, (int a1), 0x4B79A0);
 
 
-//Big's beta hotel puzzle
+// Big's beta hotel puzzle
 
 const char* KeyBlockEN[] = {
 		"\aWhat's this?",
@@ -59,7 +58,7 @@ void __cdecl KeyBlockLanguageAdds()
 }
 
 
-//Chao card
+// Chao card
 
 const char* ChaoCardEN[] = {
 		"\aChao Card -\n Proof of Chao Stadium membership",
@@ -107,9 +106,9 @@ void __cdecl ChaoCardLanguageAdds()
 
 void OverwriteBetaRestoresText(const HelperFunctions& helperFunctions)
 {
-	if (!BetaRestores) return;
+	if (!LoadedMods::BetaRestores) return;
 	
-	auto betaRestoresMod = helperFunctions.Mods->find_by_dll(BetaRestores);
+	auto betaRestoresMod = helperFunctions.Mods->find_by_dll(LoadedMods::BetaRestores);
 	IniFile betaRestoresConfig(std::string(betaRestoresMod->Folder) + "\\config.ini");
 	bool bigBetaHotel = betaRestoresConfig.getBool("Options1", "BigBetaHotel", false);
 
@@ -123,24 +122,22 @@ void OverwriteBetaRestoresText(const HelperFunctions& helperFunctions)
 
 
 
-/* Multiplayer mod */
+// Multiplayer mod
 
 void (*multi_replace_text)(const char* name, uint32_t language, const char* text) = nullptr;
 
-void ReplaceMultiplayerText(const HelperFunctions& helperFunctions)
+void ReplaceMultiplayerText()
 {
-	auto multi_mod = helperFunctions.Mods->find("sadx-multiplayer");
-	if (!multi_mod) return;
+	if (!LoadedMods::Multiplayer) return;
 
-	multi_replace_text = multi_mod->GetDllExport<decltype(multi_replace_text)>("multi_replace_text");
+	multi_replace_text = (decltype(multi_replace_text))GetProcAddress(LoadedMods::Multiplayer, "multi_replace_text");
 	multi_replace_text("stage_confirm", Languages_French, "Желаете запустить этот уровень?");
 	multi_replace_text("press_start", Languages_French, "Кнопка Start: присоединиться");
 }
 
 
-/* Super Sonic mod by Kell */
+// Super Sonic mod by Kell
 
-HMODULE SuperSonic = GetModuleHandle(L"better-super-sonic");
 const char*** SuperSonicTikalHints;
 
 const char* SuperSonicTikalHintRus[]
@@ -152,9 +149,9 @@ const char* SuperSonicTikalHintRus[]
 
 void ReplaceSuperSonicHint()
 {
-	if (!SuperSonic) return;
+	if (!LoadedMods::SuperSonic) return;
 
-	SuperSonicTikalHints = (const char***)GetProcAddress(SuperSonic, "?tikal_messages@@3PAPAPBDA");
+	SuperSonicTikalHints = (const char***)GetProcAddress(LoadedMods::SuperSonic, "?tikal_messages@@3PAPAPBDA");
 	SuperSonicTikalHints[Languages_French] = SuperSonicTikalHintRus;
 }
 
@@ -163,6 +160,6 @@ void ReplaceSuperSonicHint()
 void WriteTextForOtherMods(const HelperFunctions& helperFunctions)
 {
 	OverwriteBetaRestoresText(helperFunctions);
-	ReplaceMultiplayerText(helperFunctions);
+	ReplaceMultiplayerText();
 	ReplaceSuperSonicHint();
 }

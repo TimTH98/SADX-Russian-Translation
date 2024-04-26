@@ -10,6 +10,6 @@
 
 #define ReplaceTexPVM(a, b) helperFunctions.ReplaceFile("system\\" a ".PVM", "system\\" b ".PVM") \
 
-#define ReplaceTexFMV(a, b) helperFunctions.ReplaceFile("system\\" a ".mpg", "system\\" b ".mpg") \
+#define ReplaceFMV(a, b) helperFunctions.ReplaceFile("system\\" a ".mpg", "system\\" b ".mpg") \
 
 #define ReplaceTex(pvm, pvr, folder, pngname, gbix, x, y) helperFunctions.ReplaceTexture(pvm, pvr, (std::string(path) + "\\textures\\alt\\" folder "\\" pngname ".png").c_str(), gbix, x, y);

@@ -3,6 +3,7 @@
 #include "SADXEventFunctions.h"
 #include "SADXEventList.h"
 #include "SADXEventVariables.h"
+#include "LoadedMods.h"
 #include "ModConfig.h"
 
 
@@ -42,7 +43,7 @@ void SetCustomCutsceneTimings(const char* path, const HelperFunctions& helperFun
 
 	CutsceneDataList[0x0140]->Function = ev0140_e_findjetbooster;
 
-	if (!DreamcastConversionEnabled)
+	if (!LoadedMods::DreamcastConversion)
 		CutsceneDataList[0x0166]->Function = ev0166_s_lightshoes;
 
 	CutsceneDataList[0x016D]->Function = ev016D_a_warriorfeather;	

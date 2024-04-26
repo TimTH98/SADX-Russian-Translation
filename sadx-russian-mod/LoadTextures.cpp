@@ -1,13 +1,10 @@
 #include "stdafx.h"
+#include "LoadedMods.h"
 #include "ModConfig.h"
 
 
 char pathbuf[MAX_PATH];
-HMODULE GoalRing = GetModuleHandle(L"GoalRing"); // Init GoalRing Mod dll
-HMODULE EmblemChallenge = GetModuleHandle(L"SADX_EmblemChallenge");	// Init Emblem Challenge dll
 
-
-/* Depends on config */
 
 void LoadUSStageBorders(const char* path, const HelperFunctions& helperFunctions)
 {
@@ -97,12 +94,22 @@ void LoadJPStageBorders(const char* path, const HelperFunctions& helperFunctions
 	ReplacePVR("pvr_stage_jp", "T_STATIONSQUARE_E");		// Field	| Station Square
 }
 
+void LoadStageBorders(const char* path, const HelperFunctions& helperFunctions)
+{
+	if (Config::StageTitlesStyle == "US")
+	{
+		LoadUSStageBorders(path, helperFunctions);
+	}
+	else
+	{
+		LoadJPStageBorders(path, helperFunctions);
+	}
+}
 
-/* Texture loading stuff */
 
 void InitGoalRingModTextures(const char* path, const HelperFunctions& helperFunctions)
 {
-	if (!GoalRing) // Goal Ring OFF
+	if (!LoadedMods::GoalRing) // Goal Ring OFF
 	{
 		ReplacePVR("pvr_mission_fr", "MISSION_S_BOX_F");
 		ReplacePVR("pvr_mission_fr", "MISSION_S_BOX25MIN_F");
@@ -184,7 +191,7 @@ void LoadCommonPVRs(const char* path, const HelperFunctions& helperFunctions)
 	ReplacePVR("pvr_common", "ST_128S_HPGEJI");		// Tornado's health bar story
 	ReplacePVR("pvr_common", "STAFFROLL_TXT");
 
-	if (GetBossTitlesStyle() == "HD GUI")
+	if (Config::BossTitlesStyle == "HD GUI")
 	{
 		ReplacePVR("pvr_common", "B32ASCII");
 	}
@@ -213,20 +220,86 @@ void LoadEmblemChallengeTextures(const char* path, const HelperFunctions& helper
 	ReplaceTex("AVA_EMBLEMVIEW_E", "select_big", "modsCompatibility\\EmblemChallenge", "sonic_c", 10000622, 128, 16);
 }
 
+void LoadTGSSelectors(const HelperFunctions& helperFunctions)
+{
+	if (Config::TGS_Selectors == "TGS")
+	{
+		ReplaceTexPVM("B_CHNAM_E", "B_CHNAM_E_TGS");
+		ReplaceTexPVM("AVA_METAL_SONIC", "AVA_METAL_SONIC_TGS");
+	}
+	else if (Config::TGS_Selectors == "Vanilla")
+	{
+		ReplaceTexPVM("B_CHNAM_E", "B_CHNAM_E_HD");
+		ReplaceTexPVM("AVA_METAL_SONIC", "AVA_METAL_SONIC_DX");
+	}
+}
+
+void LoadAlternateGGHints(const char* path, const HelperFunctions& helperFunctions)
+{
+	ReplaceTex("GG_TEXLIST_FR", "y256_s_dm_a", "config\\GGTips", "alt_tips_0", 1315900, 256, 256);
+	ReplaceTex("GG_TEXLIST_FR", "y256_s_dm_b", "config\\GGTips", "alt_tips_1", 1316000, 256, 256);
+	ReplaceTex("GG_TEXLIST_FR", "y256_s_s1_a", "config\\GGTips", "alt_tips_0", 1315300, 256, 256);
+	ReplaceTex("GG_TEXLIST_FR", "y256_s_s1_b", "config\\GGTips", "alt_tips_1", 1315400, 256, 256);
+	ReplaceTex("GG_TEXLIST_FR", "y256_s_s2_a", "config\\GGTips", "alt_tips_0", 1315500, 256, 256);
+	ReplaceTex("GG_TEXLIST_FR", "y256_s_s2_b", "config\\GGTips", "alt_tips_1", 1315600, 256, 256);
+	ReplaceTex("GG_TEXLIST_FR", "y256_s_sb_a", "config\\GGTips", "alt_tips_0", 1317300, 256, 256);
+	ReplaceTex("GG_TEXLIST_FR", "y256_s_sb_b", "config\\GGTips", "alt_tips_1", 1317400, 256, 256);
+	ReplaceTex("GG_TEXLIST_FR", "y256_s_sd1_a", "config\\GGTips", "alt_tips_0", 1316100, 256, 256);
+	ReplaceTex("GG_TEXLIST_FR", "y256_s_sd1_b", "config\\GGTips", "alt_tips_1", 1316200, 256, 256);
+	ReplaceTex("GG_TEXLIST_FR", "y256_s_sd2_a", "config\\GGTips", "alt_tips_0", 1316700, 256, 256);
+	ReplaceTex("GG_TEXLIST_FR", "y256_s_sd2_b", "config\\GGTips", "alt_tips_1", 1316800, 256, 256);
+	ReplaceTex("GG_TEXLIST_FR", "y256_s_sl_a", "config\\GGTips", "alt_tips_0", 1317100, 256, 256);
+	ReplaceTex("GG_TEXLIST_FR", "y256_s_sl_b", "config\\GGTips", "alt_tips_1", 1317200, 256, 256);
+	ReplaceTex("GG_TEXLIST_FR", "y256_s_ss_a", "config\\GGTips", "alt_tips_0", 1316300, 256, 256);
+	ReplaceTex("GG_TEXLIST_FR", "y256_s_ss_b", "config\\GGTips", "alt_tips_1", 1316400, 256, 256);
+	ReplaceTex("GG_TEXLIST_FR", "y256_s_st1_a", "config\\GGTips", "alt_tips_0", 1315700, 256, 256);
+	ReplaceTex("GG_TEXLIST_FR", "y256_s_st1_b", "config\\GGTips", "alt_tips_1", 1315800, 256, 256);
+	ReplaceTex("GG_TEXLIST_FR", "y256_s_st2_a", "config\\GGTips", "alt_tips_0", 1316500, 256, 256);
+	ReplaceTex("GG_TEXLIST_FR", "y256_s_st2_b", "config\\GGTips", "alt_tips_1", 1316600, 256, 256);
+	ReplaceTex("GG_TEXLIST_FR", "y256_s_ta_a", "config\\GGTips", "alt_tips_0", 1316900, 256, 256);
+	ReplaceTex("GG_TEXLIST_FR", "y256_s_ta_b", "config\\GGTips", "alt_tips_1", 1317000, 256, 256);
+	ReplaceTex("GG_TEXLIST_FR", "y256_s_ts_a", "config\\GGTips", "alt_tips_0", 1317500, 256, 256);
+	ReplaceTex("GG_TEXLIST_FR", "y256_s_ts_b", "config\\GGTips", "alt_tips_1", 1317600, 256, 256);
+}
+
+void LoadDreamcastChaoIcon(const char* path, const HelperFunctions& helperFunctions)
+{
+	ReplaceTex("CHAO_OBJECT", "al_ws10", "config\\chaoPortalsIcons", "eggCarrier_dc", 504562, 128, 128);
+	ReplaceTex("CHAO_OBJECT", "al_ws11", "config\\chaoPortalsIcons", "mysticRuins_dc", 504564, 128, 128);
+	ReplaceTex("CHAO_OBJECT", "al_ws12", "config\\chaoPortalsIcons", "stationSquare_dc", 504566, 128, 128);
+
+	ReplaceTex("AL_DX_OBJ_CMN", "al_ws10", "config\\chaoPortalsIcons", "eggCarrier_dc", 1100078, 128, 128);
+	ReplaceTex("AL_DX_OBJ_CMN", "al_ws11", "config\\chaoPortalsIcons", "mysticRuins_dc", 1100079, 128, 128);
+	ReplaceTex("AL_DX_OBJ_CMN", "al_ws12", "config\\chaoPortalsIcons", "stationSquare_dc", 1100080, 128, 128);
+}
+
 
 void LoadTextures(const char* path, const HelperFunctions& helperFunctions)
 {
 	ReplacePVR("subtitle", "subtitle_eu");
+	LoadStageBorders(path, helperFunctions);
 	LoadStageMissionPVRs(path, helperFunctions);
 	LoadCommonPVRs(path, helperFunctions);
 	LoadTutorials(helperFunctions);
+	LoadTGSSelectors(helperFunctions);
 
-	if (EmblemChallenge)
+	ReplaceTexPVM_HD_Rus("GG_TEXLIST_FR");
+	if (Config::AltGGHelp)
+	{
+		LoadAlternateGGHints(path, helperFunctions);
+	}
+
+	if (Config::DreamcastChaoIcon == "DC")
+	{
+		LoadDreamcastChaoIcon(path, helperFunctions);
+	}
+
+	if (LoadedMods::EmblemChallenge)
 	{
 		LoadEmblemChallengeTextures(path, helperFunctions);
 	};	
 
-	if (DreamcastConversionEnabled())
+	if (LoadedMods::DreamcastConversion)
 	{
 		ReplaceTex("PRESSSTART", "hyoji_pressstart", "config\\startButton\\demo", "start_dc", 5000900, 256, 32);
 	};
