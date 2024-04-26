@@ -1,4 +1,5 @@
 ﻿#include "stdafx.h"
+#include "LoadedMods.h"
 #include "ModConfig.h"
 #include "TextConverter.h"
 
@@ -1119,7 +1120,7 @@ void LoadCredits()
 {
 	if (!CreditsLoaded)
 	{
-		if (DreamcastConversionEnabled())
+		if (LoadedMods::DreamcastConversion)
 		{
 			LoadSADCCredits();
 		}
