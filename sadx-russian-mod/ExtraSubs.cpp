@@ -1,8 +1,10 @@
 ﻿#include "stdafx.h"
 #include "ModConfig.h"
+#include "FunctionHook.h"
 #include <map>
 
 
+FunctionHook<int, int, void*, int, void*> PlaySound_Hook(0x423D70);
 FunctionPointer(void, sub_40BC80, (), 0x40BC80);
 
 const char* Buffer[] = { NULL, NULL };
@@ -26,6 +28,8 @@ struct SubtitleData
 	DisplayConditions Condition;
 };
 
+
+// Набор экстрасабов для обычных фраз
 
 std::map<int, SubtitleData> ExtraSubs
 {
@@ -786,6 +790,37 @@ const char* SkyChase2Transformation[] = { "\aСмена режима!", "Ва-а
 const char* WelcomeToTwinkleParkCutscene[] = { "\aДобро пожаловать в Мерцающий парк!", NULL }; //для катсцены после Twinkle Park за Соника, чтобы этот субтитр не перекрыл субтитр из катсцены
 
 
+// Набор экстрасабов для фраз в звуковых эффектах (эксперимент)
+
+std::map<int, SubtitleData> ExtraSubs_SE
+{
+	// Sonic
+
+	{ SE_SV_CHARGED, { "\aГотов!", 90, Gameplay } },
+	{ SE_SV_LDASH, { "\aВперёд!", 60, Gameplay } },
+
+	// Knuckles
+
+	{ SE_KV_DAME, { "\aНе могу!", 60, Gameplay } },
+	{ SE_KV_HAZURE, { "\aБлин!", 60, Gameplay } },
+	{ SE_KV_KAKERA1, { "\aЕщё два!", 90, Gameplay } },
+	{ SE_KV_KAKERA2, { "\aЕщё один!", 90, Gameplay } },
+
+	// Gamma
+
+	{ SE_EV_PICK, { "\aПоднимаю.", 60, Gameplay } },
+	{ SE_EV_PUT, { "\aОпускаю.", 60, Gameplay } },
+	{ SE_EV_THROW, { "\aБросаю.", 60, Gameplay } },
+	{ SE_EV_PUSH, { "\aТолкаю.", 60, Gameplay } },
+	{ SE_EV_PULL, { "\aТяну.", 60, Gameplay } },
+	{ SE_EV_TRANSFORM, { "\aТрансформируюсь.", 120, Gameplay } },
+	{ SE_EV_LIMIT, { "\aНе осталось времени.", 120, Gameplay } },
+	{ SE_EV_ITEM1, { "\aПолучен предмет.", 120, Gameplay } },
+};
+
+
+// Функции для отображения субтитров для обычных фраз
+
 void DisplayGameplaySubtitle(int id)
 {
 	Buffer[0] = ExtraSubs[id].Text;
@@ -851,9 +886,32 @@ void __cdecl PlayVoice_ExtraSub(int id)
 }
 
 
+// Функции для отображения субтитров для фраз из звуковых эффектов
+
+void DisplaySoundEffectSubtitle(int id)
+{
+	if (!ExtraSubs_SE.count(id)) return;
+
+	Buffer[0] = ExtraSubs_SE[id].Text;
+	DisplayHintText(Buffer, ExtraSubs_SE[id].Duration);
+}
+
+
+int __cdecl PlaySound_ExtraSub(int id, void* a2, int a3, void* a4)
+{
+	if (Config::DisplaySESubtitles)
+	{
+		DisplaySoundEffectSubtitle(id);
+	}
+
+	return PlaySound_Hook.Original(id, a2, a3, a4);
+}
+
+
 void InitExtraSubs()
 {
 	WriteJump((void*)0x425710, PlayVoice_ExtraSub);
+	PlaySound_Hook.Hook(PlaySound_ExtraSub);
 	WriteData((char*)0x40BC9A, (char)52); //меняю высоту текст-бокса для меню, чтобы влезало 2 строки нормально
 	WriteData((int*)0x40BCA1, 384); //меняю координату y для текст-бокса, чтобы для обоих методов вывода их размеры и расположение совпадали
 }

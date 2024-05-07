@@ -12,6 +12,7 @@ public:
 	
 	static bool EnableExtraSubtitles;
 	static bool DisableMenuExtraSubs;
+	static bool DisplaySESubtitles;
 
 	static std::string DreamcastChaoIcon;
 	static std::string AltSonicTeamLogo;
