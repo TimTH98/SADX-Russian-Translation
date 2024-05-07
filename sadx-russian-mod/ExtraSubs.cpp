@@ -258,7 +258,7 @@ std::map<int, SubtitleData> ExtraSubs
 	{ 276, { "\aНеуютно мне в городской среде.", 180, Gameplay } }, //Knuckles
 	{ 277, { "\aПройтись, что ли, по магазинам...", 150, Gameplay } }, //Amy
 	{ 278, { "\aВсе так заняты работой.", 120, Gameplay } }, //Big
-	{ 279, { "\aОбнаружены человеческие\nформы жизни.", 180, Gameplay } }, //Gamma
+	{ 279, { "\aЗафиксировано множество\nчеловеческих особей.", 180, Gameplay } }, //Gamma
 
 	//Station Square - sewers
 
