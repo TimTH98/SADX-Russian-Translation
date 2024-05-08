@@ -23,9 +23,12 @@
 		<Group name="ExtraSubtitles" display="Дополнительные субтитры">
 			<Property name="EnableExtraSubs" display="Включить дополнительные субтитры" type="bool" defaultvalue="True">
 				<HelpText>Вы можете включить отображение субтитров на некоторые озвученные фразы, для которых изначально не было текста.</HelpText>
-			</Property>
+			</Property>			
 			<Property name="DisableMenuExtraSubs" display="Не отображать дополнительные субтитры в меню" type="bool" defaultvalue="False">
 				<HelpText>Вы можете отключить отображение дополнительных субтитров на экранах меню, если они вам мешают.</HelpText>
+			</Property>
+			<Property name="DisplaySESubtitles" display="Отображать субтитры для фраз в звуковых эффектах" type="bool" defaultvalue="False">
+				<HelpText>Вы можете включить субтитры для ограниченного числа фраз, содержащихся в звуковых эффектах (экспериментальная опция).</HelpText>
 			</Property>
 		</Group>
 		<Group name="Extra" display="Дополнительно">
