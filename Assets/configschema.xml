@@ -5,7 +5,7 @@
 			<Property name="TGS_Selectors" display="Таблички персонажей в меню" type="CharNameStyle" defaultvalue="Vanilla">
 				<HelpText>Выбор между табличками&#x0a;с именами персонажа:&#x0a;чёрные (как в обычной игре)&#x0a;или из демки с TGS.</HelpText>
 			</Property>	
-			<Property name="StageBorder" display="Таблички уровней" type="StageBorder" defaultvalue="US">
+			<Property name="StageBorder" display="Таблички уровней" type="StageBorder" defaultvalue="JP">
 				<HelpText>Выбор стиля табличек уровней&#x0a;(US или JP), которые отображаются перед их загрузкой.</HelpText>	
 			</Property>	
 			<Property name="BossFontStyle" display="Шрифт вывода имён боссов" type="BossFontStyle" defaultvalue="HD GUI">

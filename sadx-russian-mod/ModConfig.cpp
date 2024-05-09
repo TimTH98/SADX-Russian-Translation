@@ -58,7 +58,7 @@ void Config::Read(const char* path)
 	const IniFile* config = new IniFile(std::string(path) + "\\config.ini");
 
 	TGS_Selectors = config->getString("DisplaySettings", "TGS_Selectors", "Vanilla");
-	StageTitlesStyle = config->getString("DisplaySettings", "StageBorder", "US");
+	StageTitlesStyle = config->getString("DisplaySettings", "StageBorder", "JP");
 	BossTitlesStyle = config->getString("DisplaySettings", "BossFontStyle", "HD GUI");
 
 	EditedCutsceneTimings = config->getBool("SubsAndVoices", "EditedTimings", true);

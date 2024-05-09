@@ -96,13 +96,13 @@ void LoadJPStageBorders(const char* path, const HelperFunctions& helperFunctions
 
 void LoadStageBorders(const char* path, const HelperFunctions& helperFunctions)
 {
-	if (Config::StageTitlesStyle == "US")
+	if (Config::StageTitlesStyle == "JP")
 	{
-		LoadUSStageBorders(path, helperFunctions);
+		LoadJPStageBorders(path, helperFunctions);
 	}
 	else
 	{
-		LoadJPStageBorders(path, helperFunctions);
+		LoadUSStageBorders(path, helperFunctions);
 	}
 }
 
