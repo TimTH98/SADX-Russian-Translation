@@ -5,6 +5,7 @@ class LoadedMods
 public:
 	static HMODULE DreamcastConversion;
 	static HMODULE GoalRing;
+	static HMODULE GoalRingSA1;
 	static HMODULE EmblemChallenge;
 	static HMODULE TweakedCutscenes;
 	static HMODULE Cream;

@@ -4,6 +4,7 @@
 
 HMODULE LoadedMods::DreamcastConversion;
 HMODULE LoadedMods::GoalRing;
+HMODULE LoadedMods::GoalRingSA1;
 HMODULE LoadedMods::EmblemChallenge;
 HMODULE LoadedMods::TweakedCutscenes;
 HMODULE LoadedMods::Cream;
@@ -16,6 +17,7 @@ void LoadedMods::Check()
 {
 	DreamcastConversion = GetModuleHandle(L"DCMods_Main");
 	GoalRing = GetModuleHandle(L"GoalRing");
+	GoalRingSA1 = GetModuleHandle(L"SA1-Goal-Ring");
 	EmblemChallenge = GetModuleHandle(L"SADX_EmblemChallenge");
 	TweakedCutscenes = GetModuleHandle(L"SADX-cutscene-decompilation");
 	Cream = GetModuleHandle(L"CreamtheRabbit(SA1-Style)");

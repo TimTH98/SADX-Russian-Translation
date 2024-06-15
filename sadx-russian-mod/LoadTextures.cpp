@@ -109,7 +109,31 @@ void LoadStageBorders(const char* path, const HelperFunctions& helperFunctions)
 
 void InitGoalRingModTextures(const char* path, const HelperFunctions& helperFunctions)
 {
-	if (!LoadedMods::GoalRing) // Goal Ring OFF
+	if (LoadedMods::GoalRing)	// Goal Ring ON
+	{
+		ReplacePVR("pvr_mission_goalring_sa2", "MISSION_S_BOX_F");
+		ReplacePVR("pvr_mission_goalring_sa2", "MISSION_S_BOX25MIN_F");
+		ReplacePVR("pvr_mission_goalring_sa2", "MISSION_S_BOX2MIN_F");
+		ReplacePVR("pvr_mission_goalring_sa2", "MISSION_S_BOX3MIN_F");
+		ReplacePVR("pvr_mission_goalring_sa2", "MISSION_S_BOX45MIN_F");
+		ReplacePVR("pvr_mission_goalring_sa2", "MISSION_S_BOX4MIN_F");
+		ReplacePVR("pvr_mission_goalring_sa2", "MISSION_S_BOX5MIN_F");
+		ReplacePVR("pvr_mission_goalring_sa2", "MISSION_S_RINGBOX_F");
+		ReplacePVR("pvr_mission_goalring_sa2", "MISSION_T_BOX_F");
+	}
+	else if (LoadedMods::GoalRingSA1)	//Goal Ring SA1 ON
+	{
+		ReplacePVR("pvr_mission_goalring_sa1", "MISSION_S_BOX_F");
+		ReplacePVR("pvr_mission_goalring_sa1", "MISSION_S_BOX25MIN_F");
+		ReplacePVR("pvr_mission_goalring_sa1", "MISSION_S_BOX2MIN_F");
+		ReplacePVR("pvr_mission_goalring_sa1", "MISSION_S_BOX3MIN_F");
+		ReplacePVR("pvr_mission_goalring_sa1", "MISSION_S_BOX45MIN_F");
+		ReplacePVR("pvr_mission_goalring_sa1", "MISSION_S_BOX4MIN_F");
+		ReplacePVR("pvr_mission_goalring_sa1", "MISSION_S_BOX5MIN_F");
+		ReplacePVR("pvr_mission_goalring_sa1", "MISSION_S_RINGBOX_F");
+		ReplacePVR("pvr_mission_goalring_sa1", "MISSION_T_BOX_F");
+	}
+	else	// Goal Ring OFF
 	{
 		ReplacePVR("pvr_mission_fr", "MISSION_S_BOX_F");
 		ReplacePVR("pvr_mission_fr", "MISSION_S_BOX25MIN_F");
@@ -120,18 +144,6 @@ void InitGoalRingModTextures(const char* path, const HelperFunctions& helperFunc
 		ReplacePVR("pvr_mission_fr", "MISSION_S_BOX5MIN_F");
 		ReplacePVR("pvr_mission_fr", "MISSION_S_RINGBOX_F");
 		ReplacePVR("pvr_mission_fr", "MISSION_T_BOX_F");
-	}
-	else // Goal Ring ON
-	{
-		ReplacePVR("pvr_mission_goalring", "MISSION_S_BOX_F");
-		ReplacePVR("pvr_mission_goalring", "MISSION_S_BOX25MIN_F");
-		ReplacePVR("pvr_mission_goalring", "MISSION_S_BOX2MIN_F");
-		ReplacePVR("pvr_mission_goalring", "MISSION_S_BOX3MIN_F");
-		ReplacePVR("pvr_mission_goalring", "MISSION_S_BOX45MIN_F");
-		ReplacePVR("pvr_mission_goalring", "MISSION_S_BOX4MIN_F");
-		ReplacePVR("pvr_mission_goalring", "MISSION_S_BOX5MIN_F");
-		ReplacePVR("pvr_mission_goalring", "MISSION_S_RINGBOX_F");
-		ReplacePVR("pvr_mission_goalring", "MISSION_T_BOX_F");
 	}
 }
 
