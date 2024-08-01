@@ -137,6 +137,7 @@ static std::map<char, char> StaffrollTxtLetters
 	{ 'с', 'c' },
 	{ 'т', 0x17 },
 	{ 'у', 'y' },
+	{ 'х', 'x' },
 	{ 'ф', 0x18 },
 	{ 'ч', 0x19 },
 	{ 'щ', 0x1A },
