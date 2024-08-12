@@ -512,7 +512,7 @@ void LoadTikalHintsForBosses()
 
 	// ZERO (when timer is 01:00:00)
 
-	WriteData((HintText_Text*)0x8046E4, { "\aУ него должно быть\nслабое место.", 120 });
+	WriteData((HintText_Text*)0x8046E4, { "\aУ него должно быть слабое место.", 120 });
 	WriteData((HintText_Text*)0x8046EC, { "\aПродолжай атаковать,\nпока не найдёшь его!", 160 });
 
 	// Perfect Chaos

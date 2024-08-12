@@ -17,7 +17,8 @@ void SetCustomCutsceneTimings(const char* path, const HelperFunctions& helperFun
 	CutsceneDataList[0x001C]->Function = ev001C_s_beforechaos6;
 	CutsceneDataList[0x001D]->Function = ev001D_s_afterchaos6;
 	CutsceneDataList[0x001E]->Function = ev001E_s_lostworld;
-	
+	CutsceneDataList[0x0024]->Function = ev0024_s_eggviper;
+
 	CutsceneDataList[0x0032]->Function = ev0032_t_meetingsonic;
 	CutsceneDataList[0x0033]->Function = ev0033_t_egghornet;
 	CutsceneDataList[0x0034]->Function = ev0034_t_chaos1;

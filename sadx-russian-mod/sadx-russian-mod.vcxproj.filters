@@ -165,6 +165,9 @@
     <ClCompile Include="LoadedMods.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="cutscene-decomp\Sonic\ev0024_s_eggviper.cpp">
+      <Filter>Cutscene Decomp\1 Sonic</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
