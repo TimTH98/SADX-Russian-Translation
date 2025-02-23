@@ -168,6 +168,9 @@
     <ClCompile Include="cutscene-decomp\Sonic\ev0024_s_eggviper.cpp">
       <Filter>Cutscene Decomp\1 Sonic</Filter>
     </ClCompile>
+    <ClCompile Include="LanguageSetting.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -219,6 +222,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="LoadedMods.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="LanguageSetting.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -3,6 +3,7 @@
 #include "IniFile.hpp"
 #include "ExtraSubs.h"
 #include "GameCredits.h"
+#include "LanguageSetting.h"
 #include "LoadedMods.h"
 #include "LoadTextures.h"
 #include "ModConfig.h"
@@ -12,25 +13,21 @@
 
 extern "C"
 {
-	__declspec(dllexport) void __cdecl Init(const char *path, const HelperFunctions &helperFunctions)
+	__declspec(dllexport) void Init(const char *path, const HelperFunctions &helperFunctions)
 	{						
 		LoadedMods::Check();
 		Config::Init(path, helperFunctions);
+		InitLanguageSetting();
 		LoadText();
 		WriteTextForOtherMods(helperFunctions);
-		LoadTextures(path, helperFunctions);	
+		LoadTextures(path, helperFunctions);
 	}
-	
+
 	__declspec(dllexport) void OnFrame()
 	{
-		TextLanguage = Languages_French;
+		SetFrenchTextAtLaunch(); // Потому что некоторые вещи, судя по всему, делаются после Init (в OnFrame, но один раз), и именно это делает, например, дримкаст-конверсия
 		LoadCredits();
 		LoadNowSaving();
-		
-		if (Config::ForceJPVoice)
-		{
-			VoiceLanguage = Languages_Japanese;
-		}			
 
 		if (Config::EnableExtraSubtitles)
 		{

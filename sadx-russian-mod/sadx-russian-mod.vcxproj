@@ -80,6 +80,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="cutscene-decomp\Sonic\ev0024_s_eggviper.cpp" />
+    <ClCompile Include="LanguageSetting.cpp" />
     <ClCompile Include="LoadedMods.cpp" />
     <ClCompile Include="TextureFontSetup.cpp" />
     <ClCompile Include="OtherModsText.cpp" />
@@ -126,6 +127,7 @@
     <ClCompile Include="VariousText.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="LanguageSetting.h" />
     <ClInclude Include="LoadedMods.h" />
     <ClInclude Include="TextureFontSetup.h" />
     <ClInclude Include="cutscene-decomp\include\SADXEventFunctions.h" />
