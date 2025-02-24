@@ -94,7 +94,7 @@ void InitCustomCutsceneTimings(const char* path, const HelperFunctions& helperFu
 	}
 }
 
-void InitJPVoiceFlag(const char* path)
+/*void InitJPVoiceFlag(const char* path)
 {
 	// Обработка форса происходит в основном файле мода (mod.cpp), в файле конфига обрабатывается 
 	// только вывод сообщения и обработка флаг-файла
@@ -115,7 +115,7 @@ void InitJPVoiceFlag(const char* path)
 			flagFileOut.close();
 		}
 	}
-}
+}*/
 
 void LoadAlternateSonicTeamFMV(const HelperFunctions& helperFunctions)
 {
@@ -137,7 +137,7 @@ void Config::Init(const char* path, const HelperFunctions& helperFunctions)
 	//LoadTitleScreenButton(path, helperFunctions);	
 
 	InitCustomCutsceneTimings(path, helperFunctions);
-	InitJPVoiceFlag(path);
+	//InitJPVoiceFlag(path);
 
 	if (AltSonicTeamLogo != "Disable")
 	{
