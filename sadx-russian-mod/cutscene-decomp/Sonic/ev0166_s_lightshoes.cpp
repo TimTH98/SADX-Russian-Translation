@@ -3,7 +3,7 @@
 #include "SADXModLoader.h"
 #include "SADXEventFunctions.h"
 #include "SADXEventVariables.h"
-#include "..\Other Mods\DreamcastConversionConfig.h"
+#include "..\LoadedMods.h"
 
 PVMEntry texTbl_ev0166[] = { 0 };
 
@@ -19,7 +19,7 @@ void ev0166_s_lightshoes(int state)
 		EV_InitPlayer(0);
 		EV_SerifPlay(1718);
 		EV_Wait(1);
-		if (DreamcastConversionConfig::EnableStationSquare)
+		if (LoadedMods::DreamcastConversion)
 		{
 			EV_SetPos(player, 505.0f, -91.900002f, 800.0f);
 		}		

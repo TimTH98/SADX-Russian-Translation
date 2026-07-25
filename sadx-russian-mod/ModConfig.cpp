@@ -51,7 +51,7 @@ void Config::Read(const char* path)
 
 	TGS_Selectors = config->getString("DisplaySettings", "TGS_Selectors", "Vanilla");
 	StageTitlesStyle = config->getString("DisplaySettings", "StageBorder", "JP");
-	BossTitlesStyle = config->getString("DisplaySettings", "BossFontStyle", "HD GUI");
+	BossTitlesStyle = config->getString("DisplaySettings", "BossFontStyle", "Vanilla");
 
 	EditedCutsceneTimings = config->getBool("SubsAndVoices", "EditedTimings", true);
 	ForceJPVoice = config->getBool("SubsAndVoices", "ForcedJapVoices", true);

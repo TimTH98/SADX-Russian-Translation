@@ -8,7 +8,7 @@
 			<Property name="StageBorder" display="Таблички уровней" type="StageBorder" defaultvalue="JP">
 				<HelpText>Выбор стиля табличек уровней&#x0a;(US или JP), которые отображаются перед их загрузкой.</HelpText>	
 			</Property>	
-			<Property name="BossFontStyle" display="Шрифт вывода имён боссов" type="BossFontStyle" defaultvalue="HD GUI">
+			<Property name="BossFontStyle" display="Шрифт вывода имён боссов" type="BossFontStyle" defaultvalue="Vanilla">
 				<HelpText>Выбор стиля шрифта для вывода имён боссов.&#x0a;Стиль HD GUI использует другой шрифт, который взят из мода&#x0a;HD GUI (по умолчанию).&#x0a;Второй вариант опции включает шрифт, который больше похож на оригинальный.</HelpText>
 			</Property>	
 		</Group>
